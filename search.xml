@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>flex</title>
+    <url>/2020/01/26/flex%E5%B8%83%E5%B1%80/</url>
+    <content><![CDATA[<h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><p>操作方便，布局极其简单，移动端使用比较广泛  </p>
+<p>pc端浏览器支持情况比较差</p>
+<h5 id="总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"><a href="#总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式" class="headerlink" title="总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"></a><strong>总结</strong>：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式</h5><a id="more"></a>
+
+<h4 id="父项常见属性"><a href="#父项常见属性" class="headerlink" title="父项常见属性"></a>父项常见属性</h4><ul>
+<li><p>flex-direction：设置主轴的方向</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200419115418609.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+<li><p>justify-content：设置主轴上的子元素排列方式</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200419115425642.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+<li><p>flex-wrap：设置子元素是否换行  </p>
+<ul>
+<li>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，flex布局中默认是不换行的。</li>
+<li>nowrap 不换行</li>
+<li>wrap 换行</li>
+</ul>
+</li>
+<li><p>align-content：设置侧轴上的子元素的排列方式（多行）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200419115434727.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+<li><p>align-items：设置侧轴上的子元素排列方式（单行）</p>
+<p> flex-start 从头部开始</p>
+<p>flex-end 从尾部开始</p>
+<p>center 居中显示</p>
+<p>stretch 拉伸</p>
+</li>
+<li><p>flex-flow：复合属性，相当于同时设置了 flex-direction 和 flex-wrap</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">flex-flow:row wrap;</span><br></pre></td></tr></table></figure>
+
+<h2 id="flex布局子项常见属性"><a href="#flex布局子项常见属性" class="headerlink" title="flex布局子项常见属性"></a>flex布局子项常见属性</h2><ul>
+<li><p>flex子项目占的份数</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">    flex: <span class="tag">&lt;<span class="name">number</span>&gt;</span>; /* 默认值 0 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>align-self控制子项自己在侧轴的排列方式</p>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">span:nth-child(2) &#123;</span><br><span class="line">      /* 设置自己在侧轴上的排列方式 */</span><br><span class="line">      align-self: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li>order属性定义子项的排列顺序（前后顺序）</li>
+</ul>
+<p>​      数值越小，排列越靠前，默认为0。</p>
+<p>​       注意：和 z-index 不一样。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">    order: <span class="tag">&lt;<span class="name">number</span>&gt;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>布局</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>创建vue脚手架</title>
     <url>/2020/04/05/%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
     <content><![CDATA[<p>Vue-cli</p>
