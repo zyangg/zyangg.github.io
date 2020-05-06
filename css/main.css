@@ -1176,7 +1176,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #b85bd2;
+  background: #ffff6a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1491,7 +1491,7 @@ pre .javascript .function {
   transition-timing-function: ease-in-out;
 }
 body {
-  background: url("/images/back.jpg");
+  background: url("/images/back1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
