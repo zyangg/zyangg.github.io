@@ -1,6 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>定位</title>
+    <url>/2020/02/12/css-%E5%AE%9A%E4%BD%8D/</url>
+    <content><![CDATA[<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">定位 = 定位模式 + 边偏移</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h4 id="边偏移"><a href="#边偏移" class="headerlink" title="边偏移"></a>边偏移</h4><p>在 CSS 中，通过 <code>top</code>、<code>bottom</code>、<code>left</code> 和 <code>right</code> 属性定义元素的<strong>边偏移</strong>：（方位名词）</p>
+<table>
+<thead>
+<tr>
+<th>边偏移属性</th>
+<th align="left">示例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>top</code></td>
+<td align="left"><code>top: 80px</code></td>
+<td><strong>顶端</strong>偏移量，定义元素相对于其父元素<strong>上边线的距离</strong>。</td>
+</tr>
+<tr>
+<td><code>bottom</code></td>
+<td align="left"><code>bottom: 80px</code></td>
+<td><strong>底部</strong>偏移量，定义元素相对于其父元素<strong>下边线的距离</strong>。</td>
+</tr>
+<tr>
+<td><code>left</code></td>
+<td align="left"><code>left: 80px</code></td>
+<td><strong>左侧</strong>偏移量，定义元素相对于其父元素<strong>左边线的距离</strong>。</td>
+</tr>
+<tr>
+<td><code>right</code></td>
+<td align="left"><code>right: 80px</code></td>
+<td><strong>右侧</strong>偏移量，定义元素相对于其父元素<strong>右边线的距离</strong></td>
+</tr>
+</tbody></table>
+<h4 id="定位模式-position"><a href="#定位模式-position" class="headerlink" title="定位模式 (position)"></a>定位模式 (position)</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">选择器 &#123; position: 属性值; &#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th align="center">语义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>static</code></td>
+<td align="center"><strong>静态</strong>定位</td>
+</tr>
+<tr>
+<td><code>relative</code></td>
+<td align="center"><strong>相对</strong>定位</td>
+</tr>
+<tr>
+<td><code>absolute</code></td>
+<td align="center"><strong>绝对</strong>定位</td>
+</tr>
+<tr>
+<td><code>fixed</code></td>
+<td align="center"><strong>固定</strong>定位</td>
+</tr>
+</tbody></table>
+<h4 id="相对定位-relative"><a href="#相对定位-relative" class="headerlink" title="相对定位(relative)"></a>相对定位(relative)</h4><p>相对定位的特点：</p>
+<ul>
+<li>相对于 自己原来在标准流中位置来移动的</li>
+<li>原来<strong>在标准流的区域继续占有</strong>，后面的盒子仍然以标准流的方式对待它。</li>
+</ul>
+<h4 id="绝对定位-absolute"><a href="#绝对定位-absolute" class="headerlink" title="绝对定位(absolute)"></a>绝对定位(absolute)</h4><ol>
+<li><strong>完全脱标</strong> —— 完全不占位置；  </li>
+<li><strong>父元素没有定位</strong>，则以<strong>浏览器</strong>为准定位（Document 文档）。</li>
+<li><strong>父元素要有定位</strong></li>
+</ol>
+<p><strong>子绝父相</strong> —— <strong>子级</strong>是<strong>绝对</strong>定位，<strong>父级</strong>要用<strong>相对</strong>定位。</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200418193642558.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位(fixed)"></a>固定定位(fixed)</h4><ol>
+<li><strong>完全脱标</strong> —— 完全不占位置；</li>
+<li>只认<strong>浏览器的可视窗口</strong> —— <code>浏览器可视窗口 + 边偏移属性</code> 来设置元素的位置；<ul>
+<li>跟父元素没有任何关系；单独使用的</li>
+<li>不随滚动条滚动。</li>
+</ul>
+</li>
+</ol>
+<h4 id="绝对定位的盒子居中"><a href="#绝对定位的盒子居中" class="headerlink" title="绝对定位的盒子居中"></a>绝对定位的盒子居中</h4><ol>
+<li><code>left: 50%;</code>：让<strong>盒子的左侧</strong>移动到<strong>父级元素的水平中心位置</strong>；</li>
+<li><code>margin-left: -100px;</code>：让盒子<strong>向左</strong>移动<strong>自身宽度的一半</strong>。</li>
+</ol>
+<h4 id="堆叠顺序（z-index）"><a href="#堆叠顺序（z-index）" class="headerlink" title="堆叠顺序（z-index）"></a>堆叠顺序（z-index）</h4><ol>
+<li><strong>属性值</strong>：<strong>正整数</strong>、<strong>负整数</strong>或 <strong>0</strong>，默认值是 0，数值越大，盒子越靠上；</li>
+<li>如果<strong>属性值相同</strong>，则按照书写顺序，<strong>后来居上</strong>；</li>
+<li><strong>数字后面不能加单位</strong>。</li>
+</ol>
+<p><strong>注意</strong>：<code>z-index</code> 只能应用于<strong>相对定位</strong>、<strong>绝对定位</strong>和<strong>固定定位</strong>的元素，其他<strong>标准流</strong>、<strong>浮动</strong>和<strong>静态定位</strong>无效。</p>
+<h4 id="定位改变display属性"><a href="#定位改变display属性" class="headerlink" title="定位改变display属性"></a>定位改变display属性</h4><p>绝对定位和固定定位也和浮动类似， 默认转换的特性 转换为行内块</p>
+<h3 id="定位改变display属性-1"><a href="#定位改变display属性-1" class="headerlink" title="定位改变display属性"></a>定位改变display属性</h3><p> 前面我们讲过， display 是 显示模式， 可以改变显示模式有以下方式:</p>
+<ul>
+<li>可以用inline-block  转换为行内块</li>
+<li>可以用浮动 float 默认转换为行内块（类似，并不完全一样，因为浮动是脱标的）</li>
+<li>绝对定位和固定定位也和浮动类似， 默认转换的特性 转换为行内块。</li>
+</ul>
+<p>所以说， 一个行内的盒子，如果加了<strong>浮动</strong>、<strong>固定定位</strong>和<strong>绝对定位</strong>，不用转换，就可以给这个盒子直接设置宽度和高度等。</p>
+<blockquote>
+<p>完善新浪导航案例</p>
+</blockquote>
+<p><strong>同时注意：</strong></p>
+<p>浮动元素、绝对定位(固定定位）元素的都不会触发外边距合并的问题。 （我们以前是用padding border overflow解决的）</p>
+<p>也就是说，我们给盒子改为了浮动或者定位，就不会有垂直外边距合并的问题了。</p>
+<p>定位的盒子会压住文字</p>
+<p>浮动的盒子不会压住文字，因为早期浮动的出现就是为了文字的环绕</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>创建vue脚手架</title>
     <url>/2020/04/05/Vue-%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
     <content><![CDATA[<p>Vue-cli</p>
@@ -132,384 +249,29 @@
       </tags>
   </entry>
   <entry>
-    <title>定位</title>
-    <url>/2020/02/12/css-%E5%AE%9A%E4%BD%8D/</url>
-    <content><![CDATA[<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">定位 = 定位模式 + 边偏移</span><br></pre></td></tr></table></figure>
-
+    <title>冒泡排序</title>
+    <url>/2020/03/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
+<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
 <a id="more"></a>
 
-<h4 id="边偏移"><a href="#边偏移" class="headerlink" title="边偏移"></a>边偏移</h4><p>在 CSS 中，通过 <code>top</code>、<code>bottom</code>、<code>left</code> 和 <code>right</code> 属性定义元素的<strong>边偏移</strong>：（方位名词）</p>
-<table>
-<thead>
-<tr>
-<th>边偏移属性</th>
-<th align="left">示例</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>top</code></td>
-<td align="left"><code>top: 80px</code></td>
-<td><strong>顶端</strong>偏移量，定义元素相对于其父元素<strong>上边线的距离</strong>。</td>
-</tr>
-<tr>
-<td><code>bottom</code></td>
-<td align="left"><code>bottom: 80px</code></td>
-<td><strong>底部</strong>偏移量，定义元素相对于其父元素<strong>下边线的距离</strong>。</td>
-</tr>
-<tr>
-<td><code>left</code></td>
-<td align="left"><code>left: 80px</code></td>
-<td><strong>左侧</strong>偏移量，定义元素相对于其父元素<strong>左边线的距离</strong>。</td>
-</tr>
-<tr>
-<td><code>right</code></td>
-<td align="left"><code>right: 80px</code></td>
-<td><strong>右侧</strong>偏移量，定义元素相对于其父元素<strong>右边线的距离</strong></td>
-</tr>
-</tbody></table>
-<h4 id="定位模式-position"><a href="#定位模式-position" class="headerlink" title="定位模式 (position)"></a>定位模式 (position)</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">选择器 &#123; position: 属性值; &#125;</span><br></pre></td></tr></table></figure>
+<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
+<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
+<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
 
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th align="center">语义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>static</code></td>
-<td align="center"><strong>静态</strong>定位</td>
-</tr>
-<tr>
-<td><code>relative</code></td>
-<td align="center"><strong>相对</strong>定位</td>
-</tr>
-<tr>
-<td><code>absolute</code></td>
-<td align="center"><strong>绝对</strong>定位</td>
-</tr>
-<tr>
-<td><code>fixed</code></td>
-<td align="center"><strong>固定</strong>定位</td>
-</tr>
-</tbody></table>
-<h4 id="相对定位-relative"><a href="#相对定位-relative" class="headerlink" title="相对定位(relative)"></a>相对定位(relative)</h4><p>相对定位的特点：</p>
-<ul>
-<li>相对于 自己原来在标准流中位置来移动的</li>
-<li>原来<strong>在标准流的区域继续占有</strong>，后面的盒子仍然以标准流的方式对待它。</li>
-</ul>
-<h4 id="绝对定位-absolute"><a href="#绝对定位-absolute" class="headerlink" title="绝对定位(absolute)"></a>绝对定位(absolute)</h4><ol>
-<li><strong>完全脱标</strong> —— 完全不占位置；  </li>
-<li><strong>父元素没有定位</strong>，则以<strong>浏览器</strong>为准定位（Document 文档）。</li>
-<li><strong>父元素要有定位</strong></li>
-</ol>
-<p><strong>子绝父相</strong> —— <strong>子级</strong>是<strong>绝对</strong>定位，<strong>父级</strong>要用<strong>相对</strong>定位。</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200418193642558.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位(fixed)"></a>固定定位(fixed)</h4><ol>
-<li><strong>完全脱标</strong> —— 完全不占位置；</li>
-<li>只认<strong>浏览器的可视窗口</strong> —— <code>浏览器可视窗口 + 边偏移属性</code> 来设置元素的位置；<ul>
-<li>跟父元素没有任何关系；单独使用的</li>
-<li>不随滚动条滚动。</li>
-</ul>
-</li>
-</ol>
-<h4 id="绝对定位的盒子居中"><a href="#绝对定位的盒子居中" class="headerlink" title="绝对定位的盒子居中"></a>绝对定位的盒子居中</h4><ol>
-<li><code>left: 50%;</code>：让<strong>盒子的左侧</strong>移动到<strong>父级元素的水平中心位置</strong>；</li>
-<li><code>margin-left: -100px;</code>：让盒子<strong>向左</strong>移动<strong>自身宽度的一半</strong>。</li>
-</ol>
-<h4 id="堆叠顺序（z-index）"><a href="#堆叠顺序（z-index）" class="headerlink" title="堆叠顺序（z-index）"></a>堆叠顺序（z-index）</h4><ol>
-<li><strong>属性值</strong>：<strong>正整数</strong>、<strong>负整数</strong>或 <strong>0</strong>，默认值是 0，数值越大，盒子越靠上；</li>
-<li>如果<strong>属性值相同</strong>，则按照书写顺序，<strong>后来居上</strong>；</li>
-<li><strong>数字后面不能加单位</strong>。</li>
-</ol>
-<p><strong>注意</strong>：<code>z-index</code> 只能应用于<strong>相对定位</strong>、<strong>绝对定位</strong>和<strong>固定定位</strong>的元素，其他<strong>标准流</strong>、<strong>浮动</strong>和<strong>静态定位</strong>无效。</p>
-<h4 id="定位改变display属性"><a href="#定位改变display属性" class="headerlink" title="定位改变display属性"></a>定位改变display属性</h4><p>绝对定位和固定定位也和浮动类似， 默认转换的特性 转换为行内块</p>
-<h3 id="定位改变display属性-1"><a href="#定位改变display属性-1" class="headerlink" title="定位改变display属性"></a>定位改变display属性</h3><p> 前面我们讲过， display 是 显示模式， 可以改变显示模式有以下方式:</p>
-<ul>
-<li>可以用inline-block  转换为行内块</li>
-<li>可以用浮动 float 默认转换为行内块（类似，并不完全一样，因为浮动是脱标的）</li>
-<li>绝对定位和固定定位也和浮动类似， 默认转换的特性 转换为行内块。</li>
-</ul>
-<p>所以说， 一个行内的盒子，如果加了<strong>浮动</strong>、<strong>固定定位</strong>和<strong>绝对定位</strong>，不用转换，就可以给这个盒子直接设置宽度和高度等。</p>
-<blockquote>
-<p>完善新浪导航案例</p>
-</blockquote>
-<p><strong>同时注意：</strong></p>
-<p>浮动元素、绝对定位(固定定位）元素的都不会触发外边距合并的问题。 （我们以前是用padding border overflow解决的）</p>
-<p>也就是说，我们给盒子改为了浮动或者定位，就不会有垂直外边距合并的问题了。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>浮动</title>
-    <url>/2020/02/11/css-%E6%B5%AE%E5%8A%A8/</url>
-    <content><![CDATA[<h3 id="浮动-float"><a href="#浮动-float" class="headerlink" title="浮动(float)"></a>浮动(float)</h3><a id="more"></a>
 
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">选择器 &#123; float: 属性值; &#125;</span><br></pre></td></tr></table></figure>
 
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>none</strong></td>
-<td>元素不浮动（<strong>默认值</strong>）</td>
-</tr>
-<tr>
-<td><strong>left</strong></td>
-<td>元素向<strong>左</strong>浮动</td>
-</tr>
-<tr>
-<td><strong>right</strong></td>
-<td>元素向<strong>右</strong>浮动</td>
-</tr>
-</tbody></table>
-<p>例如</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.box1 &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    background-color: rgba(255, 0, 0, 0.5);</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">.box2 &#123;</span><br><span class="line">    width: 150px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    background-color: skyblue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
 
-<p> <img src="https://img-blog.csdnimg.cn/20200418174013972.png" alt="img"> </p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
-<thead>
-<tr>
-<th>特点</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>浮</td>
-<td>加了浮动的盒子<strong>是浮起来</strong>的，漂浮在其他标准流盒子的上面。</td>
-</tr>
-<tr>
-<td>漏</td>
-<td>加了浮动的盒子<strong>是不占位置的</strong>，它原来的位置<strong>漏给了标准流的盒子</strong>。</td>
-</tr>
-<tr>
-<td>特</td>
-<td><strong>特别注意</strong>：浮动元素会改变display属性， 类似转换为了行内块，但是元素之间没有空白缝隙</td>
-</tr>
-</tbody></table>
-<p>注意：</p>
-<p>浮动只会影响当前的或者是后面的标准流盒子，不会影响前面的标准流。</p>
-<h4 id="浮动元素与父盒子的关系"><a href="#浮动元素与父盒子的关系" class="headerlink" title="浮动元素与父盒子的关系"></a>浮动元素与父盒子的关系</h4><ul>
-<li>子盒子的浮动参照父盒子对齐</li>
-<li>不会与父盒子的边框重叠，也不会超过父盒子的内边距</li>
-</ul>
-<h4 id="浮动元素与兄弟盒子的关系"><a href="#浮动元素与兄弟盒子的关系" class="headerlink" title="浮动元素与兄弟盒子的关系"></a>浮动元素与兄弟盒子的关系</h4><p>在一个父级盒子中，如果<strong>前一个兄弟盒子</strong>是：</p>
-<ul>
-<li><strong>浮动</strong>的，那么<strong>当前盒子</strong>会与前一个盒子的顶部对齐；</li>
-<li><strong>普通流</strong>的，那么<strong>当前盒子</strong>会显示在前一个兄弟盒子的下方。</li>
-</ul>
-<h4 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h4><p>1.由于浮动元素不再占用原文档流的位置，所以它会对后面的元素排版产生影响</p>
-<p>2.准确地说，并不是清除浮动，而是<strong>清除浮动后造成的影响</strong></p>
-<h4 id="清除浮动本质"><a href="#清除浮动本质" class="headerlink" title="清除浮动本质"></a>清除浮动本质</h4><p><strong>清除浮动主要为了解决父级元素因为子级浮动引起内部高度为0 的问题。清除浮动之后， 父级就会根据浮动的子盒子自动检测高度。父级有了高度，就不会影响下面的标准流了</strong></p>
-<h4 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h4><p>1.额外标签法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">选择器&#123;clear:属性值;&#125;   clear 清除</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>left</td>
-<td>不允许左侧有浮动元素（清除左侧浮动的影响）</td>
-</tr>
-<tr>
-<td>right</td>
-<td>不允许右侧有浮动元素（清除右侧浮动的影响）</td>
-</tr>
-<tr>
-<td>both</td>
-<td>同时清除左右两侧浮动的影响</td>
-</tr>
-</tbody></table>
-<p>但是我们实际工作中， 几乎只用 clear: both;</p>
-<p>2.父级添加overflow属性方法</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">可以给父级添加： overflow为 hidden| auto| scroll  都可以实现。</span><br></pre></td></tr></table></figure>
-
-<p>3.使用after伪元素清除浮动</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.clearfix:after &#123;  content: ""; display: block; height: 0; clear: both; visibility: hidden;  &#125;   </span><br><span class="line"></span><br><span class="line">.clearfix &#123;*zoom: 1;&#125;   /* IE6、7 专有 */</span><br></pre></td></tr></table></figure>
-
-<p>4.使用双伪元素清除浮动</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.clearfix:before,.clearfix:after &#123; </span><br><span class="line">  content:"";</span><br><span class="line">  display:table; </span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after &#123;</span><br><span class="line"> clear:both;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix &#123;</span><br><span class="line">  *zoom:1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
         <category>前端</category>
       </categories>
       <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>盒子模型</title>
-    <url>/2020/02/10/css-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><h4 id="盒子边框（border）"><a href="#盒子边框（border）" class="headerlink" title="盒子边框（border）"></a>盒子边框（border）</h4><a id="more"></a>
-
-<p>语法：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">border : border-width || border-style || border-color</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th align="center">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>border-width</td>
-<td align="center">定义边框粗细，单位是px</td>
-</tr>
-<tr>
-<td>border-style</td>
-<td align="center">边框的样式</td>
-</tr>
-<tr>
-<td>border-color</td>
-<td align="center">边框颜色</td>
-</tr>
-</tbody></table>
-<p>边框的样式：</p>
-<p>none：没有边框即忽略所有边框的宽度（默认值）</p>
-<p>solid：边框为单实线(最为常用的)</p>
-<p>dashed：边框为虚线  </p>
-<p>dotted：边框为点线</p>
-<h4 id="边框综合设置"><a href="#边框综合设置" class="headerlink" title="边框综合设置"></a>边框综合设置</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">border: 1px solid red;  没有顺序</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th align="left">上边框</th>
-<th align="left">下边框</th>
-<th align="left">左边框</th>
-<th align="left">右边框</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">border-top-style:样式;</td>
-<td align="left">border-bottom-style:样式;</td>
-<td align="left">border-left-style:样式;</td>
-<td align="left">border-right-style:样式;</td>
-</tr>
-<tr>
-<td align="left">border-top-width:宽度;</td>
-<td align="left">border- bottom-width:宽度;</td>
-<td align="left">border-left-width:宽度;</td>
-<td align="left">border-right-width:宽度;</td>
-</tr>
-<tr>
-<td align="left">border-top-color:颜色;</td>
-<td align="left">border- bottom-color:颜色;</td>
-<td align="left">border-left-color:颜色;</td>
-<td align="left">border-right-color:颜色;</td>
-</tr>
-<tr>
-<td align="left">border-top:宽度 样式 颜色;</td>
-<td align="left">border-bottom:宽度 样式 颜色;</td>
-<td align="left">border-left:宽度 样式 颜色;</td>
-<td align="left">border-right:宽度 样式 颜色;</td>
-</tr>
-</tbody></table>
-<h4 id="表格的细线边框"><a href="#表格的细线边框" class="headerlink" title="表格的细线边框"></a>表格的细线边框</h4><ul>
-<li><p>通过表格的<code>cellspacing=&quot;0&quot;</code>,将单元格与单元格之间的距离设置为0，</p>
-</li>
-<li><p>但是两个单元格之间的边框会出现重叠，从而使边框变粗</p>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">table&#123; border-collapse:collapse; &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="内边距（padding）"><a href="#内边距（padding）" class="headerlink" title="内边距（padding）"></a>内边距（padding）</h4><table>
-<thead>
-<tr>
-<th>属性</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>padding-left</td>
-<td align="left">左内边距</td>
-</tr>
-<tr>
-<td>padding-right</td>
-<td align="left">右内边距</td>
-</tr>
-<tr>
-<td>padding-top</td>
-<td align="left">上内边距</td>
-</tr>
-<tr>
-<td>padding-bottom</td>
-<td align="left">下内边距</td>
-</tr>
-</tbody></table>
-<p>如果没有给一个盒子指定宽度， 此时，如果给这个盒子指定padding， 则不会撑开盒子。</p>
-<h4 id="外边距（margin）"><a href="#外边距（margin）" class="headerlink" title="外边距（margin）"></a>外边距（margin）</h4><table>
-<thead>
-<tr>
-<th>属性</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>margin-left</td>
-<td align="left">左外边距</td>
-</tr>
-<tr>
-<td>margin-right</td>
-<td align="left">右外边距</td>
-</tr>
-<tr>
-<td>margin-top</td>
-<td align="left">上外边距</td>
-</tr>
-<tr>
-<td>margin-bottom</td>
-<td align="left">下外边距</td>
-</tr>
-</tbody></table>
-<h4 id="文字居中和盒子居中区别"><a href="#文字居中和盒子居中区别" class="headerlink" title="文字居中和盒子居中区别"></a>文字居中和盒子居中区别</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">text-align: center; /*  文字 行内元素 行内块元素水平居中 */</span><br><span class="line">margin: 10px auto;  /* 块级盒子水平居中  左右margin 改为 auto 就阔以了 上下margin都可以 */</span><br></pre></td></tr></table></figure>
-
-<h4 id="插入图片和背景图片区别"><a href="#插入图片和背景图片区别" class="headerlink" title="插入图片和背景图片区别"></a>插入图片和背景图片区别</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">img &#123;  </span><br><span class="line">	width: 200px;/* 插入图片更改大小 width 和 height */</span><br><span class="line">	height: 210px;</span><br><span class="line">	margin-top: 30px;  /* 插入图片更改位置 可以用margin 或padding  盒模型 */</span><br><span class="line">	margin-left: 50px; /* 插入当图片也是一个盒子 */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div &#123;</span><br><span class="line">	width: 400px;</span><br><span class="line">	height: 400px;</span><br><span class="line">	border: 1px solid purple;</span><br><span class="line">	background: #fff url(images/sun.jpg) no-repeat;</span><br><span class="line">	background-position: 30px 50px; /* 背景图片更改位置 我用 background-position */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="清除元素的默认内外边距"><a href="#清除元素的默认内外边距" class="headerlink" title="清除元素的默认内外边距"></a>清除元素的默认内外边距</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">   padding:0;         /* 清除内边距 */</span><br><span class="line">   margin:0;          /* 清除外边距 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="圆角边框-CSS3"><a href="#圆角边框-CSS3" class="headerlink" title="圆角边框(CSS3)"></a>圆角边框(CSS3)</h4><p>语法：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">border-radius:length;</span><br></pre></td></tr></table></figure>
-
-<p>让一个正方形  变成圆圈 </p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">border-radius: 50%;</span><br></pre></td></tr></table></figure>
-
-<h4 id="盒子阴影-CSS3"><a href="#盒子阴影-CSS3" class="headerlink" title="盒子阴影(CSS3)"></a>盒子阴影(CSS3)</h4><p>语法:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">box-shadow:水平阴影 垂直阴影 模糊距离（虚实）  阴影尺寸（影子大小）  阴影颜色  内/外阴影；</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">			width: 200px;</span><br><span class="line">			height: 200px;</span><br><span class="line">			border: 10px solid red;</span><br><span class="line">			/* box-shadow: 5px 5px 3px 4px rgba(0, 0, 0, .4);  */</span><br><span class="line">			/* box-shadow:水平位置 垂直位置 模糊距离 阴影尺寸（影子大小） 阴影颜色  内/外阴影； */</span><br><span class="line">			box-shadow: 0 15px 30px  rgba(0, 0, 0, .4);</span><br><span class="line">			</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="去掉列表默认的样式"><a href="#去掉列表默认的样式" class="headerlink" title="去掉列表默认的样式"></a>去掉列表默认的样式</h4><p>无序和有序列表前面默认的列表样式，在不同浏览器显示效果不一样，而且也比较难看，所以，我们一般上来就直接去掉这些列表样式就行了。 代码如下</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">li</span> &#123; <span class="attribute">list-style</span>: none; &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="嵌套块元素垂直外边距的合并（塌陷）"><a href="#嵌套块元素垂直外边距的合并（塌陷）" class="headerlink" title="嵌套块元素垂直外边距的合并（塌陷）"></a>嵌套块元素垂直外边距的合并（塌陷）</h4><p><strong>解决方案：</strong></p>
-<ol>
-<li>可以为父元素定义上边框。</li>
-<li>可以为父元素定义上内边距</li>
-<li>可以为父元素添加overflow:hidden。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -832,6 +594,49 @@
       </tags>
   </entry>
   <entry>
+    <title>日期对象</title>
+    <url>/2020/03/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
+<a id="more"></a>
+
+<ul>
+<li><p>使用Date实例化日期对象</p>
+<ul>
+<li>获取当前时间必须实例化：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取指定时间的日期对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
+</li>
+<li><p>使用Date实例的方法和属性    </p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+<li><p>通过Date实例获取总毫米数</p>
+<ul>
+<li><p>总毫秒数的含义</p>
+<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
+</li>
+<li><p>获取总毫秒数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Math对象</title>
     <url>/2020/03/05/js-Math%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>​        Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用 Math 中的成员。</p>
@@ -876,128 +681,6 @@
 <p>​    注意：上面的方法使用时必须带括号</p>
 <p>​    <strong>获取指定范围内的随机整数</strong>：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandom</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>字符串对象</title>
-    <url>/2020/03/05/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h3><h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>​        为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
-<p>​        基本包装类型就是把简单数据类型包装成为复杂数据类型，这样基本数据类型就有了属性和方法。</p>
-<a id="more"></a>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面代码有什么问题？</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'andy'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);</span><br></pre></td></tr></table></figure>
-
-<p>​        按道理基本数据类型是没有属性和方法的，而对象才有属性和方法，但上面代码却可以执行，这是因为</p>
-<p>​        js 会把基本数据类型包装为复杂数据类型，其执行过程如下 ：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 生成临时变量，把简单类型包装为复杂数据类型</span></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'andy'</span>);</span><br><span class="line"><span class="comment">// 2. 赋值给我们声明的字符变量</span></span><br><span class="line">str = temp;</span><br><span class="line"><span class="comment">// 3. 销毁临时变量</span></span><br><span class="line">temp = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="字符串的不可变"><a href="#字符串的不可变" class="headerlink" title="字符串的不可变"></a>字符串的不可变</h4><p>​        指的是里面的值不可变，虽然看上去可以改变内容，但其实是地址变了，内存中新开辟了一个内存空间。</p>
-<p>​        当重新给字符串变量赋值的时候，变量之前保存的字符串不会被修改，依然在内存中重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变。<br>​        由于字符串的不可变，在<strong>大量拼接字符串</strong>的时候会有效率问题</p>
-<h4 id="根据字符返回位置"><a href="#根据字符返回位置" class="headerlink" title="根据字符返回位置"></a>根据字符返回位置</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是返回指定字符的位置的方法：</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507102344642.png" alt="在这里插入图片描述"> </p>
-<p>​        案例：查找字符串”abcoefoxyozzopp”中所有o出现的位置以及次数</p>
-<ol>
-<li>先查找第一个o出现的位置</li>
-<li>然后 只要indexOf 返回的结果不是 -1 就继续往后查找</li>
-<li>因为indexOf 只能查找到第一个，所以后面的查找，利用第二个参数，当前索引加1，从而继续查找     </li>
-</ol>
-<h4 id="根据位置返回字符"><a href="#根据位置返回字符" class="headerlink" title="根据位置返回字符"></a>根据位置返回字符</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是根据位置返回指定位置上的字符：</p>
-<p>​     <img src="https://img-blog.csdnimg.cn/20200507102344654.png" alt="在这里插入图片描述"> </p>
-<p>​        在上述方法中，charCodeAt方法返回的是指定位置上字符对应的ASCII码，ASCII码对照表如下：</p>
-<p>​          <img src="https://img-blog.csdnimg.cn/20200507102344840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>​        案例：判断一个字符串 ‘abcoefoxyozzopp’ 中出现次数最多的字符，并统计其次数</p>
-<ol>
-<li><p>核心算法：利用 charAt(） 遍历这个字符串</p>
-</li>
-<li><p>把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1</p>
-</li>
-<li><p>遍历对象，得到最大值和该字符     </p>
-<p>​    注意：在遍历的过程中，把字符串中的每个字符作为对象的属性存储在对象总，对应的属性值是该字符出现的次数</p>
-</li>
-</ol>
-<h4 id="字符串操作方法"><a href="#字符串操作方法" class="headerlink" title="字符串操作方法"></a>字符串操作方法</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是部分操作方法：</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507102344695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<h4 id="replace-方法"><a href="#replace-方法" class="headerlink" title="replace()方法"></a>replace()方法</h4><p>​        replace() 方法用于在字符串中用一些字符替换另一些字符，其使用格式如下：  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.replace(被替换的字符串， 要替换为的字符串)；</span><br></pre></td></tr></table></figure>
-
-<h4 id="split-方法"><a href="#split-方法" class="headerlink" title="split()方法"></a>split()方法</h4><p>​        split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
-<p>​        其使用格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.split(&quot;分割字符&quot;)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>冒泡排序</title>
-    <url>/2020/03/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
-<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
-<a id="more"></a>
-
-<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
-<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
-<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>日期对象</title>
-    <url>/2020/03/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
-<a id="more"></a>
-
-<ul>
-<li><p>使用Date实例化日期对象</p>
-<ul>
-<li>获取当前时间必须实例化：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>获取指定时间的日期对象</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
-</li>
-<li><p>使用Date实例的方法和属性    </p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>通过Date实例获取总毫米数</p>
-<ul>
-<li><p>总毫秒数的含义</p>
-<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
-</li>
-<li><p>获取总毫秒数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1086,6 +769,59 @@
 </li>
 </ul>
 <h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字符串对象</title>
+    <url>/2020/03/05/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h3><h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>​        为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
+<p>​        基本包装类型就是把简单数据类型包装成为复杂数据类型，这样基本数据类型就有了属性和方法。</p>
+<a id="more"></a>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面代码有什么问题？</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'andy'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);</span><br></pre></td></tr></table></figure>
+
+<p>​        按道理基本数据类型是没有属性和方法的，而对象才有属性和方法，但上面代码却可以执行，这是因为</p>
+<p>​        js 会把基本数据类型包装为复杂数据类型，其执行过程如下 ：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 生成临时变量，把简单类型包装为复杂数据类型</span></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'andy'</span>);</span><br><span class="line"><span class="comment">// 2. 赋值给我们声明的字符变量</span></span><br><span class="line">str = temp;</span><br><span class="line"><span class="comment">// 3. 销毁临时变量</span></span><br><span class="line">temp = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串的不可变"><a href="#字符串的不可变" class="headerlink" title="字符串的不可变"></a>字符串的不可变</h4><p>​        指的是里面的值不可变，虽然看上去可以改变内容，但其实是地址变了，内存中新开辟了一个内存空间。</p>
+<p>​        当重新给字符串变量赋值的时候，变量之前保存的字符串不会被修改，依然在内存中重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变。<br>​        由于字符串的不可变，在<strong>大量拼接字符串</strong>的时候会有效率问题</p>
+<h4 id="根据字符返回位置"><a href="#根据字符返回位置" class="headerlink" title="根据字符返回位置"></a>根据字符返回位置</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是返回指定字符的位置的方法：</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507102344642.png" alt="在这里插入图片描述"> </p>
+<p>​        案例：查找字符串”abcoefoxyozzopp”中所有o出现的位置以及次数</p>
+<ol>
+<li>先查找第一个o出现的位置</li>
+<li>然后 只要indexOf 返回的结果不是 -1 就继续往后查找</li>
+<li>因为indexOf 只能查找到第一个，所以后面的查找，利用第二个参数，当前索引加1，从而继续查找     </li>
+</ol>
+<h4 id="根据位置返回字符"><a href="#根据位置返回字符" class="headerlink" title="根据位置返回字符"></a>根据位置返回字符</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是根据位置返回指定位置上的字符：</p>
+<p>​     <img src="https://img-blog.csdnimg.cn/20200507102344654.png" alt="在这里插入图片描述"> </p>
+<p>​        在上述方法中，charCodeAt方法返回的是指定位置上字符对应的ASCII码，ASCII码对照表如下：</p>
+<p>​          <img src="https://img-blog.csdnimg.cn/20200507102344840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>​        案例：判断一个字符串 ‘abcoefoxyozzopp’ 中出现次数最多的字符，并统计其次数</p>
+<ol>
+<li><p>核心算法：利用 charAt(） 遍历这个字符串</p>
+</li>
+<li><p>把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1</p>
+</li>
+<li><p>遍历对象，得到最大值和该字符     </p>
+<p>​    注意：在遍历的过程中，把字符串中的每个字符作为对象的属性存储在对象总，对应的属性值是该字符出现的次数</p>
+</li>
+</ol>
+<h4 id="字符串操作方法"><a href="#字符串操作方法" class="headerlink" title="字符串操作方法"></a>字符串操作方法</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是部分操作方法：</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507102344695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<h4 id="replace-方法"><a href="#replace-方法" class="headerlink" title="replace()方法"></a>replace()方法</h4><p>​        replace() 方法用于在字符串中用一些字符替换另一些字符，其使用格式如下：  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.replace(被替换的字符串， 要替换为的字符串)；</span><br></pre></td></tr></table></figure>
+
+<h4 id="split-方法"><a href="#split-方法" class="headerlink" title="split()方法"></a>split()方法</h4><p>​        split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
+<p>​        其使用格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.split(&quot;分割字符&quot;)</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>前端</category>
       </categories>
