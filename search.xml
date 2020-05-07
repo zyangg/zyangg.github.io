@@ -1,59 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>三大特性</title>
-    <url>/2020/02/09/css-%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</url>
-    <content><![CDATA[<h3 id="CSS-三大特性"><a href="#CSS-三大特性" class="headerlink" title="CSS 三大特性"></a>CSS 三大特性</h3><h4 id="CSS层叠性"><a href="#CSS层叠性" class="headerlink" title="CSS层叠性"></a>CSS层叠性</h4> <a id="more"></a>![img](https://img-blog.csdnimg.cn/20200418150152214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70) 
+    <title>Math对象</title>
+    <url>/2020/03/05/Math%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>​        Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用 Math 中的成员。</p>
+<a id="more"></a>
 
-<p>概念：所谓层叠性是指多种CSS样式的叠加。</p>
-<p>原则：样式冲突，遵循的原则是<strong>就近原则。</strong> 那个样式离着结构近，就执行那个样式。</p>
-<h4 id="CSS继承性"><a href="#CSS继承性" class="headerlink" title="CSS继承性"></a>CSS继承性</h4><p><img src="https://img-blog.csdnimg.cn/20200418150247169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p>概念：子标签会继承父标签的某些样式，如文本颜色和字号。</p>
-<p> 想要设置一个可继承的属性，只需将它应用于父元素即可。</p>
-<p>简单的理解就是：  子承父业。</p>
-<h4 id="CSS优先级"><a href="#CSS优先级" class="headerlink" title="CSS优先级"></a>CSS优先级</h4><p> 选择器相同，则执行层叠性</p>
-<p>选择器不同，就会出现优先级的问题</p>
-<p><img src="https://img-blog.csdnimg.cn/20200418150227669.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p>权重计算公式</p>
 <table>
 <thead>
 <tr>
-<th>标签选择器</th>
-<th>计算权重公式</th>
+<th>属性、方法名</th>
+<th>功能</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>继承或者 *</td>
-<td>0,0,0,0</td>
+<td>Math.PI</td>
+<td>圆周率</td>
 </tr>
 <tr>
-<td>每个元素（标签选择器）</td>
-<td>0,0,0,1</td>
+<td>Math.floor()</td>
+<td>向下取整</td>
 </tr>
 <tr>
-<td>每个类，伪类</td>
-<td>0,0,1,0</td>
+<td>Math.ceil()</td>
+<td>向上取整</td>
 </tr>
 <tr>
-<td>每个ID</td>
-<td>0,1,0,0</td>
+<td>Math.round()</td>
+<td>四舍五入版 就近取整   注意 -3.5   结果是  -3</td>
 </tr>
 <tr>
-<td>每个行内样式 style=””</td>
-<td>1,0,0,0</td>
+<td>Math.abs()</td>
+<td>绝对值</td>
 </tr>
 <tr>
-<td>每个!important  重要的</td>
-<td>∞ 无穷大</td>
+<td>Math.max()/Math.min()</td>
+<td>求最大和最小值</td>
+</tr>
+<tr>
+<td>Math.random()</td>
+<td>获取范围在[0,1)内的随机值</td>
 </tr>
 </tbody></table>
-<p>继承的权重是0</p>
+<p>​    注意：上面的方法使用时必须带括号</p>
+<p>​    <strong>获取指定范围内的随机整数</strong>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandom</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>前端</category>
       </categories>
       <tags>
-        <tag>css</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -172,6 +169,62 @@
       </tags>
   </entry>
   <entry>
+    <title>三大特性</title>
+    <url>/2020/02/09/css-%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</url>
+    <content><![CDATA[<h3 id="CSS-三大特性"><a href="#CSS-三大特性" class="headerlink" title="CSS 三大特性"></a>CSS 三大特性</h3><h4 id="CSS层叠性"><a href="#CSS层叠性" class="headerlink" title="CSS层叠性"></a>CSS层叠性</h4> <a id="more"></a>![img](https://img-blog.csdnimg.cn/20200418150152214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70) 
+
+<p>概念：所谓层叠性是指多种CSS样式的叠加。</p>
+<p>原则：样式冲突，遵循的原则是<strong>就近原则。</strong> 那个样式离着结构近，就执行那个样式。</p>
+<h4 id="CSS继承性"><a href="#CSS继承性" class="headerlink" title="CSS继承性"></a>CSS继承性</h4><p><img src="https://img-blog.csdnimg.cn/20200418150247169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<p>概念：子标签会继承父标签的某些样式，如文本颜色和字号。</p>
+<p> 想要设置一个可继承的属性，只需将它应用于父元素即可。</p>
+<p>简单的理解就是：  子承父业。</p>
+<h4 id="CSS优先级"><a href="#CSS优先级" class="headerlink" title="CSS优先级"></a>CSS优先级</h4><p> 选择器相同，则执行层叠性</p>
+<p>选择器不同，就会出现优先级的问题</p>
+<p><img src="https://img-blog.csdnimg.cn/20200418150227669.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<p>权重计算公式</p>
+<table>
+<thead>
+<tr>
+<th>标签选择器</th>
+<th>计算权重公式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>继承或者 *</td>
+<td>0,0,0,0</td>
+</tr>
+<tr>
+<td>每个元素（标签选择器）</td>
+<td>0,0,0,1</td>
+</tr>
+<tr>
+<td>每个类，伪类</td>
+<td>0,0,1,0</td>
+</tr>
+<tr>
+<td>每个ID</td>
+<td>0,1,0,0</td>
+</tr>
+<tr>
+<td>每个行内样式 style=””</td>
+<td>1,0,0,0</td>
+</tr>
+<tr>
+<td>每个!important  重要的</td>
+<td>∞ 无穷大</td>
+</tr>
+</tbody></table>
+<p>继承的权重是0</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>显示模式</title>
     <url>/2020/02/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
@@ -238,6 +291,112 @@
 <h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
 <p>行内转块：display:block;</p>
 <p>块、行内元素转换为行内块： display: inline-block</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浮动</title>
+    <url>/2020/02/11/css-%E6%B5%AE%E5%8A%A8/</url>
+    <content><![CDATA[<h3 id="浮动-float"><a href="#浮动-float" class="headerlink" title="浮动(float)"></a>浮动(float)</h3><a id="more"></a>
+
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">选择器 &#123; float: 属性值; &#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>none</strong></td>
+<td>元素不浮动（<strong>默认值</strong>）</td>
+</tr>
+<tr>
+<td><strong>left</strong></td>
+<td>元素向<strong>左</strong>浮动</td>
+</tr>
+<tr>
+<td><strong>right</strong></td>
+<td>元素向<strong>右</strong>浮动</td>
+</tr>
+</tbody></table>
+<p>例如</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.box1 &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    background-color: rgba(255, 0, 0, 0.5);</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">.box2 &#123;</span><br><span class="line">    width: 150px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    background-color: skyblue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://img-blog.csdnimg.cn/20200418174013972.png" alt="img"> </p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
+<thead>
+<tr>
+<th>特点</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>浮</td>
+<td>加了浮动的盒子<strong>是浮起来</strong>的，漂浮在其他标准流盒子的上面。</td>
+</tr>
+<tr>
+<td>漏</td>
+<td>加了浮动的盒子<strong>是不占位置的</strong>，它原来的位置<strong>漏给了标准流的盒子</strong>。</td>
+</tr>
+<tr>
+<td>特</td>
+<td><strong>特别注意</strong>：浮动元素会改变display属性， 类似转换为了行内块，但是元素之间没有空白缝隙</td>
+</tr>
+</tbody></table>
+<p>注意：</p>
+<p>浮动只会影响当前的或者是后面的标准流盒子，不会影响前面的标准流。</p>
+<h4 id="浮动元素与父盒子的关系"><a href="#浮动元素与父盒子的关系" class="headerlink" title="浮动元素与父盒子的关系"></a>浮动元素与父盒子的关系</h4><ul>
+<li>子盒子的浮动参照父盒子对齐</li>
+<li>不会与父盒子的边框重叠，也不会超过父盒子的内边距</li>
+</ul>
+<h4 id="浮动元素与兄弟盒子的关系"><a href="#浮动元素与兄弟盒子的关系" class="headerlink" title="浮动元素与兄弟盒子的关系"></a>浮动元素与兄弟盒子的关系</h4><p>在一个父级盒子中，如果<strong>前一个兄弟盒子</strong>是：</p>
+<ul>
+<li><strong>浮动</strong>的，那么<strong>当前盒子</strong>会与前一个盒子的顶部对齐；</li>
+<li><strong>普通流</strong>的，那么<strong>当前盒子</strong>会显示在前一个兄弟盒子的下方。</li>
+</ul>
+<h4 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h4><p>1.由于浮动元素不再占用原文档流的位置，所以它会对后面的元素排版产生影响</p>
+<p>2.准确地说，并不是清除浮动，而是<strong>清除浮动后造成的影响</strong></p>
+<h4 id="清除浮动本质"><a href="#清除浮动本质" class="headerlink" title="清除浮动本质"></a>清除浮动本质</h4><p><strong>清除浮动主要为了解决父级元素因为子级浮动引起内部高度为0 的问题。清除浮动之后， 父级就会根据浮动的子盒子自动检测高度。父级有了高度，就不会影响下面的标准流了</strong></p>
+<h4 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h4><p>1.额外标签法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">选择器&#123;clear:属性值;&#125;   clear 清除</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td>不允许左侧有浮动元素（清除左侧浮动的影响）</td>
+</tr>
+<tr>
+<td>right</td>
+<td>不允许右侧有浮动元素（清除右侧浮动的影响）</td>
+</tr>
+<tr>
+<td>both</td>
+<td>同时清除左右两侧浮动的影响</td>
+</tr>
+</tbody></table>
+<p>但是我们实际工作中， 几乎只用 clear: both;</p>
+<p>2.父级添加overflow属性方法</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">可以给父级添加： overflow为 hidden| auto| scroll  都可以实现。</span><br></pre></td></tr></table></figure>
+
+<p>3.使用after伪元素清除浮动</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.clearfix:after &#123;  content: ""; display: block; height: 0; clear: both; visibility: hidden;  &#125;   </span><br><span class="line"></span><br><span class="line">.clearfix &#123;*zoom: 1;&#125;   /* IE6、7 专有 */</span><br></pre></td></tr></table></figure>
+
+<p>4.使用双伪元素清除浮动</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.clearfix:before,.clearfix:after &#123; </span><br><span class="line">  content:"";</span><br><span class="line">  display:table; </span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after &#123;</span><br><span class="line"> clear:both;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix &#123;</span><br><span class="line">  *zoom:1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>前端</category>
@@ -407,114 +566,8 @@
       </tags>
   </entry>
   <entry>
-    <title>浮动</title>
-    <url>/2020/01/11/css-%E6%B5%AE%E5%8A%A8/</url>
-    <content><![CDATA[<h3 id="浮动-float"><a href="#浮动-float" class="headerlink" title="浮动(float)"></a>浮动(float)</h3><a id="more"></a>
-
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">选择器 &#123; float: 属性值; &#125;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>none</strong></td>
-<td>元素不浮动（<strong>默认值</strong>）</td>
-</tr>
-<tr>
-<td><strong>left</strong></td>
-<td>元素向<strong>左</strong>浮动</td>
-</tr>
-<tr>
-<td><strong>right</strong></td>
-<td>元素向<strong>右</strong>浮动</td>
-</tr>
-</tbody></table>
-<p>例如</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.box1 &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    background-color: rgba(255, 0, 0, 0.5);</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">.box2 &#123;</span><br><span class="line">    width: 150px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    background-color: skyblue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://img-blog.csdnimg.cn/20200418174013972.png" alt="img"> </p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
-<thead>
-<tr>
-<th>特点</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>浮</td>
-<td>加了浮动的盒子<strong>是浮起来</strong>的，漂浮在其他标准流盒子的上面。</td>
-</tr>
-<tr>
-<td>漏</td>
-<td>加了浮动的盒子<strong>是不占位置的</strong>，它原来的位置<strong>漏给了标准流的盒子</strong>。</td>
-</tr>
-<tr>
-<td>特</td>
-<td><strong>特别注意</strong>：浮动元素会改变display属性， 类似转换为了行内块，但是元素之间没有空白缝隙</td>
-</tr>
-</tbody></table>
-<p>注意：</p>
-<p>浮动只会影响当前的或者是后面的标准流盒子，不会影响前面的标准流。</p>
-<h4 id="浮动元素与父盒子的关系"><a href="#浮动元素与父盒子的关系" class="headerlink" title="浮动元素与父盒子的关系"></a>浮动元素与父盒子的关系</h4><ul>
-<li>子盒子的浮动参照父盒子对齐</li>
-<li>不会与父盒子的边框重叠，也不会超过父盒子的内边距</li>
-</ul>
-<h4 id="浮动元素与兄弟盒子的关系"><a href="#浮动元素与兄弟盒子的关系" class="headerlink" title="浮动元素与兄弟盒子的关系"></a>浮动元素与兄弟盒子的关系</h4><p>在一个父级盒子中，如果<strong>前一个兄弟盒子</strong>是：</p>
-<ul>
-<li><strong>浮动</strong>的，那么<strong>当前盒子</strong>会与前一个盒子的顶部对齐；</li>
-<li><strong>普通流</strong>的，那么<strong>当前盒子</strong>会显示在前一个兄弟盒子的下方。</li>
-</ul>
-<h4 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h4><p>1.由于浮动元素不再占用原文档流的位置，所以它会对后面的元素排版产生影响</p>
-<p>2.准确地说，并不是清除浮动，而是<strong>清除浮动后造成的影响</strong></p>
-<h4 id="清除浮动本质"><a href="#清除浮动本质" class="headerlink" title="清除浮动本质"></a>清除浮动本质</h4><p><strong>清除浮动主要为了解决父级元素因为子级浮动引起内部高度为0 的问题。清除浮动之后， 父级就会根据浮动的子盒子自动检测高度。父级有了高度，就不会影响下面的标准流了</strong></p>
-<h4 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h4><p>1.额外标签法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">选择器&#123;clear:属性值;&#125;   clear 清除</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>left</td>
-<td>不允许左侧有浮动元素（清除左侧浮动的影响）</td>
-</tr>
-<tr>
-<td>right</td>
-<td>不允许右侧有浮动元素（清除右侧浮动的影响）</td>
-</tr>
-<tr>
-<td>both</td>
-<td>同时清除左右两侧浮动的影响</td>
-</tr>
-</tbody></table>
-<p>但是我们实际工作中， 几乎只用 clear: both;</p>
-<p>2.父级添加overflow属性方法</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">可以给父级添加： overflow为 hidden| auto| scroll  都可以实现。</span><br></pre></td></tr></table></figure>
-
-<p>3.使用after伪元素清除浮动</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.clearfix:after &#123;  content: ""; display: block; height: 0; clear: both; visibility: hidden;  &#125;   </span><br><span class="line"></span><br><span class="line">.clearfix &#123;*zoom: 1;&#125;   /* IE6、7 专有 */</span><br></pre></td></tr></table></figure>
-
-<p>4.使用双伪元素清除浮动</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.clearfix:before,.clearfix:after &#123; </span><br><span class="line">  content:"";</span><br><span class="line">  display:table; </span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after &#123;</span><br><span class="line"> clear:both;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix &#123;</span><br><span class="line">  *zoom:1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>flex</title>
-    <url>/2020/01/26/flex%E5%B8%83%E5%B1%80/</url>
+    <url>/2020/02/26/flex%E5%B8%83%E5%B1%80/</url>
     <content><![CDATA[<h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><p>操作方便，布局极其简单，移动端使用比较广泛  </p>
 <p>pc端浏览器支持情况比较差</p>
 <h5 id="总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"><a href="#总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式" class="headerlink" title="总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"></a><strong>总结</strong>：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式</h5><a id="more"></a>
@@ -579,59 +632,29 @@
       </tags>
   </entry>
   <entry>
-    <title>创建vue脚手架</title>
-    <url>/2020/04/05/%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
-    <content><![CDATA[<p>Vue-cli</p>
-<p> vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。 </p>
+    <title>冒泡排序</title>
+    <url>/2020/03/02/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
+<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
 <a id="more"></a>
 
-<p>1、首先保证全局安装@vue/cli工具 ，没有自行下载</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i @vue/cli -g</span><br></pre></td></tr></table></figure>
+<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
+<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
+<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
 
-<p>2、推荐下载yarn包管理器</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i yarn -g</span><br></pre></td></tr></table></figure>
 
-<p>3、接下来我们就可以在自己的电脑里创建项目，找到电脑某个位置，在此文件夹按住shift同时右键，在此处打开cmd命令窗口或者在此处打开powershell窗口</p>
-<p>4、打开窗口之后运行vue ui命令，此时就会打开ui图形界面</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>5、我们选择创建之后就会进入创建页面</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220705271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>6、点击在此处创建新项目，就会进入项目详情，详情里面，首先填写项目的名字，然后包管理器选择yarn，在填写初始会git默认注释</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220718747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>7、上面填写完毕后，点击下一步，会进入到选择默认配置还是手动配置，以及选择之前的预设，我们选择手动配置</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220731996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>8、选择完后继续点击下一步，选择功能，以下是所有功能介绍，我们可以先选择babel、router、Linter、使用配置文件，开发的时候一般css预处理、vuex也肯定要安装的</p>
-<p>babel （js高级转低级）</p>
-<p>TypeScript （js超级）</p>
-<p>Progressive Web App (PWA) Support （渐进式web应用）</p>
-<p>Router（路由）</p>
-<p>Vuex（状态管理工具）</p>
-<p>CSS Pre-processors（css预处理）</p>
-<p>Linter / Formatter（语法规范检查）</p>
-<p>Unit Testing、E2E Testing（测试方式）</p>
-<p>使用配置文件（配置项是存在单独配置文件）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220750625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220803343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p>9、上面选择完后，继续点击下一步会进入到配置选项，此处第一个是 是否开启路由的history模式，我们不开启采用hash模式,eslint采用 ESLint + Standard config ，Pick additional lint features选择默认开启</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220817594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>10、选择完后，点击创建项目，会弹出是否存为预设，下一次直接使用，可以存个预设的名字，然后点击 保存预设并创建项目 即创建完毕</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220850644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>11、创建完毕后会进入到项目操作界面</p>
-<p>插件（项目用到的插件可以在这里安装）</p>
-<p>依赖（项目的依赖工具）</p>
-<p>配置（那就是配置了）</p>
-<p>任务（可以运行项目、打包项目等）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220906488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>12、我们选择任务》server》运行，即可将项目运行起来</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220917331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>13、最后点击启动app即可看见我们自己创建的项目</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220928205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+
+<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>前端</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -782,82 +805,59 @@
       </tags>
   </entry>
   <entry>
-    <title>Math对象</title>
-    <url>/2020/03/05/Math%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>​        Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用 Math 中的成员。</p>
+    <title>创建vue脚手架</title>
+    <url>/2020/04/05/%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
+    <content><![CDATA[<p>Vue-cli</p>
+<p> vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。 </p>
 <a id="more"></a>
 
-<table>
-<thead>
-<tr>
-<th>属性、方法名</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Math.PI</td>
-<td>圆周率</td>
-</tr>
-<tr>
-<td>Math.floor()</td>
-<td>向下取整</td>
-</tr>
-<tr>
-<td>Math.ceil()</td>
-<td>向上取整</td>
-</tr>
-<tr>
-<td>Math.round()</td>
-<td>四舍五入版 就近取整   注意 -3.5   结果是  -3</td>
-</tr>
-<tr>
-<td>Math.abs()</td>
-<td>绝对值</td>
-</tr>
-<tr>
-<td>Math.max()/Math.min()</td>
-<td>求最大和最小值</td>
-</tr>
-<tr>
-<td>Math.random()</td>
-<td>获取范围在[0,1)内的随机值</td>
-</tr>
-</tbody></table>
-<p>​    注意：上面的方法使用时必须带括号</p>
-<p>​    <strong>获取指定范围内的随机整数</strong>：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandom</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1、首先保证全局安装@vue/cli工具 ，没有自行下载</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i @vue/cli -g</span><br></pre></td></tr></table></figure>
+
+<p>2、推荐下载yarn包管理器</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i yarn -g</span><br></pre></td></tr></table></figure>
+
+<p>3、接下来我们就可以在自己的电脑里创建项目，找到电脑某个位置，在此文件夹按住shift同时右键，在此处打开cmd命令窗口或者在此处打开powershell窗口</p>
+<p>4、打开窗口之后运行vue ui命令，此时就会打开ui图形界面</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>5、我们选择创建之后就会进入创建页面</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220705271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>6、点击在此处创建新项目，就会进入项目详情，详情里面，首先填写项目的名字，然后包管理器选择yarn，在填写初始会git默认注释</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220718747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>7、上面填写完毕后，点击下一步，会进入到选择默认配置还是手动配置，以及选择之前的预设，我们选择手动配置</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220731996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>8、选择完后继续点击下一步，选择功能，以下是所有功能介绍，我们可以先选择babel、router、Linter、使用配置文件，开发的时候一般css预处理、vuex也肯定要安装的</p>
+<p>babel （js高级转低级）</p>
+<p>TypeScript （js超级）</p>
+<p>Progressive Web App (PWA) Support （渐进式web应用）</p>
+<p>Router（路由）</p>
+<p>Vuex（状态管理工具）</p>
+<p>CSS Pre-processors（css预处理）</p>
+<p>Linter / Formatter（语法规范检查）</p>
+<p>Unit Testing、E2E Testing（测试方式）</p>
+<p>使用配置文件（配置项是存在单独配置文件）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220750625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220803343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<p>9、上面选择完后，继续点击下一步会进入到配置选项，此处第一个是 是否开启路由的history模式，我们不开启采用hash模式,eslint采用 ESLint + Standard config ，Pick additional lint features选择默认开启</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220817594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>10、选择完后，点击创建项目，会弹出是否存为预设，下一次直接使用，可以存个预设的名字，然后点击 保存预设并创建项目 即创建完毕</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220850644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>11、创建完毕后会进入到项目操作界面</p>
+<p>插件（项目用到的插件可以在这里安装）</p>
+<p>依赖（项目的依赖工具）</p>
+<p>配置（那就是配置了）</p>
+<p>任务（可以运行项目、打包项目等）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220906488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>12、我们选择任务》server》运行，即可将项目运行起来</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220917331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>13、最后点击启动app即可看见我们自己创建的项目</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220928205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
 ]]></content>
       <categories>
         <category>前端</category>
       </categories>
       <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>冒泡排序</title>
-    <url>/2020/03/02/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
-<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
-<a id="more"></a>
-
-<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
-<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
-<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -944,49 +944,6 @@
       </categories>
       <tags>
         <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>日期对象</title>
-    <url>/2020/03/05/%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
-<a id="more"></a>
-
-<ul>
-<li><p>使用Date实例化日期对象</p>
-<ul>
-<li>获取当前时间必须实例化：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>获取指定时间的日期对象</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
-</li>
-<li><p>使用Date实例的方法和属性    </p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>通过Date实例获取总毫米数</p>
-<ul>
-<li><p>总毫秒数的含义</p>
-<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
-</li>
-<li><p>获取总毫秒数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -1122,6 +1079,49 @@
 </li>
 </ul>
 <h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>日期对象</title>
+    <url>/2020/03/05/%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
+<a id="more"></a>
+
+<ul>
+<li><p>使用Date实例化日期对象</p>
+<ul>
+<li>获取当前时间必须实例化：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取指定时间的日期对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
+</li>
+<li><p>使用Date实例的方法和属性    </p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+<li><p>通过Date实例获取总毫米数</p>
+<ul>
+<li><p>总毫秒数的含义</p>
+<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
+</li>
+<li><p>获取总毫秒数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>前端</category>
       </categories>
