@@ -1,56 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Math对象</title>
-    <url>/2020/03/05/Math%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>​        Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用 Math 中的成员。</p>
+    <title>创建vue脚手架</title>
+    <url>/2020/04/05/Vue-%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
+    <content><![CDATA[<p>Vue-cli</p>
+<p> vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。 </p>
 <a id="more"></a>
 
-<table>
-<thead>
-<tr>
-<th>属性、方法名</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Math.PI</td>
-<td>圆周率</td>
-</tr>
-<tr>
-<td>Math.floor()</td>
-<td>向下取整</td>
-</tr>
-<tr>
-<td>Math.ceil()</td>
-<td>向上取整</td>
-</tr>
-<tr>
-<td>Math.round()</td>
-<td>四舍五入版 就近取整   注意 -3.5   结果是  -3</td>
-</tr>
-<tr>
-<td>Math.abs()</td>
-<td>绝对值</td>
-</tr>
-<tr>
-<td>Math.max()/Math.min()</td>
-<td>求最大和最小值</td>
-</tr>
-<tr>
-<td>Math.random()</td>
-<td>获取范围在[0,1)内的随机值</td>
-</tr>
-</tbody></table>
-<p>​    注意：上面的方法使用时必须带括号</p>
-<p>​    <strong>获取指定范围内的随机整数</strong>：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandom</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1、首先保证全局安装@vue/cli工具 ，没有自行下载</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i @vue/cli -g</span><br></pre></td></tr></table></figure>
+
+<p>2、推荐下载yarn包管理器</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i yarn -g</span><br></pre></td></tr></table></figure>
+
+<p>3、接下来我们就可以在自己的电脑里创建项目，找到电脑某个位置，在此文件夹按住shift同时右键，在此处打开cmd命令窗口或者在此处打开powershell窗口</p>
+<p>4、打开窗口之后运行vue ui命令，此时就会打开ui图形界面</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>5、我们选择创建之后就会进入创建页面</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220705271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>6、点击在此处创建新项目，就会进入项目详情，详情里面，首先填写项目的名字，然后包管理器选择yarn，在填写初始会git默认注释</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220718747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>7、上面填写完毕后，点击下一步，会进入到选择默认配置还是手动配置，以及选择之前的预设，我们选择手动配置</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220731996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>8、选择完后继续点击下一步，选择功能，以下是所有功能介绍，我们可以先选择babel、router、Linter、使用配置文件，开发的时候一般css预处理、vuex也肯定要安装的</p>
+<p>babel （js高级转低级）</p>
+<p>TypeScript （js超级）</p>
+<p>Progressive Web App (PWA) Support （渐进式web应用）</p>
+<p>Router（路由）</p>
+<p>Vuex（状态管理工具）</p>
+<p>CSS Pre-processors（css预处理）</p>
+<p>Linter / Formatter（语法规范检查）</p>
+<p>Unit Testing、E2E Testing（测试方式）</p>
+<p>使用配置文件（配置项是存在单独配置文件）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220750625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220803343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<p>9、上面选择完后，继续点击下一步会进入到配置选项，此处第一个是 是否开启路由的history模式，我们不开启采用hash模式,eslint采用 ESLint + Standard config ，Pick additional lint features选择默认开启</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220817594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>10、选择完后，点击创建项目，会弹出是否存为预设，下一次直接使用，可以存个预设的名字，然后点击 保存预设并创建项目 即创建完毕</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220850644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>11、创建完毕后会进入到项目操作界面</p>
+<p>插件（项目用到的插件可以在这里安装）</p>
+<p>依赖（项目的依赖工具）</p>
+<p>配置（那就是配置了）</p>
+<p>任务（可以运行项目、打包项目等）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220906488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>12、我们选择任务》server》运行，即可将项目运行起来</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220917331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>13、最后点击启动app即可看见我们自己创建的项目</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220928205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
 ]]></content>
       <categories>
         <category>前端</category>
       </categories>
       <tags>
-        <tag>js</tag>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>显示模式</title>
+    <url>/2020/02/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
+
+<p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的块元素有<span class="tag">&lt;<span class="name">h1</span>&gt;</span>~<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">li</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
+
+<p>块级元素的特点</p>
+<p>（1）比较霸道，自己独占一行</p>
+<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
+<p>（3）宽度默认是容器（父级宽度）的100%</p>
+<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
+<p>注意：</p>
+<p>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </p>
+<p>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</p>
+<h4 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h4><p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的行内元素有<span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">b</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">del</span>&gt;</span>、<span class="tag">&lt;<span class="name">s</span>&gt;</span>、<span class="tag">&lt;<span class="name">ins</span>&gt;</span>、<span class="tag">&lt;<span class="name">u</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">span</span>&gt;</span>标签最典型的行内元素。有的地方也成内联元素</span><br></pre></td></tr></table></figure>
+
+<p>行内元素的特点：</p>
+<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
+<p>（2）高、宽直接设置是无效的。</p>
+<p>（3）默认宽度就是它本身内容的宽度。</p>
+<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
+<p>注意：</p>
+<p>链接里面不能再放链接。</p>
+<p>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全</p>
+<h4 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h4><p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——<span class="tag">&lt;<span class="name">img</span> /&gt;</span>、<span class="tag">&lt;<span class="name">input</span> /&gt;</span>、<span class="tag">&lt;<span class="name">td</span>&gt;</span>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br></pre></td></tr></table></figure>
+
+<p>行内块元素的特点：</p>
+<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
+<thead>
+<tr>
+<th>元素模式</th>
+<th>元素排列</th>
+<th>设置样式</th>
+<th>默认宽度</th>
+<th>包含</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>块级元素</td>
+<td>一行只能放一个块级元素</td>
+<td>可以设置宽度高度</td>
+<td>容器的100%</td>
+<td>容器级可以包含任何标签</td>
+</tr>
+<tr>
+<td>行内元素</td>
+<td>一行可以放多个行内元素</td>
+<td>不可以直接设置宽度高度</td>
+<td>它本身内容的宽度</td>
+<td>容纳文本或则其他行内元素</td>
+</tr>
+<tr>
+<td>行内块元素</td>
+<td>一行放多个行内块元素</td>
+<td>可以设置宽度和高度</td>
+<td>它本身内容的宽度</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
+<p>行内转块：display:block;</p>
+<p>块、行内元素转换为行内块： display: inline-block</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -160,137 +238,6 @@
 <p><strong>同时注意：</strong></p>
 <p>浮动元素、绝对定位(固定定位）元素的都不会触发外边距合并的问题。 （我们以前是用padding border overflow解决的）</p>
 <p>也就是说，我们给盒子改为了浮动或者定位，就不会有垂直外边距合并的问题了。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>三大特性</title>
-    <url>/2020/02/09/css-%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</url>
-    <content><![CDATA[<h3 id="CSS-三大特性"><a href="#CSS-三大特性" class="headerlink" title="CSS 三大特性"></a>CSS 三大特性</h3><h4 id="CSS层叠性"><a href="#CSS层叠性" class="headerlink" title="CSS层叠性"></a>CSS层叠性</h4> <a id="more"></a>![img](https://img-blog.csdnimg.cn/20200418150152214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70) 
-
-<p>概念：所谓层叠性是指多种CSS样式的叠加。</p>
-<p>原则：样式冲突，遵循的原则是<strong>就近原则。</strong> 那个样式离着结构近，就执行那个样式。</p>
-<h4 id="CSS继承性"><a href="#CSS继承性" class="headerlink" title="CSS继承性"></a>CSS继承性</h4><p><img src="https://img-blog.csdnimg.cn/20200418150247169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p>概念：子标签会继承父标签的某些样式，如文本颜色和字号。</p>
-<p> 想要设置一个可继承的属性，只需将它应用于父元素即可。</p>
-<p>简单的理解就是：  子承父业。</p>
-<h4 id="CSS优先级"><a href="#CSS优先级" class="headerlink" title="CSS优先级"></a>CSS优先级</h4><p> 选择器相同，则执行层叠性</p>
-<p>选择器不同，就会出现优先级的问题</p>
-<p><img src="https://img-blog.csdnimg.cn/20200418150227669.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p>权重计算公式</p>
-<table>
-<thead>
-<tr>
-<th>标签选择器</th>
-<th>计算权重公式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>继承或者 *</td>
-<td>0,0,0,0</td>
-</tr>
-<tr>
-<td>每个元素（标签选择器）</td>
-<td>0,0,0,1</td>
-</tr>
-<tr>
-<td>每个类，伪类</td>
-<td>0,0,1,0</td>
-</tr>
-<tr>
-<td>每个ID</td>
-<td>0,1,0,0</td>
-</tr>
-<tr>
-<td>每个行内样式 style=””</td>
-<td>1,0,0,0</td>
-</tr>
-<tr>
-<td>每个!important  重要的</td>
-<td>∞ 无穷大</td>
-</tr>
-</tbody></table>
-<p>继承的权重是0</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>显示模式</title>
-    <url>/2020/02/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
-
-<p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的块元素有<span class="tag">&lt;<span class="name">h1</span>&gt;</span>~<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">li</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
-
-<p>块级元素的特点</p>
-<p>（1）比较霸道，自己独占一行</p>
-<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
-<p>（3）宽度默认是容器（父级宽度）的100%</p>
-<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
-<p>注意：</p>
-<p>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </p>
-<p>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</p>
-<h4 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h4><p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的行内元素有<span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">b</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">del</span>&gt;</span>、<span class="tag">&lt;<span class="name">s</span>&gt;</span>、<span class="tag">&lt;<span class="name">ins</span>&gt;</span>、<span class="tag">&lt;<span class="name">u</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">span</span>&gt;</span>标签最典型的行内元素。有的地方也成内联元素</span><br></pre></td></tr></table></figure>
-
-<p>行内元素的特点：</p>
-<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
-<p>（2）高、宽直接设置是无效的。</p>
-<p>（3）默认宽度就是它本身内容的宽度。</p>
-<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
-<p>注意：</p>
-<p>链接里面不能再放链接。</p>
-<p>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全</p>
-<h4 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h4><p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——<span class="tag">&lt;<span class="name">img</span> /&gt;</span>、<span class="tag">&lt;<span class="name">input</span> /&gt;</span>、<span class="tag">&lt;<span class="name">td</span>&gt;</span>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br></pre></td></tr></table></figure>
-
-<p>行内块元素的特点：</p>
-<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
-<thead>
-<tr>
-<th>元素模式</th>
-<th>元素排列</th>
-<th>设置样式</th>
-<th>默认宽度</th>
-<th>包含</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>块级元素</td>
-<td>一行只能放一个块级元素</td>
-<td>可以设置宽度高度</td>
-<td>容器的100%</td>
-<td>容器级可以包含任何标签</td>
-</tr>
-<tr>
-<td>行内元素</td>
-<td>一行可以放多个行内元素</td>
-<td>不可以直接设置宽度高度</td>
-<td>它本身内容的宽度</td>
-<td>容纳文本或则其他行内元素</td>
-</tr>
-<tr>
-<td>行内块元素</td>
-<td>一行放多个行内块元素</td>
-<td>可以设置宽度和高度</td>
-<td>它本身内容的宽度</td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
-<p>行内转块：display:block;</p>
-<p>块、行内元素转换为行内块： display: inline-block</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -566,8 +513,261 @@
       </tags>
   </entry>
   <entry>
+    <title>选择器及权重</title>
+    <url>/2020/02/07/css-%E9%80%89%E6%8B%A9%E5%99%A8%E5%92%8C%E6%9D%83%E9%87%8D/</url>
+    <content><![CDATA[<h1 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h1><h3 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h3><h4 id="选择器的作用"><a href="#选择器的作用" class="headerlink" title="选择器的作用"></a>选择器的作用</h4><p>​    找到特定的HTML页面元素</p>
+<a id="more"></a>
+
+<h4 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h4><ul>
+<li><p>概念：</p>
+<p>标签选择器（元素选择器）是指用<strong>HTML标签名</strong>称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式。</p>
+</li>
+<li><p>语法：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>作用：</p>
+<p>标签选择器 可以把某一类标签<strong>全部</strong>选择出来  比如所有的div标签  和 所有的 span标签</p>
+</li>
+<li><p>优点：</p>
+<p>是能快速为页面中同类型的标签统一样式</p>
+</li>
+<li><p>缺点：</p>
+<p>不能设计差异化样式。</p>
+</li>
+</ul>
+<h4 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h4><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名.</p>
+<ul>
+<li><p>语法：</p>
+<ul>
+<li>类名选择器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.类名  &#123;   </span><br><span class="line">    属性1:属性值1; </span><br><span class="line">    属性2:属性值2; </span><br><span class="line">    属性3:属性值3;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>标签</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p class&#x3D;&#39;类名&#39;&gt;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>优点：</p>
+<ul>
+<li>可以为元素对象定义单独或相同的样式。 可以选择一个或者多个标签 </li>
+</ul>
+</li>
+<li><p>注意</p>
+<ul>
+<li>类选择器使用“.”（英文点号）进行标识，后面紧跟类名(自定义，我们自己命名的)</li>
+<li>长名称或词组可以使用中横线来为选择器命名。</li>
+<li>不要纯数字、中文等命名， 尽量使用英文字母来表示。</li>
+</ul>
+</li>
+</ul>
+<h5 id="类选择器特殊用法-多类名"><a href="#类选择器特殊用法-多类名" class="headerlink" title="类选择器特殊用法- 多类名"></a>类选择器特殊用法- 多类名</h5><ul>
+<li>各个类名中间用空格隔开。</li>
+<li>多类名选择器在后期布局比较复杂的情况下，还是较多使用的。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pink fontWeight font20"</span>&gt;</span>亚瑟<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font20"</span>&gt;</span>刘备<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font14 pink"</span>&gt;</span>安其拉<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font14"</span>&gt;</span>貂蝉<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h4><p>id选择器使用<code>#</code>进行标识，后面紧跟id名</p>
+<ul>
+<li><p>其基本语法格式如下：</p>
+<ul>
+<li><p>id选择器</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#id名 &#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>标签</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p id&#x3D;&quot;id名&quot;&gt;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>元素的id值是唯一的，只能对应于文档中某一个具体的元素。</p>
+</li>
+<li><p>用法基本和类选择器相同。</p>
+</li>
+</ul>
+<h4 id="id选择器和类选择器区别"><a href="#id选择器和类选择器区别" class="headerlink" title="id选择器和类选择器区别"></a>id选择器和类选择器区别</h4><ul>
+<li>W3C标准规定，在同一个页面内，不允许有相同名字的id对象出现，但是允许相同名字的class。<ul>
+<li>类选择器（class） 好比人的名字，  是可以多次重复使用的， 比如  张伟  王伟  李伟  李娜</li>
+<li>id选择器     好比人的身份证号码，  全中国是唯一的， 不得重复。 只能使用一次。</li>
+</ul>
+</li>
+</ul>
+<p><strong><em>id选择器和类选择器最大的不同在于 使用次数上。</em></strong></p>
+<h4 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h4><ul>
+<li><p>概念</p>
+<p>通配符选择器用<code>*</code>号表示，  *   就是 选择所有的标签      他是所有选择器中作用范围最广的，能匹配页面中所有的元素。</p>
+</li>
+<li><p>其基本语法格式如下：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* &#123; 属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如下面的代码，使用通配符选择器定义CSS样式，清除所有HTML标记的默认边距。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;                    <span class="comment">/* 定义外边距*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;                   <span class="comment">/* 定义内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>注意：</p>
+<p>会匹配页面所有的元素，降低页面响应速度，不建议随便使用</p>
+</li>
+</ul>
+<h4 id="基础选择器总结"><a href="#基础选择器总结" class="headerlink" title="基础选择器总结"></a>基础选择器总结</h4><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>作用</th>
+<th>缺点</th>
+<th>使用情况</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标签选择器</td>
+<td>可以选出所有相同的标签，比如p</td>
+<td>不能差异化选择</td>
+<td>较多</td>
+<td>p { color：red;}</td>
+</tr>
+<tr>
+<td>类选择器</td>
+<td>可以选出1个或者多个标签</td>
+<td>可以根据需求选择</td>
+<td>非常多</td>
+<td>.nav { color: red; }</td>
+</tr>
+<tr>
+<td>id选择器</td>
+<td>一次只能选择器1个标签</td>
+<td>只能使用一次</td>
+<td>不推荐使用</td>
+<td>#nav {color: red;}</td>
+</tr>
+<tr>
+<td>通配符选择器</td>
+<td>选择所有的标签</td>
+<td>选择的太多，有部分不需要</td>
+<td>不推荐使用</td>
+<td>* {color: red;}</td>
+</tr>
+</tbody></table>
+<h3 id="复合选择器"><a href="#复合选择器" class="headerlink" title="复合选择器"></a>复合选择器</h3><p> CSS选择器分为 基础选择器 和 复合选择器 ，但是基础选择器不能满足我们实际开发中，快速高效的选择标签。</p>
+<ul>
+<li><p>目的是为了可以选择更准确更精细的目标元素标签。</p>
+</li>
+<li><p>复合选择器是由两个或多个基础选择器，通过不同的方式组合而成的</p>
+</li>
+</ul>
+<h4 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h4><p>作用：用来选择元素或元素组的<strong>子孙后代</strong></p>
+<p>其写法就是把外层标签写在前面，内层标签写在后面，中间用<strong>空格</strong>分隔，先写父亲爷爷，在写儿子孙子。 </p>
+<p>语法：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">父级 子级&#123;属性:属性值;属性:属性值;&#125;</span><br><span class="line"></span><br><span class="line">.class h3&#123;color:red;font-size:16px;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h4><p>作用：子元素选择器只能选择作为某元素<strong>子元素(亲儿子)</strong>的元素</p>
+<p>其写法就是把父级标签写在前面，子级标签写在后面，中间跟一个 <code>&gt;</code> 进行连接</p>
+<p>语法：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.class&gt;h3&#123;color:red;font-size:14px;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="交集选择器"><a href="#交集选择器" class="headerlink" title="交集选择器"></a>交集选择器</h4><p>交集选择器 是 并且的意思。  即…又…的意思</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如：   p.one   选择的是： 类名为 .one  的 段落标签。</span><br></pre></td></tr></table></figure>
+
+<h4 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a>并集选择器</h4><p>并集选择器通常用于集体声明  ，逗号隔开的，所有选择器都会执行后面样式，逗号可以理解为 和的意思。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如  .one, p , #test &#123;color: #F00;&#125;  </span><br><span class="line">表示   .one 和 p  和 #test 这三个选择器都会执行颜色为红色。 </span><br><span class="line">通常用于集体声明。</span><br></pre></td></tr></table></figure>
+
+<h4 id="链接伪类选择器"><a href="#链接伪类选择器" class="headerlink" title="链接伪类选择器"></a>链接伪类选择器</h4><p>a:link      /* 未访问的链接 *</p>
+<p>a:visited   /* 已访问的链接 */</p>
+<p>a:hover     /* 鼠标移动到链接上 */</p>
+<p>a:active    /* 选定的链接 */</p>
+<p>input：focus  表单获得焦点</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>作用</th>
+<th>特征</th>
+<th>使用情况</th>
+<th>隔开符号及用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>后代选择器</td>
+<td>用来选择元素后代</td>
+<td>是选择所有的子孙后代</td>
+<td>较多</td>
+<td>符号是<strong>空格</strong> .nav a</td>
+</tr>
+<tr>
+<td>子代选择器</td>
+<td>选择 最近一级元素</td>
+<td>只选亲儿子</td>
+<td>较少</td>
+<td>符号是<strong>&gt;</strong>   .nav&gt;p</td>
+</tr>
+<tr>
+<td>交集选择器</td>
+<td>选择两个标签交集的部分</td>
+<td>既是 又是</td>
+<td>较少</td>
+<td><strong>没有符号</strong>  p.one</td>
+</tr>
+<tr>
+<td>并集选择器</td>
+<td>选择某些相同样式的选择器</td>
+<td>可以用于集体声明</td>
+<td>较多</td>
+<td>符号是<strong>逗号</strong> .nav, .header</td>
+</tr>
+<tr>
+<td>链接伪类选择器</td>
+<td>给链接更改状态</td>
+<td></td>
+<td>较多</td>
+<td>重点记住 a{} 和 a:hover  实际开发的写法</td>
+</tr>
+</tbody></table>
+<h3 id="选择器权重"><a href="#选择器权重" class="headerlink" title="选择器权重"></a>选择器权重</h3><h5 id="权重计算公式"><a href="#权重计算公式" class="headerlink" title="权重计算公式"></a>权重计算公式</h5><table>
+<thead>
+<tr>
+<th>标签选择器</th>
+<th>计算权重公式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>继承或者 *</td>
+<td>0,0,0,0</td>
+</tr>
+<tr>
+<td>每个元素（标签选择器）</td>
+<td>0,0,0,1</td>
+</tr>
+<tr>
+<td>每个类，伪类</td>
+<td>0,0,1,0</td>
+</tr>
+<tr>
+<td>每个ID</td>
+<td>0,1,0,0</td>
+</tr>
+<tr>
+<td>每个行内样式 style=””</td>
+<td>1,0,0,0</td>
+</tr>
+<tr>
+<td>每个!important  重要的</td>
+<td>∞ 无穷大</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>flex</title>
-    <url>/2020/02/26/flex%E5%B8%83%E5%B1%80/</url>
+    <url>/2020/02/26/css3-flex%E5%B8%83%E5%B1%80/</url>
     <content><![CDATA[<h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><p>操作方便，布局极其简单，移动端使用比较广泛  </p>
 <p>pc端浏览器支持情况比较差</p>
 <h5 id="总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"><a href="#总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式" class="headerlink" title="总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"></a><strong>总结</strong>：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式</h5><a id="more"></a>
@@ -632,23 +832,50 @@
       </tags>
   </entry>
   <entry>
-    <title>冒泡排序</title>
-    <url>/2020/03/02/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
-<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
+    <title>Math对象</title>
+    <url>/2020/03/05/js-Math%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>​        Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用 Math 中的成员。</p>
 <a id="more"></a>
 
-<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
-<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
-<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<table>
+<thead>
+<tr>
+<th>属性、方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Math.PI</td>
+<td>圆周率</td>
+</tr>
+<tr>
+<td>Math.floor()</td>
+<td>向下取整</td>
+</tr>
+<tr>
+<td>Math.ceil()</td>
+<td>向上取整</td>
+</tr>
+<tr>
+<td>Math.round()</td>
+<td>四舍五入版 就近取整   注意 -3.5   结果是  -3</td>
+</tr>
+<tr>
+<td>Math.abs()</td>
+<td>绝对值</td>
+</tr>
+<tr>
+<td>Math.max()/Math.min()</td>
+<td>求最大和最小值</td>
+</tr>
+<tr>
+<td>Math.random()</td>
+<td>获取范围在[0,1)内的随机值</td>
+</tr>
+</tbody></table>
+<p>​    注意：上面的方法使用时必须带括号</p>
+<p>​    <strong>获取指定范围内的随机整数</strong>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandom</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -658,297 +885,8 @@
       </tags>
   </entry>
   <entry>
-    <title>基础选择器</title>
-    <url>/2020/02/07/%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="CSS基础选择器"><a href="#CSS基础选择器" class="headerlink" title="CSS基础选择器"></a>CSS基础选择器</h1><h3 id="选择器的作用"><a href="#选择器的作用" class="headerlink" title="选择器的作用"></a>选择器的作用</h3><p>​    找到特定的HTML页面元素</p>
-<a id="more"></a>
-
-<h3 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h3><ul>
-<li><p>概念：</p>
-<p>标签选择器（元素选择器）是指用<strong>HTML标签名</strong>称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式。</p>
-</li>
-<li><p>语法：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>作用：</p>
-<p>标签选择器 可以把某一类标签<strong>全部</strong>选择出来  比如所有的div标签  和 所有的 span标签</p>
-</li>
-<li><p>优点：</p>
-<p>是能快速为页面中同类型的标签统一样式</p>
-</li>
-<li><p>缺点：</p>
-<p>不能设计差异化样式。</p>
-</li>
-</ul>
-<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名.</p>
-<ul>
-<li><p>语法：</p>
-<ul>
-<li>类名选择器</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.类名  &#123;   </span><br><span class="line">    属性1:属性值1; </span><br><span class="line">    属性2:属性值2; </span><br><span class="line">    属性3:属性值3;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>标签</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p class&#x3D;&#39;类名&#39;&gt;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>优点：</p>
-<ul>
-<li>可以为元素对象定义单独或相同的样式。 可以选择一个或者多个标签 </li>
-</ul>
-</li>
-<li><p>注意</p>
-<ul>
-<li>类选择器使用“.”（英文点号）进行标识，后面紧跟类名(自定义，我们自己命名的)</li>
-<li>长名称或词组可以使用中横线来为选择器命名。</li>
-<li>不要纯数字、中文等命名， 尽量使用英文字母来表示。</li>
-</ul>
-</li>
-</ul>
-<h5 id="类选择器特殊用法-多类名"><a href="#类选择器特殊用法-多类名" class="headerlink" title="类选择器特殊用法- 多类名"></a>类选择器特殊用法- 多类名</h5><ul>
-<li>各个类名中间用空格隔开。</li>
-<li>多类名选择器在后期布局比较复杂的情况下，还是较多使用的。</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pink fontWeight font20"</span>&gt;</span>亚瑟<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font20"</span>&gt;</span>刘备<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font14 pink"</span>&gt;</span>安其拉<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font14"</span>&gt;</span>貂蝉<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h3><p>id选择器使用<code>#</code>进行标识，后面紧跟id名</p>
-<ul>
-<li><p>其基本语法格式如下：</p>
-<ul>
-<li><p>id选择器</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#id名 &#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>标签</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p id&#x3D;&quot;id名&quot;&gt;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>元素的id值是唯一的，只能对应于文档中某一个具体的元素。</p>
-</li>
-<li><p>用法基本和类选择器相同。</p>
-</li>
-</ul>
-<h4 id="id选择器和类选择器区别"><a href="#id选择器和类选择器区别" class="headerlink" title="id选择器和类选择器区别"></a>id选择器和类选择器区别</h4><ul>
-<li>W3C标准规定，在同一个页面内，不允许有相同名字的id对象出现，但是允许相同名字的class。<ul>
-<li>类选择器（class） 好比人的名字，  是可以多次重复使用的， 比如  张伟  王伟  李伟  李娜</li>
-<li>id选择器     好比人的身份证号码，  全中国是唯一的， 不得重复。 只能使用一次。</li>
-</ul>
-</li>
-</ul>
-<p><strong><em>id选择器和类选择器最大的不同在于 使用次数上。</em></strong></p>
-<h3 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h3><ul>
-<li><p>概念</p>
-<p>通配符选择器用<code>*</code>号表示，  *   就是 选择所有的标签      他是所有选择器中作用范围最广的，能匹配页面中所有的元素。</p>
-</li>
-<li><p>其基本语法格式如下：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* &#123; 属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>例如下面的代码，使用通配符选择器定义CSS样式，清除所有HTML标记的默认边距。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;                    <span class="comment">/* 定义外边距*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;                   <span class="comment">/* 定义内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>注意：</p>
-<p>会匹配页面所有的元素，降低页面响应速度，不建议随便使用</p>
-</li>
-</ul>
-<h3 id="2-7-基础选择器总结"><a href="#2-7-基础选择器总结" class="headerlink" title="2.7 基础选择器总结"></a>2.7 基础选择器总结</h3><table>
-<thead>
-<tr>
-<th>选择器</th>
-<th>作用</th>
-<th>缺点</th>
-<th>使用情况</th>
-<th>用法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>标签选择器</td>
-<td>可以选出所有相同的标签，比如p</td>
-<td>不能差异化选择</td>
-<td>较多</td>
-<td>p { color：red;}</td>
-</tr>
-<tr>
-<td>类选择器</td>
-<td>可以选出1个或者多个标签</td>
-<td>可以根据需求选择</td>
-<td>非常多</td>
-<td>.nav { color: red; }</td>
-</tr>
-<tr>
-<td>id选择器</td>
-<td>一次只能选择器1个标签</td>
-<td>只能使用一次</td>
-<td>不推荐使用</td>
-<td>#nav {color: red;}</td>
-</tr>
-<tr>
-<td>通配符选择器</td>
-<td>选择所有的标签</td>
-<td>选择的太多，有部分不需要</td>
-<td>不推荐使用</td>
-<td>* {color: red;}</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>创建vue脚手架</title>
-    <url>/2020/04/05/%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
-    <content><![CDATA[<p>Vue-cli</p>
-<p> vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。 </p>
-<a id="more"></a>
-
-<p>1、首先保证全局安装@vue/cli工具 ，没有自行下载</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i @vue/cli -g</span><br></pre></td></tr></table></figure>
-
-<p>2、推荐下载yarn包管理器</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i yarn -g</span><br></pre></td></tr></table></figure>
-
-<p>3、接下来我们就可以在自己的电脑里创建项目，找到电脑某个位置，在此文件夹按住shift同时右键，在此处打开cmd命令窗口或者在此处打开powershell窗口</p>
-<p>4、打开窗口之后运行vue ui命令，此时就会打开ui图形界面</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>5、我们选择创建之后就会进入创建页面</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220705271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>6、点击在此处创建新项目，就会进入项目详情，详情里面，首先填写项目的名字，然后包管理器选择yarn，在填写初始会git默认注释</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220718747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>7、上面填写完毕后，点击下一步，会进入到选择默认配置还是手动配置，以及选择之前的预设，我们选择手动配置</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220731996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>8、选择完后继续点击下一步，选择功能，以下是所有功能介绍，我们可以先选择babel、router、Linter、使用配置文件，开发的时候一般css预处理、vuex也肯定要安装的</p>
-<p>babel （js高级转低级）</p>
-<p>TypeScript （js超级）</p>
-<p>Progressive Web App (PWA) Support （渐进式web应用）</p>
-<p>Router（路由）</p>
-<p>Vuex（状态管理工具）</p>
-<p>CSS Pre-processors（css预处理）</p>
-<p>Linter / Formatter（语法规范检查）</p>
-<p>Unit Testing、E2E Testing（测试方式）</p>
-<p>使用配置文件（配置项是存在单独配置文件）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220750625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220803343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p>9、上面选择完后，继续点击下一步会进入到配置选项，此处第一个是 是否开启路由的history模式，我们不开启采用hash模式,eslint采用 ESLint + Standard config ，Pick additional lint features选择默认开启</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220817594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>10、选择完后，点击创建项目，会弹出是否存为预设，下一次直接使用，可以存个预设的名字，然后点击 保存预设并创建项目 即创建完毕</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220850644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>11、创建完毕后会进入到项目操作界面</p>
-<p>插件（项目用到的插件可以在这里安装）</p>
-<p>依赖（项目的依赖工具）</p>
-<p>配置（那就是配置了）</p>
-<p>任务（可以运行项目、打包项目等）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220906488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>12、我们选择任务》server》运行，即可将项目运行起来</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220917331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>13、最后点击启动app即可看见我们自己创建的项目</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220928205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>复合选择器</title>
-    <url>/2020/02/08/%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8/</url>
-    <content><![CDATA[<h3 id="复合选择器"><a href="#复合选择器" class="headerlink" title="复合选择器"></a>复合选择器</h3><p> CSS选择器分为 基础选择器 和 复合选择器 ，但是基础选择器不能满足我们实际开发中，快速高效的选择标签。</p>
-<ul>
-<li><p>目的是为了可以选择更准确更精细的目标元素标签。</p>
-</li>
-<li><p>复合选择器是由两个或多个基础选择器，通过不同的方式组合而成的</p>
-<a id="more"></a>
-
-</li>
-</ul>
-<h4 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h4><p>作用：用来选择元素或元素组的<strong>子孙后代</strong></p>
-<p>其写法就是把外层标签写在前面，内层标签写在后面，中间用<strong>空格</strong>分隔，先写父亲爷爷，在写儿子孙子。 </p>
-<p>语法：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">父级 子级&#123;属性:属性值;属性:属性值;&#125;</span><br><span class="line"></span><br><span class="line">.class h3&#123;color:red;font-size:16px;&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h4><p>作用：子元素选择器只能选择作为某元素<strong>子元素(亲儿子)</strong>的元素</p>
-<p>其写法就是把父级标签写在前面，子级标签写在后面，中间跟一个 <code>&gt;</code> 进行连接</p>
-<p>语法：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.class&gt;h3&#123;color:red;font-size:14px;&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="交集选择器"><a href="#交集选择器" class="headerlink" title="交集选择器"></a>交集选择器</h4><p>交集选择器 是 并且的意思。  即…又…的意思</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如：   p.one   选择的是： 类名为 .one  的 段落标签。</span><br></pre></td></tr></table></figure>
-
-<h4 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a>并集选择器</h4><p>并集选择器通常用于集体声明  ，逗号隔开的，所有选择器都会执行后面样式，逗号可以理解为 和的意思。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">比如  .one, p , #test &#123;color: #F00;&#125;  </span><br><span class="line">表示   .one 和 p  和 #test 这三个选择器都会执行颜色为红色。 </span><br><span class="line">通常用于集体声明。</span><br></pre></td></tr></table></figure>
-
-<h4 id="链接伪类选择器"><a href="#链接伪类选择器" class="headerlink" title="链接伪类选择器"></a>链接伪类选择器</h4><p>a:link      /* 未访问的链接 *</p>
-<p>a:visited   /* 已访问的链接 */</p>
-<p>a:hover     /* 鼠标移动到链接上 */</p>
-<p>a:active    /* 选定的链接 */</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
-<thead>
-<tr>
-<th>选择器</th>
-<th>作用</th>
-<th>特征</th>
-<th>使用情况</th>
-<th>隔开符号及用法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>后代选择器</td>
-<td>用来选择元素后代</td>
-<td>是选择所有的子孙后代</td>
-<td>较多</td>
-<td>符号是<strong>空格</strong> .nav a</td>
-</tr>
-<tr>
-<td>子代选择器</td>
-<td>选择 最近一级元素</td>
-<td>只选亲儿子</td>
-<td>较少</td>
-<td>符号是<strong>&gt;</strong>   .nav&gt;p</td>
-</tr>
-<tr>
-<td>交集选择器</td>
-<td>选择两个标签交集的部分</td>
-<td>既是 又是</td>
-<td>较少</td>
-<td><strong>没有符号</strong>  p.one</td>
-</tr>
-<tr>
-<td>并集选择器</td>
-<td>选择某些相同样式的选择器</td>
-<td>可以用于集体声明</td>
-<td>较多</td>
-<td>符号是<strong>逗号</strong> .nav, .header</td>
-</tr>
-<tr>
-<td>链接伪类选择器</td>
-<td>给链接更改状态</td>
-<td></td>
-<td>较多</td>
-<td>重点记住 a{} 和 a:hover  实际开发的写法</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>字符串对象</title>
-    <url>/2020/03/05/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/</url>
+    <url>/2020/03/05/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h3 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h3><h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>​        为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
 <p>​        基本包装类型就是把简单数据类型包装成为复杂数据类型，这样基本数据类型就有了属性和方法。</p>
 <a id="more"></a>
@@ -1000,8 +938,77 @@
       </tags>
   </entry>
   <entry>
+    <title>冒泡排序</title>
+    <url>/2020/03/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
+<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
+<a id="more"></a>
+
+<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
+<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
+<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>日期对象</title>
+    <url>/2020/03/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
+<a id="more"></a>
+
+<ul>
+<li><p>使用Date实例化日期对象</p>
+<ul>
+<li>获取当前时间必须实例化：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取指定时间的日期对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
+</li>
+<li><p>使用Date实例的方法和属性    </p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+<li><p>通过Date实例获取总毫米数</p>
+<ul>
+<li><p>总毫秒数的含义</p>
+<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
+</li>
+<li><p>获取总毫秒数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数组对象</title>
-    <url>/2020/03/05/%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1/</url>
+    <url>/2020/03/05/js-%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h3 id="数组对象"><a href="#数组对象" class="headerlink" title="数组对象"></a>数组对象</h3><h4 id="创建数组的两种方式"><a href="#创建数组的两种方式" class="headerlink" title="创建数组的两种方式"></a>创建数组的两种方式</h4><a id="more"></a>
 
 <ul>
@@ -1079,49 +1086,6 @@
 </li>
 </ul>
 <h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>日期对象</title>
-    <url>/2020/03/05/%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
-<a id="more"></a>
-
-<ul>
-<li><p>使用Date实例化日期对象</p>
-<ul>
-<li>获取当前时间必须实例化：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>获取指定时间的日期对象</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
-</li>
-<li><p>使用Date实例的方法和属性    </p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>通过Date实例获取总毫米数</p>
-<ul>
-<li><p>总毫秒数的含义</p>
-<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
-</li>
-<li><p>获取总毫秒数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
       <categories>
         <category>前端</category>
       </categories>

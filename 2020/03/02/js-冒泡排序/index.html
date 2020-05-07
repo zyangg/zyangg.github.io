@@ -20,24 +20,22 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="flex布局特点：操作方便，布局极其简单，移动端使用比较广泛   pc端浏览器支持情况比较差 总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式">
+  <meta name="description" content="冒泡排序原理：1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。 2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flex">
-<meta property="og:url" content="http://yoursite.com/2020/02/26/flex%E5%B8%83%E5%B1%80/index.html">
+<meta property="og:title" content="冒泡排序">
+<meta property="og:url" content="http://yoursite.com/2020/03/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
-<meta property="og:description" content="flex布局特点：操作方便，布局极其简单，移动端使用比较广泛   pc端浏览器支持情况比较差 总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式">
+<meta property="og:description" content="冒泡排序原理：1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。 2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200419115418609.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200419115425642.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200419115434727.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-02-26T03:46:42.000Z">
-<meta property="article:modified_time" content="2020-05-07T05:41:09.137Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-03-02T01:48:14.000Z">
+<meta property="article:modified_time" content="2020-05-07T04:41:36.368Z">
 <meta property="article:author" content="zyangg">
-<meta property="article:tag" content="布局">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200419115418609.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="http://yoursite.com/2020/02/26/flex%E5%B8%83%E5%B1%80/">
+<link rel="canonical" href="http://yoursite.com/2020/03/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
 
 
 <script id="page-configurations">
@@ -50,7 +48,7 @@
   };
 </script>
 
-  <title>flex | zyangg的个人博客</title>
+  <title>冒泡排序 | zyangg的个人博客</title>
   
 
 
@@ -194,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/26/flex%E5%B8%83%E5%B1%80/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
@@ -207,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          flex
+          冒泡排序
         </h1>
 
         <div class="post-meta">
@@ -217,14 +215,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-02-26 11:46:42" itemprop="dateCreated datePublished" datetime="2020-02-26T11:46:42+08:00">2020-02-26</time>
+              <time title="创建时间：2020-03-02 09:48:14" itemprop="dateCreated datePublished" datetime="2020-03-02T09:48:14+08:00">2020-03-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-07 13:41:09" itemprop="dateModified" datetime="2020-05-07T13:41:09+08:00">2020-05-07</time>
+                <time title="修改时间：2020-05-07 12:41:36" itemprop="dateModified" datetime="2020-05-07T12:41:36+08:00">2020-05-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,8 +250,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/02/26/flex%E5%B8%83%E5%B1%80/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/26/flex%E5%B8%83%E5%B1%80/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -263,7 +261,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>656</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -282,60 +280,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><p>操作方便，布局极其简单，移动端使用比较广泛  </p>
-<p>pc端浏览器支持情况比较差</p>
-<h5 id="总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"><a href="#总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式" class="headerlink" title="总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"></a><strong>总结</strong>：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式</h5><a id="more"></a>
+        <h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
+<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
+<a id="more"></a>
 
-<h4 id="父项常见属性"><a href="#父项常见属性" class="headerlink" title="父项常见属性"></a>父项常见属性</h4><ul>
-<li><p>flex-direction：设置主轴的方向</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200419115418609.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>justify-content：设置主轴上的子元素排列方式</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200419115425642.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>flex-wrap：设置子元素是否换行  </p>
-<ul>
-<li>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，flex布局中默认是不换行的。</li>
-<li>nowrap 不换行</li>
-<li>wrap 换行</li>
-</ul>
-</li>
-<li><p>align-content：设置侧轴上的子元素的排列方式（多行）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200419115434727.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>align-items：设置侧轴上的子元素排列方式（单行）</p>
-<p> flex-start 从头部开始</p>
-<p>flex-end 从尾部开始</p>
-<p>center 居中显示</p>
-<p>stretch 拉伸</p>
-</li>
-<li><p>flex-flow：复合属性，相当于同时设置了 flex-direction 和 flex-wrap</p>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex-flow:row wrap;</span><br></pre></td></tr></table></figure>
-
-<h2 id="flex布局子项常见属性"><a href="#flex布局子项常见属性" class="headerlink" title="flex布局子项常见属性"></a>flex布局子项常见属性</h2><ul>
-<li><p>flex子项目占的份数</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">    flex: <span class="tag">&lt;<span class="name">number</span>&gt;</span>; /* 默认值 0 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
+<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
+<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
 
 
 
-</li>
-</ul>
-<ul>
-<li><p>align-self控制子项自己在侧轴的排列方式</p>
- <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">span:nth-child(2) &#123;</span><br><span class="line">      /* 设置自己在侧轴上的排列方式 */</span><br><span class="line">      align-self: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
 
-
-
-</li>
-</ul>
-<ul>
-<li>order属性定义子项的排列顺序（前后顺序）</li>
-</ul>
-<p>​      数值越小，排列越靠前，默认为0。</p>
-<p>​       注意：和 z-index 不一样。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">    order: <span class="tag">&lt;<span class="name">number</span>&gt;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -346,7 +304,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%B8%83%E5%B1%80/" rel="tag"># 布局</a>
+              <a href="/tags/js/" rel="tag"># js</a>
           </div>
 
         
@@ -355,12 +313,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/02/12/css-%E5%AE%9A%E4%BD%8D/" rel="prev" title="定位">
-      <i class="fa fa-chevron-left"></i> 定位
+    <a href="/2020/02/26/css3-flex%E5%B8%83%E5%B1%80/" rel="prev" title="flex">
+      <i class="fa fa-chevron-left"></i> flex
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/03/02/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" rel="next" title="冒泡排序">
-      冒泡排序 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/03/05/js-Math%E5%AF%B9%E8%B1%A1/" rel="next" title="Math对象">
+      Math对象 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -421,7 +379,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#flex布局"><span class="nav-number">1.</span> <span class="nav-text">flex布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">特点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父项常见属性"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">父项常见属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flex布局子项常见属性"><span class="nav-number">1.1.</span> <span class="nav-text">flex布局子项常见属性</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序原理："><span class="nav-number">1.</span> <span class="nav-text">冒泡排序原理：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><span class="nav-number">1.1.</span> <span class="nav-text">白话就是：比如有6个数，你需要比较5趟，这个是固定死的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#但是每一趟比较的次数，是递减的"><span class="nav-number">1.2.</span> <span class="nav-text">但是每一趟比较的次数，是递减的</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码："><span class="nav-number">2.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原理示意图"><span class="nav-number">3.</span> <span class="nav-text">原理示意图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#封装成函数"><span class="nav-number">4.</span> <span class="nav-text">封装成函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#判断冒泡的时候，是不是数组，数组是否为空"><span class="nav-number">4.1.</span> <span class="nav-text">判断冒泡的时候，是不是数组，数组是否为空</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -437,7 +395,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -504,7 +462,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">14k</span>
+    <span title="站点总字数">13k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

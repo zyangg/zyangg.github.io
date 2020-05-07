@@ -20,20 +20,24 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="CSS基础选择器选择器的作用​    找到特定的HTML页面元素">
+  <meta name="description" content="flex布局特点：操作方便，布局极其简单，移动端使用比较广泛   pc端浏览器支持情况比较差 总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基础选择器">
-<meta property="og:url" content="http://yoursite.com/2020/02/07/%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8/index.html">
+<meta property="og:title" content="flex">
+<meta property="og:url" content="http://yoursite.com/2020/02/26/css3-flex%E5%B8%83%E5%B1%80/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
-<meta property="og:description" content="CSS基础选择器选择器的作用​    找到特定的HTML页面元素">
+<meta property="og:description" content="flex布局特点：操作方便，布局极其简单，移动端使用比较广泛   pc端浏览器支持情况比较差 总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-02-07T05:51:23.000Z">
-<meta property="article:modified_time" content="2020-05-07T05:27:27.636Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200419115418609.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200419115425642.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200419115434727.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-02-26T03:46:42.000Z">
+<meta property="article:modified_time" content="2020-05-07T05:41:09.137Z">
 <meta property="article:author" content="zyangg">
-<meta property="article:tag" content="css">
+<meta property="article:tag" content="布局">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200419115418609.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="http://yoursite.com/2020/02/07/%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8/">
+<link rel="canonical" href="http://yoursite.com/2020/02/26/css3-flex%E5%B8%83%E5%B1%80/">
 
 
 <script id="page-configurations">
@@ -46,7 +50,7 @@
   };
 </script>
 
-  <title>基础选择器 | zyangg的个人博客</title>
+  <title>flex | zyangg的个人博客</title>
   
 
 
@@ -190,7 +194,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/07/%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/26/css3-flex%E5%B8%83%E5%B1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
@@ -203,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          基础选择器
+          flex
         </h1>
 
         <div class="post-meta">
@@ -213,14 +217,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-02-07 13:51:23" itemprop="dateCreated datePublished" datetime="2020-02-07T13:51:23+08:00">2020-02-07</time>
+              <time title="创建时间：2020-02-26 11:46:42" itemprop="dateCreated datePublished" datetime="2020-02-26T11:46:42+08:00">2020-02-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-07 13:27:27" itemprop="dateModified" datetime="2020-05-07T13:27:27+08:00">2020-05-07</time>
+                <time title="修改时间：2020-05-07 13:41:09" itemprop="dateModified" datetime="2020-05-07T13:41:09+08:00">2020-05-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,8 +252,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/02/07/%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/07/%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/02/26/css3-flex%E5%B8%83%E5%B1%80/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/26/css3-flex%E5%B8%83%E5%B1%80/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -259,7 +263,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>656</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -278,142 +282,61 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="CSS基础选择器"><a href="#CSS基础选择器" class="headerlink" title="CSS基础选择器"></a>CSS基础选择器</h1><h3 id="选择器的作用"><a href="#选择器的作用" class="headerlink" title="选择器的作用"></a>选择器的作用</h3><p>​    找到特定的HTML页面元素</p>
-<a id="more"></a>
+        <h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><p>操作方便，布局极其简单，移动端使用比较广泛  </p>
+<p>pc端浏览器支持情况比较差</p>
+<h5 id="总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"><a href="#总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式" class="headerlink" title="总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"></a><strong>总结</strong>：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式</h5><a id="more"></a>
 
-<h3 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h3><ul>
-<li><p>概念：</p>
-<p>标签选择器（元素选择器）是指用<strong>HTML标签名</strong>称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式。</p>
+<h4 id="父项常见属性"><a href="#父项常见属性" class="headerlink" title="父项常见属性"></a>父项常见属性</h4><ul>
+<li><p>flex-direction：设置主轴的方向</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200419115418609.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
 </li>
-<li><p>语法：</p>
+<li><p>justify-content：设置主轴上的子元素排列方式</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200419115425642.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+<li><p>flex-wrap：设置子元素是否换行  </p>
+<ul>
+<li>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，flex布局中默认是不换行的。</li>
+<li>nowrap 不换行</li>
+<li>wrap 换行</li>
+</ul>
+</li>
+<li><p>align-content：设置侧轴上的子元素的排列方式（多行）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200419115434727.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+<li><p>align-items：设置侧轴上的子元素排列方式（单行）</p>
+<p> flex-start 从头部开始</p>
+<p>flex-end 从尾部开始</p>
+<p>center 居中显示</p>
+<p>stretch 拉伸</p>
+</li>
+<li><p>flex-flow：复合属性，相当于同时设置了 flex-direction 和 flex-wrap</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">标签名&#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex-flow:row wrap;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p>作用：</p>
-<p>标签选择器 可以把某一类标签<strong>全部</strong>选择出来  比如所有的div标签  和 所有的 span标签</p>
-</li>
-<li><p>优点：</p>
-<p>是能快速为页面中同类型的标签统一样式</p>
-</li>
-<li><p>缺点：</p>
-<p>不能设计差异化样式。</p>
-</li>
-</ul>
-<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名.</p>
-<ul>
-<li><p>语法：</p>
-<ul>
-<li>类名选择器</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.类名  &#123;   </span><br><span class="line">    属性1:属性值1; </span><br><span class="line">    属性2:属性值2; </span><br><span class="line">    属性3:属性值3;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="flex布局子项常见属性"><a href="#flex布局子项常见属性" class="headerlink" title="flex布局子项常见属性"></a>flex布局子项常见属性</h2><ul>
+<li><p>flex子项目占的份数</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">    flex: <span class="tag">&lt;<span class="name">number</span>&gt;</span>; /* 默认值 0 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>标签</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p class&#x3D;&#39;类名&#39;&gt;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>优点：</p>
-<ul>
-<li>可以为元素对象定义单独或相同的样式。 可以选择一个或者多个标签 </li>
-</ul>
-</li>
-<li><p>注意</p>
-<ul>
-<li>类选择器使用“.”（英文点号）进行标识，后面紧跟类名(自定义，我们自己命名的)</li>
-<li>长名称或词组可以使用中横线来为选择器命名。</li>
-<li>不要纯数字、中文等命名， 尽量使用英文字母来表示。</li>
-</ul>
-</li>
-</ul>
-<h5 id="类选择器特殊用法-多类名"><a href="#类选择器特殊用法-多类名" class="headerlink" title="类选择器特殊用法- 多类名"></a>类选择器特殊用法- 多类名</h5><ul>
-<li>各个类名中间用空格隔开。</li>
-<li>多类名选择器在后期布局比较复杂的情况下，还是较多使用的。</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pink fontWeight font20"</span>&gt;</span>亚瑟<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font20"</span>&gt;</span>刘备<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font14 pink"</span>&gt;</span>安其拉<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"font14"</span>&gt;</span>貂蝉<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h3><p>id选择器使用<code>#</code>进行标识，后面紧跟id名</p>
-<ul>
-<li><p>其基本语法格式如下：</p>
-<ul>
-<li><p>id选择器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#id名 &#123;属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id&#x3D;&quot;id名&quot;&gt;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>元素的id值是唯一的，只能对应于文档中某一个具体的元素。</p>
-</li>
-<li><p>用法基本和类选择器相同。</p>
-</li>
-</ul>
-<h4 id="id选择器和类选择器区别"><a href="#id选择器和类选择器区别" class="headerlink" title="id选择器和类选择器区别"></a>id选择器和类选择器区别</h4><ul>
-<li>W3C标准规定，在同一个页面内，不允许有相同名字的id对象出现，但是允许相同名字的class。<ul>
-<li>类选择器（class） 好比人的名字，  是可以多次重复使用的， 比如  张伟  王伟  李伟  李娜</li>
-<li>id选择器     好比人的身份证号码，  全中国是唯一的， 不得重复。 只能使用一次。</li>
-</ul>
-</li>
-</ul>
-<p><strong><em>id选择器和类选择器最大的不同在于 使用次数上。</em></strong></p>
-<h3 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h3><ul>
-<li><p>概念</p>
-<p>通配符选择器用<code>*</code>号表示，  *   就是 选择所有的标签      他是所有选择器中作用范围最广的，能匹配页面中所有的元素。</p>
-</li>
-<li><p>其基本语法格式如下：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* &#123; 属性1:属性值1; 属性2:属性值2; 属性3:属性值3; &#125;</span><br></pre></td></tr></table></figure>
 
-<p>例如下面的代码，使用通配符选择器定义CSS样式，清除所有HTML标记的默认边距。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;                    <span class="comment">/* 定义外边距*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;                   <span class="comment">/* 定义内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>注意：</p>
-<p>会匹配页面所有的元素，降低页面响应速度，不建议随便使用</p>
 </li>
 </ul>
-<h3 id="2-7-基础选择器总结"><a href="#2-7-基础选择器总结" class="headerlink" title="2.7 基础选择器总结"></a>2.7 基础选择器总结</h3><table>
-<thead>
-<tr>
-<th>选择器</th>
-<th>作用</th>
-<th>缺点</th>
-<th>使用情况</th>
-<th>用法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>标签选择器</td>
-<td>可以选出所有相同的标签，比如p</td>
-<td>不能差异化选择</td>
-<td>较多</td>
-<td>p { color：red;}</td>
-</tr>
-<tr>
-<td>类选择器</td>
-<td>可以选出1个或者多个标签</td>
-<td>可以根据需求选择</td>
-<td>非常多</td>
-<td>.nav { color: red; }</td>
-</tr>
-<tr>
-<td>id选择器</td>
-<td>一次只能选择器1个标签</td>
-<td>只能使用一次</td>
-<td>不推荐使用</td>
-<td>#nav {color: red;}</td>
-</tr>
-<tr>
-<td>通配符选择器</td>
-<td>选择所有的标签</td>
-<td>选择的太多，有部分不需要</td>
-<td>不推荐使用</td>
-<td>* {color: red;}</td>
-</tr>
-</tbody></table>
+<ul>
+<li><p>align-self控制子项自己在侧轴的排列方式</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">span:nth-child(2) &#123;</span><br><span class="line">      /* 设置自己在侧轴上的排列方式 */</span><br><span class="line">      align-self: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li>order属性定义子项的排列顺序（前后顺序）</li>
+</ul>
+<p>​      数值越小，排列越靠前，默认为0。</p>
+<p>​       注意：和 z-index 不一样。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">    order: <span class="tag">&lt;<span class="name">number</span>&gt;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -423,7 +346,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/css/" rel="tag"># css</a>
+              <a href="/tags/%E5%B8%83%E5%B1%80/" rel="tag"># 布局</a>
           </div>
 
         
@@ -431,10 +354,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/02/08/%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8/" rel="next" title="复合选择器">
-      复合选择器 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/02/12/css-%E5%AE%9A%E4%BD%8D/" rel="prev" title="定位">
+      <i class="fa fa-chevron-left"></i> 定位
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" rel="next" title="冒泡排序">
+      冒泡排序 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -495,7 +421,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS基础选择器"><span class="nav-number">1.</span> <span class="nav-text">CSS基础选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器的作用"><span class="nav-number">1.0.1.</span> <span class="nav-text">选择器的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签选择器"><span class="nav-number">1.0.2.</span> <span class="nav-text">标签选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类选择器"><span class="nav-number">1.0.3.</span> <span class="nav-text">类选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#类选择器特殊用法-多类名"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">类选择器特殊用法- 多类名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id选择器"><span class="nav-number">1.0.4.</span> <span class="nav-text">id选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id选择器和类选择器区别"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">id选择器和类选择器区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通配符选择器"><span class="nav-number">1.0.5.</span> <span class="nav-text">通配符选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-基础选择器总结"><span class="nav-number">1.0.6.</span> <span class="nav-text">2.7 基础选择器总结</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#flex布局"><span class="nav-number">1.</span> <span class="nav-text">flex布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">特点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父项常见属性"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">父项常见属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flex布局子项常见属性"><span class="nav-number">1.1.</span> <span class="nav-text">flex布局子项常见属性</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -511,7 +437,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -578,7 +504,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">14k</span>
+    <span title="站点总字数">13k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

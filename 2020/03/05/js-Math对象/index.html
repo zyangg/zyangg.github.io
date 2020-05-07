@@ -20,32 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Vue-cli  vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。">
+  <meta name="description" content="Math对象​        Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用 Math 中的成员。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="创建vue脚手架">
-<meta property="og:url" content="http://yoursite.com/2020/04/05/%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/index.html">
+<meta property="og:title" content="Math对象">
+<meta property="og:url" content="http://yoursite.com/2020/03/05/js-Math%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
-<meta property="og:description" content="Vue-cli  vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。">
+<meta property="og:description" content="Math对象​        Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用 Math 中的成员。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190613220705271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190613220718747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190613220731996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190613220750625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190613220803343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190613220817594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190613220850644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190613220906488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190613220917331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190613220928205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-04-05T05:44:16.000Z">
-<meta property="article:modified_time" content="2020-05-06T03:53:01.764Z">
+<meta property="article:published_time" content="2020-03-05T02:13:33.000Z">
+<meta property="article:modified_time" content="2020-05-07T02:30:42.550Z">
 <meta property="article:author" content="zyangg">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="http://yoursite.com/2020/04/05/%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/">
+<link rel="canonical" href="http://yoursite.com/2020/03/05/js-Math%E5%AF%B9%E8%B1%A1/">
 
 
 <script id="page-configurations">
@@ -58,7 +46,7 @@
   };
 </script>
 
-  <title>创建vue脚手架 | zyangg的个人博客</title>
+  <title>Math对象 | zyangg的个人博客</title>
   
 
 
@@ -202,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/05/%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/05/js-Math%E5%AF%B9%E8%B1%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
@@ -215,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          创建vue脚手架
+          Math对象
         </h1>
 
         <div class="post-meta">
@@ -225,14 +213,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-05 13:44:16" itemprop="dateCreated datePublished" datetime="2020-04-05T13:44:16+08:00">2020-04-05</time>
+              <time title="创建时间：2020-03-05 10:13:33" itemprop="dateCreated datePublished" datetime="2020-03-05T10:13:33+08:00">2020-03-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-06 11:53:01" itemprop="dateModified" datetime="2020-05-06T11:53:01+08:00">2020-05-06</time>
+                <time title="修改时间：2020-05-07 10:30:42" itemprop="dateModified" datetime="2020-05-07T10:30:42+08:00">2020-05-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,8 +248,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/04/05/%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/05/%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/05/js-Math%E5%AF%B9%E8%B1%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/05/js-Math%E5%AF%B9%E8%B1%A1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -271,7 +259,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>985</span>
+              <span>342</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -290,51 +278,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Vue-cli</p>
-<p> vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。 </p>
+        <h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>​        Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用 Math 中的成员。</p>
 <a id="more"></a>
 
-<p>1、首先保证全局安装@vue/cli工具 ，没有自行下载</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i @vue/cli -g</span><br></pre></td></tr></table></figure>
-
-<p>2、推荐下载yarn包管理器</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i yarn -g</span><br></pre></td></tr></table></figure>
-
-<p>3、接下来我们就可以在自己的电脑里创建项目，找到电脑某个位置，在此文件夹按住shift同时右键，在此处打开cmd命令窗口或者在此处打开powershell窗口</p>
-<p>4、打开窗口之后运行vue ui命令，此时就会打开ui图形界面</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>5、我们选择创建之后就会进入创建页面</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220705271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>6、点击在此处创建新项目，就会进入项目详情，详情里面，首先填写项目的名字，然后包管理器选择yarn，在填写初始会git默认注释</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220718747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>7、上面填写完毕后，点击下一步，会进入到选择默认配置还是手动配置，以及选择之前的预设，我们选择手动配置</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220731996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>8、选择完后继续点击下一步，选择功能，以下是所有功能介绍，我们可以先选择babel、router、Linter、使用配置文件，开发的时候一般css预处理、vuex也肯定要安装的</p>
-<p>babel （js高级转低级）</p>
-<p>TypeScript （js超级）</p>
-<p>Progressive Web App (PWA) Support （渐进式web应用）</p>
-<p>Router（路由）</p>
-<p>Vuex（状态管理工具）</p>
-<p>CSS Pre-processors（css预处理）</p>
-<p>Linter / Formatter（语法规范检查）</p>
-<p>Unit Testing、E2E Testing（测试方式）</p>
-<p>使用配置文件（配置项是存在单独配置文件）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220750625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220803343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p>9、上面选择完后，继续点击下一步会进入到配置选项，此处第一个是 是否开启路由的history模式，我们不开启采用hash模式,eslint采用 ESLint + Standard config ，Pick additional lint features选择默认开启</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220817594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>10、选择完后，点击创建项目，会弹出是否存为预设，下一次直接使用，可以存个预设的名字，然后点击 保存预设并创建项目 即创建完毕</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220850644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>11、创建完毕后会进入到项目操作界面</p>
-<p>插件（项目用到的插件可以在这里安装）</p>
-<p>依赖（项目的依赖工具）</p>
-<p>配置（那就是配置了）</p>
-<p>任务（可以运行项目、打包项目等）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220906488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>12、我们选择任务》server》运行，即可将项目运行起来</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220917331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>13、最后点击启动app即可看见我们自己创建的项目</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220928205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<table>
+<thead>
+<tr>
+<th>属性、方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Math.PI</td>
+<td>圆周率</td>
+</tr>
+<tr>
+<td>Math.floor()</td>
+<td>向下取整</td>
+</tr>
+<tr>
+<td>Math.ceil()</td>
+<td>向上取整</td>
+</tr>
+<tr>
+<td>Math.round()</td>
+<td>四舍五入版 就近取整   注意 -3.5   结果是  -3</td>
+</tr>
+<tr>
+<td>Math.abs()</td>
+<td>绝对值</td>
+</tr>
+<tr>
+<td>Math.max()/Math.min()</td>
+<td>求最大和最小值</td>
+</tr>
+<tr>
+<td>Math.random()</td>
+<td>获取范围在[0,1)内的随机值</td>
+</tr>
+</tbody></table>
+<p>​    注意：上面的方法使用时必须带括号</p>
+<p>​    <strong>获取指定范围内的随机整数</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandom</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -344,7 +329,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Vue/" rel="tag"># Vue</a>
+              <a href="/tags/js/" rel="tag"># js</a>
           </div>
 
         
@@ -353,10 +338,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/05/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/" rel="prev" title="字符串对象">
-      <i class="fa fa-chevron-left"></i> 字符串对象
+    <a href="/2020/03/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" rel="prev" title="冒泡排序">
+      <i class="fa fa-chevron-left"></i> 冒泡排序
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/" rel="next" title="日期对象">
+      日期对象 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -416,6 +404,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Math对象"><span class="nav-number">1.</span> <span class="nav-text">Math对象</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -431,7 +420,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -498,7 +487,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">14k</span>
+    <span title="站点总字数">13k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
