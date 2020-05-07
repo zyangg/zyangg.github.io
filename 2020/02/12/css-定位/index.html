@@ -20,24 +20,22 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="flex布局特点：操作方便，布局极其简单，移动端使用比较广泛   pc端浏览器支持情况比较差 总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式">
+  <meta name="description" content="定位1定位 &#x3D; 定位模式 + 边偏移">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flex">
-<meta property="og:url" content="http://yoursite.com/2020/01/26/flex%E5%B8%83%E5%B1%80/index.html">
+<meta property="og:title" content="定位">
+<meta property="og:url" content="http://yoursite.com/2020/02/12/css-%E5%AE%9A%E4%BD%8D/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
-<meta property="og:description" content="flex布局特点：操作方便，布局极其简单，移动端使用比较广泛   pc端浏览器支持情况比较差 总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式">
+<meta property="og:description" content="定位1定位 &#x3D; 定位模式 + 边偏移">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200419115418609.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200419115425642.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200419115434727.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-01-26T03:46:42.000Z">
-<meta property="article:modified_time" content="2020-05-06T04:30:12.622Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200418193642558.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-02-12T11:25:59.000Z">
+<meta property="article:modified_time" content="2020-05-07T05:36:13.336Z">
 <meta property="article:author" content="zyangg">
-<meta property="article:tag" content="布局">
+<meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200419115418609.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200418193642558.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="http://yoursite.com/2020/01/26/flex%E5%B8%83%E5%B1%80/">
+<link rel="canonical" href="http://yoursite.com/2020/02/12/css-%E5%AE%9A%E4%BD%8D/">
 
 
 <script id="page-configurations">
@@ -50,7 +48,7 @@
   };
 </script>
 
-  <title>flex | zyangg的个人博客</title>
+  <title>定位 | zyangg的个人博客</title>
   
 
 
@@ -194,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/26/flex%E5%B8%83%E5%B1%80/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/css-%E5%AE%9A%E4%BD%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
@@ -207,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          flex
+          定位
         </h1>
 
         <div class="post-meta">
@@ -217,14 +215,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-01-26 11:46:42" itemprop="dateCreated datePublished" datetime="2020-01-26T11:46:42+08:00">2020-01-26</time>
+              <time title="创建时间：2020-02-12 19:25:59" itemprop="dateCreated datePublished" datetime="2020-02-12T19:25:59+08:00">2020-02-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-06 12:30:12" itemprop="dateModified" datetime="2020-05-06T12:30:12+08:00">2020-05-06</time>
+                <time title="修改时间：2020-05-07 13:36:13" itemprop="dateModified" datetime="2020-05-07T13:36:13+08:00">2020-05-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,8 +250,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/01/26/flex%E5%B8%83%E5%B1%80/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/26/flex%E5%B8%83%E5%B1%80/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/02/12/css-%E5%AE%9A%E4%BD%8D/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/12/css-%E5%AE%9A%E4%BD%8D/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -263,7 +261,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>656</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -282,61 +280,110 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><p>操作方便，布局极其简单，移动端使用比较广泛  </p>
-<p>pc端浏览器支持情况比较差</p>
-<h5 id="总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"><a href="#总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式" class="headerlink" title="总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"></a><strong>总结</strong>：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式</h5><a id="more"></a>
+        <h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">定位 = 定位模式 + 边偏移</span><br></pre></td></tr></table></figure>
 
-<h4 id="父项常见属性"><a href="#父项常见属性" class="headerlink" title="父项常见属性"></a>父项常见属性</h4><ul>
-<li><p>flex-direction：设置主轴的方向</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200419115418609.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>justify-content：设置主轴上的子元素排列方式</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200419115425642.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>flex-wrap：设置子元素是否换行  </p>
+<a id="more"></a>
+
+<h4 id="边偏移"><a href="#边偏移" class="headerlink" title="边偏移"></a>边偏移</h4><p>在 CSS 中，通过 <code>top</code>、<code>bottom</code>、<code>left</code> 和 <code>right</code> 属性定义元素的<strong>边偏移</strong>：（方位名词）</p>
+<table>
+<thead>
+<tr>
+<th>边偏移属性</th>
+<th align="left">示例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>top</code></td>
+<td align="left"><code>top: 80px</code></td>
+<td><strong>顶端</strong>偏移量，定义元素相对于其父元素<strong>上边线的距离</strong>。</td>
+</tr>
+<tr>
+<td><code>bottom</code></td>
+<td align="left"><code>bottom: 80px</code></td>
+<td><strong>底部</strong>偏移量，定义元素相对于其父元素<strong>下边线的距离</strong>。</td>
+</tr>
+<tr>
+<td><code>left</code></td>
+<td align="left"><code>left: 80px</code></td>
+<td><strong>左侧</strong>偏移量，定义元素相对于其父元素<strong>左边线的距离</strong>。</td>
+</tr>
+<tr>
+<td><code>right</code></td>
+<td align="left"><code>right: 80px</code></td>
+<td><strong>右侧</strong>偏移量，定义元素相对于其父元素<strong>右边线的距离</strong></td>
+</tr>
+</tbody></table>
+<h4 id="定位模式-position"><a href="#定位模式-position" class="headerlink" title="定位模式 (position)"></a>定位模式 (position)</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123; position: 属性值; &#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th align="center">语义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>static</code></td>
+<td align="center"><strong>静态</strong>定位</td>
+</tr>
+<tr>
+<td><code>relative</code></td>
+<td align="center"><strong>相对</strong>定位</td>
+</tr>
+<tr>
+<td><code>absolute</code></td>
+<td align="center"><strong>绝对</strong>定位</td>
+</tr>
+<tr>
+<td><code>fixed</code></td>
+<td align="center"><strong>固定</strong>定位</td>
+</tr>
+</tbody></table>
+<h4 id="相对定位-relative"><a href="#相对定位-relative" class="headerlink" title="相对定位(relative)"></a>相对定位(relative)</h4><p>相对定位的特点：</p>
 <ul>
-<li>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，flex布局中默认是不换行的。</li>
-<li>nowrap 不换行</li>
-<li>wrap 换行</li>
+<li>相对于 自己原来在标准流中位置来移动的</li>
+<li>原来<strong>在标准流的区域继续占有</strong>，后面的盒子仍然以标准流的方式对待它。</li>
+</ul>
+<h4 id="绝对定位-absolute"><a href="#绝对定位-absolute" class="headerlink" title="绝对定位(absolute)"></a>绝对定位(absolute)</h4><ol>
+<li><strong>完全脱标</strong> —— 完全不占位置；  </li>
+<li><strong>父元素没有定位</strong>，则以<strong>浏览器</strong>为准定位（Document 文档）。</li>
+<li><strong>父元素要有定位</strong></li>
+</ol>
+<p><strong>子绝父相</strong> —— <strong>子级</strong>是<strong>绝对</strong>定位，<strong>父级</strong>要用<strong>相对</strong>定位。</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200418193642558.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位(fixed)"></a>固定定位(fixed)</h4><ol>
+<li><strong>完全脱标</strong> —— 完全不占位置；</li>
+<li>只认<strong>浏览器的可视窗口</strong> —— <code>浏览器可视窗口 + 边偏移属性</code> 来设置元素的位置；<ul>
+<li>跟父元素没有任何关系；单独使用的</li>
+<li>不随滚动条滚动。</li>
 </ul>
 </li>
-<li><p>align-content：设置侧轴上的子元素的排列方式（多行）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200419115434727.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>align-items：设置侧轴上的子元素排列方式（单行）</p>
-<p> flex-start 从头部开始</p>
-<p>flex-end 从尾部开始</p>
-<p>center 居中显示</p>
-<p>stretch 拉伸</p>
-</li>
-<li><p>flex-flow：复合属性，相当于同时设置了 flex-direction 和 flex-wrap</p>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex-flow:row wrap;</span><br></pre></td></tr></table></figure>
-
-<h2 id="flex布局子项常见属性"><a href="#flex布局子项常见属性" class="headerlink" title="flex布局子项常见属性"></a>flex布局子项常见属性</h2><ul>
-<li><p>flex子项目占的份数</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">    flex: <span class="tag">&lt;<span class="name">number</span>&gt;</span>; /* 默认值 0 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
+</ol>
+<h4 id="绝对定位的盒子居中"><a href="#绝对定位的盒子居中" class="headerlink" title="绝对定位的盒子居中"></a>绝对定位的盒子居中</h4><ol>
+<li><code>left: 50%;</code>：让<strong>盒子的左侧</strong>移动到<strong>父级元素的水平中心位置</strong>；</li>
+<li><code>margin-left: -100px;</code>：让盒子<strong>向左</strong>移动<strong>自身宽度的一半</strong>。</li>
+</ol>
+<h4 id="堆叠顺序（z-index）"><a href="#堆叠顺序（z-index）" class="headerlink" title="堆叠顺序（z-index）"></a>堆叠顺序（z-index）</h4><ol>
+<li><strong>属性值</strong>：<strong>正整数</strong>、<strong>负整数</strong>或 <strong>0</strong>，默认值是 0，数值越大，盒子越靠上；</li>
+<li>如果<strong>属性值相同</strong>，则按照书写顺序，<strong>后来居上</strong>；</li>
+<li><strong>数字后面不能加单位</strong>。</li>
+</ol>
+<p><strong>注意</strong>：<code>z-index</code> 只能应用于<strong>相对定位</strong>、<strong>绝对定位</strong>和<strong>固定定位</strong>的元素，其他<strong>标准流</strong>、<strong>浮动</strong>和<strong>静态定位</strong>无效。</p>
+<h4 id="定位改变display属性"><a href="#定位改变display属性" class="headerlink" title="定位改变display属性"></a>定位改变display属性</h4><p>绝对定位和固定定位也和浮动类似， 默认转换的特性 转换为行内块</p>
+<h3 id="定位改变display属性-1"><a href="#定位改变display属性-1" class="headerlink" title="定位改变display属性"></a>定位改变display属性</h3><p> 前面我们讲过， display 是 显示模式， 可以改变显示模式有以下方式:</p>
 <ul>
-<li><p>align-self控制子项自己在侧轴的排列方式</p>
- <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">span:nth-child(2) &#123;</span><br><span class="line">      /* 设置自己在侧轴上的排列方式 */</span><br><span class="line">      align-self: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
+<li>可以用inline-block  转换为行内块</li>
+<li>可以用浮动 float 默认转换为行内块（类似，并不完全一样，因为浮动是脱标的）</li>
+<li>绝对定位和固定定位也和浮动类似， 默认转换的特性 转换为行内块。</li>
 </ul>
-<ul>
-<li>order属性定义子项的排列顺序（前后顺序）</li>
-</ul>
-<p>​      数值越小，排列越靠前，默认为0。</p>
-<p>​       注意：和 z-index 不一样。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">    order: <span class="tag">&lt;<span class="name">number</span>&gt;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p>所以说， 一个行内的盒子，如果加了<strong>浮动</strong>、<strong>固定定位</strong>和<strong>绝对定位</strong>，不用转换，就可以给这个盒子直接设置宽度和高度等。</p>
+<blockquote>
+<p>完善新浪导航案例</p>
+</blockquote>
+<p><strong>同时注意：</strong></p>
+<p>浮动元素、绝对定位(固定定位）元素的都不会触发外边距合并的问题。 （我们以前是用padding border overflow解决的）</p>
+<p>也就是说，我们给盒子改为了浮动或者定位，就不会有垂直外边距合并的问题了。</p>
 
     </div>
 
@@ -346,7 +393,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%B8%83%E5%B1%80/" rel="tag"># 布局</a>
+              <a href="/tags/css/" rel="tag"># css</a>
           </div>
 
         
@@ -355,12 +402,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/01/11/css-%E6%B5%AE%E5%8A%A8/" rel="prev" title="浮动">
-      <i class="fa fa-chevron-left"></i> 浮动
+    <a href="/2020/02/10/css-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" rel="prev" title="盒子模型">
+      <i class="fa fa-chevron-left"></i> 盒子模型
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/02/07/%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8/" rel="next" title="基础选择器">
-      基础选择器 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/03/02/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" rel="next" title="冒泡排序">
+      冒泡排序 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -421,7 +468,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#flex布局"><span class="nav-number">1.</span> <span class="nav-text">flex布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">特点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">总结：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父项常见属性"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">父项常见属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flex布局子项常见属性"><span class="nav-number">1.1.</span> <span class="nav-text">flex布局子项常见属性</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定位"><span class="nav-number">1.</span> <span class="nav-text">定位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#边偏移"><span class="nav-number">1.1.</span> <span class="nav-text">边偏移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定位模式-position"><span class="nav-number">1.2.</span> <span class="nav-text">定位模式 (position)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相对定位-relative"><span class="nav-number">1.3.</span> <span class="nav-text">相对定位(relative)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绝对定位-absolute"><span class="nav-number">1.4.</span> <span class="nav-text">绝对定位(absolute)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#固定定位-fixed"><span class="nav-number">1.5.</span> <span class="nav-text">固定定位(fixed)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绝对定位的盒子居中"><span class="nav-number">1.6.</span> <span class="nav-text">绝对定位的盒子居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆叠顺序（z-index）"><span class="nav-number">1.7.</span> <span class="nav-text">堆叠顺序（z-index）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定位改变display属性"><span class="nav-number">1.8.</span> <span class="nav-text">定位改变display属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定位改变display属性-1"><span class="nav-number">2.</span> <span class="nav-text">定位改变display属性</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
