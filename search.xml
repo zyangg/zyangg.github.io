@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>TDK三大标签SEO优化</title>
-    <url>/2020/02/16/TDK%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BESEO%E4%BC%98%E5%8C%96/</url>
+    <url>/2020/01/16/TDK%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BESEO%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<h3 id="网站优化三大标签"><a href="#网站优化三大标签" class="headerlink" title="网站优化三大标签"></a>网站优化三大标签</h3><p>SEO是由英文Search Engine Optimization缩写而来， 中文意译为“搜索引擎优化”！</p>
 <p>常见的搜索引擎，比如百度，谷歌，雅虎，搜狗等等..</p>
 <a id="more"></a>
@@ -107,83 +107,8 @@
       </tags>
   </entry>
   <entry>
-    <title>显示模式</title>
-    <url>/2020/02/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
-
-<p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的块元素有<span class="tag">&lt;<span class="name">h1</span>&gt;</span>~<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">li</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
-
-<p>块级元素的特点</p>
-<p>（1）比较霸道，自己独占一行</p>
-<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
-<p>（3）宽度默认是容器（父级宽度）的100%</p>
-<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
-<p>注意：</p>
-<p>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </p>
-<p>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</p>
-<h4 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h4><p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的行内元素有<span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">b</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">del</span>&gt;</span>、<span class="tag">&lt;<span class="name">s</span>&gt;</span>、<span class="tag">&lt;<span class="name">ins</span>&gt;</span>、<span class="tag">&lt;<span class="name">u</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">span</span>&gt;</span>标签最典型的行内元素。有的地方也成内联元素</span><br></pre></td></tr></table></figure>
-
-<p>行内元素的特点：</p>
-<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
-<p>（2）高、宽直接设置是无效的。</p>
-<p>（3）默认宽度就是它本身内容的宽度。</p>
-<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
-<p>注意：</p>
-<p>链接里面不能再放链接。</p>
-<p>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全</p>
-<h4 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h4><p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——<span class="tag">&lt;<span class="name">img</span> /&gt;</span>、<span class="tag">&lt;<span class="name">input</span> /&gt;</span>、<span class="tag">&lt;<span class="name">td</span>&gt;</span>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br></pre></td></tr></table></figure>
-
-<p>行内块元素的特点：</p>
-<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
-<thead>
-<tr>
-<th>元素模式</th>
-<th>元素排列</th>
-<th>设置样式</th>
-<th>默认宽度</th>
-<th>包含</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>块级元素</td>
-<td>一行只能放一个块级元素</td>
-<td>可以设置宽度高度</td>
-<td>容器的100%</td>
-<td>容器级可以包含任何标签</td>
-</tr>
-<tr>
-<td>行内元素</td>
-<td>一行可以放多个行内元素</td>
-<td>不可以直接设置宽度高度</td>
-<td>它本身内容的宽度</td>
-<td>容纳文本或则其他行内元素</td>
-</tr>
-<tr>
-<td>行内块元素</td>
-<td>一行放多个行内块元素</td>
-<td>可以设置宽度和高度</td>
-<td>它本身内容的宽度</td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
-<p>行内转块：display:block;</p>
-<p>块、行内元素转换为行内块： display: inline-block</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>定位</title>
-    <url>/2020/02/12/css-%E5%AE%9A%E4%BD%8D/</url>
+    <title>css定位</title>
+    <url>/2020/01/12/css-%E5%AE%9A%E4%BD%8D/</url>
     <content><![CDATA[<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">定位 = 定位模式 + 边偏移</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
@@ -299,96 +224,72 @@
       </tags>
   </entry>
   <entry>
-    <title>Flex布局</title>
-    <url>/2020/01/26/css3-flex%E5%B8%83%E5%B1%80/</url>
-    <content><![CDATA[<h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><p>布局的传统解决方案：是基于盒模型，这种布局依赖<code>display</code>属性 + <code>position</code>属性 + <code>float</code>属性，但是对于一些特殊的布局是不方便的，比如说：对于垂直布局就不容易实现。、</p>
-<a id="more"></a>
+    <title>显示模式</title>
+    <url>/2020/01/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
 
-<h4 id="Flex布局是什么？"><a href="#Flex布局是什么？" class="headerlink" title="Flex布局是什么？"></a>Flex布局是什么？</h4><p>Flex布局又被称为弹性布局，用来为盒模型提供最大的灵活性，任意的容器、行内元素都可以使用Flex布局。<br> <code>ps:设定为Flex布局之后，子元素的float、clear和vertical-align属性将会失效。</code></p>
-<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>采用Flex布局的元素。被称为Flex容器，简称为‘容器’。他的所有的子元素自动成为容器的成员，成为Flex的项目。</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-ae5a9f894a4477db.png" alt="img">   </p>
-<p>Flex基本概念</p>
-<p>容器默认存在两根轴：水平的主轴（<code>main axis</code>）和垂直的交叉轴（<code>cross axis</code>）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</p>
-<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做<code>cross size</code>。</p>
-<h4 id="Flex的属性设置"><a href="#Flex的属性设置" class="headerlink" title="Flex的属性设置"></a>Flex的属性设置</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flex-direction&#96;、&#96;flex-wrap&#96;、&#96;flex-flow&#96;、&#96;justify-content&#96;、&#96;align-items&#96;、&#96;align-content</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的块元素有<span class="tag">&lt;<span class="name">h1</span>&gt;</span>~<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">li</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
 
-<p><strong>flex-direction</strong></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-direction</span>:column;    <span class="comment">/* row | row-reverse | column | column-reverse;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>块级元素的特点</p>
+<p>（1）比较霸道，自己独占一行</p>
+<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
+<p>（3）宽度默认是容器（父级宽度）的100%</p>
+<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
+<p>注意：</p>
+<p>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </p>
+<p>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</p>
+<h4 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h4><p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的行内元素有<span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">b</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">del</span>&gt;</span>、<span class="tag">&lt;<span class="name">s</span>&gt;</span>、<span class="tag">&lt;<span class="name">ins</span>&gt;</span>、<span class="tag">&lt;<span class="name">u</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">span</span>&gt;</span>标签最典型的行内元素。有的地方也成内联元素</span><br></pre></td></tr></table></figure>
 
+<p>行内元素的特点：</p>
+<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
+<p>（2）高、宽直接设置是无效的。</p>
+<p>（3）默认宽度就是它本身内容的宽度。</p>
+<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
+<p>注意：</p>
+<p>链接里面不能再放链接。</p>
+<p>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全</p>
+<h4 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h4><p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——<span class="tag">&lt;<span class="name">img</span> /&gt;</span>、<span class="tag">&lt;<span class="name">input</span> /&gt;</span>、<span class="tag">&lt;<span class="name">td</span>&gt;</span>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br></pre></td></tr></table></figure>
 
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'project'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><code>column-reverse</code>：主轴为垂直方向，起点在下沿。<br> <code>column</code>：主轴为垂直方向，起点在上沿。<br> <code>row</code>（默认值）：主轴为水平方向，起点在左端。<br> <code>row-reverse</code>：主轴为水平方向，起点在右端。</p>
-</blockquote>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-3b5791470b5bf6ab.png" alt="img"> </p>
-<p>flex-direction的属性</p>
-<p><strong>flex-wrap</strong><br> 在该布局下，所有的项目都排在一条线上，但是当一跳轴线排不下的时候，就要换行，这个属性解决的就是如何换行的问题。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-wrap</span>:nowrap;   <span class="comment">/* nowrap | wrap | wrap-reverse;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'project'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><code>nowrap</code>（默认值）：不换行。<br> <code>wrap</code>：换行，第一行在上方。。<br> <code>wrap-reverse</code>：换行，第一行在下方。</p>
-</blockquote>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-27888df1bd6fffce.png" alt="img"> </p>
-<p>nowrap不换行</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-9fcfa1b1bdc1c9b7.png" alt="img"> </p>
-<p>wrap 换行，第一行在上面</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-2c1a33b43eec02d4.png" alt="img">  </p>
-<p>wrap-reverse 换行，第一行在下</p>
-<p><strong>flex-flow</strong><br> <code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">flex-flow</span>: column wrap;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>justify-content</strong><br> <code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:solid <span class="number">1px</span> black;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">justify-content</span>:space-between;<span class="comment">/* flex-start | flex-end | center | space-between | space-around;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-756d5537802c391d.png" alt="img"> </p>
-<p>justify-content属性</p>
-<blockquote>
-<p><code>flex-start</code>（默认值）：左对齐<br> <code>flex-end</code>：右对齐<br> <code>center</code>： 居中<br> <code>space-between</code>：两端对齐，项目之间的间隔都相等。<br> <code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</p>
-</blockquote>
-<h4 id="align-items属性"><a href="#align-items属性" class="headerlink" title="align-items属性"></a>align-items属性</h4><p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:solid <span class="number">1px</span> black;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">align-items</span>: baseline;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-87a30d4bd4226add.png" alt="img"> </p>
-<p>align-items的属性</p>
-<p> 都很好理解，就是存在一定的歧义。我们通过一个小栗子来进行了解。</p>
-<blockquote>
-<p><code>flex-start</code>：交叉轴的起点对齐。<br> <code>flex-end</code>：交叉轴的终点对齐。<br> <code>center</code>：交叉轴的中点对齐。<br> <code>baseline</code>: 项目的第一行文字的基线对齐。<br> <code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</p>
-</blockquote>
-<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。也就是说<code>item</code>存在换行的情况存在</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:solid <span class="number">1px</span> black;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">        <span class="attribute">align-content</span>: space-between;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-37f278e6e91239f8.png" alt="img"> </p>
-<p>align-content</p>
-<blockquote>
-<p><code>flex-start</code>：与交叉轴的起点对齐。<br> <code>flex-end</code>：与交叉轴的终点对齐。<br> <code>center</code>：与交叉轴的中点对齐。<br> <code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。<br> <code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。<br> <code>stretch</code>（默认值）：轴线占满整个交叉轴。</p>
-</blockquote>
-<h4 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">order&#96;、&#96;flex-grow&#96;、&#96;flex-shrink&#96;、&#96;flex-basis&#96;、&#96;flex&#96;、&#96;align-self</span><br></pre></td></tr></table></figure>
-
-<p><strong>order</strong><br> <code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">        <span class="attribute">align-content</span>: space-between;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">        <span class="attribute">order</span>: <span class="number">3</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">        <span class="attribute">order</span>: <span class="number">2</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">'project'</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span> </span>=<span class="string">'item'</span>&gt;item1&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div class ='item2'&gt;item2&lt;/</span>div&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span> </span>=<span class="string">'item3'</span>&gt;item3&lt;<span class="regexp">/div&gt; </span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-cbb4f559f3003c08.png" alt="img"> </p>
-<p>order属性的使用</p>
-<p><strong>flex-grow</strong><br> <code>flex-grow</code>属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大，属性的值是数字。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">        <span class="attribute">flex-grow</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">        <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p>
-<p><strong>flex-shrink</strong><br> 这个属性定义了项目缩小的比例，这个值默认是1，即如果空间不足的时候，这个项目就会缩小，如果所有的<code>flex-shrink</code>属性值都为1，当空间不足的时候，都进行等比的缩小，但是如果有一个项目的<code>flex-shrink</code>为0，其他项目的值为1的时候，空间不足的时候，值为0的项目不会缩小。</p>
-<p><strong>flex-basis</strong><br> <code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。相当于对项目设置了宽度。</p>
-<p><strong>flex</strong><br> flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
-<p><strong>align-self</strong><br> align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+<p>行内块元素的特点：</p>
+<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
+<thead>
+<tr>
+<th>元素模式</th>
+<th>元素排列</th>
+<th>设置样式</th>
+<th>默认宽度</th>
+<th>包含</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>块级元素</td>
+<td>一行只能放一个块级元素</td>
+<td>可以设置宽度高度</td>
+<td>容器的100%</td>
+<td>容器级可以包含任何标签</td>
+</tr>
+<tr>
+<td>行内元素</td>
+<td>一行可以放多个行内元素</td>
+<td>不可以直接设置宽度高度</td>
+<td>它本身内容的宽度</td>
+<td>容纳文本或则其他行内元素</td>
+</tr>
+<tr>
+<td>行内块元素</td>
+<td>一行放多个行内块元素</td>
+<td>可以设置宽度和高度</td>
+<td>它本身内容的宽度</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
+<p>行内转块：display:block;</p>
+<p>块、行内元素转换为行内块： display: inline-block</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -398,59 +299,8 @@
       </tags>
   </entry>
   <entry>
-    <title>css3过渡</title>
-    <url>/2020/02/15/css3%E8%BF%87%E6%B8%A1/</url>
-    <content><![CDATA[<h4 id="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"><a href="#CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。" class="headerlink" title="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"></a>CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。</h4><a id="more"></a>
-
-<p>CSS3 过渡是元素从一种样式逐渐改变为另一种的效果<br>要实现这一点，必须规定两项内容：<br>  指定要添加效果的CSS属性<br>  指定效果的持续时间</p>
-<p>实例：应用于宽度属性的过渡效果，时长为 2 秒：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">   <span class="attribute">transition</span>: width <span class="number">2s</span>;</span><br><span class="line">   <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意： 如果未指定的期限，transition将没有任何效果，因为默认值是0。</p>
-<p>指定的CSS属性的值更改时效果会发生变化。一个典型CSS属性的变化是用户鼠标放在一个元素上时：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">     <span class="selector-tag">div</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">background</span>:red;</span><br><span class="line">      <span class="attribute">transition</span>:width <span class="number">2s</span>;</span><br><span class="line">      <span class="attribute">-webkit-transition</span>:width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<p>多项改变</p>
-<p>要添加多个样式的变换效果，添加的属性由逗号分隔：或者用all来代替</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">   <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, -webkit-transform <span class="number">2s</span>; <span class="comment">/* For Safari 3.1 to 6.0 */</span></span><br><span class="line">    transition: width 2s, height 2s, transform 2s; // all 2s</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>); <span class="comment">/* Chrome, Safari, Opera */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>transition-property</td>
-<td>规定应用过渡的 CSS 属性的名称。</td>
-</tr>
-<tr>
-<td>transition-duration</td>
-<td>定义过渡效果花费的时间。默认是 0。</td>
-</tr>
-<tr>
-<td>transition-timing-function</td>
-<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
-</tr>
-<tr>
-<td>transition-delay</td>
-<td>规定过渡效果何时开始。默认是 0。</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css3</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>选择器及权重</title>
-    <url>/2020/02/07/css-%E9%80%89%E6%8B%A9%E5%99%A8%E5%92%8C%E6%9D%83%E9%87%8D/</url>
+    <url>/2020/01/07/css-%E9%80%89%E6%8B%A9%E5%99%A8%E5%92%8C%E6%9D%83%E9%87%8D/</url>
     <content><![CDATA[<h1 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h1><h3 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h3><h4 id="选择器的作用"><a href="#选择器的作用" class="headerlink" title="选择器的作用"></a>选择器的作用</h4><p>​    找到特定的HTML页面元素</p>
 <a id="more"></a>
 
@@ -702,14 +552,96 @@
       </tags>
   </entry>
   <entry>
-    <title>css初始化</title>
-    <url>/2020/02/13/css%E5%88%9D%E5%A7%8B%E5%8C%96/</url>
-    <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p> 消除不同浏览器对HTML文本呈现的差异. </p>
-<p> 一般标签在浏览器中都有默认样式，例如body标签有默认的外边距，ul有默认的小黑点和内边距，前端程序员在写页面的时候会把这些默认的样式都清除掉，让所有标签的外观效果在所有浏览器表现一致，这个步骤就是css的初始化。 </p>
+    <title>Flex布局</title>
+    <url>/2020/01/26/css3-flex%E5%B8%83%E5%B1%80/</url>
+    <content><![CDATA[<h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><p>布局的传统解决方案：是基于盒模型，这种布局依赖<code>display</code>属性 + <code>position</code>属性 + <code>float</code>属性，但是对于一些特殊的布局是不方便的，比如说：对于垂直布局就不容易实现。、</p>
 <a id="more"></a>
 
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*清除元素默认的内外边距  */</span></span><br><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*让所有斜体 不倾斜*/</span></span><br><span class="line"><span class="selector-tag">em</span>,</span><br><span class="line"><span class="selector-tag">i</span> &#123;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*去掉列表前面的小点*/</span></span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*图片没有边框   去掉图片底侧的空白缝隙*/</span></span><br><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">0</span>;  <span class="comment">/*ie6*/</span></span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*让button 按钮 变成小手*/</span></span><br><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*取消链接的下划线*/</span></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#666</span>;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#e33333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">button</span>,</span><br><span class="line"><span class="selector-tag">input</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'Microsoft YaHei'</span>, <span class="string">'Heiti SC'</span>, tahoma, arial, <span class="string">'Hiragino Sans GB'</span>, \\<span class="number">5</span>B8B\<span class="number">4</span>F53, sans-serif;</span><br><span class="line">    <span class="comment">/*取消轮廓线 蓝色的*/</span></span><br><span class="line">    <span class="attribute">outline</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">font</span>: <span class="number">12px</span>/<span class="number">1.5</span> <span class="string">'Microsoft YaHei'</span>, <span class="string">'Heiti SC'</span>, tahoma, arial, <span class="string">'Hiragino Sans GB'</span>, \\<span class="number">5</span>B8B\<span class="number">4</span>F53, sans-serif;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#666</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hide</span>,</span><br><span class="line"><span class="selector-class">.none</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*清除浮动*/</span></span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">visibility</span>: hidden;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"."</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">    *zoom: 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Flex布局是什么？"><a href="#Flex布局是什么？" class="headerlink" title="Flex布局是什么？"></a>Flex布局是什么？</h4><p>Flex布局又被称为弹性布局，用来为盒模型提供最大的灵活性，任意的容器、行内元素都可以使用Flex布局。<br> <code>ps:设定为Flex布局之后，子元素的float、clear和vertical-align属性将会失效。</code></p>
+<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>采用Flex布局的元素。被称为Flex容器，简称为‘容器’。他的所有的子元素自动成为容器的成员，成为Flex的项目。</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-ae5a9f894a4477db.png" alt="img">   </p>
+<p>Flex基本概念</p>
+<p>容器默认存在两根轴：水平的主轴（<code>main axis</code>）和垂直的交叉轴（<code>cross axis</code>）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</p>
+<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做<code>cross size</code>。</p>
+<h4 id="Flex的属性设置"><a href="#Flex的属性设置" class="headerlink" title="Flex的属性设置"></a>Flex的属性设置</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flex-direction&#96;、&#96;flex-wrap&#96;、&#96;flex-flow&#96;、&#96;justify-content&#96;、&#96;align-items&#96;、&#96;align-content</span><br></pre></td></tr></table></figure>
 
+<p><strong>flex-direction</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-direction</span>:column;    <span class="comment">/* row | row-reverse | column | column-reverse;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'project'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>column-reverse</code>：主轴为垂直方向，起点在下沿。<br> <code>column</code>：主轴为垂直方向，起点在上沿。<br> <code>row</code>（默认值）：主轴为水平方向，起点在左端。<br> <code>row-reverse</code>：主轴为水平方向，起点在右端。</p>
+</blockquote>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-3b5791470b5bf6ab.png" alt="img"> </p>
+<p>flex-direction的属性</p>
+<p><strong>flex-wrap</strong><br> 在该布局下，所有的项目都排在一条线上，但是当一跳轴线排不下的时候，就要换行，这个属性解决的就是如何换行的问题。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-wrap</span>:nowrap;   <span class="comment">/* nowrap | wrap | wrap-reverse;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'project'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>nowrap</code>（默认值）：不换行。<br> <code>wrap</code>：换行，第一行在上方。。<br> <code>wrap-reverse</code>：换行，第一行在下方。</p>
+</blockquote>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-27888df1bd6fffce.png" alt="img"> </p>
+<p>nowrap不换行</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-9fcfa1b1bdc1c9b7.png" alt="img"> </p>
+<p>wrap 换行，第一行在上面</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-2c1a33b43eec02d4.png" alt="img">  </p>
+<p>wrap-reverse 换行，第一行在下</p>
+<p><strong>flex-flow</strong><br> <code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">flex-flow</span>: column wrap;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>justify-content</strong><br> <code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:solid <span class="number">1px</span> black;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">justify-content</span>:space-between;<span class="comment">/* flex-start | flex-end | center | space-between | space-around;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-756d5537802c391d.png" alt="img"> </p>
+<p>justify-content属性</p>
+<blockquote>
+<p><code>flex-start</code>（默认值）：左对齐<br> <code>flex-end</code>：右对齐<br> <code>center</code>： 居中<br> <code>space-between</code>：两端对齐，项目之间的间隔都相等。<br> <code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</p>
+</blockquote>
+<h4 id="align-items属性"><a href="#align-items属性" class="headerlink" title="align-items属性"></a>align-items属性</h4><p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:solid <span class="number">1px</span> black;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">align-items</span>: baseline;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-87a30d4bd4226add.png" alt="img"> </p>
+<p>align-items的属性</p>
+<p> 都很好理解，就是存在一定的歧义。我们通过一个小栗子来进行了解。</p>
+<blockquote>
+<p><code>flex-start</code>：交叉轴的起点对齐。<br> <code>flex-end</code>：交叉轴的终点对齐。<br> <code>center</code>：交叉轴的中点对齐。<br> <code>baseline</code>: 项目的第一行文字的基线对齐。<br> <code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</p>
+</blockquote>
+<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。也就是说<code>item</code>存在换行的情况存在</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:solid <span class="number">1px</span> black;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">        <span class="attribute">align-content</span>: space-between;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-37f278e6e91239f8.png" alt="img"> </p>
+<p>align-content</p>
+<blockquote>
+<p><code>flex-start</code>：与交叉轴的起点对齐。<br> <code>flex-end</code>：与交叉轴的终点对齐。<br> <code>center</code>：与交叉轴的中点对齐。<br> <code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。<br> <code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。<br> <code>stretch</code>（默认值）：轴线占满整个交叉轴。</p>
+</blockquote>
+<h4 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">order&#96;、&#96;flex-grow&#96;、&#96;flex-shrink&#96;、&#96;flex-basis&#96;、&#96;flex&#96;、&#96;align-self</span><br></pre></td></tr></table></figure>
+
+<p><strong>order</strong><br> <code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">        <span class="attribute">align-content</span>: space-between;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">        <span class="attribute">order</span>: <span class="number">3</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">        <span class="attribute">order</span>: <span class="number">2</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">'project'</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span> </span>=<span class="string">'item'</span>&gt;item1&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div class ='item2'&gt;item2&lt;/</span>div&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span> </span>=<span class="string">'item3'</span>&gt;item3&lt;<span class="regexp">/div&gt; </span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-cbb4f559f3003c08.png" alt="img"> </p>
+<p>order属性的使用</p>
+<p><strong>flex-grow</strong><br> <code>flex-grow</code>属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大，属性的值是数字。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">        <span class="attribute">flex-grow</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">        <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p>
+<p><strong>flex-shrink</strong><br> 这个属性定义了项目缩小的比例，这个值默认是1，即如果空间不足的时候，这个项目就会缩小，如果所有的<code>flex-shrink</code>属性值都为1，当空间不足的时候，都进行等比的缩小，但是如果有一个项目的<code>flex-shrink</code>为0，其他项目的值为1的时候，空间不足的时候，值为0的项目不会缩小。</p>
+<p><strong>flex-basis</strong><br> <code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。相当于对项目设置了宽度。</p>
+<p><strong>flex</strong><br> flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
+<p><strong>align-self</strong><br> align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -719,8 +651,59 @@
       </tags>
   </entry>
   <entry>
+    <title>css3过渡</title>
+    <url>/2020/01/15/css3%E8%BF%87%E6%B8%A1/</url>
+    <content><![CDATA[<h4 id="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"><a href="#CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。" class="headerlink" title="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"></a>CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。</h4><a id="more"></a>
+
+<p>CSS3 过渡是元素从一种样式逐渐改变为另一种的效果<br>要实现这一点，必须规定两项内容：<br>  指定要添加效果的CSS属性<br>  指定效果的持续时间</p>
+<p>实例：应用于宽度属性的过渡效果，时长为 2 秒：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">   <span class="attribute">transition</span>: width <span class="number">2s</span>;</span><br><span class="line">   <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意： 如果未指定的期限，transition将没有任何效果，因为默认值是0。</p>
+<p>指定的CSS属性的值更改时效果会发生变化。一个典型CSS属性的变化是用户鼠标放在一个元素上时：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">     <span class="selector-tag">div</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">background</span>:red;</span><br><span class="line">      <span class="attribute">transition</span>:width <span class="number">2s</span>;</span><br><span class="line">      <span class="attribute">-webkit-transition</span>:width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>多项改变</p>
+<p>要添加多个样式的变换效果，添加的属性由逗号分隔：或者用all来代替</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">   <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, -webkit-transform <span class="number">2s</span>; <span class="comment">/* For Safari 3.1 to 6.0 */</span></span><br><span class="line">    transition: width 2s, height 2s, transform 2s; // all 2s</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>); <span class="comment">/* Chrome, Safari, Opera */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>transition-property</td>
+<td>规定应用过渡的 CSS 属性的名称。</td>
+</tr>
+<tr>
+<td>transition-duration</td>
+<td>定义过渡效果花费的时间。默认是 0。</td>
+</tr>
+<tr>
+<td>transition-timing-function</td>
+<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
+</tr>
+<tr>
+<td>transition-delay</td>
+<td>规定过渡效果何时开始。默认是 0。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css3</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>css3选择器</title>
-    <url>/2020/02/14/css3%E9%80%89%E6%8B%A9%E5%99%A8/</url>
+    <url>/2020/01/14/css3%E9%80%89%E6%8B%A9%E5%99%A8/</url>
     <content><![CDATA[<h3 id="css3新增了属性选择器-结构伪类选择器-伪元素选择器"><a href="#css3新增了属性选择器-结构伪类选择器-伪元素选择器" class="headerlink" title="css3新增了属性选择器 结构伪类选择器 伪元素选择器"></a>css3新增了属性选择器 结构伪类选择器 伪元素选择器</h3><a id="more"></a>
 
 <h4 id="属性选择器列表"><a href="#属性选择器列表" class="headerlink" title="属性选择器列表"></a>属性选择器列表</h4><p><img src="https://img-blog.csdnimg.cn/20200418223326766.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
@@ -757,7 +740,7 @@
   </entry>
   <entry>
     <title>Math对象</title>
-    <url>/2020/03/05/js-Math%E5%AF%B9%E8%B1%A1/</url>
+    <url>/2020/02/05/js-Math%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>​        Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用 Math 中的成员。</p>
 <a id="more"></a>
 
@@ -810,7 +793,7 @@
   </entry>
   <entry>
     <title>冒泡排序</title>
-    <url>/2020/03/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <url>/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
 <p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
 <a id="more"></a>
@@ -835,40 +818,50 @@
       </tags>
   </entry>
   <entry>
-    <title>日期对象</title>
-    <url>/2020/03/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
+    <title>字符串对象</title>
+    <url>/2020/02/05/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h3><h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>​        为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
+<p>​        基本包装类型就是把简单数据类型包装成为复杂数据类型，这样基本数据类型就有了属性和方法。</p>
 <a id="more"></a>
 
-<ul>
-<li><p>使用Date实例化日期对象</p>
-<ul>
-<li>获取当前时间必须实例化：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面代码有什么问题？</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'andy'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>获取指定时间的日期对象</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
+<p>​        按道理基本数据类型是没有属性和方法的，而对象才有属性和方法，但上面代码却可以执行，这是因为</p>
+<p>​        js 会把基本数据类型包装为复杂数据类型，其执行过程如下 ：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 生成临时变量，把简单类型包装为复杂数据类型</span></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'andy'</span>);</span><br><span class="line"><span class="comment">// 2. 赋值给我们声明的字符变量</span></span><br><span class="line">str = temp;</span><br><span class="line"><span class="comment">// 3. 销毁临时变量</span></span><br><span class="line">temp = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
 
-<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
+<h4 id="字符串的不可变"><a href="#字符串的不可变" class="headerlink" title="字符串的不可变"></a>字符串的不可变</h4><p>​        指的是里面的值不可变，虽然看上去可以改变内容，但其实是地址变了，内存中新开辟了一个内存空间。</p>
+<p>​        当重新给字符串变量赋值的时候，变量之前保存的字符串不会被修改，依然在内存中重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变。<br>​        由于字符串的不可变，在<strong>大量拼接字符串</strong>的时候会有效率问题</p>
+<h4 id="根据字符返回位置"><a href="#根据字符返回位置" class="headerlink" title="根据字符返回位置"></a>根据字符返回位置</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是返回指定字符的位置的方法：</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507102344642.png" alt="在这里插入图片描述"> </p>
+<p>​        案例：查找字符串”abcoefoxyozzopp”中所有o出现的位置以及次数</p>
+<ol>
+<li>先查找第一个o出现的位置</li>
+<li>然后 只要indexOf 返回的结果不是 -1 就继续往后查找</li>
+<li>因为indexOf 只能查找到第一个，所以后面的查找，利用第二个参数，当前索引加1，从而继续查找     </li>
+</ol>
+<h4 id="根据位置返回字符"><a href="#根据位置返回字符" class="headerlink" title="根据位置返回字符"></a>根据位置返回字符</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是根据位置返回指定位置上的字符：</p>
+<p>​     <img src="https://img-blog.csdnimg.cn/20200507102344654.png" alt="在这里插入图片描述"> </p>
+<p>​        在上述方法中，charCodeAt方法返回的是指定位置上字符对应的ASCII码，ASCII码对照表如下：</p>
+<p>​          <img src="https://img-blog.csdnimg.cn/20200507102344840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>​        案例：判断一个字符串 ‘abcoefoxyozzopp’ 中出现次数最多的字符，并统计其次数</p>
+<ol>
+<li><p>核心算法：利用 charAt(） 遍历这个字符串</p>
 </li>
-<li><p>使用Date实例的方法和属性    </p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<li><p>把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1</p>
 </li>
-<li><p>通过Date实例获取总毫米数</p>
-<ul>
-<li><p>总毫秒数的含义</p>
-<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
+<li><p>遍历对象，得到最大值和该字符     </p>
+<p>​    注意：在遍历的过程中，把字符串中的每个字符作为对象的属性存储在对象总，对应的属性值是该字符出现的次数</p>
 </li>
-<li><p>获取总毫秒数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
+</ol>
+<h4 id="字符串操作方法"><a href="#字符串操作方法" class="headerlink" title="字符串操作方法"></a>字符串操作方法</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是部分操作方法：</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507102344695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<h4 id="replace-方法"><a href="#replace-方法" class="headerlink" title="replace()方法"></a>replace()方法</h4><p>​        replace() 方法用于在字符串中用一些字符替换另一些字符，其使用格式如下：  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.replace(被替换的字符串， 要替换为的字符串)；</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-</li>
-</ul>
+<h4 id="split-方法"><a href="#split-方法" class="headerlink" title="split()方法"></a>split()方法</h4><p>​        split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
+<p>​        其使用格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.split(&quot;分割字符&quot;)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -879,7 +872,7 @@
   </entry>
   <entry>
     <title>数组对象</title>
-    <url>/2020/03/05/js-%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1/</url>
+    <url>/2020/02/05/js-%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h3 id="数组对象"><a href="#数组对象" class="headerlink" title="数组对象"></a>数组对象</h3><h4 id="创建数组的两种方式"><a href="#创建数组的两种方式" class="headerlink" title="创建数组的两种方式"></a>创建数组的两种方式</h4><a id="more"></a>
 
 <ul>
@@ -965,50 +958,40 @@
       </tags>
   </entry>
   <entry>
-    <title>字符串对象</title>
-    <url>/2020/03/05/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h3><h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>​        为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
-<p>​        基本包装类型就是把简单数据类型包装成为复杂数据类型，这样基本数据类型就有了属性和方法。</p>
+    <title>日期对象</title>
+    <url>/2020/02/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
 <a id="more"></a>
 
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面代码有什么问题？</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'andy'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>使用Date实例化日期对象</p>
+<ul>
+<li>获取当前时间必须实例化：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
 
-<p>​        按道理基本数据类型是没有属性和方法的，而对象才有属性和方法，但上面代码却可以执行，这是因为</p>
-<p>​        js 会把基本数据类型包装为复杂数据类型，其执行过程如下 ：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 生成临时变量，把简单类型包装为复杂数据类型</span></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'andy'</span>);</span><br><span class="line"><span class="comment">// 2. 赋值给我们声明的字符变量</span></span><br><span class="line">str = temp;</span><br><span class="line"><span class="comment">// 3. 销毁临时变量</span></span><br><span class="line">temp = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取指定时间的日期对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
 
-<h4 id="字符串的不可变"><a href="#字符串的不可变" class="headerlink" title="字符串的不可变"></a>字符串的不可变</h4><p>​        指的是里面的值不可变，虽然看上去可以改变内容，但其实是地址变了，内存中新开辟了一个内存空间。</p>
-<p>​        当重新给字符串变量赋值的时候，变量之前保存的字符串不会被修改，依然在内存中重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变。<br>​        由于字符串的不可变，在<strong>大量拼接字符串</strong>的时候会有效率问题</p>
-<h4 id="根据字符返回位置"><a href="#根据字符返回位置" class="headerlink" title="根据字符返回位置"></a>根据字符返回位置</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是返回指定字符的位置的方法：</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507102344642.png" alt="在这里插入图片描述"> </p>
-<p>​        案例：查找字符串”abcoefoxyozzopp”中所有o出现的位置以及次数</p>
-<ol>
-<li>先查找第一个o出现的位置</li>
-<li>然后 只要indexOf 返回的结果不是 -1 就继续往后查找</li>
-<li>因为indexOf 只能查找到第一个，所以后面的查找，利用第二个参数，当前索引加1，从而继续查找     </li>
-</ol>
-<h4 id="根据位置返回字符"><a href="#根据位置返回字符" class="headerlink" title="根据位置返回字符"></a>根据位置返回字符</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是根据位置返回指定位置上的字符：</p>
-<p>​     <img src="https://img-blog.csdnimg.cn/20200507102344654.png" alt="在这里插入图片描述"> </p>
-<p>​        在上述方法中，charCodeAt方法返回的是指定位置上字符对应的ASCII码，ASCII码对照表如下：</p>
-<p>​          <img src="https://img-blog.csdnimg.cn/20200507102344840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>​        案例：判断一个字符串 ‘abcoefoxyozzopp’ 中出现次数最多的字符，并统计其次数</p>
-<ol>
-<li><p>核心算法：利用 charAt(） 遍历这个字符串</p>
+<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
 </li>
-<li><p>把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1</p>
+<li><p>使用Date实例的方法和属性    </p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
 </li>
-<li><p>遍历对象，得到最大值和该字符     </p>
-<p>​    注意：在遍历的过程中，把字符串中的每个字符作为对象的属性存储在对象总，对应的属性值是该字符出现的次数</p>
+<li><p>通过Date实例获取总毫米数</p>
+<ul>
+<li><p>总毫秒数的含义</p>
+<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
 </li>
-</ol>
-<h4 id="字符串操作方法"><a href="#字符串操作方法" class="headerlink" title="字符串操作方法"></a>字符串操作方法</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是部分操作方法：</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507102344695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<h4 id="replace-方法"><a href="#replace-方法" class="headerlink" title="replace()方法"></a>replace()方法</h4><p>​        replace() 方法用于在字符串中用一些字符替换另一些字符，其使用格式如下：  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.replace(被替换的字符串， 要替换为的字符串)；</span><br></pre></td></tr></table></figure>
+<li><p>获取总毫秒数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
 
-<h4 id="split-方法"><a href="#split-方法" class="headerlink" title="split()方法"></a>split()方法</h4><p>​        split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
-<p>​        其使用格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.split(&quot;分割字符&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>前端</category>
