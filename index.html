@@ -325,7 +325,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-09 12:13:10" itemprop="dateModified" datetime="2020-05-09T12:13:10+08:00">2020-05-09</time>
+                <time title="修改时间：2020-05-09 13:07:14" itemprop="dateModified" datetime="2020-05-09T13:07:14+08:00">2020-05-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -357,7 +357,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -379,52 +379,14 @@
           <h3 id="构造函数原型prototype"><a href="#构造函数原型prototype" class="headerlink" title="构造函数原型prototype"></a>构造函数原型prototype</h3><p>构造函数通过原型分配的函数是所有对象所共享的。</p>
 <p>JavaScript 规定，每一个构造函数都有一个prototype 属性，指向另一个对象。注意这个prototype就是一个对象，这个对象的所有属性和方法，都会被构造函数所拥有。</p>
 <p>我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Star</span>(<span class="params">uname, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.uname = uname;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Star.prototype.sing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'我会唱歌'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ldh = <span class="keyword">new</span> Star(<span class="string">'刘德华'</span>, <span class="number">18</span>);</span><br><span class="line"><span class="keyword">var</span> zxy = <span class="keyword">new</span> Star(<span class="string">'张学友'</span>, <span class="number">19</span>);</span><br><span class="line">ldh.sing();<span class="comment">//我会唱歌</span></span><br><span class="line">zxy.sing();<span class="comment">//我会唱歌</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="对象原型"><a href="#对象原型" class="headerlink" title="对象原型"></a>对象原型</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对象都会有一个属性 __proto__ 指向构造函数的 prototype 原型对象，之所以我们对象可以使用构造函数 prototype 原型对象的属性和方法，就是因为对象有 __proto__ 原型的存在。</span><br><span class="line">__proto__对象原型和原型对象 prototype 是等价的</span><br><span class="line">__proto__对象原型的意义就在于为对象的查找机制提供一个方向，或者说一条路线，但是它是一个非标准属性，因此实际开发中，不可以使用这个属性，它只是内部指向原型对象</span><br></pre></td></tr></table></figure>
-
-<p>![img2](F:\manythings\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img2.png)</p>
-<h3 id="constructor构造函数"><a href="#constructor构造函数" class="headerlink" title="constructor构造函数"></a>constructor构造函数</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对象原型（ __proto__）和构造函数（prototype）原型对象里面都有一个属性 constructor 属性 ，constructor 我们称为构造函数，因为它指回构造函数本身。</span><br><span class="line">constructor 主要用于记录该对象引用于哪个构造函数，它可以让原型对象重新指向原来的构造函数。</span><br><span class="line">一般情况下，对象的方法都在构造函数的原型对象中设置。如果有多个对象的方法，我们可以给原型对象采取对象形式赋值，但是这样就会覆盖构造函数原型对象原来的内容，这样修改后的原型对象 constructor  就不再指向当前构造函数了。此时，我们可以在修改后的原型对象中，添加一个 constructor 指向原来的构造函数。</span><br></pre></td></tr></table></figure>
-
-<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>​    每一个实例对象又有一个<strong>proto</strong>属性，指向的构造函数的原型对象，构造函数的原型对象也是一个对象，也有<strong>proto</strong>属性，这样一层一层往上找就形成了原型链。</p>
-<p>![img5](F:\manythings\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img5.png)</p>
-<h3 id="构造函数实例和原型对象三角关系"><a href="#构造函数实例和原型对象三角关系" class="headerlink" title="构造函数实例和原型对象三角关系"></a>构造函数实例和原型对象三角关系</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>构造函数的prototype属性指向了构造函数原型对象</span><br><span class="line"><span class="number">2.</span>实例对象是由构造函数创建的,实例对象的__proto__属性指向了构造函数的原型对象</span><br><span class="line"><span class="number">3.</span>构造函数的原型对象的<span class="keyword">constructor</span>属性指向了构造函数,实例对象的原型的<span class="keyword">constructor</span>属性也指向了构造函数</span><br></pre></td></tr></table></figure>
-
-<p>![](F:/manythings/07-10 JavaScript网页编程/04-JavaScript高级资料/JavaScript 高级_day02/4-笔记/images/img4.png)</p>
-<h3 id="原型链和成员的查找机制"><a href="#原型链和成员的查找机制" class="headerlink" title="原型链和成员的查找机制"></a>原型链和成员的查找机制</h3><p>任何对象都有原型对象,也就是prototype属性,任何原型对象也是一个对象,该对象就有<strong>proto</strong>属性,这样一层一层往上找,就形成了一条链,我们称此为原型链;</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">当访问一个对象的属性（包括方法）时，首先查找这个对象自身有没有该属性。</span><br><span class="line">如果没有就查找它的原型（也就是 __proto__指向的 prototype 原型对象）。</span><br><span class="line">如果还没有就查找原型对象的原型（Object的原型对象）。</span><br><span class="line">依此类推一直找到 Object 为止（null）。</span><br><span class="line">__proto__对象原型的意义就在于为对象成员查找机制提供一个方向，或者说一条路线。</span><br></pre></td></tr></table></figure>
-
-<h3 id="原型对象中this指向"><a href="#原型对象中this指向" class="headerlink" title="原型对象中this指向"></a>原型对象中this指向</h3><p>构造函数中的this和原型对象的this,都指向我们new出来的实例对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Star</span>(<span class="params">uname, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.uname = uname;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> that;</span><br><span class="line">Star.prototype.sing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我会唱歌'</span>);</span><br><span class="line">    that = <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ldh = <span class="keyword">new</span> Star(<span class="string">'刘德华'</span>, <span class="number">18</span>);</span><br><span class="line"><span class="comment">// 1. 在构造函数中,里面this指向的是对象实例 ldh</span></span><br><span class="line"><span class="built_in">console</span>.log(that === ldh);<span class="comment">//true</span></span><br><span class="line"><span class="comment">// 2.原型对象函数里面的this 指向的是 实例对象 ldh</span></span><br></pre></td></tr></table></figure>
-
-<p>![](F:/manythings/07-10 JavaScript网页编程/04-JavaScript高级资料/JavaScript 高级_day02/4-笔记/images/img6.png)</p>
-<h3 id="通过原型为数组扩展内置方法"><a href="#通过原型为数组扩展内置方法" class="headerlink" title="通过原型为数组扩展内置方法"></a>通过原型为数组扩展内置方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.sum = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">  sum += <span class="keyword">this</span>[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//此时数组对象中已经存在sum()方法了  可以始终 数组.sum()进行数据的求</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="call"><a href="#call" class="headerlink" title="call()"></a>call()</h3><ul>
-<li>call()可以调用函数</li>
-<li>call()可以修改this的指向,使用call()的时候 参数一是修改后的this指向,参数2,参数3..使用逗号隔开连接</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">     <span class="built_in">console</span>.log(x + y);</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">var</span> o = &#123;</span><br><span class="line">  	name: <span class="string">'andy'</span></span><br><span class="line">  &#125;;</span><br><span class="line">  fn.call(o, <span class="number">1</span>, <span class="number">2</span>);<span class="comment">//调用了函数此时的this指向了对象o,</span></span><br></pre></td></tr></table></figure>
-
-<p>![](F:/manythings/07-10 JavaScript网页编程/04-JavaScript高级资料/JavaScript 高级_day02/4-笔记/images/img10.png)</p>
-<h3 id="子构造函数继承父构造函数中的属性"><a href="#子构造函数继承父构造函数中的属性" class="headerlink" title="子构造函数继承父构造函数中的属性"></a>子构造函数继承父构造函数中的属性</h3><ol>
-<li>先定义一个父构造函数</li>
-<li>再定义一个子构造函数</li>
-<li>子构造函数继承父构造函数的属性(使用call方法)</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 1. 父构造函数</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">uname, age</span>) </span>&#123;</span><br><span class="line">   <span class="comment">// this 指向父构造函数的对象实例</span></span><br><span class="line">   <span class="keyword">this</span>.uname = uname;</span><br><span class="line">   <span class="keyword">this</span>.age = age;</span><br><span class="line"> &#125;</span><br><span class="line">  <span class="comment">// 2 .子构造函数 </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">uname, age, score</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this 指向子构造函数的对象实例</span></span><br><span class="line">  <span class="number">3.</span>使用call方式实现子继承父的属性</span><br><span class="line">  Father.call(<span class="keyword">this</span>, uname, age);</span><br><span class="line">  <span class="keyword">this</span>.score = score;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> son = <span class="keyword">new</span> Son(<span class="string">'刘德华'</span>, <span class="number">18</span>, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(son);</span><br></pre></td></tr></table></figure>
-
-<p>![](F:/manythings/07-10 JavaScript网页编程/04-JavaScript高级资料/JavaScript 高级_day02/4-笔记/images/img11.png)</p>
-<h3 id="借用原型对象继承方法"><a href="#借用原型对象继承方法" class="headerlink" title="借用原型对象继承方法"></a>借用原型对象继承方法</h3><ol>
-<li>先定义一个父构造函数</li>
-<li>再定义一个子构造函数</li>
-<li>子构造函数继承父构造函数的属性(使用call方法)</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 父构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">uname, age</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this 指向父构造函数的对象实例</span></span><br><span class="line">  <span class="keyword">this</span>.uname = uname;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Father.prototype.money = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">100000</span>);</span><br><span class="line"> &#125;;</span><br><span class="line"> <span class="comment">// 2 .子构造函数 </span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">uname, age, score</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// this 指向子构造函数的对象实例</span></span><br><span class="line">      Father.call(<span class="keyword">this</span>, uname, age);</span><br><span class="line">      <span class="keyword">this</span>.score = score;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// Son.prototype = Father.prototype;  这样直接赋值会有问题,如果修改了子原型对象,父原型对象也会跟着一起变化</span></span><br><span class="line">  Son.prototype = <span class="keyword">new</span> Father();</span><br><span class="line">  <span class="comment">// 如果利用对象的形式修改了原型对象,别忘了利用constructor 指回原来的构造函数</span></span><br><span class="line">  Son.prototype.constructor = Son;</span><br><span class="line">  <span class="comment">// 这个是子构造函数专门的方法</span></span><br><span class="line">  Son.prototype.exam = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'孩子要考试'</span>);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> son = <span class="keyword">new</span> Son(<span class="string">'刘德华'</span>, <span class="number">18</span>, <span class="number">100</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(son);</span><br></pre></td></tr></table></figure>
-
-<p>如上代码结果如图:</p>
-<p>![](F:/manythings/07-10 JavaScript网页编程/04-JavaScript高级资料/JavaScript 高级_day02/4-笔记/images/img12.png)</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/22/js-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1468,12 +1430,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">31k</span>
+    <span title="站点总字数">30k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">28 分钟</span>
+    <span title="站点阅读时长">27 分钟</span>
 </div>
 
 <!--
