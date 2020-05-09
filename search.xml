@@ -1,38 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ES5新增方法</title>
-    <url>/2020/02/22/ES5%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="ES5新增方法"><a href="#ES5新增方法" class="headerlink" title="ES5新增方法"></a>ES5新增方法</h2><h3 id="数组方法forEach遍历数组"><a href="#数组方法forEach遍历数组" class="headerlink" title="数组方法forEach遍历数组"></a>数组方法forEach遍历数组</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, array</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//参数一是:数组元素</span></span><br><span class="line">      <span class="comment">//参数二是:数组元素的索引</span></span><br><span class="line">      <span class="comment">//参数三是:当前的数组</span></span><br><span class="line">&#125;)</span><br><span class="line"> <span class="comment">//相当于数组遍历的 for循环 没有返回值</span></span><br></pre></td></tr></table></figure>
-
+    <title>TDK三大标签SEO优化</title>
+    <url>/2020/01/16/TDK%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BESEO%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h3 id="网站优化三大标签"><a href="#网站优化三大标签" class="headerlink" title="网站优化三大标签"></a>网站优化三大标签</h3><p>SEO是由英文Search Engine Optimization缩写而来， 中文意译为“搜索引擎优化”！</p>
+<p>常见的搜索引擎，比如百度，谷歌，雅虎，搜狗等等..</p>
 <a id="more"></a>
 
-<h3 id="数组方法filter过滤数组"><a href="#数组方法filter过滤数组" class="headerlink" title="数组方法filter过滤数组"></a>数组方法filter过滤数组</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">12</span>, <span class="number">66</span>, <span class="number">4</span>, <span class="number">88</span>, <span class="number">3</span>, <span class="number">7</span>];</span><br><span class="line"><span class="keyword">var</span> newArr = arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">value, index,array</span>) </span>&#123;</span><br><span class="line">	 <span class="comment">//参数一是:数组元素</span></span><br><span class="line">   <span class="comment">//参数二是:数组元素的索引</span></span><br><span class="line">   <span class="comment">//参数三是:当前的数组</span></span><br><span class="line">   <span class="keyword">return</span> value &gt;= <span class="number">20</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(newArr);<span class="comment">//[66,88] //返回值是一个新数组</span></span><br></pre></td></tr></table></figure>
+<p>SEO是指通过对网站进行站内优化、网站结构调整、网站内容建设、网站代码优化等)和站外优化，从而提高网站的关键词排名以及公司产品的曝光度。 简单的说就是，把产品做好，搜索引擎就会介绍客户来。  </p>
+<h4 id="1-网页title-标题"><a href="#1-网页title-标题" class="headerlink" title="1). 网页title 标题"></a>1). 网页title 标题</h4><p>title具有不可替代性，是我们的内页第一个重要标签，是搜索引擎了解网页的入口，和对网页主题归属的最佳判断点。</p>
+<p>建议：</p>
+<p>首页标题：网站名（产品名）- 网站的介绍    </p>
+<p>例如：</p>
+<p>品优购-综合网购首选-正品低价、品质保障、配送及时、轻松购物！</p>
+<p>小米商城 - 小米5s、红米Note 4、小米MIX、小米笔记本官方网站</p>
+<h4 id="2-Description-网站说明"><a href="#2-Description-网站说明" class="headerlink" title="2. Description  网站说明"></a>2. Description  网站说明</h4><p>对于关键词的作用明显降低，但由于很多搜索引擎，仍然大量采用网页的MATA标签中描述部分作为搜索结果的“内容摘要”。 就是简要说明我们网站的主要做什么的。<br>我们提倡，Description作为网站的总体业务和主题概括，多采用“我们是…”“我们提供…”“×××网作为…”“电话：010…”之类语句。</p>
+<p>品优购网：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;品优购JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="数组方法some"><a href="#数组方法some" class="headerlink" title="数组方法some"></a>数组方法some</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">some 查找数组中是否有满足条件的元素 </span><br><span class="line"> <span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">30</span>, <span class="number">4</span>];</span><br><span class="line"> <span class="keyword">var</span> flag = arr.some(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,array</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//参数一是:数组元素</span></span><br><span class="line">     <span class="comment">//参数二是:数组元素的索引</span></span><br><span class="line">     <span class="comment">//参数三是:当前的数组</span></span><br><span class="line">     <span class="keyword">return</span> value &lt; <span class="number">3</span>;</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(flag);<span class="comment">//false返回值是布尔值,只要查找到满足条件的一个元素就立马终止循环</span></span><br></pre></td></tr></table></figure>
+<p>注意点：</p>
+<ol>
+<li>描述中出现关键词，与正文内容相关，这部分内容是给人看的，所以要写的很详细，让人感兴趣， 吸引用户点击。</li>
+<li>同样遵循简短原则，字符数含空格在内不要超过 120  个汉字。</li>
+<li>补充在 title  和 keywords  中未能充分表述的说明.</li>
+<li>用英文逗号 关键词1,关键词2</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;小米商城直营小米公司旗下所有产品，囊括小米手机系列小米MIX、小米Note 2，红米手机系列红米Note 4、红米4，智能硬件，配件及小米生活周边，同时提供小米客户服务及售后支持。&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="some和forEach区别"><a href="#some和forEach区别" class="headerlink" title="some和forEach区别"></a>some和forEach区别</h3><ul>
-<li>如果查询数组中唯一的元素, 用some方法更合适,在some 里面 遇到 return true 就是终止遍历 迭代效率更高</li>
-<li>在forEach 里面 return 不会终止迭代</li>
-</ul>
-<h3 id="trim方法去除字符串两端的空格"><a href="#trim方法去除字符串两端的空格" class="headerlink" title="trim方法去除字符串两端的空格"></a>trim方法去除字符串两端的空格</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'   hello   '</span></span><br><span class="line"><span class="built_in">console</span>.log(str.trim()）  <span class="comment">//hello 去除两端空格</span></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">'   he l l o   '</span></span><br><span class="line"><span class="built_in">console</span>.log(str.trim()）  <span class="comment">//he l l o  去除两端空格</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-Keywords-关键字"><a href="#3-Keywords-关键字" class="headerlink" title="3. Keywords 关键字"></a>3. Keywords 关键字</h4><p>Keywords是页面关键词，是搜索引擎关注点之一。Keywords应该限制在6～8个关键词左右，电商类网站可以多 少许。</p>
+<p>品优购网：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;Keywords&quot; content&#x3D;&quot;网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,品优购&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="获取对象的属性名"><a href="#获取对象的属性名" class="headerlink" title="获取对象的属性名"></a>获取对象的属性名</h3><p>Object.keys(对象) 获取到当前对象中的属性名 ，返回值是一个数组</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">var</span> obj = &#123;</span><br><span class="line">     id: <span class="number">1</span>,</span><br><span class="line">     pname: <span class="string">'小米'</span>,</span><br><span class="line">     price: <span class="number">1999</span>,</span><br><span class="line">     num: <span class="number">2000</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> result = <span class="built_in">Object</span>.keys(obj)</span><br><span class="line"><span class="built_in">console</span>.log(result)<span class="comment">//[id，pname,price,num]</span></span><br></pre></td></tr></table></figure>
+<p>小米网：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;keywords&quot; content&#x3D;&quot;小米,小米6,红米Note4,小米MIX,小米商城&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h3><p>Object.defineProperty设置或修改对象中的属性</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(对象，修改或新增的属性名，&#123;</span><br><span class="line">		value:修改或新增的属性的值,</span><br><span class="line">		writable:<span class="literal">true</span>/<span class="literal">false</span>,<span class="comment">//如果值为false 不允许修改这个属性值</span></span><br><span class="line">		enumerable: <span class="literal">false</span>,<span class="comment">//enumerable 如果值为false 则不允许遍历</span></span><br><span class="line">        configurable: <span class="literal">false</span>  <span class="comment">//configurable 如果为false 则不允许删除这个属性 属性是否可以被删除或是否可以再次修改特性</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<h4 id="4-总结"><a href="#4-总结" class="headerlink" title="4). 总结"></a>4). 总结</h4><ol>
+<li>我们的网页要做的优秀，符合搜索引擎的要求，才可以让搜索引擎优先显示我们的网页。  </li>
+</ol>
+<p>所以我们的网站要做很多的优化， 其中就有这三大标签。</p>
+<ol start="2">
+<li>一般情况下，三大标签里面的优化词，都是专门的优化人员写的，我们大概了解一下规范就可以了。</li>
+<li>我们的主要任务是，能写出这三大标签， 然后把优化人员给我们的内容，添加到里面。</li>
+</ol>
 ]]></content>
       <categories>
         <category>前端</category>
       </categories>
       <tags>
-        <tag>js</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -138,56 +153,6 @@
       </categories>
       <tags>
         <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TDK三大标签SEO优化</title>
-    <url>/2020/01/16/TDK%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BESEO%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<h3 id="网站优化三大标签"><a href="#网站优化三大标签" class="headerlink" title="网站优化三大标签"></a>网站优化三大标签</h3><p>SEO是由英文Search Engine Optimization缩写而来， 中文意译为“搜索引擎优化”！</p>
-<p>常见的搜索引擎，比如百度，谷歌，雅虎，搜狗等等..</p>
-<a id="more"></a>
-
-<p>SEO是指通过对网站进行站内优化、网站结构调整、网站内容建设、网站代码优化等)和站外优化，从而提高网站的关键词排名以及公司产品的曝光度。 简单的说就是，把产品做好，搜索引擎就会介绍客户来。  </p>
-<h4 id="1-网页title-标题"><a href="#1-网页title-标题" class="headerlink" title="1). 网页title 标题"></a>1). 网页title 标题</h4><p>title具有不可替代性，是我们的内页第一个重要标签，是搜索引擎了解网页的入口，和对网页主题归属的最佳判断点。</p>
-<p>建议：</p>
-<p>首页标题：网站名（产品名）- 网站的介绍    </p>
-<p>例如：</p>
-<p>品优购-综合网购首选-正品低价、品质保障、配送及时、轻松购物！</p>
-<p>小米商城 - 小米5s、红米Note 4、小米MIX、小米笔记本官方网站</p>
-<h4 id="2-Description-网站说明"><a href="#2-Description-网站说明" class="headerlink" title="2. Description  网站说明"></a>2. Description  网站说明</h4><p>对于关键词的作用明显降低，但由于很多搜索引擎，仍然大量采用网页的MATA标签中描述部分作为搜索结果的“内容摘要”。 就是简要说明我们网站的主要做什么的。<br>我们提倡，Description作为网站的总体业务和主题概括，多采用“我们是…”“我们提供…”“×××网作为…”“电话：010…”之类语句。</p>
-<p>品优购网：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;品优购JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意点：</p>
-<ol>
-<li>描述中出现关键词，与正文内容相关，这部分内容是给人看的，所以要写的很详细，让人感兴趣， 吸引用户点击。</li>
-<li>同样遵循简短原则，字符数含空格在内不要超过 120  个汉字。</li>
-<li>补充在 title  和 keywords  中未能充分表述的说明.</li>
-<li>用英文逗号 关键词1,关键词2</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;小米商城直营小米公司旗下所有产品，囊括小米手机系列小米MIX、小米Note 2，红米手机系列红米Note 4、红米4，智能硬件，配件及小米生活周边，同时提供小米客户服务及售后支持。&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-Keywords-关键字"><a href="#3-Keywords-关键字" class="headerlink" title="3. Keywords 关键字"></a>3. Keywords 关键字</h4><p>Keywords是页面关键词，是搜索引擎关注点之一。Keywords应该限制在6～8个关键词左右，电商类网站可以多 少许。</p>
-<p>品优购网：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;Keywords&quot; content&#x3D;&quot;网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,品优购&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>小米网：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;keywords&quot; content&#x3D;&quot;小米,小米6,红米Note4,小米MIX,小米商城&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-总结"><a href="#4-总结" class="headerlink" title="4). 总结"></a>4). 总结</h4><ol>
-<li>我们的网页要做的优秀，符合搜索引擎的要求，才可以让搜索引擎优先显示我们的网页。  </li>
-</ol>
-<p>所以我们的网站要做很多的优化， 其中就有这三大标签。</p>
-<ol start="2">
-<li>一般情况下，三大标签里面的优化词，都是专门的优化人员写的，我们大概了解一下规范就可以了。</li>
-<li>我们的主要任务是，能写出这三大标签， 然后把优化人员给我们的内容，添加到里面。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -407,78 +372,137 @@
       </tags>
   </entry>
   <entry>
-    <title>css-显示模式</title>
-    <url>/2020/01/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
+    <title>Flex布局</title>
+    <url>/2020/01/26/css3-flex%E5%B8%83%E5%B1%80/</url>
+    <content><![CDATA[<h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><p>布局的传统解决方案：是基于盒模型，这种布局依赖<code>display</code>属性 + <code>position</code>属性 + <code>float</code>属性，但是对于一些特殊的布局是不方便的，比如说：对于垂直布局就不容易实现。、</p>
+<a id="more"></a>
 
-<p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的块元素有<span class="tag">&lt;<span class="name">h1</span>&gt;</span>~<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">li</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
+<h4 id="Flex布局是什么？"><a href="#Flex布局是什么？" class="headerlink" title="Flex布局是什么？"></a>Flex布局是什么？</h4><p>Flex布局又被称为弹性布局，用来为盒模型提供最大的灵活性，任意的容器、行内元素都可以使用Flex布局。<br> <code>ps:设定为Flex布局之后，子元素的float、clear和vertical-align属性将会失效。</code></p>
+<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>采用Flex布局的元素。被称为Flex容器，简称为‘容器’。他的所有的子元素自动成为容器的成员，成为Flex的项目。</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-ae5a9f894a4477db.png" alt="img">   </p>
+<p>Flex基本概念</p>
+<p>容器默认存在两根轴：水平的主轴（<code>main axis</code>）和垂直的交叉轴（<code>cross axis</code>）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</p>
+<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做<code>cross size</code>。</p>
+<h4 id="Flex的属性设置"><a href="#Flex的属性设置" class="headerlink" title="Flex的属性设置"></a>Flex的属性设置</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flex-direction&#96;、&#96;flex-wrap&#96;、&#96;flex-flow&#96;、&#96;justify-content&#96;、&#96;align-items&#96;、&#96;align-content</span><br></pre></td></tr></table></figure>
 
-<p>块级元素的特点</p>
-<p>（1）比较霸道，自己独占一行</p>
-<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
-<p>（3）宽度默认是容器（父级宽度）的100%</p>
-<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
-<p>注意：</p>
-<p>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </p>
-<p>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</p>
-<h4 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h4><p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的行内元素有<span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">b</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">del</span>&gt;</span>、<span class="tag">&lt;<span class="name">s</span>&gt;</span>、<span class="tag">&lt;<span class="name">ins</span>&gt;</span>、<span class="tag">&lt;<span class="name">u</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">span</span>&gt;</span>标签最典型的行内元素。有的地方也成内联元素</span><br></pre></td></tr></table></figure>
+<p><strong>flex-direction</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-direction</span>:column;    <span class="comment">/* row | row-reverse | column | column-reverse;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>行内元素的特点：</p>
-<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
-<p>（2）高、宽直接设置是无效的。</p>
-<p>（3）默认宽度就是它本身内容的宽度。</p>
-<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
-<p>注意：</p>
-<p>链接里面不能再放链接。</p>
-<p>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全</p>
-<h4 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h4><p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——<span class="tag">&lt;<span class="name">img</span> /&gt;</span>、<span class="tag">&lt;<span class="name">input</span> /&gt;</span>、<span class="tag">&lt;<span class="name">td</span>&gt;</span>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br></pre></td></tr></table></figure>
 
-<p>行内块元素的特点：</p>
-<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
-<thead>
-<tr>
-<th>元素模式</th>
-<th>元素排列</th>
-<th>设置样式</th>
-<th>默认宽度</th>
-<th>包含</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>块级元素</td>
-<td>一行只能放一个块级元素</td>
-<td>可以设置宽度高度</td>
-<td>容器的100%</td>
-<td>容器级可以包含任何标签</td>
-</tr>
-<tr>
-<td>行内元素</td>
-<td>一行可以放多个行内元素</td>
-<td>不可以直接设置宽度高度</td>
-<td>它本身内容的宽度</td>
-<td>容纳文本或则其他行内元素</td>
-</tr>
-<tr>
-<td>行内块元素</td>
-<td>一行放多个行内块元素</td>
-<td>可以设置宽度和高度</td>
-<td>它本身内容的宽度</td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
-<p>行内转块：display:block;</p>
-<p>块、行内元素转换为行内块： display: inline-block</p>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'project'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>column-reverse</code>：主轴为垂直方向，起点在下沿。<br> <code>column</code>：主轴为垂直方向，起点在上沿。<br> <code>row</code>（默认值）：主轴为水平方向，起点在左端。<br> <code>row-reverse</code>：主轴为水平方向，起点在右端。</p>
+</blockquote>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-3b5791470b5bf6ab.png" alt="img"> </p>
+<p>flex-direction的属性</p>
+<p><strong>flex-wrap</strong><br> 在该布局下，所有的项目都排在一条线上，但是当一跳轴线排不下的时候，就要换行，这个属性解决的就是如何换行的问题。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-wrap</span>:nowrap;   <span class="comment">/* nowrap | wrap | wrap-reverse;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'project'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>nowrap</code>（默认值）：不换行。<br> <code>wrap</code>：换行，第一行在上方。。<br> <code>wrap-reverse</code>：换行，第一行在下方。</p>
+</blockquote>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-27888df1bd6fffce.png" alt="img"> </p>
+<p>nowrap不换行</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-9fcfa1b1bdc1c9b7.png" alt="img"> </p>
+<p>wrap 换行，第一行在上面</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-2c1a33b43eec02d4.png" alt="img">  </p>
+<p>wrap-reverse 换行，第一行在下</p>
+<p><strong>flex-flow</strong><br> <code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">flex-flow</span>: column wrap;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>justify-content</strong><br> <code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:solid <span class="number">1px</span> black;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">justify-content</span>:space-between;<span class="comment">/* flex-start | flex-end | center | space-between | space-around;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-756d5537802c391d.png" alt="img"> </p>
+<p>justify-content属性</p>
+<blockquote>
+<p><code>flex-start</code>（默认值）：左对齐<br> <code>flex-end</code>：右对齐<br> <code>center</code>： 居中<br> <code>space-between</code>：两端对齐，项目之间的间隔都相等。<br> <code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</p>
+</blockquote>
+<h4 id="align-items属性"><a href="#align-items属性" class="headerlink" title="align-items属性"></a>align-items属性</h4><p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:solid <span class="number">1px</span> black;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">align-items</span>: baseline;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-87a30d4bd4226add.png" alt="img"> </p>
+<p>align-items的属性</p>
+<p> 都很好理解，就是存在一定的歧义。我们通过一个小栗子来进行了解。</p>
+<blockquote>
+<p><code>flex-start</code>：交叉轴的起点对齐。<br> <code>flex-end</code>：交叉轴的终点对齐。<br> <code>center</code>：交叉轴的中点对齐。<br> <code>baseline</code>: 项目的第一行文字的基线对齐。<br> <code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</p>
+</blockquote>
+<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。也就是说<code>item</code>存在换行的情况存在</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:solid <span class="number">1px</span> black;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">        <span class="attribute">align-content</span>: space-between;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-37f278e6e91239f8.png" alt="img"> </p>
+<p>align-content</p>
+<blockquote>
+<p><code>flex-start</code>：与交叉轴的起点对齐。<br> <code>flex-end</code>：与交叉轴的终点对齐。<br> <code>center</code>：与交叉轴的中点对齐。<br> <code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。<br> <code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。<br> <code>stretch</code>（默认值）：轴线占满整个交叉轴。</p>
+</blockquote>
+<h4 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">order&#96;、&#96;flex-grow&#96;、&#96;flex-shrink&#96;、&#96;flex-basis&#96;、&#96;flex&#96;、&#96;align-self</span><br></pre></td></tr></table></figure>
+
+<p><strong>order</strong><br> <code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">        <span class="attribute">align-content</span>: space-between;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">        <span class="attribute">order</span>: <span class="number">3</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">        <span class="attribute">order</span>: <span class="number">2</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">'project'</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span> </span>=<span class="string">'item'</span>&gt;item1&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div class ='item2'&gt;item2&lt;/</span>div&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span> </span>=<span class="string">'item3'</span>&gt;item3&lt;<span class="regexp">/div&gt; </span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-cbb4f559f3003c08.png" alt="img"> </p>
+<p>order属性的使用</p>
+<p><strong>flex-grow</strong><br> <code>flex-grow</code>属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大，属性的值是数字。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">        <span class="attribute">flex-grow</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">        <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p>
+<p><strong>flex-shrink</strong><br> 这个属性定义了项目缩小的比例，这个值默认是1，即如果空间不足的时候，这个项目就会缩小，如果所有的<code>flex-shrink</code>属性值都为1，当空间不足的时候，都进行等比的缩小，但是如果有一个项目的<code>flex-shrink</code>为0，其他项目的值为1的时候，空间不足的时候，值为0的项目不会缩小。</p>
+<p><strong>flex-basis</strong><br> <code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。相当于对项目设置了宽度。</p>
+<p><strong>flex</strong><br> flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
+<p><strong>align-self</strong><br> align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
 ]]></content>
       <categories>
         <category>前端</category>
       </categories>
       <tags>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES5新增方法</title>
+    <url>/2020/02/22/ES5%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="ES5新增方法"><a href="#ES5新增方法" class="headerlink" title="ES5新增方法"></a>ES5新增方法</h2><h3 id="数组方法forEach遍历数组"><a href="#数组方法forEach遍历数组" class="headerlink" title="数组方法forEach遍历数组"></a>数组方法forEach遍历数组</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, array</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//参数一是:数组元素</span></span><br><span class="line">      <span class="comment">//参数二是:数组元素的索引</span></span><br><span class="line">      <span class="comment">//参数三是:当前的数组</span></span><br><span class="line">&#125;)</span><br><span class="line"> <span class="comment">//相当于数组遍历的 for循环 没有返回值</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="数组方法filter过滤数组"><a href="#数组方法filter过滤数组" class="headerlink" title="数组方法filter过滤数组"></a>数组方法filter过滤数组</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">12</span>, <span class="number">66</span>, <span class="number">4</span>, <span class="number">88</span>, <span class="number">3</span>, <span class="number">7</span>];</span><br><span class="line"><span class="keyword">var</span> newArr = arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">value, index,array</span>) </span>&#123;</span><br><span class="line">	 <span class="comment">//参数一是:数组元素</span></span><br><span class="line">   <span class="comment">//参数二是:数组元素的索引</span></span><br><span class="line">   <span class="comment">//参数三是:当前的数组</span></span><br><span class="line">   <span class="keyword">return</span> value &gt;= <span class="number">20</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(newArr);<span class="comment">//[66,88] //返回值是一个新数组</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数组方法some"><a href="#数组方法some" class="headerlink" title="数组方法some"></a>数组方法some</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">some 查找数组中是否有满足条件的元素 </span><br><span class="line"> <span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">30</span>, <span class="number">4</span>];</span><br><span class="line"> <span class="keyword">var</span> flag = arr.some(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,array</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//参数一是:数组元素</span></span><br><span class="line">     <span class="comment">//参数二是:数组元素的索引</span></span><br><span class="line">     <span class="comment">//参数三是:当前的数组</span></span><br><span class="line">     <span class="keyword">return</span> value &lt; <span class="number">3</span>;</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(flag);<span class="comment">//false返回值是布尔值,只要查找到满足条件的一个元素就立马终止循环</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="some和forEach区别"><a href="#some和forEach区别" class="headerlink" title="some和forEach区别"></a>some和forEach区别</h3><ul>
+<li>如果查询数组中唯一的元素, 用some方法更合适,在some 里面 遇到 return true 就是终止遍历 迭代效率更高</li>
+<li>在forEach 里面 return 不会终止迭代</li>
+</ul>
+<h3 id="trim方法去除字符串两端的空格"><a href="#trim方法去除字符串两端的空格" class="headerlink" title="trim方法去除字符串两端的空格"></a>trim方法去除字符串两端的空格</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'   hello   '</span></span><br><span class="line"><span class="built_in">console</span>.log(str.trim()）  <span class="comment">//hello 去除两端空格</span></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">'   he l l o   '</span></span><br><span class="line"><span class="built_in">console</span>.log(str.trim()）  <span class="comment">//he l l o  去除两端空格</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="获取对象的属性名"><a href="#获取对象的属性名" class="headerlink" title="获取对象的属性名"></a>获取对象的属性名</h3><p>Object.keys(对象) 获取到当前对象中的属性名 ，返回值是一个数组</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">var</span> obj = &#123;</span><br><span class="line">     id: <span class="number">1</span>,</span><br><span class="line">     pname: <span class="string">'小米'</span>,</span><br><span class="line">     price: <span class="number">1999</span>,</span><br><span class="line">     num: <span class="number">2000</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> result = <span class="built_in">Object</span>.keys(obj)</span><br><span class="line"><span class="built_in">console</span>.log(result)<span class="comment">//[id，pname,price,num]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h3><p>Object.defineProperty设置或修改对象中的属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(对象，修改或新增的属性名，&#123;</span><br><span class="line">		value:修改或新增的属性的值,</span><br><span class="line">		writable:<span class="literal">true</span>/<span class="literal">false</span>,<span class="comment">//如果值为false 不允许修改这个属性值</span></span><br><span class="line">		enumerable: <span class="literal">false</span>,<span class="comment">//enumerable 如果值为false 则不允许遍历</span></span><br><span class="line">        configurable: <span class="literal">false</span>  <span class="comment">//configurable 如果为false 则不允许删除这个属性 属性是否可以被删除或是否可以再次修改特性</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -735,96 +759,162 @@
       </tags>
   </entry>
   <entry>
-    <title>Flex布局</title>
-    <url>/2020/01/26/css3-flex%E5%B8%83%E5%B1%80/</url>
-    <content><![CDATA[<h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><p>布局的传统解决方案：是基于盒模型，这种布局依赖<code>display</code>属性 + <code>position</code>属性 + <code>float</code>属性，但是对于一些特殊的布局是不方便的，比如说：对于垂直布局就不容易实现。、</p>
+    <title>js-Math对象</title>
+    <url>/2020/02/05/js-Math%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>​        Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用 Math 中的成员。</p>
 <a id="more"></a>
 
-<h4 id="Flex布局是什么？"><a href="#Flex布局是什么？" class="headerlink" title="Flex布局是什么？"></a>Flex布局是什么？</h4><p>Flex布局又被称为弹性布局，用来为盒模型提供最大的灵活性，任意的容器、行内元素都可以使用Flex布局。<br> <code>ps:设定为Flex布局之后，子元素的float、clear和vertical-align属性将会失效。</code></p>
-<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>采用Flex布局的元素。被称为Flex容器，简称为‘容器’。他的所有的子元素自动成为容器的成员，成为Flex的项目。</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-ae5a9f894a4477db.png" alt="img">   </p>
-<p>Flex基本概念</p>
-<p>容器默认存在两根轴：水平的主轴（<code>main axis</code>）和垂直的交叉轴（<code>cross axis</code>）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</p>
-<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做<code>cross size</code>。</p>
-<h4 id="Flex的属性设置"><a href="#Flex的属性设置" class="headerlink" title="Flex的属性设置"></a>Flex的属性设置</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flex-direction&#96;、&#96;flex-wrap&#96;、&#96;flex-flow&#96;、&#96;justify-content&#96;、&#96;align-items&#96;、&#96;align-content</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>属性、方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Math.PI</td>
+<td>圆周率</td>
+</tr>
+<tr>
+<td>Math.floor()</td>
+<td>向下取整</td>
+</tr>
+<tr>
+<td>Math.ceil()</td>
+<td>向上取整</td>
+</tr>
+<tr>
+<td>Math.round()</td>
+<td>四舍五入版 就近取整   注意 -3.5   结果是  -3</td>
+</tr>
+<tr>
+<td>Math.abs()</td>
+<td>绝对值</td>
+</tr>
+<tr>
+<td>Math.max()/Math.min()</td>
+<td>求最大和最小值</td>
+</tr>
+<tr>
+<td>Math.random()</td>
+<td>获取范围在[0,1)内的随机值</td>
+</tr>
+</tbody></table>
+<p>​    注意：上面的方法使用时必须带括号</p>
+<p>​    <strong>获取指定范围内的随机整数</strong>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandom</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css3-选择器</title>
+    <url>/2020/01/14/css3%E9%80%89%E6%8B%A9%E5%99%A8/</url>
+    <content><![CDATA[<h3 id="css3新增了属性选择器-结构伪类选择器-伪元素选择器"><a href="#css3新增了属性选择器-结构伪类选择器-伪元素选择器" class="headerlink" title="css3新增了属性选择器 结构伪类选择器 伪元素选择器"></a>css3新增了属性选择器 结构伪类选择器 伪元素选择器</h3><a id="more"></a>
 
-<p><strong>flex-direction</strong></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-direction</span>:column;    <span class="comment">/* row | row-reverse | column | column-reverse;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="属性选择器列表"><a href="#属性选择器列表" class="headerlink" title="属性选择器列表"></a>属性选择器列表</h4><p><img src="https://img-blog.csdnimg.cn/20200418223326766.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">input[type=search] &#123;</span><br><span class="line">  color: skyblue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">span[class^=black] &#123;</span><br><span class="line">  color: lightgreen;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">span[class$=black] &#123;</span><br><span class="line">  color: lightsalmon;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">span[class*=black] &#123;</span><br><span class="line">  color: lightseagreen;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h4 id="结构伪类选择器"><a href="#结构伪类选择器" class="headerlink" title="结构伪类选择器"></a>结构伪类选择器</h4><p><img src="https://img-blog.csdnimg.cn/20200418223343220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">ul li:first-child &#123;</span><br><span class="line">  background-color: lightseagreen;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ul li:last-child &#123;</span><br><span class="line">  background-color: lightcoral;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ul li:nth-child(3) &#123;</span><br><span class="line">  background-color: aqua;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h4 id="nth-child-参数详解"><a href="#nth-child-参数详解" class="headerlink" title="nth-child 参数详解"></a><code>nth-child</code> 参数详解</h4><p> <img src="https://img-blog.csdnimg.cn/20200418223357138.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="comment">/* 偶数 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(even)</span> &#123;</span></span><br><span class="line">    background-color: aquamarine;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/* 奇数 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(odd)</span> &#123;</span></span><br><span class="line">    background-color: blueviolet;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/*n 是公式，从 0 开始计算 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(n)</span> &#123;</span></span><br><span class="line">    background-color: lightcoral;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/* 偶数 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2n)</span> &#123;</span></span><br><span class="line">    background-color: lightskyblue;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/* 奇数 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2n</span> + 1) &#123;</span></span><br><span class="line">    background-color: lightsalmon;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/* 选择第 0 5 10 15, 应该怎么选 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(5n)</span> &#123;</span></span><br><span class="line">    background-color: orangered;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/* n + 5 就是从第5个开始往后选择 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(n</span> + 5) &#123;</span></span><br><span class="line">    background-color: peru;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/* -n + 5 前五个 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(-n</span> + 5) &#123;</span></span><br><span class="line">    background-color: tan;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'project'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>nth-child</code>  选择父元素里面的第几个子元素，不管是第几个类型</li>
+<li><code>nt-of-type</code>  选择指定类型的元素</li>
+</ul>
+<h4 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h4><p> 伪类选择器注意事项</p>
+<ul>
+<li><code>before</code> 和 <code>after</code> 必须有 <code>content</code> 属性</li>
+<li><code>before</code> 在内容前面，after 在内容后面</li>
+<li><code>before</code> 和 <code>after</code> 创建的是一个元素，但是属于行内元素</li>
+<li>创建出来的元素在 <code>Dom</code> 中查找不到，所以称为伪元素</li>
+<li>伪元素和标签选择器一样，权重为 1</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200418223407736.png" alt="img"> </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    div &#123;</span><br><span class="line">      width: 100px;</span><br><span class="line">      height: 100px;</span><br><span class="line">      border: 1px solid lightcoral;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-tag">div</span><span class="selector-pseudo">::after</span>,</span></span><br><span class="line"><span class="css">    <span class="selector-tag">div</span><span class="selector-pseudo">::before</span> &#123;</span></span><br><span class="line">      width: 20px;</span><br><span class="line">      height: 50px;</span><br><span class="line">      text-align: center;</span><br><span class="line">      display: inline-block;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-tag">div</span><span class="selector-pseudo">::after</span> &#123;</span></span><br><span class="line">      content: '德';</span><br><span class="line">      background-color: lightskyblue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-tag">div</span><span class="selector-pseudo">::before</span> &#123;</span></span><br><span class="line">      content: '道';</span><br><span class="line">      background-color: mediumaquamarine;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p><code>column-reverse</code>：主轴为垂直方向，起点在下沿。<br> <code>column</code>：主轴为垂直方向，起点在上沿。<br> <code>row</code>（默认值）：主轴为水平方向，起点在左端。<br> <code>row-reverse</code>：主轴为水平方向，起点在右端。</p>
-</blockquote>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-3b5791470b5bf6ab.png" alt="img"> </p>
-<p>flex-direction的属性</p>
-<p><strong>flex-wrap</strong><br> 在该布局下，所有的项目都排在一条线上，但是当一跳轴线排不下的时候，就要换行，这个属性解决的就是如何换行的问题。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-wrap</span>:nowrap;   <span class="comment">/* nowrap | wrap | wrap-reverse;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css-显示模式</title>
+    <url>/2020/01/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
 
+<p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的块元素有<span class="tag">&lt;<span class="name">h1</span>&gt;</span>~<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">li</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
 
+<p>块级元素的特点</p>
+<p>（1）比较霸道，自己独占一行</p>
+<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
+<p>（3）宽度默认是容器（父级宽度）的100%</p>
+<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
+<p>注意：</p>
+<p>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </p>
+<p>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</p>
+<h4 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h4><p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的行内元素有<span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">b</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">del</span>&gt;</span>、<span class="tag">&lt;<span class="name">s</span>&gt;</span>、<span class="tag">&lt;<span class="name">ins</span>&gt;</span>、<span class="tag">&lt;<span class="name">u</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">span</span>&gt;</span>标签最典型的行内元素。有的地方也成内联元素</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'project'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> =<span class="string">'item'</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>行内元素的特点：</p>
+<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
+<p>（2）高、宽直接设置是无效的。</p>
+<p>（3）默认宽度就是它本身内容的宽度。</p>
+<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
+<p>注意：</p>
+<p>链接里面不能再放链接。</p>
+<p>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全</p>
+<h4 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h4><p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——<span class="tag">&lt;<span class="name">img</span> /&gt;</span>、<span class="tag">&lt;<span class="name">input</span> /&gt;</span>、<span class="tag">&lt;<span class="name">td</span>&gt;</span>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p><code>nowrap</code>（默认值）：不换行。<br> <code>wrap</code>：换行，第一行在上方。。<br> <code>wrap-reverse</code>：换行，第一行在下方。</p>
-</blockquote>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-27888df1bd6fffce.png" alt="img"> </p>
-<p>nowrap不换行</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-9fcfa1b1bdc1c9b7.png" alt="img"> </p>
-<p>wrap 换行，第一行在上面</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-2c1a33b43eec02d4.png" alt="img">  </p>
-<p>wrap-reverse 换行，第一行在下</p>
-<p><strong>flex-flow</strong><br> <code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">flex-flow</span>: column wrap;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>justify-content</strong><br> <code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:solid <span class="number">1px</span> black;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">justify-content</span>:space-between;<span class="comment">/* flex-start | flex-end | center | space-between | space-around;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-756d5537802c391d.png" alt="img"> </p>
-<p>justify-content属性</p>
-<blockquote>
-<p><code>flex-start</code>（默认值）：左对齐<br> <code>flex-end</code>：右对齐<br> <code>center</code>： 居中<br> <code>space-between</code>：两端对齐，项目之间的间隔都相等。<br> <code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</p>
-</blockquote>
-<h4 id="align-items属性"><a href="#align-items属性" class="headerlink" title="align-items属性"></a>align-items属性</h4><p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:solid <span class="number">1px</span> black;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">align-items</span>: baseline;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-87a30d4bd4226add.png" alt="img"> </p>
-<p>align-items的属性</p>
-<p> 都很好理解，就是存在一定的歧义。我们通过一个小栗子来进行了解。</p>
-<blockquote>
-<p><code>flex-start</code>：交叉轴的起点对齐。<br> <code>flex-end</code>：交叉轴的终点对齐。<br> <code>center</code>：交叉轴的中点对齐。<br> <code>baseline</code>: 项目的第一行文字的基线对齐。<br> <code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</p>
-</blockquote>
-<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。也就是说<code>item</code>存在换行的情况存在</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:solid <span class="number">1px</span> black;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">        <span class="attribute">align-content</span>: space-between;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-37f278e6e91239f8.png" alt="img"> </p>
-<p>align-content</p>
-<blockquote>
-<p><code>flex-start</code>：与交叉轴的起点对齐。<br> <code>flex-end</code>：与交叉轴的终点对齐。<br> <code>center</code>：与交叉轴的中点对齐。<br> <code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。<br> <code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。<br> <code>stretch</code>（默认值）：轴线占满整个交叉轴。</p>
-</blockquote>
-<h4 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">order&#96;、&#96;flex-grow&#96;、&#96;flex-shrink&#96;、&#96;flex-basis&#96;、&#96;flex&#96;、&#96;align-self</span><br></pre></td></tr></table></figure>
-
-<p><strong>order</strong><br> <code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">        <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">        <span class="attribute">align-content</span>: space-between;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">        <span class="attribute">order</span>: <span class="number">3</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">        <span class="attribute">order</span>: <span class="number">2</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">'project'</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span> </span>=<span class="string">'item'</span>&gt;item1&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div class ='item2'&gt;item2&lt;/</span>div&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span> </span>=<span class="string">'item3'</span>&gt;item3&lt;<span class="regexp">/div&gt; </span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13681871-cbb4f559f3003c08.png" alt="img"> </p>
-<p>order属性的使用</p>
-<p><strong>flex-grow</strong><br> <code>flex-grow</code>属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大，属性的值是数字。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">        <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">        <span class="attribute">flex-grow</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">        <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> red solid;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p>
-<p><strong>flex-shrink</strong><br> 这个属性定义了项目缩小的比例，这个值默认是1，即如果空间不足的时候，这个项目就会缩小，如果所有的<code>flex-shrink</code>属性值都为1，当空间不足的时候，都进行等比的缩小，但是如果有一个项目的<code>flex-shrink</code>为0，其他项目的值为1的时候，空间不足的时候，值为0的项目不会缩小。</p>
-<p><strong>flex-basis</strong><br> <code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。相当于对项目设置了宽度。</p>
-<p><strong>flex</strong><br> flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
-<p><strong>align-self</strong><br> align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+<p>行内块元素的特点：</p>
+<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
+<thead>
+<tr>
+<th>元素模式</th>
+<th>元素排列</th>
+<th>设置样式</th>
+<th>默认宽度</th>
+<th>包含</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>块级元素</td>
+<td>一行只能放一个块级元素</td>
+<td>可以设置宽度高度</td>
+<td>容器的100%</td>
+<td>容器级可以包含任何标签</td>
+</tr>
+<tr>
+<td>行内元素</td>
+<td>一行可以放多个行内元素</td>
+<td>不可以直接设置宽度高度</td>
+<td>它本身内容的宽度</td>
+<td>容纳文本或则其他行内元素</td>
+</tr>
+<tr>
+<td>行内块元素</td>
+<td>一行放多个行内块元素</td>
+<td>可以设置宽度和高度</td>
+<td>它本身内容的宽度</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
+<p>行内转块：display:block;</p>
+<p>块、行内元素转换为行内块： display: inline-block</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -885,159 +975,24 @@
       </tags>
   </entry>
   <entry>
-    <title>css3-选择器</title>
-    <url>/2020/01/14/css3%E9%80%89%E6%8B%A9%E5%99%A8/</url>
-    <content><![CDATA[<h3 id="css3新增了属性选择器-结构伪类选择器-伪元素选择器"><a href="#css3新增了属性选择器-结构伪类选择器-伪元素选择器" class="headerlink" title="css3新增了属性选择器 结构伪类选择器 伪元素选择器"></a>css3新增了属性选择器 结构伪类选择器 伪元素选择器</h3><a id="more"></a>
-
-<h4 id="属性选择器列表"><a href="#属性选择器列表" class="headerlink" title="属性选择器列表"></a>属性选择器列表</h4><p><img src="https://img-blog.csdnimg.cn/20200418223326766.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">input[type=search] &#123;</span><br><span class="line">  color: skyblue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">span[class^=black] &#123;</span><br><span class="line">  color: lightgreen;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">span[class$=black] &#123;</span><br><span class="line">  color: lightsalmon;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">span[class*=black] &#123;</span><br><span class="line">  color: lightseagreen;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="结构伪类选择器"><a href="#结构伪类选择器" class="headerlink" title="结构伪类选择器"></a>结构伪类选择器</h4><p><img src="https://img-blog.csdnimg.cn/20200418223343220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">ul li:first-child &#123;</span><br><span class="line">  background-color: lightseagreen;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ul li:last-child &#123;</span><br><span class="line">  background-color: lightcoral;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ul li:nth-child(3) &#123;</span><br><span class="line">  background-color: aqua;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="nth-child-参数详解"><a href="#nth-child-参数详解" class="headerlink" title="nth-child 参数详解"></a><code>nth-child</code> 参数详解</h4><p> <img src="https://img-blog.csdnimg.cn/20200418223357138.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="comment">/* 偶数 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(even)</span> &#123;</span></span><br><span class="line">    background-color: aquamarine;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/* 奇数 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(odd)</span> &#123;</span></span><br><span class="line">    background-color: blueviolet;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/*n 是公式，从 0 开始计算 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(n)</span> &#123;</span></span><br><span class="line">    background-color: lightcoral;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/* 偶数 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2n)</span> &#123;</span></span><br><span class="line">    background-color: lightskyblue;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/* 奇数 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2n</span> + 1) &#123;</span></span><br><span class="line">    background-color: lightsalmon;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/* 选择第 0 5 10 15, 应该怎么选 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(5n)</span> &#123;</span></span><br><span class="line">    background-color: orangered;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/* n + 5 就是从第5个开始往后选择 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(n</span> + 5) &#123;</span></span><br><span class="line">    background-color: peru;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="comment">/* -n + 5 前五个 */</span></span></span><br><span class="line"><span class="css">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(-n</span> + 5) &#123;</span></span><br><span class="line">    background-color: tan;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>nth-child</code>  选择父元素里面的第几个子元素，不管是第几个类型</li>
-<li><code>nt-of-type</code>  选择指定类型的元素</li>
-</ul>
-<h4 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h4><p> 伪类选择器注意事项</p>
-<ul>
-<li><code>before</code> 和 <code>after</code> 必须有 <code>content</code> 属性</li>
-<li><code>before</code> 在内容前面，after 在内容后面</li>
-<li><code>before</code> 和 <code>after</code> 创建的是一个元素，但是属于行内元素</li>
-<li>创建出来的元素在 <code>Dom</code> 中查找不到，所以称为伪元素</li>
-<li>伪元素和标签选择器一样，权重为 1</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20200418223407736.png" alt="img"> </p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    div &#123;</span><br><span class="line">      width: 100px;</span><br><span class="line">      height: 100px;</span><br><span class="line">      border: 1px solid lightcoral;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-tag">div</span><span class="selector-pseudo">::after</span>,</span></span><br><span class="line"><span class="css">    <span class="selector-tag">div</span><span class="selector-pseudo">::before</span> &#123;</span></span><br><span class="line">      width: 20px;</span><br><span class="line">      height: 50px;</span><br><span class="line">      text-align: center;</span><br><span class="line">      display: inline-block;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-tag">div</span><span class="selector-pseudo">::after</span> &#123;</span></span><br><span class="line">      content: '德';</span><br><span class="line">      background-color: lightskyblue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-tag">div</span><span class="selector-pseudo">::before</span> &#123;</span></span><br><span class="line">      content: '道';</span><br><span class="line">      background-color: mediumaquamarine;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css3</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-Math对象</title>
-    <url>/2020/02/05/js-Math%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>​        Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用 Math 中的成员。</p>
+    <title>js-冒泡排序</title>
+    <url>/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
+<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
 <a id="more"></a>
 
-<table>
-<thead>
-<tr>
-<th>属性、方法名</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Math.PI</td>
-<td>圆周率</td>
-</tr>
-<tr>
-<td>Math.floor()</td>
-<td>向下取整</td>
-</tr>
-<tr>
-<td>Math.ceil()</td>
-<td>向上取整</td>
-</tr>
-<tr>
-<td>Math.round()</td>
-<td>四舍五入版 就近取整   注意 -3.5   结果是  -3</td>
-</tr>
-<tr>
-<td>Math.abs()</td>
-<td>绝对值</td>
-</tr>
-<tr>
-<td>Math.max()/Math.min()</td>
-<td>求最大和最小值</td>
-</tr>
-<tr>
-<td>Math.random()</td>
-<td>获取范围在[0,1)内的随机值</td>
-</tr>
-</tbody></table>
-<p>​    注意：上面的方法使用时必须带括号</p>
-<p>​    <strong>获取指定范围内的随机整数</strong>：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandom</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-事件委托</title>
-    <url>/2020/02/09/js-%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
-    <content><![CDATA[<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>事件冒泡本身的特性，会带来的坏处，也会带来的好处。</p>
-<h4 id="什么是事件委托"><a href="#什么是事件委托" class="headerlink" title="什么是事件委托"></a>什么是事件委托</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">把事情委托给别人，代为处理。</span><br></pre></td></tr></table></figure>
+<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
+<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
+<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
 
-<p>事件委托也称为事件代理，在 jQuery 里面称为事件委派。</p>
-<a id="more"></a>
 
-<blockquote>
-<p>说白了就是，不给子元素注册事件，给父元素注册事件，把处理代码在父元素的事件中执行。</p>
-</blockquote>
-<h4 id="事件委托的原理"><a href="#事件委托的原理" class="headerlink" title="事件委托的原理"></a>事件委托的原理</h4><p>​    给父元素注册事件，利用事件冒泡，当子元素的事件触发，会冒泡到父元素，然后去控制相应的子元素。</p>
-<h4 id="事件委托的作用"><a href="#事件委托的作用" class="headerlink" title="事件委托的作用"></a>事件委托的作用</h4><ul>
-<li><p>我们只操作了一次 DOM ，提高了程序的性能。</p>
-</li>
-<li><p>动态新创建的子元素，也拥有事件。</p>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 事件委托的核心原理：给父节点添加侦听器， 利用事件冒泡影响每一个子节点</span></span><br><span class="line">    <span class="keyword">var</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);</span><br><span class="line">    ul.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// e.target 这个可以得到我们点击的对象</span></span><br><span class="line">        e.target.style.backgroundColor = <span class="string">'pink'</span>;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-事件对象</title>
-    <url>/2020/02/09/js-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><p>事件发生后，跟事件相关的一系列信息数据的集合都放到这个对象里面，这个对象就是事件对象。</p>
-<p>比如：  </p>
-<ol>
-<li><p>谁绑定了这个事件。</p>
-</li>
-<li><p>鼠标触发事件的话，会得到鼠标的相关信息，如鼠标位置。</p>
-</li>
-<li><p>键盘触发事件的话，会得到键盘的相关信息，如按了哪个键。</p>
-<a id="more"></a>
-
-</li>
-</ol>
-<h4 id="事件对象的使用"><a href="#事件对象的使用" class="headerlink" title="事件对象的使用"></a>事件对象的使用</h4><p>事件触发发生时就会产生事件对象，并且系统会以实参的形式传给事件处理函数。</p>
-<p>所以，在事件处理函数中声明1个形参用来接收事件对象。</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200425200103792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;<span class="number">123</span>&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var div = document.querySelector('div');</span></span><br><span class="line"><span class="regexp">    div.onclick = function(e) &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ 事件对象</span></span><br><span class="line"><span class="regexp">            e = e || window.event; /</span><span class="regexp">/处理兼容性</span></span><br><span class="line"><span class="regexp">            console.log(e);</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="事件对象的属性和方法"><a href="#事件对象的属性和方法" class="headerlink" title="事件对象的属性和方法"></a>事件对象的属性和方法</h4><p><img src="https://img-blog.csdnimg.cn/20200425200156635.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="e-target-和-this-的区别"><a href="#e-target-和-this-的区别" class="headerlink" title="e.target 和 this 的区别"></a>e.target 和 this 的区别</h4><ul>
-<li><p>this 是事件绑定的元素（绑定这个事件处理函数的元素） 。</p>
-</li>
-<li><p>e.target 是事件触发的元素。</p>
-</li>
-</ul>
-<h4 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h4><blockquote>
-<p>html中一些标签有默认行为，例如a标签被单击后，默认会进行页面跳转。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;a href=<span class="string">"http://www.baidu.com"</span>&gt;百度&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 2. 阻止默认行为 让链接不跳转 </span></span><br><span class="line"><span class="regexp">    var a = document.querySelector('a');</span></span><br><span class="line"><span class="regexp">    a.addEventListener('click', function(e) &#123;</span></span><br><span class="line"><span class="regexp">         e.preventDefault(); /</span><span class="regexp">/  dom 标准写法</span></span><br><span class="line"><span class="regexp">    &#125;);</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 3. 传统的注册方式</span></span><br><span class="line"><span class="regexp">    a.onclick = function(e) &#123;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 普通浏览器 e.preventDefault();  方法</span></span><br><span class="line"><span class="regexp">        e.preventDefault();</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 低版本浏览器 ie678  returnValue  属性</span></span><br><span class="line"><span class="regexp">        e.returnValue = false;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 我们可以利用return false 也能阻止默认行为 没有兼容性问题</span></span><br><span class="line"><span class="regexp">        return false;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"father"</span>&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"son"</span>&gt;son儿子&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">      <span class="keyword">var</span> son = <span class="built_in">document</span>.querySelector(<span class="string">'.son'</span>);</span><br><span class="line"><span class="comment">// 给son注册单击事件</span></span><br><span class="line">      son.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'son'</span>);</span><br><span class="line">          e.stopPropagation(); <span class="comment">// stop 停止  Propagation 传播</span></span><br><span class="line">          <span class="built_in">window</span>.event.cancelBubble = <span class="literal">true</span>; <span class="comment">// 非标准 cancel 取消 bubble 泡泡</span></span><br><span class="line">      &#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> father = <span class="built_in">document</span>.querySelector(<span class="string">'.father'</span>);</span><br><span class="line"><span class="comment">// 给father注册单击事件</span></span><br><span class="line">      father.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'father'</span>);</span><br><span class="line">      &#125;, <span class="literal">false</span>);</span><br><span class="line"><span class="comment">// 给document注册单击事件</span></span><br><span class="line">      <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'document'</span>);</span><br><span class="line">      &#125;)</span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4>]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -1075,32 +1030,6 @@
 <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">button.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">   <span class="comment">// event为事件对象</span></span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'1. You click Button'</span>);</span><br><span class="line">   event.stopPropagation();</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'Stop Propagation!'</span>);</span><br><span class="line"> &#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 
 <p>输出为4-&gt;1，事件在到达具体元素后，停止了冒泡。但不影响父元素的事件捕获。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-冒泡排序</title>
-    <url>/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
-<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
-<a id="more"></a>
-
-<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
-<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
-<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1154,49 +1083,6 @@
 <h4 id="split-方法"><a href="#split-方法" class="headerlink" title="split()方法"></a>split()方法</h4><p>​        split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
 <p>​        其使用格式如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.split(&quot;分割字符&quot;)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-日期对象</title>
-    <url>/2020/02/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
-<a id="more"></a>
-
-<ul>
-<li><p>使用Date实例化日期对象</p>
-<ul>
-<li>获取当前时间必须实例化：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>获取指定时间的日期对象</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
-</li>
-<li><p>使用Date实例的方法和属性    </p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>通过Date实例获取总毫米数</p>
-<ul>
-<li><p>总毫秒数的含义</p>
-<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
-</li>
-<li><p>获取总毫秒数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1293,64 +1179,6 @@
       </tags>
   </entry>
   <entry>
-    <title>js-构造函数和原型</title>
-    <url>/2020/02/22/js-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B/</url>
-    <content><![CDATA[<h3 id="构造函数原型prototype"><a href="#构造函数原型prototype" class="headerlink" title="构造函数原型prototype"></a>构造函数原型prototype</h3><p>构造函数通过原型分配的函数是所有对象所共享的。</p>
-<p>JavaScript 规定，每一个构造函数都有一个prototype 属性，指向另一个对象。注意这个prototype就是一个对象，这个对象的所有属性和方法，都会被构造函数所拥有。</p>
-<p>我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。</p>
-<a id="more"></a>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Star</span>(<span class="params">uname, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.uname = uname;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Star.prototype.sing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'我会唱歌'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ldh = <span class="keyword">new</span> Star(<span class="string">'刘德华'</span>, <span class="number">18</span>);</span><br><span class="line"><span class="keyword">var</span> zxy = <span class="keyword">new</span> Star(<span class="string">'张学友'</span>, <span class="number">19</span>);</span><br><span class="line">ldh.sing();<span class="comment">//我会唱歌</span></span><br><span class="line">zxy.sing();<span class="comment">//我会唱歌</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="对象原型"><a href="#对象原型" class="headerlink" title="对象原型"></a>对象原型</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">对象都会有一个属性 __proto__ 指向构造函数的 prototype 原型对象，之所以我们对象可以使用构造函数 prototype 原型对象的属性和方法，就是因为对象有 __proto__ 原型的存在。</span><br><span class="line">__proto__对象原型和原型对象 prototype 是等价的</span><br><span class="line">__proto__对象原型的意义就在于为对象的查找机制提供一个方向，或者说一条路线，但是它是一个非标准属性，因此实际开发中，不可以使用这个属性，它只是内部指向原型对象</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://img-blog.csdnimg.cn/20200509130628542.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<h3 id="constructor构造函数"><a href="#constructor构造函数" class="headerlink" title="constructor构造函数"></a>constructor构造函数</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">对象原型（ __proto__）和构造函数（prototype）原型对象里面都有一个属性 constructor 属性 ，constructor 我们称为构造函数，因为它指回构造函数本身。</span><br><span class="line">constructor 主要用于记录该对象引用于哪个构造函数，它可以让原型对象重新指向原来的构造函数。</span><br><span class="line">一般情况下，对象的方法都在构造函数的原型对象中设置。如果有多个对象的方法，我们可以给原型对象采取对象形式赋值，但是这样就会覆盖构造函数原型对象原来的内容，这样修改后的原型对象 constructor  就不再指向当前构造函数了。此时，我们可以在修改后的原型对象中，添加一个 constructor 指向原来的构造函数。</span><br></pre></td></tr></table></figure>
-
-<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>​    每一个实例对象又有一个<strong>proto</strong>属性，指向的构造函数的原型对象，构造函数的原型对象也是一个对象，也有<strong>proto</strong>属性，这样一层一层往上找就形成了原型链。</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200509130628583.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h3 id="构造函数实例和原型对象三角关系"><a href="#构造函数实例和原型对象三角关系" class="headerlink" title="构造函数实例和原型对象三角关系"></a>构造函数实例和原型对象三角关系</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>构造函数的prototype属性指向了构造函数原型对象</span><br><span class="line"><span class="number">2.</span>实例对象是由构造函数创建的,实例对象的__proto__属性指向了构造函数的原型对象</span><br><span class="line"><span class="number">3.</span>构造函数的原型对象的<span class="keyword">constructor</span>属性指向了构造函数,实例对象的原型的<span class="keyword">constructor</span>属性也指向了构造函数</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://img-blog.csdnimg.cn/20200509130628544.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<h3 id="原型链和成员的查找机制"><a href="#原型链和成员的查找机制" class="headerlink" title="原型链和成员的查找机制"></a>原型链和成员的查找机制</h3><p>任何对象都有原型对象,也就是prototype属性,任何原型对象也是一个对象,该对象就有<strong>proto</strong>属性,这样一层一层往上找,就形成了一条链,我们称此为原型链;</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">当访问一个对象的属性（包括方法）时，首先查找这个对象自身有没有该属性。</span><br><span class="line">如果没有就查找它的原型（也就是 __proto__指向的 prototype 原型对象）。</span><br><span class="line">如果还没有就查找原型对象的原型（Object的原型对象）。</span><br><span class="line">依此类推一直找到 Object 为止（null）。</span><br><span class="line">__proto__对象原型的意义就在于为对象成员查找机制提供一个方向，或者说一条路线。</span><br></pre></td></tr></table></figure>
-
-<h3 id="原型对象中this指向"><a href="#原型对象中this指向" class="headerlink" title="原型对象中this指向"></a>原型对象中this指向</h3><p>构造函数中的this和原型对象的this,都指向我们new出来的实例对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Star</span>(<span class="params">uname, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.uname = uname;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> that;</span><br><span class="line">Star.prototype.sing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我会唱歌'</span>);</span><br><span class="line">    that = <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ldh = <span class="keyword">new</span> Star(<span class="string">'刘德华'</span>, <span class="number">18</span>);</span><br><span class="line"><span class="comment">// 1. 在构造函数中,里面this指向的是对象实例 ldh</span></span><br><span class="line"><span class="built_in">console</span>.log(that === ldh);<span class="comment">//true</span></span><br><span class="line"><span class="comment">// 2.原型对象函数里面的this 指向的是 实例对象 ldh</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="通过原型为数组扩展内置方法"><a href="#通过原型为数组扩展内置方法" class="headerlink" title="通过原型为数组扩展内置方法"></a>通过原型为数组扩展内置方法</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.sum = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">  sum += <span class="keyword">this</span>[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//此时数组对象中已经存在sum()方法了  可以始终 数组.sum()进行数据的求</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="call"><a href="#call" class="headerlink" title="call()"></a>call()</h3><ul>
-<li>call()可以调用函数</li>
-<li>call()可以修改this的指向,使用call()的时候 参数一是修改后的this指向,参数2,参数3..使用逗号隔开连接</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">     <span class="built_in">console</span>.log(x + y);</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">var</span> o = &#123;</span><br><span class="line">  	name: <span class="string">'andy'</span></span><br><span class="line">  &#125;;</span><br><span class="line">  fn.call(o, <span class="number">1</span>, <span class="number">2</span>);<span class="comment">//调用了函数此时的this指向了对象o,</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="子构造函数继承父构造函数中的属性"><a href="#子构造函数继承父构造函数中的属性" class="headerlink" title="子构造函数继承父构造函数中的属性"></a>子构造函数继承父构造函数中的属性</h3><ol>
-<li>先定义一个父构造函数</li>
-<li>再定义一个子构造函数</li>
-<li>子构造函数继承父构造函数的属性(使用call方法)</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 1. 父构造函数</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">uname, age</span>) </span>&#123;</span><br><span class="line">   <span class="comment">// this 指向父构造函数的对象实例</span></span><br><span class="line">   <span class="keyword">this</span>.uname = uname;</span><br><span class="line">   <span class="keyword">this</span>.age = age;</span><br><span class="line"> &#125;</span><br><span class="line">  <span class="comment">// 2 .子构造函数 </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">uname, age, score</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this 指向子构造函数的对象实例</span></span><br><span class="line">  <span class="number">3.</span>使用call方式实现子继承父的属性</span><br><span class="line">  Father.call(<span class="keyword">this</span>, uname, age);</span><br><span class="line">  <span class="keyword">this</span>.score = score;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> son = <span class="keyword">new</span> Son(<span class="string">'刘德华'</span>, <span class="number">18</span>, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(son);</span><br></pre></td></tr></table></figure>
-
-<h3 id="借用原型对象继承方法"><a href="#借用原型对象继承方法" class="headerlink" title="借用原型对象继承方法"></a>借用原型对象继承方法</h3><ol>
-<li>先定义一个父构造函数</li>
-<li>再定义一个子构造函数</li>
-<li>子构造函数继承父构造函数的属性(使用call方法)</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 父构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">uname, age</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this 指向父构造函数的对象实例</span></span><br><span class="line">  <span class="keyword">this</span>.uname = uname;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Father.prototype.money = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">100000</span>);</span><br><span class="line"> &#125;;</span><br><span class="line"> <span class="comment">// 2 .子构造函数 </span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">uname, age, score</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// this 指向子构造函数的对象实例</span></span><br><span class="line">      Father.call(<span class="keyword">this</span>, uname, age);</span><br><span class="line">      <span class="keyword">this</span>.score = score;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// Son.prototype = Father.prototype;  这样直接赋值会有问题,如果修改了子原型对象,父原型对象也会跟着一起变化</span></span><br><span class="line">  Son.prototype = <span class="keyword">new</span> Father();</span><br><span class="line">  <span class="comment">// 如果利用对象的形式修改了原型对象,别忘了利用constructor 指回原来的构造函数</span></span><br><span class="line">  Son.prototype.constructor = Son;</span><br><span class="line">  <span class="comment">// 这个是子构造函数专门的方法</span></span><br><span class="line">  Son.prototype.exam = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'孩子要考试'</span>);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> son = <span class="keyword">new</span> Son(<span class="string">'刘德华'</span>, <span class="number">18</span>, <span class="number">100</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(son)</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>js-鼠标键盘事件对象</title>
     <url>/2020/02/09/js-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h3 id="事件对象-event"><a href="#事件对象-event" class="headerlink" title="事件对象/event"></a>事件对象/event</h3><p><strong>event包含了发生事件的所有信息内容，不如:发生事件类型，发生事件的元素，键盘按下状态等等</strong></p>
@@ -1366,6 +1194,260 @@
 
 <p> <img src="https://img-blog.csdnimg.cn/20200425200836213.png" alt="img"> </p>
 ]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-事件对象</title>
+    <url>/2020/02/09/js-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><p>事件发生后，跟事件相关的一系列信息数据的集合都放到这个对象里面，这个对象就是事件对象。</p>
+<p>比如：  </p>
+<ol>
+<li><p>谁绑定了这个事件。</p>
+</li>
+<li><p>鼠标触发事件的话，会得到鼠标的相关信息，如鼠标位置。</p>
+</li>
+<li><p>键盘触发事件的话，会得到键盘的相关信息，如按了哪个键。</p>
+<a id="more"></a>
+
+</li>
+</ol>
+<h4 id="事件对象的使用"><a href="#事件对象的使用" class="headerlink" title="事件对象的使用"></a>事件对象的使用</h4><p>事件触发发生时就会产生事件对象，并且系统会以实参的形式传给事件处理函数。</p>
+<p>所以，在事件处理函数中声明1个形参用来接收事件对象。</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200425200103792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;<span class="number">123</span>&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var div = document.querySelector('div');</span></span><br><span class="line"><span class="regexp">    div.onclick = function(e) &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ 事件对象</span></span><br><span class="line"><span class="regexp">            e = e || window.event; /</span><span class="regexp">/处理兼容性</span></span><br><span class="line"><span class="regexp">            console.log(e);</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="事件对象的属性和方法"><a href="#事件对象的属性和方法" class="headerlink" title="事件对象的属性和方法"></a>事件对象的属性和方法</h4><p><img src="https://img-blog.csdnimg.cn/20200425200156635.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="e-target-和-this-的区别"><a href="#e-target-和-this-的区别" class="headerlink" title="e.target 和 this 的区别"></a>e.target 和 this 的区别</h4><ul>
+<li><p>this 是事件绑定的元素（绑定这个事件处理函数的元素） 。</p>
+</li>
+<li><p>e.target 是事件触发的元素。</p>
+</li>
+</ul>
+<h4 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h4><blockquote>
+<p>html中一些标签有默认行为，例如a标签被单击后，默认会进行页面跳转。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;a href=<span class="string">"http://www.baidu.com"</span>&gt;百度&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 2. 阻止默认行为 让链接不跳转 </span></span><br><span class="line"><span class="regexp">    var a = document.querySelector('a');</span></span><br><span class="line"><span class="regexp">    a.addEventListener('click', function(e) &#123;</span></span><br><span class="line"><span class="regexp">         e.preventDefault(); /</span><span class="regexp">/  dom 标准写法</span></span><br><span class="line"><span class="regexp">    &#125;);</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 3. 传统的注册方式</span></span><br><span class="line"><span class="regexp">    a.onclick = function(e) &#123;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 普通浏览器 e.preventDefault();  方法</span></span><br><span class="line"><span class="regexp">        e.preventDefault();</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 低版本浏览器 ie678  returnValue  属性</span></span><br><span class="line"><span class="regexp">        e.returnValue = false;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 我们可以利用return false 也能阻止默认行为 没有兼容性问题</span></span><br><span class="line"><span class="regexp">        return false;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"father"</span>&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"son"</span>&gt;son儿子&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">      <span class="keyword">var</span> son = <span class="built_in">document</span>.querySelector(<span class="string">'.son'</span>);</span><br><span class="line"><span class="comment">// 给son注册单击事件</span></span><br><span class="line">      son.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'son'</span>);</span><br><span class="line">          e.stopPropagation(); <span class="comment">// stop 停止  Propagation 传播</span></span><br><span class="line">          <span class="built_in">window</span>.event.cancelBubble = <span class="literal">true</span>; <span class="comment">// 非标准 cancel 取消 bubble 泡泡</span></span><br><span class="line">      &#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> father = <span class="built_in">document</span>.querySelector(<span class="string">'.father'</span>);</span><br><span class="line"><span class="comment">// 给father注册单击事件</span></span><br><span class="line">      father.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'father'</span>);</span><br><span class="line">      &#125;, <span class="literal">false</span>);</span><br><span class="line"><span class="comment">// 给document注册单击事件</span></span><br><span class="line">      <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'document'</span>);</span><br><span class="line">      &#125;)</span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-事件委托</title>
+    <url>/2020/02/09/js-%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
+    <content><![CDATA[<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>事件冒泡本身的特性，会带来的坏处，也会带来的好处。</p>
+<h4 id="什么是事件委托"><a href="#什么是事件委托" class="headerlink" title="什么是事件委托"></a>什么是事件委托</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">把事情委托给别人，代为处理。</span><br></pre></td></tr></table></figure>
+
+<p>事件委托也称为事件代理，在 jQuery 里面称为事件委派。</p>
+<a id="more"></a>
+
+<blockquote>
+<p>说白了就是，不给子元素注册事件，给父元素注册事件，把处理代码在父元素的事件中执行。</p>
+</blockquote>
+<h4 id="事件委托的原理"><a href="#事件委托的原理" class="headerlink" title="事件委托的原理"></a>事件委托的原理</h4><p>​    给父元素注册事件，利用事件冒泡，当子元素的事件触发，会冒泡到父元素，然后去控制相应的子元素。</p>
+<h4 id="事件委托的作用"><a href="#事件委托的作用" class="headerlink" title="事件委托的作用"></a>事件委托的作用</h4><ul>
+<li><p>我们只操作了一次 DOM ，提高了程序的性能。</p>
+</li>
+<li><p>动态新创建的子元素，也拥有事件。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 事件委托的核心原理：给父节点添加侦听器， 利用事件冒泡影响每一个子节点</span></span><br><span class="line">    <span class="keyword">var</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);</span><br><span class="line">    ul.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// e.target 这个可以得到我们点击的对象</span></span><br><span class="line">        e.target.style.backgroundColor = <span class="string">'pink'</span>;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-日期对象</title>
+    <url>/2020/02/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
+<a id="more"></a>
+
+<ul>
+<li><p>使用Date实例化日期对象</p>
+<ul>
+<li>获取当前时间必须实例化：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取指定时间的日期对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
+</li>
+<li><p>使用Date实例的方法和属性    </p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+<li><p>通过Date实例获取总毫米数</p>
+<ul>
+<li><p>总毫秒数的含义</p>
+<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
+</li>
+<li><p>获取总毫秒数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正则表达式</title>
+    <url>/2020/02/24/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<h2 id="正则表达式概述"><a href="#正则表达式概述" class="headerlink" title="正则表达式概述"></a>正则表达式概述</h2><h3 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h3><p>正则表达式（ Regular Expression ）是用于匹配字符串中字符组合的模式。在JavaScript中，正则表达式也是对象。</p>
+<p>正则表通常被用来检索、替换那些符合某个模式（规则）的文本，例如验证表单：用户名表单只能输入英文字母、数字或者下划线， 昵称输入框中可以输入中文(匹配)。此外，正则表达式还常用于过滤掉页面内容中的一些敏感词(替换)，或从字符串中获取我们想要的特定部分(提取)等 。</p>
+<a id="more"></a>
+
+<h3 id="正则表达式的特点"><a href="#正则表达式的特点" class="headerlink" title="正则表达式的特点"></a>正则表达式的特点</h3><ol>
+<li>灵活性、逻辑性和功能性非常的强。</li>
+<li>可以迅速地用极简单的方式达到字符串的复杂控制。</li>
+<li>对于刚接触的人来说，比较晦涩难懂。比如：^\w+([-+.]\w+)<em>@\w+([-.]\w+)*.\w+([-.]\w+)</em>$</li>
+<li>实际开发,一般都是直接复制写好的正则表达式. 但是要求会使用正则表达式并且根据实际情况修改正则表达式.   比如用户名:   /^[a-z0-9_-]{3,16}$/</li>
+</ol>
+<h2 id="正则表达式在js中的使用"><a href="#正则表达式在js中的使用" class="headerlink" title="正则表达式在js中的使用"></a>正则表达式在js中的使用</h2><h3 id="正则表达式的创建"><a href="#正则表达式的创建" class="headerlink" title="正则表达式的创建"></a>正则表达式的创建</h3><p>在 JavaScript 中，可以通过两种方式创建一个正则表达式。</p>
+<p>方式一：通过调用RegExp对象的构造函数创建 </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> regexp = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/123/</span>);</span><br><span class="line"><span class="built_in">console</span>.log(regexp);</span><br></pre></td></tr></table></figure>
+
+<p>方式二：利用字面量创建 正则表达式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg = <span class="regexp">/123/</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试正则表达式"><a href="#测试正则表达式" class="headerlink" title="测试正则表达式"></a>测试正则表达式</h3><p>test() 正则对象方法，用于检测字符串是否符合该规则，该对象会返回 true 或 false，其参数是测试字符串。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg = <span class="regexp">/123/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(rg.test(<span class="number">123</span>));<span class="comment">//匹配字符中是否出现123  出现结果为true</span></span><br><span class="line"><span class="built_in">console</span>.log(rg.test(<span class="string">'abc'</span>));<span class="comment">//匹配字符中是否出现123 未出现结果为false</span></span><br></pre></td></tr></table></figure>
+
+<p>![](F:/manythings/07-10 JavaScript网页编程/04-JavaScript高级资料/JavaScript 高级_day04/4-笔记/images/img4.png)</p>
+<h2 id="正则表达式中的特殊字符"><a href="#正则表达式中的特殊字符" class="headerlink" title="正则表达式中的特殊字符"></a>正则表达式中的特殊字符</h2><h3 id="正则表达式的组成"><a href="#正则表达式的组成" class="headerlink" title="正则表达式的组成"></a>正则表达式的组成</h3><p>一个正则表达式可以由简单的字符构成，比如 /abc/，也可以是简单和特殊字符的组合，比如 /ab*c/ 。其中特殊字符也被称为元字符，在正则表达式中是具有特殊意义的专用符号，如 ^ 、$ 、+ 等。</p>
+<p>特殊字符非常多，可以参考： </p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank" rel="noopener">MDN</a></p>
+<p>jQuery 手册：正则表达式部分</p>
+<p><a href="<http://tool.oschina.net/regex">正则测试工具</a></p>
+<h3 id="边界符"><a href="#边界符" class="headerlink" title="边界符"></a>边界符</h3><p>正则表达式中的边界符（位置符）用来提示字符所处的位置，主要有两个字符</p>
+<table>
+<thead>
+<tr>
+<th>边界符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>^</td>
+<td>表示匹配行首的文本（以谁开始）</td>
+</tr>
+<tr>
+<td>$</td>
+<td>表示匹配行尾的文本（以谁结束）</td>
+</tr>
+</tbody></table>
+<p>如果 ^和 $ 在一起，表示必须是精确匹配。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg = <span class="regexp">/abc/</span>; <span class="comment">// 正则表达式里面不需要加引号 不管是数字型还是字符串型</span></span><br><span class="line"><span class="comment">// /abc/ 只要包含有abc这个字符串返回的都是true</span></span><br><span class="line"><span class="built_in">console</span>.log(rg.test(<span class="string">'abc'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(rg.test(<span class="string">'abcd'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(rg.test(<span class="string">'aabcd'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'---------------------------'</span>);</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^abc/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(reg.test(<span class="string">'abc'</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.test(<span class="string">'abcd'</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.test(<span class="string">'aabcd'</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'---------------------------'</span>);</span><br><span class="line"><span class="keyword">var</span> reg1 = <span class="regexp">/^abc$/</span>; <span class="comment">// 精确匹配 要求必须是 abc字符串才符合规范</span></span><br><span class="line"><span class="built_in">console</span>.log(reg1.test(<span class="string">'abc'</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(reg1.test(<span class="string">'abcd'</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(reg1.test(<span class="string">'aabcd'</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(reg1.test(<span class="string">'abcabc'</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h3><p>字符类表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号内。</p>
+<h4 id="方括号"><a href="#方括号" class="headerlink" title="[] 方括号"></a>[] 方括号</h4><p>表示有一系列字符可供选择，只要匹配其中一个就可以了</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg = <span class="regexp">/[abc]/</span>; <span class="comment">// 只要包含有a 或者 包含有b 或者包含有c 都返回为true</span></span><br><span class="line"><span class="built_in">console</span>.log(rg.test(<span class="string">'andy'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(rg.test(<span class="string">'baby'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(rg.test(<span class="string">'color'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(rg.test(<span class="string">'red'</span>));<span class="comment">//false</span></span><br><span class="line"><span class="keyword">var</span> rg1 = <span class="regexp">/^[abc]$/</span>; <span class="comment">// 三选一 只有是a 或者是 b  或者是c 这三个字母才返回 true</span></span><br><span class="line"><span class="built_in">console</span>.log(rg1.test(<span class="string">'aa'</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(rg1.test(<span class="string">'a'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(rg1.test(<span class="string">'b'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(rg1.test(<span class="string">'c'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(rg1.test(<span class="string">'abc'</span>));<span class="comment">//true</span></span><br><span class="line">----------------------------------------------------------------------------------</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^[a-z]$/</span> <span class="comment">//26个英文字母任何一个字母返回 true  - 表示的是a 到z 的范围  </span></span><br><span class="line"><span class="built_in">console</span>.log(reg.test(<span class="string">'a'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.test(<span class="string">'z'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.test(<span class="string">'A'</span>));<span class="comment">//false</span></span><br><span class="line">-----------------------------------------------------------------------------------</span><br><span class="line"><span class="comment">//字符组合</span></span><br><span class="line"><span class="keyword">var</span> reg1 = <span class="regexp">/^[a-zA-Z0-9]$/</span>; <span class="comment">// 26个英文字母(大写和小写都可以)任何一个字母返回 true  </span></span><br><span class="line">------------------------------------------------------------------------------------</span><br><span class="line"><span class="comment">//取反 方括号内部加上 ^ 表示取反，只要包含方括号内的字符，都返回 false 。</span></span><br><span class="line"><span class="keyword">var</span> reg2 = <span class="regexp">/^[^a-zA-Z0-9]$/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(reg2.test(<span class="string">'a'</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(reg2.test(<span class="string">'B'</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(reg2.test(<span class="number">8</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(reg2.test(<span class="string">'!'</span>));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="量词符"><a href="#量词符" class="headerlink" title="量词符"></a>量词符</h4><p>量词符用来设定某个模式出现的次数。</p>
+<table>
+<thead>
+<tr>
+<th>量词</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>重复0次或更多次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>重复1次或更多次</td>
+</tr>
+<tr>
+<td>?</td>
+<td>重复0次或1次</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>重复n次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>重复n次或更多次</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>重复n到m次</td>
+</tr>
+</tbody></table>
+<h4 id="括号总结"><a href="#括号总结" class="headerlink" title="括号总结"></a>括号总结</h4><p>1.大括号  量词符.  里面表示重复次数</p>
+<p>2.中括号 字符集合。匹配方括号中的任意字符. </p>
+<p>3.小括号表示优先级</p>
+<p><a href="https://c.runoob.com/" target="_blank" rel="noopener">正则表达式在线测试</a></p>
+<h3 id="预定义类"><a href="#预定义类" class="headerlink" title="预定义类"></a>预定义类</h3><p>预定义类指的是某些常见模式的简写方式.</p>
+<p>![](F:/manythings/07-10 JavaScript网页编程/04-JavaScript高级资料/JavaScript 高级_day04/4-笔记/images/img3.png)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;$/</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^\d&#123;3,4&#125;-\d&#123;7,8&#125;$/</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="正则替换replace"><a href="#正则替换replace" class="headerlink" title="正则替换replace"></a>正则替换replace</h3><p>replace() 方法可以实现替换字符串操作，用来替换的参数可以是一个字符串或是一个正则表达式。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'andy和red'</span>;</span><br><span class="line"><span class="keyword">var</span> newStr = str.replace(<span class="string">'andy'</span>, <span class="string">'baby'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(newStr)<span class="comment">//baby和red</span></span><br><span class="line"><span class="comment">//等同于 此处的andy可以写在正则表达式内</span></span><br><span class="line"><span class="keyword">var</span> newStr2 = str.replace(<span class="regexp">/andy/</span>, <span class="string">'baby'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(newStr2)<span class="comment">//baby和red</span></span><br><span class="line"><span class="comment">//全部替换</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'abcabc'</span></span><br><span class="line"><span class="keyword">var</span> nStr = str.replace(<span class="regexp">/a/</span>,<span class="string">'哈哈'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(nStr) <span class="comment">//哈哈bcabc</span></span><br><span class="line"><span class="comment">//全部替换g</span></span><br><span class="line"><span class="keyword">var</span> nStr = str.replace(<span class="regexp">/a/</span>a,<span class="string">'哈哈'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(nStr) <span class="comment">//哈哈bc哈哈bc</span></span><br><span class="line"><span class="comment">//忽略大小写i</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'aAbcAba'</span>;</span><br><span class="line"><span class="keyword">var</span> newStr = str.replace(<span class="regexp">/a/gi</span>,<span class="string">'哈哈'</span>)<span class="comment">//"哈哈哈哈bc哈哈b哈哈"</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>案例:过滤敏感词汇</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;textarea name=<span class="string">""</span> id=<span class="string">"message"</span>&gt;&lt;<span class="regexp">/textarea&gt; &lt;button&gt;提交&lt;/</span>button&gt;</span><br><span class="line">&lt;div&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var text = document.querySelector('textarea');</span></span><br><span class="line"><span class="regexp">    var btn = document.querySelector('button');</span></span><br><span class="line"><span class="regexp">    var div = document.querySelector('div');</span></span><br><span class="line"><span class="regexp">    btn.onclick = function() &#123;</span></span><br><span class="line"><span class="regexp">    	div.innerHTML = text.value.replace(/</span>激情|gay/g, <span class="string">'**'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>递归和闭包</title>
+    <url>/2020/02/23/%E9%80%92%E5%BD%92%E5%92%8C%E9%97%AD%E5%8C%85/</url>
+    <content><![CDATA[<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><h3 id="什么是递归"><a href="#什么是递归" class="headerlink" title="什么是递归"></a>什么是递归</h3><p><strong>递归：</strong>如果一个函数在内部可以调用其本身，那么这个函数就是递归函数。简单理解:函数内部自己调用自己, 这个函数就是递归函数</p>
+<p><strong>注意：</strong>递归函数的作用和循环效果一样，由于递归很容易发生“栈溢出”错误（stack overflow），所以必须要加退出条件return。</p>
+<a id="more"></a>
+
+<h3 id="利用递归求1-n的阶乘"><a href="#利用递归求1-n的阶乘" class="headerlink" title="利用递归求1~n的阶乘"></a>利用递归求1~n的阶乘</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//利用递归函数求1~n的阶乘 1 * 2 * 3 * 4 * ..n</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (n == <span class="number">1</span>) &#123; <span class="comment">//结束条件</span></span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> n * fn(n - <span class="number">1</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">console</span>.log(fn(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用递归求斐波那契数列"><a href="#利用递归求斐波那契数列" class="headerlink" title="利用递归求斐波那契数列"></a>利用递归求斐波那契数列</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 利用递归函数求斐波那契数列(兔子序列)  1、1、2、3、5、8、13、21...</span></span><br><span class="line"><span class="comment">// 用户输入一个数字 n 就可以求出 这个数字对应的兔子序列值</span></span><br><span class="line"><span class="comment">// 我们只需要知道用户输入的n 的前面两项(n-1 n-2)就可以计算出n 对应的序列值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fb</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span> || n === <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fb(n - <span class="number">1</span>) + fb(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fb(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用递归遍历数据"><a href="#利用递归遍历数据" class="headerlink" title="利用递归遍历数据"></a>利用递归遍历数据</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 我们想要做输入id号,就可以返回的数据对象</span></span><br><span class="line"> <span class="keyword">var</span> data = [&#123;</span><br><span class="line">   id: <span class="number">1</span>,</span><br><span class="line">   name: <span class="string">'家电'</span>,</span><br><span class="line">   goods: [&#123;</span><br><span class="line">     id: <span class="number">11</span>,</span><br><span class="line">     gname: <span class="string">'冰箱'</span>,</span><br><span class="line">     goods: [&#123;</span><br><span class="line">       id: <span class="number">111</span>,</span><br><span class="line">       gname: <span class="string">'海尔'</span></span><br><span class="line">     &#125;, &#123;</span><br><span class="line">       id: <span class="number">112</span>,</span><br><span class="line">       gname: <span class="string">'美的'</span></span><br><span class="line">     &#125;,</span><br><span class="line"></span><br><span class="line">            ]</span><br><span class="line"></span><br><span class="line">   &#125;, &#123;</span><br><span class="line">     id: <span class="number">12</span>,</span><br><span class="line">     gname: <span class="string">'洗衣机'</span></span><br><span class="line">   &#125;]</span><br><span class="line"> &#125;, &#123;</span><br><span class="line">   id: <span class="number">2</span>,</span><br><span class="line">   name: <span class="string">'服饰'</span></span><br><span class="line">&#125;];</span><br><span class="line"><span class="comment">//1.利用 forEach 去遍历里面的每一个对象</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getID</span>(<span class="params">json, id</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">   json.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">     <span class="comment">// console.log(item); // 2个数组元素</span></span><br><span class="line">     <span class="keyword">if</span> (item.id == id) &#123;</span><br><span class="line">       <span class="comment">// console.log(item);</span></span><br><span class="line">       o = item;</span><br><span class="line">       <span class="keyword">return</span> o;</span><br><span class="line">       <span class="comment">// 2. 我们想要得里层的数据 11 12 可以利用递归函数</span></span><br><span class="line">       <span class="comment">// 里面应该有goods这个数组并且数组的长度不为 0 </span></span><br><span class="line">     &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item.goods &amp;&amp; item.goods.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">       o = getID(item.goods, id);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br><span class="line">   <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="变量的作用域复习"><a href="#变量的作用域复习" class="headerlink" title="变量的作用域复习"></a>变量的作用域复习</h3><p>变量根据作用域的不同分为两种：全局变量和局部变量。</p>
+<ol>
+<li>函数内部可以使用全局变量。</li>
+<li>函数外部不可以使用局部变量。</li>
+<li>当函数执行完毕，本作用域内的局部变量会销毁。</li>
+</ol>
+<h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p>闭包（closure）指有权访问另一个函数作用域中变量的函数。简单理解就是 ，一个作用域可以访问另外一个函数内部的局部变量。 </p>
+<p>![](F:/manythings/07-10 JavaScript网页编程/04-JavaScript高级资料/JavaScript 高级_day03/4-笔记/images/img3.png)</p>
+<h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><p>作用：延伸变量的作用范围。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(num);</span><br><span class="line"> 	&#125;</span><br><span class="line">    <span class="keyword">return</span> fun;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> f = fn();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -1494,6 +1576,64 @@
 <p><img src="https://img-blog.csdnimg.cn/20200508214716144.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
 </li>
 </ol>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-构造函数和原型</title>
+    <url>/2020/02/22/js-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B/</url>
+    <content><![CDATA[<h3 id="构造函数原型prototype"><a href="#构造函数原型prototype" class="headerlink" title="构造函数原型prototype"></a>构造函数原型prototype</h3><p>构造函数通过原型分配的函数是所有对象所共享的。</p>
+<p>JavaScript 规定，每一个构造函数都有一个prototype 属性，指向另一个对象。注意这个prototype就是一个对象，这个对象的所有属性和方法，都会被构造函数所拥有。</p>
+<p>我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。</p>
+<a id="more"></a>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Star</span>(<span class="params">uname, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.uname = uname;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Star.prototype.sing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'我会唱歌'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ldh = <span class="keyword">new</span> Star(<span class="string">'刘德华'</span>, <span class="number">18</span>);</span><br><span class="line"><span class="keyword">var</span> zxy = <span class="keyword">new</span> Star(<span class="string">'张学友'</span>, <span class="number">19</span>);</span><br><span class="line">ldh.sing();<span class="comment">//我会唱歌</span></span><br><span class="line">zxy.sing();<span class="comment">//我会唱歌</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="对象原型"><a href="#对象原型" class="headerlink" title="对象原型"></a>对象原型</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">对象都会有一个属性 __proto__ 指向构造函数的 prototype 原型对象，之所以我们对象可以使用构造函数 prototype 原型对象的属性和方法，就是因为对象有 __proto__ 原型的存在。</span><br><span class="line">__proto__对象原型和原型对象 prototype 是等价的</span><br><span class="line">__proto__对象原型的意义就在于为对象的查找机制提供一个方向，或者说一条路线，但是它是一个非标准属性，因此实际开发中，不可以使用这个属性，它只是内部指向原型对象</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://img-blog.csdnimg.cn/20200509130628542.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<h3 id="constructor构造函数"><a href="#constructor构造函数" class="headerlink" title="constructor构造函数"></a>constructor构造函数</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">对象原型（ __proto__）和构造函数（prototype）原型对象里面都有一个属性 constructor 属性 ，constructor 我们称为构造函数，因为它指回构造函数本身。</span><br><span class="line">constructor 主要用于记录该对象引用于哪个构造函数，它可以让原型对象重新指向原来的构造函数。</span><br><span class="line">一般情况下，对象的方法都在构造函数的原型对象中设置。如果有多个对象的方法，我们可以给原型对象采取对象形式赋值，但是这样就会覆盖构造函数原型对象原来的内容，这样修改后的原型对象 constructor  就不再指向当前构造函数了。此时，我们可以在修改后的原型对象中，添加一个 constructor 指向原来的构造函数。</span><br></pre></td></tr></table></figure>
+
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>​    每一个实例对象又有一个<strong>proto</strong>属性，指向的构造函数的原型对象，构造函数的原型对象也是一个对象，也有<strong>proto</strong>属性，这样一层一层往上找就形成了原型链。</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200509130628583.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h3 id="构造函数实例和原型对象三角关系"><a href="#构造函数实例和原型对象三角关系" class="headerlink" title="构造函数实例和原型对象三角关系"></a>构造函数实例和原型对象三角关系</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>构造函数的prototype属性指向了构造函数原型对象</span><br><span class="line"><span class="number">2.</span>实例对象是由构造函数创建的,实例对象的__proto__属性指向了构造函数的原型对象</span><br><span class="line"><span class="number">3.</span>构造函数的原型对象的<span class="keyword">constructor</span>属性指向了构造函数,实例对象的原型的<span class="keyword">constructor</span>属性也指向了构造函数</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://img-blog.csdnimg.cn/20200509130628544.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<h3 id="原型链和成员的查找机制"><a href="#原型链和成员的查找机制" class="headerlink" title="原型链和成员的查找机制"></a>原型链和成员的查找机制</h3><p>任何对象都有原型对象,也就是prototype属性,任何原型对象也是一个对象,该对象就有<strong>proto</strong>属性,这样一层一层往上找,就形成了一条链,我们称此为原型链;</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">当访问一个对象的属性（包括方法）时，首先查找这个对象自身有没有该属性。</span><br><span class="line">如果没有就查找它的原型（也就是 __proto__指向的 prototype 原型对象）。</span><br><span class="line">如果还没有就查找原型对象的原型（Object的原型对象）。</span><br><span class="line">依此类推一直找到 Object 为止（null）。</span><br><span class="line">__proto__对象原型的意义就在于为对象成员查找机制提供一个方向，或者说一条路线。</span><br></pre></td></tr></table></figure>
+
+<h3 id="原型对象中this指向"><a href="#原型对象中this指向" class="headerlink" title="原型对象中this指向"></a>原型对象中this指向</h3><p>构造函数中的this和原型对象的this,都指向我们new出来的实例对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Star</span>(<span class="params">uname, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.uname = uname;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> that;</span><br><span class="line">Star.prototype.sing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我会唱歌'</span>);</span><br><span class="line">    that = <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ldh = <span class="keyword">new</span> Star(<span class="string">'刘德华'</span>, <span class="number">18</span>);</span><br><span class="line"><span class="comment">// 1. 在构造函数中,里面this指向的是对象实例 ldh</span></span><br><span class="line"><span class="built_in">console</span>.log(that === ldh);<span class="comment">//true</span></span><br><span class="line"><span class="comment">// 2.原型对象函数里面的this 指向的是 实例对象 ldh</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="通过原型为数组扩展内置方法"><a href="#通过原型为数组扩展内置方法" class="headerlink" title="通过原型为数组扩展内置方法"></a>通过原型为数组扩展内置方法</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.sum = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">  sum += <span class="keyword">this</span>[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//此时数组对象中已经存在sum()方法了  可以始终 数组.sum()进行数据的求</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="call"><a href="#call" class="headerlink" title="call()"></a>call()</h3><ul>
+<li>call()可以调用函数</li>
+<li>call()可以修改this的指向,使用call()的时候 参数一是修改后的this指向,参数2,参数3..使用逗号隔开连接</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">     <span class="built_in">console</span>.log(x + y);</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">var</span> o = &#123;</span><br><span class="line">  	name: <span class="string">'andy'</span></span><br><span class="line">  &#125;;</span><br><span class="line">  fn.call(o, <span class="number">1</span>, <span class="number">2</span>);<span class="comment">//调用了函数此时的this指向了对象o,</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="子构造函数继承父构造函数中的属性"><a href="#子构造函数继承父构造函数中的属性" class="headerlink" title="子构造函数继承父构造函数中的属性"></a>子构造函数继承父构造函数中的属性</h3><ol>
+<li>先定义一个父构造函数</li>
+<li>再定义一个子构造函数</li>
+<li>子构造函数继承父构造函数的属性(使用call方法)</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 1. 父构造函数</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">uname, age</span>) </span>&#123;</span><br><span class="line">   <span class="comment">// this 指向父构造函数的对象实例</span></span><br><span class="line">   <span class="keyword">this</span>.uname = uname;</span><br><span class="line">   <span class="keyword">this</span>.age = age;</span><br><span class="line"> &#125;</span><br><span class="line">  <span class="comment">// 2 .子构造函数 </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">uname, age, score</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this 指向子构造函数的对象实例</span></span><br><span class="line">  <span class="number">3.</span>使用call方式实现子继承父的属性</span><br><span class="line">  Father.call(<span class="keyword">this</span>, uname, age);</span><br><span class="line">  <span class="keyword">this</span>.score = score;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> son = <span class="keyword">new</span> Son(<span class="string">'刘德华'</span>, <span class="number">18</span>, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(son);</span><br></pre></td></tr></table></figure>
+
+<h3 id="借用原型对象继承方法"><a href="#借用原型对象继承方法" class="headerlink" title="借用原型对象继承方法"></a>借用原型对象继承方法</h3><ol>
+<li>先定义一个父构造函数</li>
+<li>再定义一个子构造函数</li>
+<li>子构造函数继承父构造函数的属性(使用call方法)</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 父构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">uname, age</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this 指向父构造函数的对象实例</span></span><br><span class="line">  <span class="keyword">this</span>.uname = uname;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Father.prototype.money = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">100000</span>);</span><br><span class="line"> &#125;;</span><br><span class="line"> <span class="comment">// 2 .子构造函数 </span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">uname, age, score</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// this 指向子构造函数的对象实例</span></span><br><span class="line">      Father.call(<span class="keyword">this</span>, uname, age);</span><br><span class="line">      <span class="keyword">this</span>.score = score;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// Son.prototype = Father.prototype;  这样直接赋值会有问题,如果修改了子原型对象,父原型对象也会跟着一起变化</span></span><br><span class="line">  Son.prototype = <span class="keyword">new</span> Father();</span><br><span class="line">  <span class="comment">// 如果利用对象的形式修改了原型对象,别忘了利用constructor 指回原来的构造函数</span></span><br><span class="line">  Son.prototype.constructor = Son;</span><br><span class="line">  <span class="comment">// 这个是子构造函数专门的方法</span></span><br><span class="line">  Son.prototype.exam = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'孩子要考试'</span>);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> son = <span class="keyword">new</span> Son(<span class="string">'刘德华'</span>, <span class="number">18</span>, <span class="number">100</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(son)</span><br></pre></td></tr></table></figure>
+
+
+
 ]]></content>
       <categories>
         <category>前端</category>
