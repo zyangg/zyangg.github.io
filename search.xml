@@ -247,6 +247,49 @@
       </tags>
   </entry>
   <entry>
+    <title>call bind apply</title>
+    <url>/2020/02/23/call-bind-apply/</url>
+    <content><![CDATA[<h3 id="改变函数内部-this-指向"><a href="#改变函数内部-this-指向" class="headerlink" title="改变函数内部 this 指向"></a>改变函数内部 this 指向</h3><h4 id="call方法"><a href="#call方法" class="headerlink" title="call方法"></a>call方法</h4><p>call()方法调用一个对象。简单理解为调用函数的方式，但是它可以改变函数的 this 指向</p>
+<p>应用场景:  经常做继承. </p>
+<a id="more"></a>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">	name: <span class="string">'andy'</span></span><br><span class="line">&#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(a+b)</span><br><span class="line">&#125;;</span><br><span class="line">fn(<span class="number">1</span>,<span class="number">2</span>)<span class="comment">// 此时的this指向的是window 运行结果为3</span></span><br><span class="line">fn.call(o,<span class="number">1</span>,<span class="number">2</span>)<span class="comment">//此时的this指向的是对象o,参数使用逗号隔开,运行结果为3</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="apply方法"><a href="#apply方法" class="headerlink" title="apply方法"></a>apply方法</h4><p>apply() 方法调用一个函数。简单理解为调用函数的方式，但是它可以改变函数的 this 指向。</p>
+<p>应用场景:  经常跟数组有关系</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">	name: <span class="string">'andy'</span></span><br><span class="line">&#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(a+b)</span><br><span class="line">&#125;;</span><br><span class="line">fn()<span class="comment">// 此时的this指向的是window 运行结果为3</span></span><br><span class="line">fn.apply(o,[<span class="number">1</span>,<span class="number">2</span>])<span class="comment">//此时的this指向的是对象o,参数使用数组传递 运行结果为3</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="bind方法"><a href="#bind方法" class="headerlink" title="bind方法"></a>bind方法</h4><p>bind() 方法不会调用函数,但是能改变函数内部this 指向,返回的是原函数改变this之后产生的新函数</p>
+<p>如果只是想改变 this 指向，并且不想调用这个函数的时候，可以使用bind</p>
+<p>应用场景:不调用函数,但是还想改变this指向</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">var</span> o = &#123;</span><br><span class="line"> name: <span class="string">'andy'</span></span><br><span class="line"> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">	<span class="built_in">console</span>.log(a + b);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> f = fn.bind(o, <span class="number">1</span>, <span class="number">2</span>); <span class="comment">//此处的f是bind返回的新函数</span></span><br><span class="line">f();<span class="comment">//调用新函数  this指向的是对象o 参数使用逗号隔开</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="call、apply、bind三者的异同"><a href="#call、apply、bind三者的异同" class="headerlink" title="call、apply、bind三者的异同"></a>call、apply、bind三者的异同</h4><ul>
+<li>共同点 : 都可以改变this指向</li>
+<li>不同点:<ul>
+<li>call 和 apply  会调用函数, 并且改变函数内部this指向.</li>
+<li>call 和 apply传递的参数不一样,call传递参数使用逗号隔开,apply使用数组传递</li>
+<li>bind  不会调用函数, 可以改变函数内部this指向.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>应用场景<ol>
+<li>call 经常做继承. </li>
+<li>apply经常跟数组有关系.  比如借助于数学对象实现数组最大值最小值</li>
+<li>bind  不调用函数,但是还想改变this指向. 比如改变定时器内部的this指向. </li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>css-定位</title>
     <url>/2020/01/12/css-%E5%AE%9A%E4%BD%8D/</url>
     <content><![CDATA[<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">定位 = 定位模式 + 边偏移</span><br></pre></td></tr></table></figure>
@@ -961,44 +1004,6 @@
       </tags>
   </entry>
   <entry>
-    <title>js-事件流</title>
-    <url>/2020/02/08/js-%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
-    <content><![CDATA[<h2 id="什么是事件流？"><a href="#什么是事件流？" class="headerlink" title="什么是事件流？"></a>什么是事件流？</h2><p>事件流：描述的就是从页面中接受事件的顺序。分有事件冒泡与事件捕获两种。</p>
-<a id="more"></a>
-
-<h2 id="什么是事件冒泡？"><a href="#什么是事件冒泡？" class="headerlink" title="什么是事件冒泡？"></a>什么是事件冒泡？</h2><blockquote>
-<p>事件冒泡即事件开始时，由最具体的元素接收（也就是事件发生所在的节点），然后逐级传播到较为不具体的节点。</p>
-</blockquote>
-<h2 id="什么是事件捕获？"><a href="#什么是事件捕获？" class="headerlink" title="什么是事件捕获？"></a>什么是事件捕获？</h2><blockquote>
-<p>事件捕获的概念，与事件冒泡正好相反。它认为当某个事件发生时，父元素应该更早接收到事件，具体元素则最后接收到事件。</p>
-</blockquote>
-<p>明白了上面的三个概念基本上就弄懂了DOM的事件流了，下面来彻底明白事件流。</p>
-<h2 id="DOM事件流的三个阶段："><a href="#DOM事件流的三个阶段：" class="headerlink" title="DOM事件流的三个阶段："></a>DOM事件流的三个阶段：</h2><ol>
-<li>事件捕获阶段（为截获事件提供了机会）</li>
-<li>处于目标阶段</li>
-<li>事件冒泡阶段（对事件作出响应）</li>
-</ol>
-<p>当一个DOM事件触发时，它不是在触发的对象上只触发一次的，而是经历上述的三个阶段，即开始从文档的根节点流向目标对象，然后在目标对向上被触发，之后再回溯到文档的根节点。</p>
-<p>来个实例：</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.getElementById(<span class="string">'clickMe'</span>);</span><br><span class="line"></span><br><span class="line">button.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'1. You click Button'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">document</span>.body.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'2. You click body'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'3. You click document'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">window</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'4. You click window'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>把window点击事件更改为使用事件捕获模式</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'4. You click window'</span>);</span><br><span class="line"> &#125;, <span class="literal">true</span>);<span class="comment">//true代表使用事件捕获模式，alse则表示使用事件冒泡模式</span></span><br></pre></td></tr></table></figure>
-
-<p>输出为4-&gt;1-&gt;2-&gt;3点击事件先被父元素截获了，且该函数只在事件捕获阶段起作用。</p>
-<p>阻止事件冒泡：<br> stopPropagation()防止事件冒泡而带来不必要的错误和困扰。</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">button.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">   <span class="comment">// event为事件对象</span></span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'1. You click Button'</span>);</span><br><span class="line">   event.stopPropagation();</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'Stop Propagation!'</span>);</span><br><span class="line"> &#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
-
-<p>输出为4-&gt;1，事件在到达具体元素后，停止了冒泡。但不影响父元素的事件捕获。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>js-事件对象</title>
     <url>/2020/02/09/js-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><p>事件发生后，跟事件相关的一系列信息数据的集合都放到这个对象里面，这个对象就是事件对象。</p>
@@ -1033,6 +1038,44 @@
 <h4 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"father"</span>&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"son"</span>&gt;son儿子&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">      <span class="keyword">var</span> son = <span class="built_in">document</span>.querySelector(<span class="string">'.son'</span>);</span><br><span class="line"><span class="comment">// 给son注册单击事件</span></span><br><span class="line">      son.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'son'</span>);</span><br><span class="line">          e.stopPropagation(); <span class="comment">// stop 停止  Propagation 传播</span></span><br><span class="line">          <span class="built_in">window</span>.event.cancelBubble = <span class="literal">true</span>; <span class="comment">// 非标准 cancel 取消 bubble 泡泡</span></span><br><span class="line">      &#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> father = <span class="built_in">document</span>.querySelector(<span class="string">'.father'</span>);</span><br><span class="line"><span class="comment">// 给father注册单击事件</span></span><br><span class="line">      father.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'father'</span>);</span><br><span class="line">      &#125;, <span class="literal">false</span>);</span><br><span class="line"><span class="comment">// 给document注册单击事件</span></span><br><span class="line">      <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'document'</span>);</span><br><span class="line">      &#125;)</span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h4 id=""><a href="#" class="headerlink" title=""></a></h4>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-事件流</title>
+    <url>/2020/02/08/js-%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
+    <content><![CDATA[<h2 id="什么是事件流？"><a href="#什么是事件流？" class="headerlink" title="什么是事件流？"></a>什么是事件流？</h2><p>事件流：描述的就是从页面中接受事件的顺序。分有事件冒泡与事件捕获两种。</p>
+<a id="more"></a>
+
+<h2 id="什么是事件冒泡？"><a href="#什么是事件冒泡？" class="headerlink" title="什么是事件冒泡？"></a>什么是事件冒泡？</h2><blockquote>
+<p>事件冒泡即事件开始时，由最具体的元素接收（也就是事件发生所在的节点），然后逐级传播到较为不具体的节点。</p>
+</blockquote>
+<h2 id="什么是事件捕获？"><a href="#什么是事件捕获？" class="headerlink" title="什么是事件捕获？"></a>什么是事件捕获？</h2><blockquote>
+<p>事件捕获的概念，与事件冒泡正好相反。它认为当某个事件发生时，父元素应该更早接收到事件，具体元素则最后接收到事件。</p>
+</blockquote>
+<p>明白了上面的三个概念基本上就弄懂了DOM的事件流了，下面来彻底明白事件流。</p>
+<h2 id="DOM事件流的三个阶段："><a href="#DOM事件流的三个阶段：" class="headerlink" title="DOM事件流的三个阶段："></a>DOM事件流的三个阶段：</h2><ol>
+<li>事件捕获阶段（为截获事件提供了机会）</li>
+<li>处于目标阶段</li>
+<li>事件冒泡阶段（对事件作出响应）</li>
+</ol>
+<p>当一个DOM事件触发时，它不是在触发的对象上只触发一次的，而是经历上述的三个阶段，即开始从文档的根节点流向目标对象，然后在目标对向上被触发，之后再回溯到文档的根节点。</p>
+<p>来个实例：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.getElementById(<span class="string">'clickMe'</span>);</span><br><span class="line"></span><br><span class="line">button.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'1. You click Button'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">document</span>.body.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'2. You click body'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'3. You click document'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">window</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'4. You click window'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>把window点击事件更改为使用事件捕获模式</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'4. You click window'</span>);</span><br><span class="line"> &#125;, <span class="literal">true</span>);<span class="comment">//true代表使用事件捕获模式，alse则表示使用事件冒泡模式</span></span><br></pre></td></tr></table></figure>
+
+<p>输出为4-&gt;1-&gt;2-&gt;3点击事件先被父元素截获了，且该函数只在事件捕获阶段起作用。</p>
+<p>阻止事件冒泡：<br> stopPropagation()防止事件冒泡而带来不必要的错误和困扰。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">button.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">   <span class="comment">// event为事件对象</span></span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'1. You click Button'</span>);</span><br><span class="line">   event.stopPropagation();</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'Stop Propagation!'</span>);</span><br><span class="line"> &#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出为4-&gt;1，事件在到达具体元素后，停止了冒泡。但不影响父元素的事件捕获。</p>
+]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -1111,6 +1154,49 @@
 <h4 id="split-方法"><a href="#split-方法" class="headerlink" title="split()方法"></a>split()方法</h4><p>​        split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
 <p>​        其使用格式如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.split(&quot;分割字符&quot;)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-日期对象</title>
+    <url>/2020/02/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
+<a id="more"></a>
+
+<ul>
+<li><p>使用Date实例化日期对象</p>
+<ul>
+<li>获取当前时间必须实例化：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取指定时间的日期对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
+</li>
+<li><p>使用Date实例的方法和属性    </p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+<li><p>通过Date实例获取总毫米数</p>
+<ul>
+<li><p>总毫秒数的含义</p>
+<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
+</li>
+<li><p>获取总毫秒数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1279,49 +1365,6 @@
 <h4 id="键盘事件对象"><a href="#键盘事件对象" class="headerlink" title="键盘事件对象"></a>键盘事件对象</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">keyCode   返回该键的ASCLL值</span><br></pre></td></tr></table></figure>
 
 <p> <img src="https://img-blog.csdnimg.cn/20200425200836213.png" alt="img"> </p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-日期对象</title>
-    <url>/2020/02/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
-<a id="more"></a>
-
-<ul>
-<li><p>使用Date实例化日期对象</p>
-<ul>
-<li>获取当前时间必须实例化：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>获取指定时间的日期对象</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
-</li>
-<li><p>使用Date实例的方法和属性    </p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>通过Date实例获取总毫米数</p>
-<ul>
-<li><p>总毫秒数的含义</p>
-<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
-</li>
-<li><p>获取总毫秒数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
 ]]></content>
       <categories>
         <category>前端</category>
