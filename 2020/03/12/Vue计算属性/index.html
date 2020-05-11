@@ -20,22 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="冒泡排序原理：1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。 2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。">
+  <meta name="description" content="当需要使用多个变量的计算结果时，可以利用vue的计算属性，将计算结果返回给一个计算属性，后面直接调用该属性，利用计算属性结合v-module可以实现简单的计算器功能1.定义和调用计算属性定义在computed中，调用时使用mustache语法调用且后面不跟()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js-冒泡排序">
-<meta property="og:url" content="http://yoursite.com/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/index.html">
+<meta property="og:title" content="Vue计算属性">
+<meta property="og:url" content="http://yoursite.com/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
-<meta property="og:description" content="冒泡排序原理：1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。 2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。">
+<meta property="og:description" content="当需要使用多个变量的计算结果时，可以利用vue的计算属性，将计算结果返回给一个计算属性，后面直接调用该属性，利用计算属性结合v-module可以实现简单的计算器功能1.定义和调用计算属性定义在computed中，调用时使用mustache语法调用且后面不跟()">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-02-02T01:48:14.000Z">
-<meta property="article:modified_time" content="2020-05-08T05:59:32.746Z">
+<meta property="article:published_time" content="2020-03-12T10:26:26.000Z">
+<meta property="article:modified_time" content="2020-05-11T10:31:22.284Z">
 <meta property="article:author" content="zyangg">
-<meta property="article:tag" content="js">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="http://yoursite.com/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
+<link rel="canonical" href="http://yoursite.com/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">
 
 
 <script id="page-configurations">
@@ -48,7 +46,7 @@
   };
 </script>
 
-  <title>js-冒泡排序 | zyangg的个人博客</title>
+  <title>Vue计算属性 | zyangg的个人博客</title>
   
 
 
@@ -192,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
@@ -205,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          js-冒泡排序
+          Vue计算属性
         </h1>
 
         <div class="post-meta">
@@ -215,14 +213,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-02-02 09:48:14" itemprop="dateCreated datePublished" datetime="2020-02-02T09:48:14+08:00">2020-02-02</time>
+              <time title="创建时间：2020-03-12 18:26:26" itemprop="dateCreated datePublished" datetime="2020-03-12T18:26:26+08:00">2020-03-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-08 13:59:32" itemprop="dateModified" datetime="2020-05-08T13:59:32+08:00">2020-05-08</time>
+                <time title="修改时间：2020-05-11 18:31:22" itemprop="dateModified" datetime="2020-05-11T18:31:22+08:00">2020-05-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -250,8 +248,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -261,7 +259,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -280,21 +278,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
-<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
-<a id="more"></a>
+        <p> <strong><em>当需要使用多个变量的计算结果时，可以利用vue的计算属性，将计算结果返回给一个计算属性，后面直接调用该属性，利用计算属性结合v-module可以实现简单的计算器功能</em></strong><br>1.定义和调用<br>计算属性定义在computed中，调用时使用mustache语法调用且后面不跟() </p>
+ <a id="more"></a>![img](https://img-blog.csdnimg.cn/20200331223323961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpbmdsaXUwODI0,size_16,color_FFFFFF,t_70) 
 
-<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
-<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
-<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
+<p>计算属性得到价格</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li v-<span class="keyword">for</span>=<span class="string">'price in books'</span>&gt;&#123;&#123;price&#125;&#125;&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/u</span>l&gt;</span><br><span class="line">    &lt;h2&gt;总价：&lt;span&gt;&#123;&#123;totalprice&#125;&#125;&lt;<span class="regexp">/span&gt;&lt;/</span>h2&gt;</span><br><span class="line">    &lt;!-- 虽然computed中的totalprice是以函数定义，但是使用时不要在后面加(),</span><br><span class="line">      这里它是一个计算属性，本质是一个属性 --&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;script&gt;</span></span><br><span class="line"><span class="regexp">    const app=new Vue(&#123;</span></span><br><span class="line"><span class="regexp">      el:'#app',</span></span><br><span class="line"><span class="regexp">      data:&#123;</span></span><br><span class="line"><span class="regexp">        books:[&#123;id:'o1',name:'aaa',price:98&#125;,&#123;id:'o2',name:'bbb',price:108&#125;,</span></span><br><span class="line"><span class="regexp">          &#123;id:'o3',name:'ccc',price:78&#125;,&#123;id:'o4',name:'ddd',price:79&#125;</span></span><br><span class="line"><span class="regexp">        ]</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      computed:&#123; /</span><span class="regexp">/ 计算属性定义在computed中，以函数的形式定义并返回一个结果</span></span><br><span class="line"><span class="regexp">        totalprice:function()&#123;</span></span><br><span class="line"><span class="regexp">          let result=0</span></span><br><span class="line"><span class="regexp">          for(let item of this.books)&#123;</span></span><br><span class="line"><span class="regexp">            result+=item.price</span></span><br><span class="line"><span class="regexp">          &#125;</span></span><br><span class="line"><span class="regexp">          return result</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      methods:&#123;</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;)</span></span><br><span class="line"><span class="regexp">  &lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
 
-
-
-<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p>注意：计算属性是一个属性，它实际拥有get 和set 方法，但由于一般都不使用set方法，只使用get方法，所以为了简便，我们看到的计算属性就以函数形式定义，所以使用时后面不能加()。<br>2.计算属性和methods的区别：计算属性具有缓存机制。<br>methods中的方法每使用一次方法就会被调用一次，不管里面的数据是否发生变化。而使用计算属性时，只要里面影响结果的变量没有发生变化，无论计算属性被使用多少次，函数都只会被调用一次。</p>
 
     </div>
 
@@ -304,7 +294,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/js/" rel="tag"># js</a>
+              <a href="/tags/Vue/" rel="tag"># Vue</a>
           </div>
 
         
@@ -313,12 +303,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/01/26/css3-flex%E5%B8%83%E5%B1%80/" rel="prev" title="Flex布局">
-      <i class="fa fa-chevron-left"></i> Flex布局
+    <a href="/2020/03/11/Vue%E7%9A%84key%E5%85%B3%E9%94%AE%E5%AD%97/" rel="prev" title="Vue的key关键字">
+      <i class="fa fa-chevron-left"></i> Vue的key关键字
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/02/05/js-Math%E5%AF%B9%E8%B1%A1/" rel="next" title="js-Math对象">
-      js-Math对象 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/04/05/Vue-%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/" rel="next" title="创建vue脚手架">
+      创建vue脚手架 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -379,7 +369,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序原理："><span class="nav-number">1.</span> <span class="nav-text">冒泡排序原理：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><span class="nav-number">1.1.</span> <span class="nav-text">白话就是：比如有6个数，你需要比较5趟，这个是固定死的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#但是每一趟比较的次数，是递减的"><span class="nav-number">1.2.</span> <span class="nav-text">但是每一趟比较的次数，是递减的</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码："><span class="nav-number">2.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原理示意图"><span class="nav-number">3.</span> <span class="nav-text">原理示意图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#封装成函数"><span class="nav-number">4.</span> <span class="nav-text">封装成函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#判断冒泡的时候，是不是数组，数组是否为空"><span class="nav-number">4.1.</span> <span class="nav-text">判断冒泡的时候，是不是数组，数组是否为空</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
