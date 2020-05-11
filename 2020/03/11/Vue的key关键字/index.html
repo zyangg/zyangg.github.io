@@ -20,15 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zyangg的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/01/index.html">
+  <meta name="description" content="v-if中用 key 管理可复用的元素Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。这么做，除了使 Vue 变得非常快之外，还有一些有用的好处。例如，如果你允许用户在不同的登录方式之间切换:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue的key关键字">
+<meta property="og:url" content="http://yoursite.com/2020/03/11/Vue%E7%9A%84key%E5%85%B3%E9%94%AE%E5%AD%97/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
+<meta property="og:description" content="v-if中用 key 管理可复用的元素Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。这么做，除了使 Vue 变得非常快之外，还有一些有用的好处。例如，如果你允许用户在不同的登录方式之间切换:">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-11T09:54:01.000Z">
+<meta property="article:modified_time" content="2020-05-11T09:58:34.943Z">
 <meta property="article:author" content="zyangg">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/01/">
+<link rel="canonical" href="http://yoursite.com/2020/03/11/Vue%E7%9A%84key%E5%85%B3%E9%94%AE%E5%AD%97/">
 
 
 <script id="page-configurations">
@@ -36,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | zyangg的个人博客</title>
+  <title>Vue的key关键字 | zyangg的个人博客</title>
   
 
 
@@ -178,176 +183,159 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/11/Vue%E7%9A%84key%E5%85%B3%E9%94%AE%E5%AD%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+      <meta itemprop="name" content="zyangg">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zyangg的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vue的key关键字
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-11 17:54:01" itemprop="dateCreated datePublished" datetime="2020-03-11T17:54:01+08:00">2020-03-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-11 17:58:34" itemprop="dateModified" datetime="2020-05-11T17:58:34+08:00">2020-05-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 30 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/03/11/Vue%E7%9A%84key%E5%85%B3%E9%94%AE%E5%AD%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/11/Vue%E7%9A%84key%E5%85%B3%E9%94%AE%E5%AD%97/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <h4 id="v-if中用-key-管理可复用的元素"><a href="#v-if中用-key-管理可复用的元素" class="headerlink" title="v-if中用 key 管理可复用的元素"></a>v-if中用 key 管理可复用的元素</h4><p>Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。这么做，除了使 Vue 变得非常快之外，还有一些有用的好处。例如，如果你允许用户在不同的登录方式之间切换:</p>
+<a id="more"></a>
+
+<pre><code>&lt;template v-if=&quot;loginType === &apos;username&apos;&quot;&gt;  
+  &lt;label&gt;Username&lt;/label&gt;  
+  &lt;input placeholder=&quot;Enter your username&quot;&gt;  
+&lt;/template&gt;  
+&lt;template v-else&gt;  
+  &lt;label&gt;Email&lt;/label&gt;  
+  &lt;input placeholder=&quot;Enter your email address&quot;&gt;  
+&lt;/template&gt;  </code></pre><p>那么在上面的代码中切换 loginType 将不会清除用户已经输入的内容。因为两个模版使用了相同的元素，<input> 不会被替换掉——仅仅是替换了它的 placeholder。<br>这样也不总是符合实际需求，所以 Vue 为你提供了一种方式来声明“这两个元素是完全独立的——不要复用它们”。只需添加一个具有唯一值的 key 属性即可：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template v-<span class="keyword">if</span>=<span class="string">"loginType === 'username'"</span>&gt;  </span><br><span class="line">  &lt;label&gt;Username&lt;<span class="regexp">/label&gt;  </span></span><br><span class="line"><span class="regexp">  &lt;input placeholder="Enter your username" key="username-input"&gt;  </span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;  </span><br><span class="line">&lt;template v-<span class="keyword">else</span>&gt;  </span><br><span class="line">  &lt;label&gt;Email&lt;<span class="regexp">/label&gt;  </span></span><br><span class="line"><span class="regexp">  &lt;input placeholder="Enter your email address" key="email-input"&gt;  </span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>现在，每次切换时，输入框都将被重新渲染。注意, <label> 元素仍然会被高效地复用，因为它们没有添加 key 属性<br>2、v-for中的key</p>
+<pre><code>  当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用 “就地复用” 策略。如果数据项的顺序被改变，Vue将不是移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。这个类似 Vue 1.x 的 track-by=&quot;$index&quot; 。
+  这个默认的模式是有效的，但是只适用于不依赖子组件状态或临时 DOM 状态（例如：表单输入值）的列表渲染输出。
+
+ 为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key 属性。理想的 key 值是每项都有唯一 id。这个特殊的属性相当于 Vue 1.x 的 track-by ，但它的工作方式类似于一个属性，所以你需要用 v-bind 来绑定动态值（在这里使用简写）：
+&lt;div v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;  
+  &lt;!-- 内容 --&gt;  
+&lt;/div&gt;  </code></pre>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-26T11:46:42+08:00"
-              content="2020-01-26">
-          01-26
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Vue/" rel="tag"># Vue</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/01/26/css3-flex%E5%B8%83%E5%B1%80/" itemprop="url">
-            <span itemprop="name">Flex布局</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-16T00:06:32+08:00"
-              content="2020-01-16">
-          01-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/01/16/TDK%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BESEO%E4%BC%98%E5%8C%96/" itemprop="url">
-            <span itemprop="name">TDK三大标签SEO优化</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-15T23:30:14+08:00"
-              content="2020-01-15">
-          01-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/01/15/css3%E8%BF%87%E6%B8%A1/" itemprop="url">
-            <span itemprop="name">css3-过渡</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-14T23:23:21+08:00"
-              content="2020-01-14">
-          01-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/01/14/css3%E9%80%89%E6%8B%A9%E5%99%A8/" itemprop="url">
-            <span itemprop="name">css3-选择器</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-12T19:25:59+08:00"
-              content="2020-01-12">
-          01-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/01/12/css-%E5%AE%9A%E4%BD%8D/" itemprop="url">
-            <span itemprop="name">css-定位</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-08T14:37:51+08:00"
-              content="2020-01-08">
-          01-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/01/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/" itemprop="url">
-            <span itemprop="name">css-显示模式</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-07T13:51:23+08:00"
-              content="2020-01-07">
-          01-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/01/07/css-%E9%80%89%E6%8B%A9%E5%99%A8%E5%92%8C%E6%9D%83%E9%87%8D/" itemprop="url">
-            <span itemprop="name">css-选择器及权重</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        
 
 
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/11/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" rel="prev" title="Vue生命周期">
+      <i class="fa fa-chevron-left"></i> Vue生命周期
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/05/Vue-%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/" rel="next" title="创建vue脚手架">
+      创建vue脚手架 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -394,6 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#v-if中用-key-管理可复用的元素"><span class="nav-number">1.</span> <span class="nav-text">v-if中用 key 管理可复用的元素</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
