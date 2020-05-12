@@ -45,160 +45,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6</title>
-    <url>/2020/02/25/ES6/</url>
-    <content><![CDATA[<h1 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h1><h3 id="新增语法"><a href="#新增语法" class="headerlink" title="新增语法"></a>新增语法</h3><h4 id="let"><a href="#let" class="headerlink" title="let"></a>let</h4><h6 id="let声明的变量只在所处于的块级有效"><a href="#let声明的变量只在所处于的块级有效" class="headerlink" title="let声明的变量只在所处于的块级有效"></a>let声明的变量只在所处于的块级有效</h6><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">if</span> (<span class="literal">true</span>) &#123; </span><br><span class="line">     <span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// a is not defined</span></span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<p>注意：**使用let关键字声明的变量才具有块级作用域，使用var声明的变量不具备块级作用域特性。</p>
-<h6 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h6><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// a is not defined </span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">20</span>;</span><br></pre></td></tr></table></figure>
-
-<h6 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h6><p>利用let声明的变量会绑定在这个块级作用域，不会受外界的影响</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> tmp = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123; </span><br><span class="line">    tmp = <span class="string">'abc'</span>;</span><br><span class="line">    <span class="keyword">let</span> tmp; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="const"><a href="#const" class="headerlink" title="const"></a>const</h4><h6 id="具有块级作用域"><a href="#具有块级作用域" class="headerlink" title="具有块级作用域"></a>具有块级作用域</h6><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">if</span> (<span class="literal">true</span>) &#123; </span><br><span class="line">     <span class="keyword">const</span> a = <span class="number">10</span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// a is not defined</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="声明常量时必须赋值"><a href="#声明常量时必须赋值" class="headerlink" title="声明常量时必须赋值"></a>声明常量时必须赋值</h6><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PI; <span class="comment">// Missing initializer in const declaration</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="常量赋值后，值不能修改"><a href="#常量赋值后，值不能修改" class="headerlink" title="常量赋值后，值不能修改"></a>常量赋值后，值不能修改</h6><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14</span>;</span><br><span class="line">PI = <span class="number">100</span>; <span class="comment">// Assignment to constant variable.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ary = [<span class="number">100</span>, <span class="number">200</span>];</span><br><span class="line">ary[<span class="number">0</span>] = <span class="string">'a'</span>;</span><br><span class="line">ary[<span class="number">1</span>] = <span class="string">'b'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(ary); <span class="comment">// ['a', 'b']; </span></span><br><span class="line">ary = [<span class="string">'a'</span>, <span class="string">'b'</span>]; <span class="comment">// Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="let、const、var-的区别"><a href="#let、const、var-的区别" class="headerlink" title="let、const、var 的区别"></a>let、const、var 的区别</h4><p> <img src="https://img-blog.csdnimg.cn/20200427134651719.png" alt="img"> </p>
-<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h3><p>ES6中允许从数组中提取值，按照对应位置，对变量赋值，对象也可以实现解构</p>
-<h6 id="数组解构"><a href="#数组解构" class="headerlink" title="数组解构"></a>数组解构</h6><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"> let [a, b, c] = [1, 2, 3];</span><br><span class="line"> console.log(a)//1</span><br><span class="line"> console.log(b)//2</span><br><span class="line"> console.log(c)//3</span><br><span class="line">//如果解构不成功，变量的值为undefined</span><br></pre></td></tr></table></figure>
-
-<h6 id="对象解构"><a href="#对象解构" class="headerlink" title="对象解构"></a>对象解构</h6><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">let person = &#123; name: 'zhangsan', age: 20 &#125;; </span><br><span class="line">let &#123; name, age &#125; = person;</span><br><span class="line">console.log(name); // 'zhangsan' </span><br><span class="line">console.log(age); // 20</span><br><span class="line"></span><br><span class="line">let &#123;name: myName, age: myAge&#125; = person; // myName myAge 属于别名</span><br><span class="line">console.log(myName); // 'zhangsan' </span><br><span class="line">console.log(myAge); // 20</span><br></pre></td></tr></table></figure>
-
-<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">() =&gt; &#123;&#125; //()：代表是函数； =&gt;：必须要的符号，指向哪一个代码块；&#123;&#125;：函数体</span><br><span class="line">const fn = () =&gt; &#123;&#125;//代表把一个函数赋值给fn</span><br><span class="line"></span><br><span class="line"> function sum(num1, num2) &#123; </span><br><span class="line">     return num1 + num2; </span><br><span class="line"> &#125;</span><br><span class="line"> //es6写法</span><br><span class="line"> const sum = (num1, num2) =&gt; num1 + num2;</span><br></pre></td></tr></table></figure>
-
-<h3 id="剩余参数"><a href="#剩余参数" class="headerlink" title="剩余参数"></a>剩余参数</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">function sum (first, ...args) &#123;</span><br><span class="line">     console.log(first); // 10</span><br><span class="line">     console.log(args); // [20, 30] </span><br><span class="line"> &#125;</span><br><span class="line"> sum(10, 20, 30)</span><br></pre></td></tr></table></figure>
-
-<h6 id="剩余参数和解构配合使用"><a href="#剩余参数和解构配合使用" class="headerlink" title="剩余参数和解构配合使用"></a>剩余参数和解构配合使用</h6><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">let students = ['wangwu', 'zhangsan', 'lisi'];</span><br><span class="line">let [s1, ...s2] = students; </span><br><span class="line">console.log(s1);  // 'wangwu' </span><br><span class="line">console.log(s2);  // ['zhangsan', 'lisi']</span><br></pre></td></tr></table></figure>
-
-<h3 id="ES6-的内置对象扩展"><a href="#ES6-的内置对象扩展" class="headerlink" title="ES6 的内置对象扩展"></a>ES6 的内置对象扩展</h3><h4 id="Array-的扩展方法"><a href="#Array-的扩展方法" class="headerlink" title="Array 的扩展方法"></a>Array 的扩展方法</h4><p>扩展运算符可以将数组或者对象转为用逗号分隔的参数序列</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> ary = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">...ary  <span class="comment">// 1, 2, 3</span></span><br><span class="line"><span class="built_in">console</span>.log(...ary);    <span class="comment">// 1 2 3,相当于下面的代码</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
-
-<p>扩展运算符可以应用于合并数组</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">// 方法一 </span><br><span class="line"> let ary1 = [1, 2, 3];</span><br><span class="line"> let ary2 = [3, 4, 5];</span><br><span class="line"> let ary3 = [...ary1, ...ary2];</span><br><span class="line"> // 方法二 </span><br><span class="line"> ary1.push(...ary2);</span><br></pre></td></tr></table></figure>
-
-<p>map方法，用来对每个元素进行处理，将处理后的值放入返回的数组</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arrayLike = &#123; </span><br><span class="line">    <span class="string">"0"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">"1"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">"length"</span>: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> newAry = <span class="built_in">Array</span>.from(arrayLike, item =&gt; item *<span class="number">2</span>)<span class="comment">//[2,4]</span></span><br></pre></td></tr></table></figure>
-
-<p>注意：如果是对象，那么属性需要写对应的索引</p>
-<h4 id="实例方法：find"><a href="#实例方法：find" class="headerlink" title="实例方法：find()"></a>实例方法：find()</h4><p>用于找出第一个符合条件的数组成员，如果没有找到返回undefined</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> ary = [&#123;</span><br><span class="line">     id: <span class="number">1</span>,</span><br><span class="line">     name: <span class="string">'张三'</span></span><br><span class="line"> &#125;, &#123; </span><br><span class="line">     id: <span class="number">2</span>,</span><br><span class="line">     name: <span class="string">'李四'</span></span><br><span class="line"> &#125;]; </span><br><span class="line"> <span class="keyword">let</span> target = ary.find(<span class="function">(<span class="params">item, index</span>) =&gt;</span> item.id == <span class="number">2</span>);<span class="comment">//找数组里面符合条件的值，当数组中元素id等于2的查找出来，注意，只会匹配第一个</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="实例方法：findIndex"><a href="#实例方法：findIndex" class="headerlink" title="实例方法：findIndex()"></a>实例方法：findIndex()</h4><p>用于找出第一个符合条件的数组成员的位置，如果没有找到返回-1</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> ary = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>];</span><br><span class="line"><span class="keyword">let</span> index = ary.findIndex(<span class="function">(<span class="params">value, index</span>) =&gt;</span> value &gt; <span class="number">9</span>); </span><br><span class="line"><span class="built_in">console</span>.log(index); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="实例方法：includes"><a href="#实例方法：includes" class="headerlink" title="实例方法：includes()"></a>实例方法：includes()</h4><p>判断某个数组是否包含给定的值，返回布尔值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">2</span>) <span class="comment">// true </span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">4</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="String-的扩展方法"><a href="#String-的扩展方法" class="headerlink" title="String 的扩展方法"></a>String 的扩展方法</h3><h4 id="模板字符串（★★★）"><a href="#模板字符串（★★★）" class="headerlink" title="模板字符串（★★★）"></a>模板字符串（★★★）</h4><p>ES6新增的创建字符串的方式，使用反引号定义</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">`zhangsan`</span>;</span><br></pre></td></tr></table></figure>
-
-<h5 id="模板字符串中可以解析变量"><a href="#模板字符串中可以解析变量" class="headerlink" title="模板字符串中可以解析变量"></a>模板字符串中可以解析变量</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">'张三'</span>; </span><br><span class="line"><span class="keyword">let</span> sayHello = <span class="string">`hello,my name is <span class="subst">$&#123;name&#125;</span>`</span>; <span class="comment">// hello, my name is zhangsan</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="模板字符串中可以换行"><a href="#模板字符串中可以换行" class="headerlink" title="模板字符串中可以换行"></a>模板字符串中可以换行</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> result = &#123; </span><br><span class="line">    name: <span class="string">'zhangsan'</span>, </span><br><span class="line">    age: <span class="number">20</span>,</span><br><span class="line">    sex: <span class="string">'男'</span> </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">let</span> html = <span class="string">` &lt;div&gt;</span></span><br><span class="line"><span class="string">    &lt;span&gt;<span class="subst">$&#123;result.name&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;span&gt;<span class="subst">$&#123;result.age&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;span&gt;<span class="subst">$&#123;result.sex&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt; `</span>;</span><br></pre></td></tr></table></figure>
-
-<h5 id="在模板字符串中可以调用函数"><a href="#在模板字符串中可以调用函数" class="headerlink" title="在模板字符串中可以调用函数"></a>在模板字符串中可以调用函数</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sayHello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="string">'哈哈哈哈 追不到我吧 我就是这么强大'</span>;</span><br><span class="line"> &#125;; </span><br><span class="line"> <span class="keyword">let</span> greet = <span class="string">`<span class="subst">$&#123;sayHello()&#125;</span> 哈哈哈哈`</span>;</span><br><span class="line"> <span class="built_in">console</span>.log(greet); <span class="comment">// 哈哈哈哈 追不到我吧 我就是这么强大 哈哈哈哈</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="实例方法：startsWith-和-endsWith"><a href="#实例方法：startsWith-和-endsWith" class="headerlink" title="实例方法：startsWith() 和 endsWith()"></a>实例方法：startsWith() 和 endsWith()</h4><ul>
-<li>startsWith()：表示参数字符串是否在原字符串的头部，返回布尔值</li>
-<li>endsWith()：表示参数字符串是否在原字符串的尾部，返回布尔值</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'Hello world!'</span>;</span><br><span class="line">str.startsWith(<span class="string">'Hello'</span>) <span class="comment">// true </span></span><br><span class="line">str.endsWith(<span class="string">'!'</span>)       <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="实例方法：repeat"><a href="#实例方法：repeat" class="headerlink" title="实例方法：repeat()"></a>实例方法：repeat()</h4><p>repeat方法表示将原字符串重复n次，返回一个新字符串</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'x'</span>.repeat(<span class="number">3</span>)      <span class="comment">// "xxx" </span></span><br><span class="line"><span class="string">'hello'</span>.repeat(<span class="number">2</span>)  <span class="comment">// "hellohello"</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Set-数据结构（★★）"><a href="#Set-数据结构（★★）" class="headerlink" title="Set 数据结构（★★）"></a>Set 数据结构（★★）</h3><p>ES6 提供了新的数据结构  Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
-<p>Set本身是一个构造函数，用来生成  Set  数据结构</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br></pre></td></tr></table></figure>
-
-<p>Set函数可以接受一个数组作为参数，用来初始化。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">set</span> = new Set([1, 2, 3, 4, 4]);//&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h4><ul>
-<li>add(value)：添加某个值，返回 Set 结构本身</li>
-<li>delete(value)：删除某个值，返回一个布尔值，表示删除是否成功</li>
-<li>has(value)：返回一个布尔值，表示该值是否为 Set 的成员</li>
-<li>clear()：清除所有成员，没有返回值</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">s.add(<span class="number">1</span>).add(<span class="number">2</span>).add(<span class="number">3</span>); <span class="comment">// 向 set 结构中添加值 </span></span><br><span class="line">s.delete(<span class="number">2</span>)             <span class="comment">// 删除 set 结构中的2值   </span></span><br><span class="line">s.has(<span class="number">1</span>)                <span class="comment">// 表示 set 结构中是否有1这个值 返回布尔值 </span></span><br><span class="line">s.clear()               <span class="comment">// 清除 set 结构中的所有值</span></span><br><span class="line"><span class="comment">//注意：删除的是元素的值，不是代表的索引</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h4><p>Set 结构的实例与数组一样，也拥有forEach方法，用于对每个成员执行某种操作，没有返回值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">s.forEach(<span class="function"><span class="params">value</span> =&gt;</span> <span class="built_in">console</span>.log(value))</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mongodb</title>
-    <url>/2020/03/01/Mongodb/</url>
-    <content><![CDATA[<h3 id="第三方包"><a href="#第三方包" class="headerlink" title="第三方包"></a>第三方包</h3><p>使用Node.js操作MongoDB数据库需要依赖Node.js第三方包mongoose<br>使用npm install mongoose命令下载</p>
-<p>启动MongoDB</p>
-<a id="more"></a>
-
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> mongoDB</span><br></pre></td></tr></table></figure>
-
-<p>停止MongoDB</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> stop mongoDB</span><br></pre></td></tr></table></figure>
-
-<h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mongoose.connect(<span class="string">'mongodb://localhost/playground'</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接成功'</span>))</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接失败'</span>, err));</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h3><p>创建集合分为两步，一是对对集合设定规则，二是创建集合，创建mongoose.Schema构造函数的实例即可创建集合。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 设定集合规则</span></span><br><span class="line"><span class="keyword">const</span> courseSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    author: <span class="built_in">String</span>,</span><br><span class="line">    isPublished: <span class="built_in">Boolean</span></span><br><span class="line">&#125;);</span><br><span class="line"> <span class="comment">// 创建集合并应用规则</span></span><br><span class="line"><span class="keyword">const</span> Course = mongoose.model(<span class="string">'Course'</span>, courseSchema); <span class="comment">// courses</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="创建文档"><a href="#创建文档" class="headerlink" title="创建文档"></a>创建文档</h4><p>创建文档实际上就是向集合中插入数据。<br>分为两步：<br>创建集合实例。<br>调用实例对象下的save方法将数据保存到数据库中。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 创建集合实例</span></span><br><span class="line"><span class="keyword">const</span> course = <span class="keyword">new</span> Course(&#123;</span><br><span class="line">    name: <span class="string">'Node.js course'</span>,</span><br><span class="line">    author: <span class="string">'黑马讲师'</span>,</span><br><span class="line">    tags: [<span class="string">'node'</span>, <span class="string">'backend'</span>],</span><br><span class="line">    isPublished: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"> <span class="comment">// 将数据保存到数据库中</span></span><br><span class="line">course.save();</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Course.create(&#123;<span class="attr">name</span>: <span class="string">'JavaScript基础'</span>, <span class="attr">author</span>: <span class="string">'黑马讲师'</span>, <span class="attr">isPublish</span>: <span class="literal">true</span>&#125;, (err, doc) =&gt; &#123; </span><br><span class="line">     <span class="comment">//  错误对象</span></span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">     <span class="comment">//  当前插入的文档</span></span><br><span class="line">    <span class="built_in">console</span>.log(doc)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Course.create(&#123;<span class="attr">name</span>: <span class="string">'JavaScript基础'</span>, <span class="attr">author</span>: <span class="string">'黑马讲师'</span>, <span class="attr">isPublish</span>: <span class="literal">true</span>&#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">doc</span> =&gt;</span> <span class="built_in">console</span>.log(doc))</span><br><span class="line">      .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure>
-
-<h4 id="mongoDB数据库导入数据"><a href="#mongoDB数据库导入数据" class="headerlink" title="mongoDB数据库导入数据"></a>mongoDB数据库导入数据</h4><p>mongoimport –d 数据库名称 –c 集合名称 –-file 要导入的数据文件<br>找到mongodb数据库的安装目录，将安装目录下的bin目录放置在环境变量中。</p>
-<h4 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  根据条件查找文档</span></span><br><span class="line">Course.findOne(&#123;<span class="attr">name</span>: <span class="string">'node.js基础'</span>&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  根据条件查找文档（条件为空则查找所有文档）</span></span><br><span class="line">Course.find().then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  匹配大于 小于</span></span><br><span class="line">User.find(&#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>: <span class="number">20</span>, <span class="attr">$lt</span>: <span class="number">50</span>&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  匹配包含</span></span><br><span class="line">User.find(&#123;<span class="attr">hobbies</span>: &#123;<span class="attr">$in</span>: [<span class="string">'敲代码'</span>]&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  选择要查询的字段  </span></span><br><span class="line"> User.find().select(<span class="string">'name email'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将数据按照年龄进行排序</span></span><br><span class="line"> User.find().sort(<span class="string">'age'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  skip 跳过多少条数据  limit 限制查询数量</span></span><br><span class="line">User.find().skip(<span class="number">2</span>).limit(<span class="number">2</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<h4 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 删除单个</span></span><br><span class="line">Course.findOneAndDelete(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 删除多个</span></span><br><span class="line">User.deleteMany(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<h4 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">/ 更新单个</span><br><span class="line">User.updateOne(&#123;查询条件&#125;, &#123;要修改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 更新多个</span></span><br><span class="line">User.updateMany(&#123;查询条件&#125;, &#123;要更改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<h3 id="mongoose验证"><a href="#mongoose验证" class="headerlink" title="mongoose验证"></a>mongoose验证</h3><p>required: true 必传字段<br>minlength：3 字符串最小长度<br>maxlength: 20 字符串最大长度<br>min: 2 数值最小为2<br>max: 100 数值最大为100<br>enum: [‘html’, ‘css’, ‘javascript’, ‘node.js’]<br>trim: true 去除字符串两边的空格<br>validate: 自定义验证器<br>default: 默认值</p>
-<p>获取错误信息：error.errors[‘字段名称’].message</p>
-<h4 id="集合关联实现"><a href="#集合关联实现" class="headerlink" title="集合关联实现"></a>集合关联实现</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用户集合</span></span><br><span class="line"><span class="keyword">const</span> User = mongoose.model(<span class="string">'User'</span>, <span class="keyword">new</span> mongoose.Schema(&#123; <span class="attr">name</span>: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125; &#125;)); </span><br><span class="line"><span class="comment">// 文章集合</span></span><br><span class="line"><span class="keyword">const</span> Post = mongoose.model(<span class="string">'Post'</span>, <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    title: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125;,</span><br><span class="line">    <span class="comment">// 使用ID将文章集合和作者集合进行关联</span></span><br><span class="line">    author: &#123; <span class="attr">type</span>: mongoose.Schema.Types.ObjectId, <span class="attr">ref</span>: <span class="string">'User'</span> &#125;</span><br><span class="line">&#125;));</span><br><span class="line"><span class="comment">//联合查询</span></span><br><span class="line">Post.find()</span><br><span class="line">      .populate(<span class="string">'author'</span>)</span><br><span class="line">      .then(<span class="function">(<span class="params">err, result</span>) =&gt;</span> <span class="built_in">console</span>.log(result));</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ES6的类和对象</title>
     <url>/2020/02/21/ES6%E7%9A%84%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h3 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a>面向过程</h3><ul>
@@ -304,6 +150,100 @@
       </tags>
   </entry>
   <entry>
+    <title>ES6</title>
+    <url>/2020/02/25/ES6/</url>
+    <content><![CDATA[<h1 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h1><h3 id="新增语法"><a href="#新增语法" class="headerlink" title="新增语法"></a>新增语法</h3><h4 id="let"><a href="#let" class="headerlink" title="let"></a>let</h4><h6 id="let声明的变量只在所处于的块级有效"><a href="#let声明的变量只在所处于的块级有效" class="headerlink" title="let声明的变量只在所处于的块级有效"></a>let声明的变量只在所处于的块级有效</h6><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">if</span> (<span class="literal">true</span>) &#123; </span><br><span class="line">     <span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// a is not defined</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>注意：**使用let关键字声明的变量才具有块级作用域，使用var声明的变量不具备块级作用域特性。</p>
+<h6 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h6><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// a is not defined </span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">20</span>;</span><br></pre></td></tr></table></figure>
+
+<h6 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h6><p>利用let声明的变量会绑定在这个块级作用域，不会受外界的影响</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> tmp = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123; </span><br><span class="line">    tmp = <span class="string">'abc'</span>;</span><br><span class="line">    <span class="keyword">let</span> tmp; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="const"><a href="#const" class="headerlink" title="const"></a>const</h4><h6 id="具有块级作用域"><a href="#具有块级作用域" class="headerlink" title="具有块级作用域"></a>具有块级作用域</h6><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">if</span> (<span class="literal">true</span>) &#123; </span><br><span class="line">     <span class="keyword">const</span> a = <span class="number">10</span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// a is not defined</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="声明常量时必须赋值"><a href="#声明常量时必须赋值" class="headerlink" title="声明常量时必须赋值"></a>声明常量时必须赋值</h6><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PI; <span class="comment">// Missing initializer in const declaration</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="常量赋值后，值不能修改"><a href="#常量赋值后，值不能修改" class="headerlink" title="常量赋值后，值不能修改"></a>常量赋值后，值不能修改</h6><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14</span>;</span><br><span class="line">PI = <span class="number">100</span>; <span class="comment">// Assignment to constant variable.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ary = [<span class="number">100</span>, <span class="number">200</span>];</span><br><span class="line">ary[<span class="number">0</span>] = <span class="string">'a'</span>;</span><br><span class="line">ary[<span class="number">1</span>] = <span class="string">'b'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(ary); <span class="comment">// ['a', 'b']; </span></span><br><span class="line">ary = [<span class="string">'a'</span>, <span class="string">'b'</span>]; <span class="comment">// Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="let、const、var-的区别"><a href="#let、const、var-的区别" class="headerlink" title="let、const、var 的区别"></a>let、const、var 的区别</h4><p> <img src="https://img-blog.csdnimg.cn/20200427134651719.png" alt="img"> </p>
+<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h3><p>ES6中允许从数组中提取值，按照对应位置，对变量赋值，对象也可以实现解构</p>
+<h6 id="数组解构"><a href="#数组解构" class="headerlink" title="数组解构"></a>数组解构</h6><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"> let [a, b, c] = [1, 2, 3];</span><br><span class="line"> console.log(a)//1</span><br><span class="line"> console.log(b)//2</span><br><span class="line"> console.log(c)//3</span><br><span class="line">//如果解构不成功，变量的值为undefined</span><br></pre></td></tr></table></figure>
+
+<h6 id="对象解构"><a href="#对象解构" class="headerlink" title="对象解构"></a>对象解构</h6><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">let person = &#123; name: 'zhangsan', age: 20 &#125;; </span><br><span class="line">let &#123; name, age &#125; = person;</span><br><span class="line">console.log(name); // 'zhangsan' </span><br><span class="line">console.log(age); // 20</span><br><span class="line"></span><br><span class="line">let &#123;name: myName, age: myAge&#125; = person; // myName myAge 属于别名</span><br><span class="line">console.log(myName); // 'zhangsan' </span><br><span class="line">console.log(myAge); // 20</span><br></pre></td></tr></table></figure>
+
+<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">() =&gt; &#123;&#125; //()：代表是函数； =&gt;：必须要的符号，指向哪一个代码块；&#123;&#125;：函数体</span><br><span class="line">const fn = () =&gt; &#123;&#125;//代表把一个函数赋值给fn</span><br><span class="line"></span><br><span class="line"> function sum(num1, num2) &#123; </span><br><span class="line">     return num1 + num2; </span><br><span class="line"> &#125;</span><br><span class="line"> //es6写法</span><br><span class="line"> const sum = (num1, num2) =&gt; num1 + num2;</span><br></pre></td></tr></table></figure>
+
+<h3 id="剩余参数"><a href="#剩余参数" class="headerlink" title="剩余参数"></a>剩余参数</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">function sum (first, ...args) &#123;</span><br><span class="line">     console.log(first); // 10</span><br><span class="line">     console.log(args); // [20, 30] </span><br><span class="line"> &#125;</span><br><span class="line"> sum(10, 20, 30)</span><br></pre></td></tr></table></figure>
+
+<h6 id="剩余参数和解构配合使用"><a href="#剩余参数和解构配合使用" class="headerlink" title="剩余参数和解构配合使用"></a>剩余参数和解构配合使用</h6><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">let students = ['wangwu', 'zhangsan', 'lisi'];</span><br><span class="line">let [s1, ...s2] = students; </span><br><span class="line">console.log(s1);  // 'wangwu' </span><br><span class="line">console.log(s2);  // ['zhangsan', 'lisi']</span><br></pre></td></tr></table></figure>
+
+<h3 id="ES6-的内置对象扩展"><a href="#ES6-的内置对象扩展" class="headerlink" title="ES6 的内置对象扩展"></a>ES6 的内置对象扩展</h3><h4 id="Array-的扩展方法"><a href="#Array-的扩展方法" class="headerlink" title="Array 的扩展方法"></a>Array 的扩展方法</h4><p>扩展运算符可以将数组或者对象转为用逗号分隔的参数序列</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> ary = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">...ary  <span class="comment">// 1, 2, 3</span></span><br><span class="line"><span class="built_in">console</span>.log(...ary);    <span class="comment">// 1 2 3,相当于下面的代码</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>扩展运算符可以应用于合并数组</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">// 方法一 </span><br><span class="line"> let ary1 = [1, 2, 3];</span><br><span class="line"> let ary2 = [3, 4, 5];</span><br><span class="line"> let ary3 = [...ary1, ...ary2];</span><br><span class="line"> // 方法二 </span><br><span class="line"> ary1.push(...ary2);</span><br></pre></td></tr></table></figure>
+
+<p>map方法，用来对每个元素进行处理，将处理后的值放入返回的数组</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arrayLike = &#123; </span><br><span class="line">    <span class="string">"0"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">"1"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">"length"</span>: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> newAry = <span class="built_in">Array</span>.from(arrayLike, item =&gt; item *<span class="number">2</span>)<span class="comment">//[2,4]</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：如果是对象，那么属性需要写对应的索引</p>
+<h4 id="实例方法：find"><a href="#实例方法：find" class="headerlink" title="实例方法：find()"></a>实例方法：find()</h4><p>用于找出第一个符合条件的数组成员，如果没有找到返回undefined</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> ary = [&#123;</span><br><span class="line">     id: <span class="number">1</span>,</span><br><span class="line">     name: <span class="string">'张三'</span></span><br><span class="line"> &#125;, &#123; </span><br><span class="line">     id: <span class="number">2</span>,</span><br><span class="line">     name: <span class="string">'李四'</span></span><br><span class="line"> &#125;]; </span><br><span class="line"> <span class="keyword">let</span> target = ary.find(<span class="function">(<span class="params">item, index</span>) =&gt;</span> item.id == <span class="number">2</span>);<span class="comment">//找数组里面符合条件的值，当数组中元素id等于2的查找出来，注意，只会匹配第一个</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="实例方法：findIndex"><a href="#实例方法：findIndex" class="headerlink" title="实例方法：findIndex()"></a>实例方法：findIndex()</h4><p>用于找出第一个符合条件的数组成员的位置，如果没有找到返回-1</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> ary = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>];</span><br><span class="line"><span class="keyword">let</span> index = ary.findIndex(<span class="function">(<span class="params">value, index</span>) =&gt;</span> value &gt; <span class="number">9</span>); </span><br><span class="line"><span class="built_in">console</span>.log(index); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="实例方法：includes"><a href="#实例方法：includes" class="headerlink" title="实例方法：includes()"></a>实例方法：includes()</h4><p>判断某个数组是否包含给定的值，返回布尔值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">2</span>) <span class="comment">// true </span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">4</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="String-的扩展方法"><a href="#String-的扩展方法" class="headerlink" title="String 的扩展方法"></a>String 的扩展方法</h3><h4 id="模板字符串（★★★）"><a href="#模板字符串（★★★）" class="headerlink" title="模板字符串（★★★）"></a>模板字符串（★★★）</h4><p>ES6新增的创建字符串的方式，使用反引号定义</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">`zhangsan`</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="模板字符串中可以解析变量"><a href="#模板字符串中可以解析变量" class="headerlink" title="模板字符串中可以解析变量"></a>模板字符串中可以解析变量</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">'张三'</span>; </span><br><span class="line"><span class="keyword">let</span> sayHello = <span class="string">`hello,my name is <span class="subst">$&#123;name&#125;</span>`</span>; <span class="comment">// hello, my name is zhangsan</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="模板字符串中可以换行"><a href="#模板字符串中可以换行" class="headerlink" title="模板字符串中可以换行"></a>模板字符串中可以换行</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> result = &#123; </span><br><span class="line">    name: <span class="string">'zhangsan'</span>, </span><br><span class="line">    age: <span class="number">20</span>,</span><br><span class="line">    sex: <span class="string">'男'</span> </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">let</span> html = <span class="string">` &lt;div&gt;</span></span><br><span class="line"><span class="string">    &lt;span&gt;<span class="subst">$&#123;result.name&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;span&gt;<span class="subst">$&#123;result.age&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;span&gt;<span class="subst">$&#123;result.sex&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt; `</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="在模板字符串中可以调用函数"><a href="#在模板字符串中可以调用函数" class="headerlink" title="在模板字符串中可以调用函数"></a>在模板字符串中可以调用函数</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sayHello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="string">'哈哈哈哈 追不到我吧 我就是这么强大'</span>;</span><br><span class="line"> &#125;; </span><br><span class="line"> <span class="keyword">let</span> greet = <span class="string">`<span class="subst">$&#123;sayHello()&#125;</span> 哈哈哈哈`</span>;</span><br><span class="line"> <span class="built_in">console</span>.log(greet); <span class="comment">// 哈哈哈哈 追不到我吧 我就是这么强大 哈哈哈哈</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="实例方法：startsWith-和-endsWith"><a href="#实例方法：startsWith-和-endsWith" class="headerlink" title="实例方法：startsWith() 和 endsWith()"></a>实例方法：startsWith() 和 endsWith()</h4><ul>
+<li>startsWith()：表示参数字符串是否在原字符串的头部，返回布尔值</li>
+<li>endsWith()：表示参数字符串是否在原字符串的尾部，返回布尔值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'Hello world!'</span>;</span><br><span class="line">str.startsWith(<span class="string">'Hello'</span>) <span class="comment">// true </span></span><br><span class="line">str.endsWith(<span class="string">'!'</span>)       <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="实例方法：repeat"><a href="#实例方法：repeat" class="headerlink" title="实例方法：repeat()"></a>实例方法：repeat()</h4><p>repeat方法表示将原字符串重复n次，返回一个新字符串</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'x'</span>.repeat(<span class="number">3</span>)      <span class="comment">// "xxx" </span></span><br><span class="line"><span class="string">'hello'</span>.repeat(<span class="number">2</span>)  <span class="comment">// "hellohello"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Set-数据结构（★★）"><a href="#Set-数据结构（★★）" class="headerlink" title="Set 数据结构（★★）"></a>Set 数据结构（★★）</h3><p>ES6 提供了新的数据结构  Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
+<p>Set本身是一个构造函数，用来生成  Set  数据结构</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br></pre></td></tr></table></figure>
+
+<p>Set函数可以接受一个数组作为参数，用来初始化。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">set</span> = new Set([1, 2, 3, 4, 4]);//&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h4><ul>
+<li>add(value)：添加某个值，返回 Set 结构本身</li>
+<li>delete(value)：删除某个值，返回一个布尔值，表示删除是否成功</li>
+<li>has(value)：返回一个布尔值，表示该值是否为 Set 的成员</li>
+<li>clear()：清除所有成员，没有返回值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">s.add(<span class="number">1</span>).add(<span class="number">2</span>).add(<span class="number">3</span>); <span class="comment">// 向 set 结构中添加值 </span></span><br><span class="line">s.delete(<span class="number">2</span>)             <span class="comment">// 删除 set 结构中的2值   </span></span><br><span class="line">s.has(<span class="number">1</span>)                <span class="comment">// 表示 set 结构中是否有1这个值 返回布尔值 </span></span><br><span class="line">s.clear()               <span class="comment">// 清除 set 结构中的所有值</span></span><br><span class="line"><span class="comment">//注意：删除的是元素的值，不是代表的索引</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h4><p>Set 结构的实例与数组一样，也拥有forEach方法，用于对每个成员执行某种操作，没有返回值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">s.forEach(<span class="function"><span class="params">value</span> =&gt;</span> <span class="built_in">console</span>.log(value))</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Express</title>
     <url>/2020/03/02/Express/</url>
     <content><![CDATA[<h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入Express框架</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="comment">// 使用框架创建web服务器</span></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 当客户端以get方式访问/路由时</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">   <span class="comment">// 对客户端做出响应 send方法会根据内容的类型自动设置请求头</span></span><br><span class="line">   res.send(<span class="string">'Hello Express'</span>); <span class="comment">// &lt;h2&gt;Hello Express&lt;/h2&gt; &#123;say: 'hello'&#125;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 程序监听3000端口</span></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
@@ -351,6 +291,116 @@
       </categories>
       <tags>
         <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mongodb</title>
+    <url>/2020/03/01/Mongodb/</url>
+    <content><![CDATA[<h3 id="第三方包"><a href="#第三方包" class="headerlink" title="第三方包"></a>第三方包</h3><p>使用Node.js操作MongoDB数据库需要依赖Node.js第三方包mongoose<br>使用npm install mongoose命令下载</p>
+<p>启动MongoDB</p>
+<a id="more"></a>
+
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> mongoDB</span><br></pre></td></tr></table></figure>
+
+<p>停止MongoDB</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> stop mongoDB</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mongoose.connect(<span class="string">'mongodb://localhost/playground'</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接成功'</span>))</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接失败'</span>, err));</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h3><p>创建集合分为两步，一是对对集合设定规则，二是创建集合，创建mongoose.Schema构造函数的实例即可创建集合。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 设定集合规则</span></span><br><span class="line"><span class="keyword">const</span> courseSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    author: <span class="built_in">String</span>,</span><br><span class="line">    isPublished: <span class="built_in">Boolean</span></span><br><span class="line">&#125;);</span><br><span class="line"> <span class="comment">// 创建集合并应用规则</span></span><br><span class="line"><span class="keyword">const</span> Course = mongoose.model(<span class="string">'Course'</span>, courseSchema); <span class="comment">// courses</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="创建文档"><a href="#创建文档" class="headerlink" title="创建文档"></a>创建文档</h4><p>创建文档实际上就是向集合中插入数据。<br>分为两步：<br>创建集合实例。<br>调用实例对象下的save方法将数据保存到数据库中。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 创建集合实例</span></span><br><span class="line"><span class="keyword">const</span> course = <span class="keyword">new</span> Course(&#123;</span><br><span class="line">    name: <span class="string">'Node.js course'</span>,</span><br><span class="line">    author: <span class="string">'黑马讲师'</span>,</span><br><span class="line">    tags: [<span class="string">'node'</span>, <span class="string">'backend'</span>],</span><br><span class="line">    isPublished: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"> <span class="comment">// 将数据保存到数据库中</span></span><br><span class="line">course.save();</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Course.create(&#123;<span class="attr">name</span>: <span class="string">'JavaScript基础'</span>, <span class="attr">author</span>: <span class="string">'黑马讲师'</span>, <span class="attr">isPublish</span>: <span class="literal">true</span>&#125;, (err, doc) =&gt; &#123; </span><br><span class="line">     <span class="comment">//  错误对象</span></span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">     <span class="comment">//  当前插入的文档</span></span><br><span class="line">    <span class="built_in">console</span>.log(doc)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Course.create(&#123;<span class="attr">name</span>: <span class="string">'JavaScript基础'</span>, <span class="attr">author</span>: <span class="string">'黑马讲师'</span>, <span class="attr">isPublish</span>: <span class="literal">true</span>&#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">doc</span> =&gt;</span> <span class="built_in">console</span>.log(doc))</span><br><span class="line">      .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure>
+
+<h4 id="mongoDB数据库导入数据"><a href="#mongoDB数据库导入数据" class="headerlink" title="mongoDB数据库导入数据"></a>mongoDB数据库导入数据</h4><p>mongoimport –d 数据库名称 –c 集合名称 –-file 要导入的数据文件<br>找到mongodb数据库的安装目录，将安装目录下的bin目录放置在环境变量中。</p>
+<h4 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  根据条件查找文档</span></span><br><span class="line">Course.findOne(&#123;<span class="attr">name</span>: <span class="string">'node.js基础'</span>&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  根据条件查找文档（条件为空则查找所有文档）</span></span><br><span class="line">Course.find().then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  匹配大于 小于</span></span><br><span class="line">User.find(&#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>: <span class="number">20</span>, <span class="attr">$lt</span>: <span class="number">50</span>&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  匹配包含</span></span><br><span class="line">User.find(&#123;<span class="attr">hobbies</span>: &#123;<span class="attr">$in</span>: [<span class="string">'敲代码'</span>]&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  选择要查询的字段  </span></span><br><span class="line"> User.find().select(<span class="string">'name email'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将数据按照年龄进行排序</span></span><br><span class="line"> User.find().sort(<span class="string">'age'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  skip 跳过多少条数据  limit 限制查询数量</span></span><br><span class="line">User.find().skip(<span class="number">2</span>).limit(<span class="number">2</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 删除单个</span></span><br><span class="line">Course.findOneAndDelete(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 删除多个</span></span><br><span class="line">User.deleteMany(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<h4 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">/ 更新单个</span><br><span class="line">User.updateOne(&#123;查询条件&#125;, &#123;要修改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 更新多个</span></span><br><span class="line">User.updateMany(&#123;查询条件&#125;, &#123;要更改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<h3 id="mongoose验证"><a href="#mongoose验证" class="headerlink" title="mongoose验证"></a>mongoose验证</h3><p>required: true 必传字段<br>minlength：3 字符串最小长度<br>maxlength: 20 字符串最大长度<br>min: 2 数值最小为2<br>max: 100 数值最大为100<br>enum: [‘html’, ‘css’, ‘javascript’, ‘node.js’]<br>trim: true 去除字符串两边的空格<br>validate: 自定义验证器<br>default: 默认值</p>
+<p>获取错误信息：error.errors[‘字段名称’].message</p>
+<h4 id="集合关联实现"><a href="#集合关联实现" class="headerlink" title="集合关联实现"></a>集合关联实现</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用户集合</span></span><br><span class="line"><span class="keyword">const</span> User = mongoose.model(<span class="string">'User'</span>, <span class="keyword">new</span> mongoose.Schema(&#123; <span class="attr">name</span>: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125; &#125;)); </span><br><span class="line"><span class="comment">// 文章集合</span></span><br><span class="line"><span class="keyword">const</span> Post = mongoose.model(<span class="string">'Post'</span>, <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    title: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125;,</span><br><span class="line">    <span class="comment">// 使用ID将文章集合和作者集合进行关联</span></span><br><span class="line">    author: &#123; <span class="attr">type</span>: mongoose.Schema.Types.ObjectId, <span class="attr">ref</span>: <span class="string">'User'</span> &#125;</span><br><span class="line">&#125;));</span><br><span class="line"><span class="comment">//联合查询</span></span><br><span class="line">Post.find()</span><br><span class="line">      .populate(<span class="string">'author'</span>)</span><br><span class="line">      .then(<span class="function">(<span class="params">err, result</span>) =&gt;</span> <span class="built_in">console</span>.log(result));</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TDK三大标签SEO优化</title>
+    <url>/2020/01/16/TDK%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BESEO%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h3 id="网站优化三大标签"><a href="#网站优化三大标签" class="headerlink" title="网站优化三大标签"></a>网站优化三大标签</h3><p>SEO是由英文Search Engine Optimization缩写而来， 中文意译为“搜索引擎优化”！</p>
+<p>常见的搜索引擎，比如百度，谷歌，雅虎，搜狗等等..</p>
+<a id="more"></a>
+
+<p>SEO是指通过对网站进行站内优化、网站结构调整、网站内容建设、网站代码优化等)和站外优化，从而提高网站的关键词排名以及公司产品的曝光度。 简单的说就是，把产品做好，搜索引擎就会介绍客户来。  </p>
+<h4 id="1-网页title-标题"><a href="#1-网页title-标题" class="headerlink" title="1). 网页title 标题"></a>1). 网页title 标题</h4><p>title具有不可替代性，是我们的内页第一个重要标签，是搜索引擎了解网页的入口，和对网页主题归属的最佳判断点。</p>
+<p>建议：</p>
+<p>首页标题：网站名（产品名）- 网站的介绍    </p>
+<p>例如：</p>
+<p>品优购-综合网购首选-正品低价、品质保障、配送及时、轻松购物！</p>
+<p>小米商城 - 小米5s、红米Note 4、小米MIX、小米笔记本官方网站</p>
+<h4 id="2-Description-网站说明"><a href="#2-Description-网站说明" class="headerlink" title="2. Description  网站说明"></a>2. Description  网站说明</h4><p>对于关键词的作用明显降低，但由于很多搜索引擎，仍然大量采用网页的MATA标签中描述部分作为搜索结果的“内容摘要”。 就是简要说明我们网站的主要做什么的。<br>我们提倡，Description作为网站的总体业务和主题概括，多采用“我们是…”“我们提供…”“×××网作为…”“电话：010…”之类语句。</p>
+<p>品优购网：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;品优购JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意点：</p>
+<ol>
+<li>描述中出现关键词，与正文内容相关，这部分内容是给人看的，所以要写的很详细，让人感兴趣， 吸引用户点击。</li>
+<li>同样遵循简短原则，字符数含空格在内不要超过 120  个汉字。</li>
+<li>补充在 title  和 keywords  中未能充分表述的说明.</li>
+<li>用英文逗号 关键词1,关键词2</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;小米商城直营小米公司旗下所有产品，囊括小米手机系列小米MIX、小米Note 2，红米手机系列红米Note 4、红米4，智能硬件，配件及小米生活周边，同时提供小米客户服务及售后支持。&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-Keywords-关键字"><a href="#3-Keywords-关键字" class="headerlink" title="3. Keywords 关键字"></a>3. Keywords 关键字</h4><p>Keywords是页面关键词，是搜索引擎关注点之一。Keywords应该限制在6～8个关键词左右，电商类网站可以多 少许。</p>
+<p>品优购网：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;Keywords&quot; content&#x3D;&quot;网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,品优购&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>小米网：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;keywords&quot; content&#x3D;&quot;小米,小米6,红米Note4,小米MIX,小米商城&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-总结"><a href="#4-总结" class="headerlink" title="4). 总结"></a>4). 总结</h4><ol>
+<li>我们的网页要做的优秀，符合搜索引擎的要求，才可以让搜索引擎优先显示我们的网页。  </li>
+</ol>
+<p>所以我们的网站要做很多的优化， 其中就有这三大标签。</p>
+<ol start="2">
+<li>一般情况下，三大标签里面的优化词，都是专门的优化人员写的，我们大概了解一下规范就可以了。</li>
+<li>我们的主要任务是，能写出这三大标签， 然后把优化人员给我们的内容，添加到里面。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -406,53 +456,59 @@
       </tags>
   </entry>
   <entry>
-    <title>TDK三大标签SEO优化</title>
-    <url>/2020/01/16/TDK%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BESEO%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<h3 id="网站优化三大标签"><a href="#网站优化三大标签" class="headerlink" title="网站优化三大标签"></a>网站优化三大标签</h3><p>SEO是由英文Search Engine Optimization缩写而来， 中文意译为“搜索引擎优化”！</p>
-<p>常见的搜索引擎，比如百度，谷歌，雅虎，搜狗等等..</p>
+    <title>创建vue脚手架</title>
+    <url>/2020/04/05/Vue-%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
+    <content><![CDATA[<p>Vue-cli</p>
+<p> vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。 </p>
 <a id="more"></a>
 
-<p>SEO是指通过对网站进行站内优化、网站结构调整、网站内容建设、网站代码优化等)和站外优化，从而提高网站的关键词排名以及公司产品的曝光度。 简单的说就是，把产品做好，搜索引擎就会介绍客户来。  </p>
-<h4 id="1-网页title-标题"><a href="#1-网页title-标题" class="headerlink" title="1). 网页title 标题"></a>1). 网页title 标题</h4><p>title具有不可替代性，是我们的内页第一个重要标签，是搜索引擎了解网页的入口，和对网页主题归属的最佳判断点。</p>
-<p>建议：</p>
-<p>首页标题：网站名（产品名）- 网站的介绍    </p>
-<p>例如：</p>
-<p>品优购-综合网购首选-正品低价、品质保障、配送及时、轻松购物！</p>
-<p>小米商城 - 小米5s、红米Note 4、小米MIX、小米笔记本官方网站</p>
-<h4 id="2-Description-网站说明"><a href="#2-Description-网站说明" class="headerlink" title="2. Description  网站说明"></a>2. Description  网站说明</h4><p>对于关键词的作用明显降低，但由于很多搜索引擎，仍然大量采用网页的MATA标签中描述部分作为搜索结果的“内容摘要”。 就是简要说明我们网站的主要做什么的。<br>我们提倡，Description作为网站的总体业务和主题概括，多采用“我们是…”“我们提供…”“×××网作为…”“电话：010…”之类语句。</p>
-<p>品优购网：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;品优购JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>1、首先保证全局安装@vue/cli工具 ，没有自行下载</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i @vue/cli -g</span><br></pre></td></tr></table></figure>
 
-<p>注意点：</p>
-<ol>
-<li>描述中出现关键词，与正文内容相关，这部分内容是给人看的，所以要写的很详细，让人感兴趣， 吸引用户点击。</li>
-<li>同样遵循简短原则，字符数含空格在内不要超过 120  个汉字。</li>
-<li>补充在 title  和 keywords  中未能充分表述的说明.</li>
-<li>用英文逗号 关键词1,关键词2</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;小米商城直营小米公司旗下所有产品，囊括小米手机系列小米MIX、小米Note 2，红米手机系列红米Note 4、红米4，智能硬件，配件及小米生活周边，同时提供小米客户服务及售后支持。&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>2、推荐下载yarn包管理器</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i yarn -g</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-Keywords-关键字"><a href="#3-Keywords-关键字" class="headerlink" title="3. Keywords 关键字"></a>3. Keywords 关键字</h4><p>Keywords是页面关键词，是搜索引擎关注点之一。Keywords应该限制在6～8个关键词左右，电商类网站可以多 少许。</p>
-<p>品优购网：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;Keywords&quot; content&#x3D;&quot;网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,品优购&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>小米网：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;keywords&quot; content&#x3D;&quot;小米,小米6,红米Note4,小米MIX,小米商城&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-总结"><a href="#4-总结" class="headerlink" title="4). 总结"></a>4). 总结</h4><ol>
-<li>我们的网页要做的优秀，符合搜索引擎的要求，才可以让搜索引擎优先显示我们的网页。  </li>
-</ol>
-<p>所以我们的网站要做很多的优化， 其中就有这三大标签。</p>
-<ol start="2">
-<li>一般情况下，三大标签里面的优化词，都是专门的优化人员写的，我们大概了解一下规范就可以了。</li>
-<li>我们的主要任务是，能写出这三大标签， 然后把优化人员给我们的内容，添加到里面。</li>
-</ol>
+<p>3、接下来我们就可以在自己的电脑里创建项目，找到电脑某个位置，在此文件夹按住shift同时右键，在此处打开cmd命令窗口或者在此处打开powershell窗口</p>
+<p>4、打开窗口之后运行vue ui命令，此时就会打开ui图形界面</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>5、我们选择创建之后就会进入创建页面</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220705271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>6、点击在此处创建新项目，就会进入项目详情，详情里面，首先填写项目的名字，然后包管理器选择yarn，在填写初始会git默认注释</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220718747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>7、上面填写完毕后，点击下一步，会进入到选择默认配置还是手动配置，以及选择之前的预设，我们选择手动配置</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220731996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>8、选择完后继续点击下一步，选择功能，以下是所有功能介绍，我们可以先选择babel、router、Linter、使用配置文件，开发的时候一般css预处理、vuex也肯定要安装的</p>
+<p>babel （js高级转低级）</p>
+<p>TypeScript （js超级）</p>
+<p>Progressive Web App (PWA) Support （渐进式web应用）</p>
+<p>Router（路由）</p>
+<p>Vuex（状态管理工具）</p>
+<p>CSS Pre-processors（css预处理）</p>
+<p>Linter / Formatter（语法规范检查）</p>
+<p>Unit Testing、E2E Testing（测试方式）</p>
+<p>使用配置文件（配置项是存在单独配置文件）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220750625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220803343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<p>9、上面选择完后，继续点击下一步会进入到配置选项，此处第一个是 是否开启路由的history模式，我们不开启采用hash模式,eslint采用 ESLint + Standard config ，Pick additional lint features选择默认开启</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220817594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>10、选择完后，点击创建项目，会弹出是否存为预设，下一次直接使用，可以存个预设的名字，然后点击 保存预设并创建项目 即创建完毕</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220850644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>11、创建完毕后会进入到项目操作界面</p>
+<p>插件（项目用到的插件可以在这里安装）</p>
+<p>依赖（项目的依赖工具）</p>
+<p>配置（那就是配置了）</p>
+<p>任务（可以运行项目、打包项目等）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220906488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>12、我们选择任务》server》运行，即可将项目运行起来</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220917331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>13、最后点击启动app即可看见我们自己创建的项目</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220928205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
 ]]></content>
       <categories>
         <category>前端</category>
       </categories>
       <tags>
-        <tag>html</tag>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -526,53 +582,24 @@
       </tags>
   </entry>
   <entry>
-    <title>创建vue脚手架</title>
-    <url>/2020/04/05/Vue-%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
-    <content><![CDATA[<p>Vue-cli</p>
-<p> vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。 </p>
+    <title>Vue组件组测</title>
+    <url>/2020/03/13/Vue%E7%BB%84%E4%BB%B6%E6%B3%A8%E5%86%8C/</url>
+    <content><![CDATA[<h4 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h4><p>组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码。组件系统让我们可以用独立可复用的小组件来构建大型应用，几乎任意类型的应用的界面都可以抽象为一个组件树：</p>
 <a id="more"></a>
 
-<p>1、首先保证全局安装@vue/cli工具 ，没有自行下载</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i @vue/cli -g</span><br></pre></td></tr></table></figure>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly93d3cucnVub29iLmNvbS93cC1jb250ZW50L3VwbG9hZHMvMjAxNy8wMS9jb21wb25lbnRzLnBuZw?x-oss-process=image/format,png" alt="img"></p>
+<h4 id="组件注册"><a href="#组件注册" class="headerlink" title="组件注册"></a>组件注册</h4><p>组件与Vue实例类似，需要注册后才可以使用。注册有全局注册和局部注册两种方式。</p>
+<p><strong>全局注册：</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://unpkg.com/vue/dist/vue.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">    &lt;title&gt;全局注册&lt;/</span>title&gt;</span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">    &lt;!--全局注册后，任何Vue实例都可以使用--&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div id="myApp"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;my-component&gt;&lt;/my</span>-component&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script&gt;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/注册全局组件</span></span><br><span class="line"><span class="regexp">        Vue.component('my-component',&#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/模板</span></span><br><span class="line"><span class="regexp">            template: '&lt;div&gt;这里是组件的内容&lt;/</span>div&gt;<span class="string">'</span></span><br><span class="line"><span class="string">        &#125;);</span></span><br><span class="line"><span class="string">        //实例要写在注册之下</span></span><br><span class="line"><span class="string">        var myApp = new Vue(&#123;</span></span><br><span class="line">            el: '#myApp'</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>2、推荐下载yarn包管理器</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i yarn -g</span><br></pre></td></tr></table></figure>
+<p>注意：template的DOM结构必须被一个元素包含，如果直接写成“这里是组件的内容”，不带“&lt; div&gt;&lt; /div &gt;”是无法渲染的。</p>
+<p>局部注册：<br>在Vue实例中，使用components选项可以局部注册组件，注册后的组件只有在该实例作用域下有效。组件中也可以使用components选项来注册组件，使组件可以嵌套。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://unpkg.com/vue/dist/vue.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">    &lt;title&gt;局部注册&lt;/</span>title&gt;</span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div id="myApp"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;my-component&gt;&lt;/my</span>-component&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script&gt;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/局部注册</span></span><br><span class="line"><span class="regexp">        var Child = &#123;</span></span><br><span class="line"><span class="regexp">            template: '&lt;div&gt;局部注册组件的内容&lt;/</span>div&gt;<span class="string">'</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        var myApp = new Vue(&#123;</span></span><br><span class="line">            el: '#myApp',</span><br><span class="line">            components: &#123;</span><br><span class="line">                <span class="string">'my-component'</span>: Child</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>3、接下来我们就可以在自己的电脑里创建项目，找到电脑某个位置，在此文件夹按住shift同时右键，在此处打开cmd命令窗口或者在此处打开powershell窗口</p>
-<p>4、打开窗口之后运行vue ui命令，此时就会打开ui图形界面</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>5、我们选择创建之后就会进入创建页面</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220705271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>6、点击在此处创建新项目，就会进入项目详情，详情里面，首先填写项目的名字，然后包管理器选择yarn，在填写初始会git默认注释</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220718747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>7、上面填写完毕后，点击下一步，会进入到选择默认配置还是手动配置，以及选择之前的预设，我们选择手动配置</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220731996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>8、选择完后继续点击下一步，选择功能，以下是所有功能介绍，我们可以先选择babel、router、Linter、使用配置文件，开发的时候一般css预处理、vuex也肯定要安装的</p>
-<p>babel （js高级转低级）</p>
-<p>TypeScript （js超级）</p>
-<p>Progressive Web App (PWA) Support （渐进式web应用）</p>
-<p>Router（路由）</p>
-<p>Vuex（状态管理工具）</p>
-<p>CSS Pre-processors（css预处理）</p>
-<p>Linter / Formatter（语法规范检查）</p>
-<p>Unit Testing、E2E Testing（测试方式）</p>
-<p>使用配置文件（配置项是存在单独配置文件）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220750625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220803343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p>9、上面选择完后，继续点击下一步会进入到配置选项，此处第一个是 是否开启路由的history模式，我们不开启采用hash模式,eslint采用 ESLint + Standard config ，Pick additional lint features选择默认开启</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220817594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>10、选择完后，点击创建项目，会弹出是否存为预设，下一次直接使用，可以存个预设的名字，然后点击 保存预设并创建项目 即创建完毕</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220850644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>11、创建完毕后会进入到项目操作界面</p>
-<p>插件（项目用到的插件可以在这里安装）</p>
-<p>依赖（项目的依赖工具）</p>
-<p>配置（那就是配置了）</p>
-<p>任务（可以运行项目、打包项目等）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220906488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>12、我们选择任务》server》运行，即可将项目运行起来</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220917331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>13、最后点击启动app即可看见我们自己创建的项目</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220928205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<h4 id="组件中的data"><a href="#组件中的data" class="headerlink" title="组件中的data"></a>组件中的data</h4><p>除了template选项外，组件中还可以像Vue实例那么使用其他的选项，比如data、computed、methods等。但是在使用data时，和实例稍有区别，<strong>data必须是函数，然后将数据return出去。</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://unpkg.com/vue/dist/vue.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">    &lt;title&gt;Document&lt;/</span>title&gt;</span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div id="myApp"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;my-component&gt;&lt;/my</span>-component&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script&gt;</span></span><br><span class="line"><span class="regexp">        Vue.component('my-component',&#123;</span></span><br><span class="line"><span class="regexp">            template: '&lt;div&gt;&#123;&#123;message&#125;&#125;&lt;/</span>div&gt;<span class="string">',</span></span><br><span class="line"><span class="string">            data: function () &#123;</span></span><br><span class="line"><span class="string">                return &#123;</span></span><br><span class="line"><span class="string">                    message: '</span>组件数据必须是函数<span class="string">'</span></span><br><span class="line"><span class="string">                &#125;</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        &#125;);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        var myApp = new Vue(&#123;</span></span><br><span class="line">            el: '#myApp'</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="组件数据共享"><a href="#组件数据共享" class="headerlink" title="组件数据共享"></a>组件数据共享</h4><p>JavaScript对象是引用关系，所以如果return出的对象引用了外部的一个对象，那么这个对象就是共享的，任何一方修改都会同步。所以必须是函数，每次调用函数返回的对象地址才会不一样</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1437,6 +1464,32 @@
       </tags>
   </entry>
   <entry>
+    <title>js-冒泡排序</title>
+    <url>/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
+<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
+<a id="more"></a>
+
+<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
+<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
+<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js-字符串对象</title>
     <url>/2020/02/05/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h3 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h3><h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>​        为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
@@ -1481,75 +1534,6 @@
 <h4 id="split-方法"><a href="#split-方法" class="headerlink" title="split()方法"></a>split()方法</h4><p>​        split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
 <p>​        其使用格式如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.split(&quot;分割字符&quot;)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-日期对象</title>
-    <url>/2020/02/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
-<a id="more"></a>
-
-<ul>
-<li><p>使用Date实例化日期对象</p>
-<ul>
-<li>获取当前时间必须实例化：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>获取指定时间的日期对象</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
-</li>
-<li><p>使用Date实例的方法和属性    </p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>通过Date实例获取总毫米数</p>
-<ul>
-<li><p>总毫秒数的含义</p>
-<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
-</li>
-<li><p>获取总毫秒数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-冒泡排序</title>
-    <url>/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
-<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
-<a id="more"></a>
-
-<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
-<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
-<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1638,6 +1622,49 @@
 </li>
 </ul>
 <h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-日期对象</title>
+    <url>/2020/02/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
+<a id="more"></a>
+
+<ul>
+<li><p>使用Date实例化日期对象</p>
+<ul>
+<li>获取当前时间必须实例化：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取指定时间的日期对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
+</li>
+<li><p>使用Date实例的方法和属性    </p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+<li><p>通过Date实例获取总毫米数</p>
+<ul>
+<li><p>总毫秒数的含义</p>
+<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
+</li>
+<li><p>获取总毫秒数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -1856,38 +1883,6 @@
       </tags>
   </entry>
   <entry>
-    <title>递归和闭包</title>
-    <url>/2020/02/23/%E9%80%92%E5%BD%92%E5%92%8C%E9%97%AD%E5%8C%85/</url>
-    <content><![CDATA[<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><h3 id="什么是递归"><a href="#什么是递归" class="headerlink" title="什么是递归"></a>什么是递归</h3><p><strong>递归：</strong>如果一个函数在内部可以调用其本身，那么这个函数就是递归函数。简单理解:函数内部自己调用自己, 这个函数就是递归函数</p>
-<p><strong>注意：</strong>递归函数的作用和循环效果一样，由于递归很容易发生“栈溢出”错误（stack overflow），所以必须要加退出条件return。</p>
-<a id="more"></a>
-
-<h3 id="利用递归求1-n的阶乘"><a href="#利用递归求1-n的阶乘" class="headerlink" title="利用递归求1~n的阶乘"></a>利用递归求1~n的阶乘</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//利用递归函数求1~n的阶乘 1 * 2 * 3 * 4 * ..n</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (n == <span class="number">1</span>) &#123; <span class="comment">//结束条件</span></span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> n * fn(n - <span class="number">1</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">console</span>.log(fn(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
-
-<h3 id="利用递归求斐波那契数列"><a href="#利用递归求斐波那契数列" class="headerlink" title="利用递归求斐波那契数列"></a>利用递归求斐波那契数列</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 利用递归函数求斐波那契数列(兔子序列)  1、1、2、3、5、8、13、21...</span></span><br><span class="line"><span class="comment">// 用户输入一个数字 n 就可以求出 这个数字对应的兔子序列值</span></span><br><span class="line"><span class="comment">// 我们只需要知道用户输入的n 的前面两项(n-1 n-2)就可以计算出n 对应的序列值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fb</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span> || n === <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fb(n - <span class="number">1</span>) + fb(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fb(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
-
-<h3 id="利用递归遍历数据"><a href="#利用递归遍历数据" class="headerlink" title="利用递归遍历数据"></a>利用递归遍历数据</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 我们想要做输入id号,就可以返回的数据对象</span></span><br><span class="line"> <span class="keyword">var</span> data = [&#123;</span><br><span class="line">   id: <span class="number">1</span>,</span><br><span class="line">   name: <span class="string">'家电'</span>,</span><br><span class="line">   goods: [&#123;</span><br><span class="line">     id: <span class="number">11</span>,</span><br><span class="line">     gname: <span class="string">'冰箱'</span>,</span><br><span class="line">     goods: [&#123;</span><br><span class="line">       id: <span class="number">111</span>,</span><br><span class="line">       gname: <span class="string">'海尔'</span></span><br><span class="line">     &#125;, &#123;</span><br><span class="line">       id: <span class="number">112</span>,</span><br><span class="line">       gname: <span class="string">'美的'</span></span><br><span class="line">     &#125;,</span><br><span class="line"></span><br><span class="line">            ]</span><br><span class="line"></span><br><span class="line">   &#125;, &#123;</span><br><span class="line">     id: <span class="number">12</span>,</span><br><span class="line">     gname: <span class="string">'洗衣机'</span></span><br><span class="line">   &#125;]</span><br><span class="line"> &#125;, &#123;</span><br><span class="line">   id: <span class="number">2</span>,</span><br><span class="line">   name: <span class="string">'服饰'</span></span><br><span class="line">&#125;];</span><br><span class="line"><span class="comment">//1.利用 forEach 去遍历里面的每一个对象</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getID</span>(<span class="params">json, id</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">   json.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">     <span class="comment">// console.log(item); // 2个数组元素</span></span><br><span class="line">     <span class="keyword">if</span> (item.id == id) &#123;</span><br><span class="line">       <span class="comment">// console.log(item);</span></span><br><span class="line">       o = item;</span><br><span class="line">       <span class="keyword">return</span> o;</span><br><span class="line">       <span class="comment">// 2. 我们想要得里层的数据 11 12 可以利用递归函数</span></span><br><span class="line">       <span class="comment">// 里面应该有goods这个数组并且数组的长度不为 0 </span></span><br><span class="line">     &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item.goods &amp;&amp; item.goods.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">       o = getID(item.goods, id);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br><span class="line">   <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="变量的作用域复习"><a href="#变量的作用域复习" class="headerlink" title="变量的作用域复习"></a>变量的作用域复习</h3><p>变量根据作用域的不同分为两种：全局变量和局部变量。</p>
-<ol>
-<li>函数内部可以使用全局变量。</li>
-<li>函数外部不可以使用局部变量。</li>
-<li>当函数执行完毕，本作用域内的局部变量会销毁。</li>
-</ol>
-<h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p>闭包（closure）指有权访问另一个函数作用域中变量的函数。简单理解就是 ，一个作用域可以访问另外一个函数内部的局部变量。 </p>
-<p>![](F:/manythings/07-10 JavaScript网页编程/04-JavaScript高级资料/JavaScript 高级_day03/4-笔记/images/img3.png)</p>
-<h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><p>作用：延伸变量的作用范围。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(num);</span><br><span class="line"> 	&#125;</span><br><span class="line">    <span class="keyword">return</span> fun;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> f = fn();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>正则表达式</title>
     <url>/2020/02/24/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="正则表达式概述"><a href="#正则表达式概述" class="headerlink" title="正则表达式概述"></a>正则表达式概述</h2><h3 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h3><p>正则表达式（ Regular Expression ）是用于匹配字符串中字符组合的模式。在JavaScript中，正则表达式也是对象。</p>
@@ -1988,6 +1983,38 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;textarea name=<span class="string">""</span> id=<span class="string">"message"</span>&gt;&lt;<span class="regexp">/textarea&gt; &lt;button&gt;提交&lt;/</span>button&gt;</span><br><span class="line">&lt;div&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var text = document.querySelector('textarea');</span></span><br><span class="line"><span class="regexp">    var btn = document.querySelector('button');</span></span><br><span class="line"><span class="regexp">    var div = document.querySelector('div');</span></span><br><span class="line"><span class="regexp">    btn.onclick = function() &#123;</span></span><br><span class="line"><span class="regexp">    	div.innerHTML = text.value.replace(/</span>激情|gay/g, <span class="string">'**'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>递归和闭包</title>
+    <url>/2020/02/23/%E9%80%92%E5%BD%92%E5%92%8C%E9%97%AD%E5%8C%85/</url>
+    <content><![CDATA[<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><h3 id="什么是递归"><a href="#什么是递归" class="headerlink" title="什么是递归"></a>什么是递归</h3><p><strong>递归：</strong>如果一个函数在内部可以调用其本身，那么这个函数就是递归函数。简单理解:函数内部自己调用自己, 这个函数就是递归函数</p>
+<p><strong>注意：</strong>递归函数的作用和循环效果一样，由于递归很容易发生“栈溢出”错误（stack overflow），所以必须要加退出条件return。</p>
+<a id="more"></a>
+
+<h3 id="利用递归求1-n的阶乘"><a href="#利用递归求1-n的阶乘" class="headerlink" title="利用递归求1~n的阶乘"></a>利用递归求1~n的阶乘</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//利用递归函数求1~n的阶乘 1 * 2 * 3 * 4 * ..n</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (n == <span class="number">1</span>) &#123; <span class="comment">//结束条件</span></span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> n * fn(n - <span class="number">1</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">console</span>.log(fn(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用递归求斐波那契数列"><a href="#利用递归求斐波那契数列" class="headerlink" title="利用递归求斐波那契数列"></a>利用递归求斐波那契数列</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 利用递归函数求斐波那契数列(兔子序列)  1、1、2、3、5、8、13、21...</span></span><br><span class="line"><span class="comment">// 用户输入一个数字 n 就可以求出 这个数字对应的兔子序列值</span></span><br><span class="line"><span class="comment">// 我们只需要知道用户输入的n 的前面两项(n-1 n-2)就可以计算出n 对应的序列值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fb</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span> || n === <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fb(n - <span class="number">1</span>) + fb(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fb(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用递归遍历数据"><a href="#利用递归遍历数据" class="headerlink" title="利用递归遍历数据"></a>利用递归遍历数据</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 我们想要做输入id号,就可以返回的数据对象</span></span><br><span class="line"> <span class="keyword">var</span> data = [&#123;</span><br><span class="line">   id: <span class="number">1</span>,</span><br><span class="line">   name: <span class="string">'家电'</span>,</span><br><span class="line">   goods: [&#123;</span><br><span class="line">     id: <span class="number">11</span>,</span><br><span class="line">     gname: <span class="string">'冰箱'</span>,</span><br><span class="line">     goods: [&#123;</span><br><span class="line">       id: <span class="number">111</span>,</span><br><span class="line">       gname: <span class="string">'海尔'</span></span><br><span class="line">     &#125;, &#123;</span><br><span class="line">       id: <span class="number">112</span>,</span><br><span class="line">       gname: <span class="string">'美的'</span></span><br><span class="line">     &#125;,</span><br><span class="line"></span><br><span class="line">            ]</span><br><span class="line"></span><br><span class="line">   &#125;, &#123;</span><br><span class="line">     id: <span class="number">12</span>,</span><br><span class="line">     gname: <span class="string">'洗衣机'</span></span><br><span class="line">   &#125;]</span><br><span class="line"> &#125;, &#123;</span><br><span class="line">   id: <span class="number">2</span>,</span><br><span class="line">   name: <span class="string">'服饰'</span></span><br><span class="line">&#125;];</span><br><span class="line"><span class="comment">//1.利用 forEach 去遍历里面的每一个对象</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getID</span>(<span class="params">json, id</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">   json.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">     <span class="comment">// console.log(item); // 2个数组元素</span></span><br><span class="line">     <span class="keyword">if</span> (item.id == id) &#123;</span><br><span class="line">       <span class="comment">// console.log(item);</span></span><br><span class="line">       o = item;</span><br><span class="line">       <span class="keyword">return</span> o;</span><br><span class="line">       <span class="comment">// 2. 我们想要得里层的数据 11 12 可以利用递归函数</span></span><br><span class="line">       <span class="comment">// 里面应该有goods这个数组并且数组的长度不为 0 </span></span><br><span class="line">     &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item.goods &amp;&amp; item.goods.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">       o = getID(item.goods, id);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br><span class="line">   <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="变量的作用域复习"><a href="#变量的作用域复习" class="headerlink" title="变量的作用域复习"></a>变量的作用域复习</h3><p>变量根据作用域的不同分为两种：全局变量和局部变量。</p>
+<ol>
+<li>函数内部可以使用全局变量。</li>
+<li>函数外部不可以使用局部变量。</li>
+<li>当函数执行完毕，本作用域内的局部变量会销毁。</li>
+</ol>
+<h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p>闭包（closure）指有权访问另一个函数作用域中变量的函数。简单理解就是 ，一个作用域可以访问另外一个函数内部的局部变量。 </p>
+<p>![](F:/manythings/07-10 JavaScript网页编程/04-JavaScript高级资料/JavaScript 高级_day03/4-笔记/images/img3.png)</p>
+<h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><p>作用：延伸变量的作用范围。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(num);</span><br><span class="line"> 	&#125;</span><br><span class="line">    <span class="keyword">return</span> fun;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> f = fn();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
       <categories>
         <category>前端</category>
       </categories>
