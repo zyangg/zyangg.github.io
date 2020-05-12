@@ -6,6 +6,8 @@
     <content><![CDATA[<h2 id="ES5数组高阶函数"><a href="#ES5数组高阶函数" class="headerlink" title="ES5数组高阶函数"></a>ES5数组高阶函数</h2><h4 id="forEach-遍历"><a href="#forEach-遍历" class="headerlink" title="forEach(遍历)"></a>forEach(遍历)</h4><p>forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。(没有返回值，将数组遍历)</p>
 <p>注意: forEach() 对于空数组是不会执行回调函数的。</p>
 <p>回调函数参数：currentValue  必需。当前元素； index  可选。当前元素的索引值； arr  可选。当前元素所属的数组对象。</p>
+<a id="more"></a>
+
 <h4 id="filter-过滤，返回新数组"><a href="#filter-过滤，返回新数组" class="headerlink" title="filter(过滤，返回新数组)"></a>filter(过滤，返回新数组)</h4><p>filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。</p>
 <p>注意： filter() 不会对空数组进行检测。</p>
 <p>注意： filter() 不会改变原始数组。</p>
@@ -134,6 +136,66 @@
       </categories>
       <tags>
         <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mongodb</title>
+    <url>/2020/03/01/Mongodb/</url>
+    <content><![CDATA[<h3 id="第三方包"><a href="#第三方包" class="headerlink" title="第三方包"></a>第三方包</h3><p>使用Node.js操作MongoDB数据库需要依赖Node.js第三方包mongoose<br>使用npm install mongoose命令下载</p>
+<p>启动MongoDB</p>
+<a id="more"></a>
+
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> mongoDB</span><br></pre></td></tr></table></figure>
+
+<p>停止MongoDB</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> stop mongoDB</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mongoose.connect(<span class="string">'mongodb://localhost/playground'</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接成功'</span>))</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接失败'</span>, err));</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h3><p>创建集合分为两步，一是对对集合设定规则，二是创建集合，创建mongoose.Schema构造函数的实例即可创建集合。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 设定集合规则</span></span><br><span class="line"><span class="keyword">const</span> courseSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    author: <span class="built_in">String</span>,</span><br><span class="line">    isPublished: <span class="built_in">Boolean</span></span><br><span class="line">&#125;);</span><br><span class="line"> <span class="comment">// 创建集合并应用规则</span></span><br><span class="line"><span class="keyword">const</span> Course = mongoose.model(<span class="string">'Course'</span>, courseSchema); <span class="comment">// courses</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="创建文档"><a href="#创建文档" class="headerlink" title="创建文档"></a>创建文档</h4><p>创建文档实际上就是向集合中插入数据。<br>分为两步：<br>创建集合实例。<br>调用实例对象下的save方法将数据保存到数据库中。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 创建集合实例</span></span><br><span class="line"><span class="keyword">const</span> course = <span class="keyword">new</span> Course(&#123;</span><br><span class="line">    name: <span class="string">'Node.js course'</span>,</span><br><span class="line">    author: <span class="string">'黑马讲师'</span>,</span><br><span class="line">    tags: [<span class="string">'node'</span>, <span class="string">'backend'</span>],</span><br><span class="line">    isPublished: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"> <span class="comment">// 将数据保存到数据库中</span></span><br><span class="line">course.save();</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Course.create(&#123;<span class="attr">name</span>: <span class="string">'JavaScript基础'</span>, <span class="attr">author</span>: <span class="string">'黑马讲师'</span>, <span class="attr">isPublish</span>: <span class="literal">true</span>&#125;, (err, doc) =&gt; &#123; </span><br><span class="line">     <span class="comment">//  错误对象</span></span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">     <span class="comment">//  当前插入的文档</span></span><br><span class="line">    <span class="built_in">console</span>.log(doc)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Course.create(&#123;<span class="attr">name</span>: <span class="string">'JavaScript基础'</span>, <span class="attr">author</span>: <span class="string">'黑马讲师'</span>, <span class="attr">isPublish</span>: <span class="literal">true</span>&#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">doc</span> =&gt;</span> <span class="built_in">console</span>.log(doc))</span><br><span class="line">      .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure>
+
+<h4 id="mongoDB数据库导入数据"><a href="#mongoDB数据库导入数据" class="headerlink" title="mongoDB数据库导入数据"></a>mongoDB数据库导入数据</h4><p>mongoimport –d 数据库名称 –c 集合名称 –-file 要导入的数据文件<br>找到mongodb数据库的安装目录，将安装目录下的bin目录放置在环境变量中。</p>
+<h4 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  根据条件查找文档</span></span><br><span class="line">Course.findOne(&#123;<span class="attr">name</span>: <span class="string">'node.js基础'</span>&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  根据条件查找文档（条件为空则查找所有文档）</span></span><br><span class="line">Course.find().then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  匹配大于 小于</span></span><br><span class="line">User.find(&#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>: <span class="number">20</span>, <span class="attr">$lt</span>: <span class="number">50</span>&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  匹配包含</span></span><br><span class="line">User.find(&#123;<span class="attr">hobbies</span>: &#123;<span class="attr">$in</span>: [<span class="string">'敲代码'</span>]&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  选择要查询的字段  </span></span><br><span class="line"> User.find().select(<span class="string">'name email'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将数据按照年龄进行排序</span></span><br><span class="line"> User.find().sort(<span class="string">'age'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  skip 跳过多少条数据  limit 限制查询数量</span></span><br><span class="line">User.find().skip(<span class="number">2</span>).limit(<span class="number">2</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 删除单个</span></span><br><span class="line">Course.findOneAndDelete(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 删除多个</span></span><br><span class="line">User.deleteMany(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<h4 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">/ 更新单个</span><br><span class="line">User.updateOne(&#123;查询条件&#125;, &#123;要修改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 更新多个</span></span><br><span class="line">User.updateMany(&#123;查询条件&#125;, &#123;要更改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<h3 id="mongoose验证"><a href="#mongoose验证" class="headerlink" title="mongoose验证"></a>mongoose验证</h3><p>required: true 必传字段<br>minlength：3 字符串最小长度<br>maxlength: 20 字符串最大长度<br>min: 2 数值最小为2<br>max: 100 数值最大为100<br>enum: [‘html’, ‘css’, ‘javascript’, ‘node.js’]<br>trim: true 去除字符串两边的空格<br>validate: 自定义验证器<br>default: 默认值</p>
+<p>获取错误信息：error.errors[‘字段名称’].message</p>
+<h4 id="集合关联实现"><a href="#集合关联实现" class="headerlink" title="集合关联实现"></a>集合关联实现</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用户集合</span></span><br><span class="line"><span class="keyword">const</span> User = mongoose.model(<span class="string">'User'</span>, <span class="keyword">new</span> mongoose.Schema(&#123; <span class="attr">name</span>: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125; &#125;)); </span><br><span class="line"><span class="comment">// 文章集合</span></span><br><span class="line"><span class="keyword">const</span> Post = mongoose.model(<span class="string">'Post'</span>, <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    title: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125;,</span><br><span class="line">    <span class="comment">// 使用ID将文章集合和作者集合进行关联</span></span><br><span class="line">    author: &#123; <span class="attr">type</span>: mongoose.Schema.Types.ObjectId, <span class="attr">ref</span>: <span class="string">'User'</span> &#125;</span><br><span class="line">&#125;));</span><br><span class="line"><span class="comment">//联合查询</span></span><br><span class="line">Post.find()</span><br><span class="line">      .populate(<span class="string">'author'</span>)</span><br><span class="line">      .then(<span class="function">(<span class="params">err, result</span>) =&gt;</span> <span class="built_in">console</span>.log(result));</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
       </tags>
   </entry>
   <entry>
@@ -292,117 +354,53 @@
       </tags>
   </entry>
   <entry>
-    <title>Mongodb</title>
-    <url>/2020/03/01/Mongodb/</url>
-    <content><![CDATA[<h3 id="第三方包"><a href="#第三方包" class="headerlink" title="第三方包"></a>第三方包</h3><p>使用Node.js操作MongoDB数据库需要依赖Node.js第三方包mongoose<br>使用npm install mongoose命令下载</p>
-<p>启动MongoDB</p>
-<a id="more"></a>
+    <title>V-model指令</title>
+    <url>/2020/03/13/V-model%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p><strong>v-model用于表单类元素的双向绑定数据：</strong></p>
+<p>*<em>既然是双向，也就是说当表单元素的值（value）发生变化后，会导致绑定的Vue数据发生变化。<br>*</em><a id="more"></a></p>
+<p>例如：v-model绑定输入框：</p>
+<p>JS部分</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myApp = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">			el:<span class="string">"#container"</span>,<span class="comment">//指定关联的元素</span></span><br><span class="line">			data:&#123;<span class="comment">//用来存储数据</span></span><br><span class="line">				context:<span class="string">""</span>,</span><br><span class="line">				placehode:<span class="string">"亲，请输入你想说的话"</span>,</span><br><span class="line">				message:<span class="string">""</span></span><br><span class="line">			&#125;,</span><br><span class="line">			methods:&#123;</span><br><span class="line">				getVal:<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">					<span class="keyword">this</span>.message=e.target.value</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> mongoDB</span><br></pre></td></tr></table></figure>
+<p> HTML部分： </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span> <span class="attr">v-cloak</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"index_submit"</span> <span class="attr">method</span>=<span class="string">"get"</span> <span class="attr">accept-charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">			输入:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"message"</span></span></span><br><span class="line"><span class="tag">			 <span class="attr">:placehoder</span>=<span class="string">"placehode"</span></span></span><br><span class="line"><span class="tag">			  <span class="attr">v-model</span>=<span class="string">"context"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>您输入的内容是：&#123;&#123;context&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"hehe"</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">cols</span>=<span class="string">"30"</span> <span class="attr">rows</span>=<span class="string">"10"</span> <span class="attr">v-model</span>=<span class="string">"context"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> @<span class="attr">input</span>=<span class="string">"getVal"</span>&gt;</span></span><br><span class="line">			你现在输入的是：&#123;&#123;message&#125;&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>停止MongoDB</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> stop mongoDB</span><br></pre></td></tr></table></figure>
+<p>对于输入框，v-model绑定的数据会反映到输入框的value,所以输入框的值发生变化的时候，由于双向绑定，就会导致绑定的数据的值发生变化。</p>
+<p>对于这个例子，由于初始化的时候context的值为空，所以input的value也是空值。</p>
+<p>又例如：v-model在单选框radio上的数据的双向绑定，要用v-model配合value来使用了，在这里，value就是起到一个比较的作用（只有当数据和value值一样的时候才会被选中）。<br>JS部分：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> myApp = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">			el:<span class="string">"#container"</span>,</span><br><span class="line">			data:&#123;</span><br><span class="line">				message:<span class="string">"HTML的那些事"</span>,</span><br><span class="line">				status:<span class="literal">true</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mongoose.connect(<span class="string">'mongodb://localhost/playground'</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接成功'</span>))</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接失败'</span>, err));</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span> <span class="attr">v-cloak</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 单个单选按钮 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"choosed"</span> <span class="attr">value</span>=<span class="string">"select"</span> <span class="attr">:checked</span>=<span class="string">"status"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">label</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 多单选按钮，互斥选择 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"choosed"</span> <span class="attr">value</span>=<span class="string">"javaScript高级程序设计"</span> <span class="attr">:checked</span>=<span class="string">"status"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">label</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"choosed"</span> <span class="attr">v-model</span> = <span class="string">"message"</span> <span class="attr">value</span>=<span class="string">"HTML的那些事"</span> <span class="attr">:checked</span>=<span class="string">"status"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">label</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"choosed"</span>  <span class="attr">v-model</span> = <span class="string">"message"</span> <span class="attr">value</span>=<span class="string">"CSS秘籍"</span> <span class="attr">:checked</span>=<span class="string">"status"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">label</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"choosed"</span>  <span class="attr">v-model</span> = <span class="string">"message"</span> <span class="attr">value</span>=<span class="string">"React实践"</span> <span class="attr">:checked</span>=<span class="string">"status"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">label</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h3><p>创建集合分为两步，一是对对集合设定规则，二是创建集合，创建mongoose.Schema构造函数的实例即可创建集合。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 设定集合规则</span></span><br><span class="line"><span class="keyword">const</span> courseSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    author: <span class="built_in">String</span>,</span><br><span class="line">    isPublished: <span class="built_in">Boolean</span></span><br><span class="line">&#125;);</span><br><span class="line"> <span class="comment">// 创建集合并应用规则</span></span><br><span class="line"><span class="keyword">const</span> Course = mongoose.model(<span class="string">'Course'</span>, courseSchema); <span class="comment">// courses</span></span><br></pre></td></tr></table></figure>
+<p>当单选框切换的时候，因为每个单选框的value不同，所以切换的时候就相当于改变了value值，此时由于双向绑定，通过v-model绑定的Vue数据message也会发生变化，视图也就发生变化<br>注：在上个例子被选中的是“html的那些事儿”所对应的单选框</p>
+<p>checkbox（多选按钮）</p>
+<p>和radio一样，单个checkbox使用的时候，v-model绑定也是一个布尔值<br> v-model绑定多选框的时候也要结合value，只不过此时绑定的数据是一个数组，value的值在数组当中才会被选中，当然这个过程也是双向的（即如果取消选中，就会导致数组减少对应的项）</p>
+<p>会根据勾选的状态自动更新数组的状态</p>
+<p>例如下面这个例子：</p>
+<p>JS部分：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> myApp = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">			el:<span class="string">"#container"</span>,</span><br><span class="line">			data:&#123;</span><br><span class="line">				checkArray:[<span class="string">"JavaScript"</span>,<span class="string">"Html"</span>,<span class="string">"Css"</span>,<span class="string">"PHP"</span>],</span><br><span class="line">				status:<span class="literal">true</span></span><br><span class="line">			&#125;,</span><br><span class="line">			computed:&#123;</span><br><span class="line">				arrayValue:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">					<span class="keyword">return</span> <span class="keyword">this</span>.checkArray.join(<span class="string">","</span>)</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br></pre></td></tr></table></figure>
 
-<h4 id="创建文档"><a href="#创建文档" class="headerlink" title="创建文档"></a>创建文档</h4><p>创建文档实际上就是向集合中插入数据。<br>分为两步：<br>创建集合实例。<br>调用实例对象下的save方法将数据保存到数据库中。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 创建集合实例</span></span><br><span class="line"><span class="keyword">const</span> course = <span class="keyword">new</span> Course(&#123;</span><br><span class="line">    name: <span class="string">'Node.js course'</span>,</span><br><span class="line">    author: <span class="string">'黑马讲师'</span>,</span><br><span class="line">    tags: [<span class="string">'node'</span>, <span class="string">'backend'</span>],</span><br><span class="line">    isPublished: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"> <span class="comment">// 将数据保存到数据库中</span></span><br><span class="line">course.save();</span><br></pre></td></tr></table></figure>
+<p> HTMl部分： </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 单个多选框，值在true和false之间变换--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span> = <span class="string">"status"</span>  <span class="attr">name</span>=<span class="string">"singleBox"</span> <span class="attr">value</span>=<span class="string">"single"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"JS"</span>&gt;</span>&#123;&#123;status&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 多个多选框 ，绑定的是数组，数组会变化--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"options"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>= <span class="string">"checkArray"</span> <span class="attr">name</span>=<span class="string">"check"</span> <span class="attr">value</span>=<span class="string">"JavaScript"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">label</span>&gt;</span>JavaScript<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"options"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>= <span class="string">"checkArray"</span> <span class="attr">name</span>=<span class="string">"check"</span> <span class="attr">value</span>=<span class="string">"Html"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">label</span>&gt;</span>Html<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"options"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>= <span class="string">"checkArray"</span> <span class="attr">name</span>=<span class="string">"check"</span> <span class="attr">value</span>=<span class="string">"Css"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">label</span>&gt;</span>Css<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>当前的数组中还剩下：&#123;&#123;arrayValue&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>或者</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Course.create(&#123;<span class="attr">name</span>: <span class="string">'JavaScript基础'</span>, <span class="attr">author</span>: <span class="string">'黑马讲师'</span>, <span class="attr">isPublish</span>: <span class="literal">true</span>&#125;, (err, doc) =&gt; &#123; </span><br><span class="line">     <span class="comment">//  错误对象</span></span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">     <span class="comment">//  当前插入的文档</span></span><br><span class="line">    <span class="built_in">console</span>.log(doc)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>下拉菜单：<br>下拉菜单也分为单选和多选，</p>
+<p>在单选模式下，绑定的数据是一个字符串，（因为select的值就是一个字符串）用来和option的value与text进行比较，如果option有value，先匹配value，如果没有就直接匹配text，匹配到谁，选择的就是谁，当前的select的值（value）就是谁。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!-- 单选 --&gt;</span><br><span class="line">		&lt;select name=<span class="string">"fourMZ"</span> v-model = <span class="string">"isSelected"</span>&gt;</span><br><span class="line">			&lt;option value=<span class="string">"三国演"</span>&gt;三国演义&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">			&lt;option value="三国演义"&gt;水浒&lt;/</span>option&gt;</span><br><span class="line">			&lt;option&gt;呵呵&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">			&lt;option&gt;石头记&lt;/</span>option&gt;</span><br><span class="line">		&lt;<span class="regexp">/select&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Course.create(&#123;<span class="attr">name</span>: <span class="string">'JavaScript基础'</span>, <span class="attr">author</span>: <span class="string">'黑马讲师'</span>, <span class="attr">isPublish</span>: <span class="literal">true</span>&#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">doc</span> =&gt;</span> <span class="built_in">console</span>.log(doc))</span><br><span class="line">      .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure>
+<p>多选的时候，select元素需要添加multiple属性，绑定的是一个数组和多选框一样（不再赘述）,但现象是：初始化的时候确实是选择了多项，但是当你切换多选的时候往往只能选择一项，不知道为什么。</p>
+<p>JS部分：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myApp = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">			el:<span class="string">"#container"</span>,</span><br><span class="line">			data:&#123;</span><br><span class="line">				isSelected:<span class="string">"三国演义"</span>,</span><br><span class="line">				options:[<span class="string">"hello"</span>,<span class="string">"world"</span>,<span class="string">"haha"</span>,<span class="string">"shushu"</span>]</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br></pre></td></tr></table></figure>
 
-<h4 id="mongoDB数据库导入数据"><a href="#mongoDB数据库导入数据" class="headerlink" title="mongoDB数据库导入数据"></a>mongoDB数据库导入数据</h4><p>mongoimport –d 数据库名称 –c 集合名称 –-file 要导入的数据文件<br>找到mongodb数据库的安装目录，将安装目录下的bin目录放置在环境变量中。</p>
-<h4 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  根据条件查找文档</span></span><br><span class="line">Course.findOne(&#123;<span class="attr">name</span>: <span class="string">'node.js基础'</span>&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+<p> HTML部分： </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;select name=<span class="string">"options"</span> multiple v-model=<span class="string">"options"</span>&gt;</span><br><span class="line">			&lt;option value=<span class="string">"hello"</span>&gt;hello&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">			&lt;option value="world"&gt;world&lt;/</span>option&gt;</span><br><span class="line">			&lt;option value=<span class="string">"haha"</span>&gt;hehe&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">			&lt;option value="shushu"&gt;shushu&lt;/</span>option&gt;</span><br><span class="line">		&lt;<span class="regexp">/select&gt;</span></span><br><span class="line"><span class="regexp">		&lt;p&gt;当前选中的是：&#123;&#123;options.join(",")&#125;&#125;&lt;/</span>p&gt;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  根据条件查找文档（条件为空则查找所有文档）</span></span><br><span class="line">Course.find().then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  匹配大于 小于</span></span><br><span class="line">User.find(&#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>: <span class="number">20</span>, <span class="attr">$lt</span>: <span class="number">50</span>&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  匹配包含</span></span><br><span class="line">User.find(&#123;<span class="attr">hobbies</span>: &#123;<span class="attr">$in</span>: [<span class="string">'敲代码'</span>]&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  选择要查询的字段  </span></span><br><span class="line"> User.find().select(<span class="string">'name email'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将数据按照年龄进行排序</span></span><br><span class="line"> User.find().sort(<span class="string">'age'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  skip 跳过多少条数据  limit 限制查询数量</span></span><br><span class="line">User.find().skip(<span class="number">2</span>).limit(<span class="number">2</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<h4 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 删除单个</span></span><br><span class="line">Course.findOneAndDelete(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 删除多个</span></span><br><span class="line">User.deleteMany(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<h4 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">/ 更新单个</span><br><span class="line">User.updateOne(&#123;查询条件&#125;, &#123;要修改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 更新多个</span></span><br><span class="line">User.updateMany(&#123;查询条件&#125;, &#123;要更改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<h3 id="mongoose验证"><a href="#mongoose验证" class="headerlink" title="mongoose验证"></a>mongoose验证</h3><p>required: true 必传字段<br>minlength：3 字符串最小长度<br>maxlength: 20 字符串最大长度<br>min: 2 数值最小为2<br>max: 100 数值最大为100<br>enum: [‘html’, ‘css’, ‘javascript’, ‘node.js’]<br>trim: true 去除字符串两边的空格<br>validate: 自定义验证器<br>default: 默认值</p>
-<p>获取错误信息：error.errors[‘字段名称’].message</p>
-<h4 id="集合关联实现"><a href="#集合关联实现" class="headerlink" title="集合关联实现"></a>集合关联实现</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用户集合</span></span><br><span class="line"><span class="keyword">const</span> User = mongoose.model(<span class="string">'User'</span>, <span class="keyword">new</span> mongoose.Schema(&#123; <span class="attr">name</span>: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125; &#125;)); </span><br><span class="line"><span class="comment">// 文章集合</span></span><br><span class="line"><span class="keyword">const</span> Post = mongoose.model(<span class="string">'Post'</span>, <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    title: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125;,</span><br><span class="line">    <span class="comment">// 使用ID将文章集合和作者集合进行关联</span></span><br><span class="line">    author: &#123; <span class="attr">type</span>: mongoose.Schema.Types.ObjectId, <span class="attr">ref</span>: <span class="string">'User'</span> &#125;</span><br><span class="line">&#125;));</span><br><span class="line"><span class="comment">//联合查询</span></span><br><span class="line">Post.find()</span><br><span class="line">      .populate(<span class="string">'author'</span>)</span><br><span class="line">      .then(<span class="function">(<span class="params">err, result</span>) =&gt;</span> <span class="built_in">console</span>.log(result));</span><br></pre></td></tr></table></figure>
-
+<p>绑定值</p>
+<p>主要介绍了v-model绑定的数据会动态变化的现象，常见于单选按钮,多选框,选择列表单选模式；</p>
+<p>单选框：v-model绑定布尔值，v-bind绑定value属性以其他类型的值（一般是字符串），当单选按钮被选中的时候isradio的值和value相等（如上例所示）；<br>多选框：v-model绑定布尔值，v-bind绑定属性true-value和属性false-value（值可以是任何值），当被选中的时候isChecked的值等于trueValue的值，当未被选中的时候isChecked的值等于falseValue的值<br>列表框：<br>上述例子,当被选中的时候select的值是一个对象,你懂的</p>
+<p>v-model的修饰符</p>
+<p>v-model的修饰符,可串联；<br>.lazy:输入框中同步数据的方式从原来的input事件变为change事件(只有当失去焦点或者enter时才会同步)；<br> .number:数字输入框将输入的数字由字符串类型转化为number类型；<br>.trim:过滤在输入内容的时候,输入的首尾空格。</p>
 ]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>创建vue脚手架</title>
-    <url>/2020/04/05/Vue-%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
-    <content><![CDATA[<p>Vue-cli</p>
-<p> vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。 </p>
-<a id="more"></a>
-
-<p>1、首先保证全局安装@vue/cli工具 ，没有自行下载</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i @vue/cli -g</span><br></pre></td></tr></table></figure>
-
-<p>2、推荐下载yarn包管理器</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i yarn -g</span><br></pre></td></tr></table></figure>
-
-<p>3、接下来我们就可以在自己的电脑里创建项目，找到电脑某个位置，在此文件夹按住shift同时右键，在此处打开cmd命令窗口或者在此处打开powershell窗口</p>
-<p>4、打开窗口之后运行vue ui命令，此时就会打开ui图形界面</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>5、我们选择创建之后就会进入创建页面</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220705271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>6、点击在此处创建新项目，就会进入项目详情，详情里面，首先填写项目的名字，然后包管理器选择yarn，在填写初始会git默认注释</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220718747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>7、上面填写完毕后，点击下一步，会进入到选择默认配置还是手动配置，以及选择之前的预设，我们选择手动配置</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220731996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>8、选择完后继续点击下一步，选择功能，以下是所有功能介绍，我们可以先选择babel、router、Linter、使用配置文件，开发的时候一般css预处理、vuex也肯定要安装的</p>
-<p>babel （js高级转低级）</p>
-<p>TypeScript （js超级）</p>
-<p>Progressive Web App (PWA) Support （渐进式web应用）</p>
-<p>Router（路由）</p>
-<p>Vuex（状态管理工具）</p>
-<p>CSS Pre-processors（css预处理）</p>
-<p>Linter / Formatter（语法规范检查）</p>
-<p>Unit Testing、E2E Testing（测试方式）</p>
-<p>使用配置文件（配置项是存在单独配置文件）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220750625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220803343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p>9、上面选择完后，继续点击下一步会进入到配置选项，此处第一个是 是否开启路由的history模式，我们不开启采用hash模式,eslint采用 ESLint + Standard config ，Pick additional lint features选择默认开启</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220817594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>10、选择完后，点击创建项目，会弹出是否存为预设，下一次直接使用，可以存个预设的名字，然后点击 保存预设并创建项目 即创建完毕</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220850644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>11、创建完毕后会进入到项目操作界面</p>
-<p>插件（项目用到的插件可以在这里安装）</p>
-<p>依赖（项目的依赖工具）</p>
-<p>配置（那就是配置了）</p>
-<p>任务（可以运行项目、打包项目等）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220906488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>12、我们选择任务》server》运行，即可将项目运行起来</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220917331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>13、最后点击启动app即可看见我们自己创建的项目</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220928205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
       <tags>
         <tag>Vue</tag>
       </tags>
@@ -519,6 +517,62 @@
 <p> 为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key 属性。理想的 key 值是每项都有唯一 id。这个特殊的属性相当于 Vue 1.x 的 track-by ，但它的工作方式类似于一个属性，所以你需要用 v-bind 来绑定动态值（在这里使用简写）：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div v-<span class="keyword">for</span>=<span class="string">"item in items"</span> :key=<span class="string">"item.id"</span>&gt;  <span class="comment">// key不能绑定index,因为index会改变</span></span><br><span class="line"><span class="comment">// key的出现就是为了提高性能  必须具备唯一性</span></span><br><span class="line">  &lt;!-- 内容 --&gt;  </span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>创建vue脚手架</title>
+    <url>/2020/04/05/Vue-%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
+    <content><![CDATA[<p>Vue-cli</p>
+<p> vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。 </p>
+<a id="more"></a>
+
+<p>1、首先保证全局安装@vue/cli工具 ，没有自行下载</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i @vue/cli -g</span><br></pre></td></tr></table></figure>
+
+<p>2、推荐下载yarn包管理器</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i yarn -g</span><br></pre></td></tr></table></figure>
+
+<p>3、接下来我们就可以在自己的电脑里创建项目，找到电脑某个位置，在此文件夹按住shift同时右键，在此处打开cmd命令窗口或者在此处打开powershell窗口</p>
+<p>4、打开窗口之后运行vue ui命令，此时就会打开ui图形界面</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>5、我们选择创建之后就会进入创建页面</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220705271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>6、点击在此处创建新项目，就会进入项目详情，详情里面，首先填写项目的名字，然后包管理器选择yarn，在填写初始会git默认注释</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220718747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>7、上面填写完毕后，点击下一步，会进入到选择默认配置还是手动配置，以及选择之前的预设，我们选择手动配置</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220731996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>8、选择完后继续点击下一步，选择功能，以下是所有功能介绍，我们可以先选择babel、router、Linter、使用配置文件，开发的时候一般css预处理、vuex也肯定要安装的</p>
+<p>babel （js高级转低级）</p>
+<p>TypeScript （js超级）</p>
+<p>Progressive Web App (PWA) Support （渐进式web应用）</p>
+<p>Router（路由）</p>
+<p>Vuex（状态管理工具）</p>
+<p>CSS Pre-processors（css预处理）</p>
+<p>Linter / Formatter（语法规范检查）</p>
+<p>Unit Testing、E2E Testing（测试方式）</p>
+<p>使用配置文件（配置项是存在单独配置文件）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220750625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220803343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<p>9、上面选择完后，继续点击下一步会进入到配置选项，此处第一个是 是否开启路由的history模式，我们不开启采用hash模式,eslint采用 ESLint + Standard config ，Pick additional lint features选择默认开启</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220817594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>10、选择完后，点击创建项目，会弹出是否存为预设，下一次直接使用，可以存个预设的名字，然后点击 保存预设并创建项目 即创建完毕</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220850644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>11、创建完毕后会进入到项目操作界面</p>
+<p>插件（项目用到的插件可以在这里安装）</p>
+<p>依赖（项目的依赖工具）</p>
+<p>配置（那就是配置了）</p>
+<p>任务（可以运行项目、打包项目等）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220906488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>12、我们选择任务》server》运行，即可将项目运行起来</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220917331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>13、最后点击启动app即可看见我们自己创建的项目</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220928205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1383,32 +1437,6 @@
       </tags>
   </entry>
   <entry>
-    <title>js-冒泡排序</title>
-    <url>/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
-<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
-<a id="more"></a>
-
-<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
-<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
-<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>js-字符串对象</title>
     <url>/2020/02/05/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h3 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h3><h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>​        为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
@@ -1496,6 +1524,32 @@
 </ul>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-冒泡排序</title>
+    <url>/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
+<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
+<a id="more"></a>
+
+<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
+<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
+<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1650,29 +1704,6 @@
       </tags>
   </entry>
   <entry>
-    <title>js-鼠标键盘事件对象</title>
-    <url>/2020/02/09/js-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="事件对象-event"><a href="#事件对象-event" class="headerlink" title="事件对象/event"></a>事件对象/event</h3><p><strong>event包含了发生事件的所有信息内容，不如:发生事件类型，发生事件的元素，键盘按下状态等等</strong></p>
-<p><strong>事件对象的创建，当事件发生时，游浏览器帮我们创建的,并通过参数的形式传递给事件处理程序的</strong></p>
-<a id="more"></a>
-
-<h4 id="常用鼠标事件"><a href="#常用鼠标事件" class="headerlink" title="常用鼠标事件"></a>常用鼠标事件</h4><p><img src="https://img-blog.csdnimg.cn/20200425200435783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h4><p><img src="https://img-blog.csdnimg.cn/20200425200520945.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="常用的键盘事件"><a href="#常用的键盘事件" class="headerlink" title="常用的键盘事件"></a>常用的键盘事件</h4><p><img src="https://img-blog.csdnimg.cn/20200425200618448.png" alt="在这里插入图片描述"> </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 常用的键盘事件</span></span><br><span class="line">    <span class="comment">//1. keyup 按键弹起的时候触发 </span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我弹起了'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. keypress 按键按下的时候触发  不能识别功能键 比如 ctrl shift 左右箭头啊</span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keypress'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'我按下了press'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">//2. keydown 按键按下的时候触发  能识别功能键 比如 ctrl shift 左右箭头啊</span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keydown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'我按下了down'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 4. 三个事件的执行顺序  keydown -- keypress -- keyup</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="键盘事件对象"><a href="#键盘事件对象" class="headerlink" title="键盘事件对象"></a>键盘事件对象</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">keyCode   返回该键的ASCLL值</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://img-blog.csdnimg.cn/20200425200836213.png" alt="img"> </p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>offset client scroll</title>
     <url>/2020/02/10/offset-client-scroll/</url>
     <content><![CDATA[<h3 id="元素偏移量offset"><a href="#元素偏移量offset" class="headerlink" title="元素偏移量offset"></a>元素偏移量offset</h3><p>offset 翻译过来就是偏移量， 我们使用 offset系列相关属性可以动态的得到该元素的位置（偏移）、大小等。</p>
@@ -1738,6 +1769,29 @@
       </tags>
   </entry>
   <entry>
+    <title>js-鼠标键盘事件对象</title>
+    <url>/2020/02/09/js-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="事件对象-event"><a href="#事件对象-event" class="headerlink" title="事件对象/event"></a>事件对象/event</h3><p><strong>event包含了发生事件的所有信息内容，不如:发生事件类型，发生事件的元素，键盘按下状态等等</strong></p>
+<p><strong>事件对象的创建，当事件发生时，游浏览器帮我们创建的,并通过参数的形式传递给事件处理程序的</strong></p>
+<a id="more"></a>
+
+<h4 id="常用鼠标事件"><a href="#常用鼠标事件" class="headerlink" title="常用鼠标事件"></a>常用鼠标事件</h4><p><img src="https://img-blog.csdnimg.cn/20200425200435783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h4><p><img src="https://img-blog.csdnimg.cn/20200425200520945.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="常用的键盘事件"><a href="#常用的键盘事件" class="headerlink" title="常用的键盘事件"></a>常用的键盘事件</h4><p><img src="https://img-blog.csdnimg.cn/20200425200618448.png" alt="在这里插入图片描述"> </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 常用的键盘事件</span></span><br><span class="line">    <span class="comment">//1. keyup 按键弹起的时候触发 </span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我弹起了'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. keypress 按键按下的时候触发  不能识别功能键 比如 ctrl shift 左右箭头啊</span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keypress'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'我按下了press'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">//2. keydown 按键按下的时候触发  能识别功能键 比如 ctrl shift 左右箭头啊</span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keydown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'我按下了down'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 4. 三个事件的执行顺序  keydown -- keypress -- keyup</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="键盘事件对象"><a href="#键盘事件对象" class="headerlink" title="键盘事件对象"></a>键盘事件对象</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">keyCode   返回该键的ASCLL值</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://img-blog.csdnimg.cn/20200425200836213.png" alt="img"> </p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>本地存储</title>
     <url>/2020/02/20/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/</url>
     <content><![CDATA[<h2 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h2><p>随着互联网的快速发展，基于网页的应用越来越普遍，同时也变的越来越复杂，为了满足各种各样的需求，会经常性在本地存储大量的数据，HTML5规范提出了相关解决方案。</p>
@@ -1794,6 +1848,38 @@
 </li>
 </ol>
 ]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>递归和闭包</title>
+    <url>/2020/02/23/%E9%80%92%E5%BD%92%E5%92%8C%E9%97%AD%E5%8C%85/</url>
+    <content><![CDATA[<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><h3 id="什么是递归"><a href="#什么是递归" class="headerlink" title="什么是递归"></a>什么是递归</h3><p><strong>递归：</strong>如果一个函数在内部可以调用其本身，那么这个函数就是递归函数。简单理解:函数内部自己调用自己, 这个函数就是递归函数</p>
+<p><strong>注意：</strong>递归函数的作用和循环效果一样，由于递归很容易发生“栈溢出”错误（stack overflow），所以必须要加退出条件return。</p>
+<a id="more"></a>
+
+<h3 id="利用递归求1-n的阶乘"><a href="#利用递归求1-n的阶乘" class="headerlink" title="利用递归求1~n的阶乘"></a>利用递归求1~n的阶乘</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//利用递归函数求1~n的阶乘 1 * 2 * 3 * 4 * ..n</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (n == <span class="number">1</span>) &#123; <span class="comment">//结束条件</span></span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> n * fn(n - <span class="number">1</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">console</span>.log(fn(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用递归求斐波那契数列"><a href="#利用递归求斐波那契数列" class="headerlink" title="利用递归求斐波那契数列"></a>利用递归求斐波那契数列</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 利用递归函数求斐波那契数列(兔子序列)  1、1、2、3、5、8、13、21...</span></span><br><span class="line"><span class="comment">// 用户输入一个数字 n 就可以求出 这个数字对应的兔子序列值</span></span><br><span class="line"><span class="comment">// 我们只需要知道用户输入的n 的前面两项(n-1 n-2)就可以计算出n 对应的序列值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fb</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span> || n === <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fb(n - <span class="number">1</span>) + fb(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fb(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用递归遍历数据"><a href="#利用递归遍历数据" class="headerlink" title="利用递归遍历数据"></a>利用递归遍历数据</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 我们想要做输入id号,就可以返回的数据对象</span></span><br><span class="line"> <span class="keyword">var</span> data = [&#123;</span><br><span class="line">   id: <span class="number">1</span>,</span><br><span class="line">   name: <span class="string">'家电'</span>,</span><br><span class="line">   goods: [&#123;</span><br><span class="line">     id: <span class="number">11</span>,</span><br><span class="line">     gname: <span class="string">'冰箱'</span>,</span><br><span class="line">     goods: [&#123;</span><br><span class="line">       id: <span class="number">111</span>,</span><br><span class="line">       gname: <span class="string">'海尔'</span></span><br><span class="line">     &#125;, &#123;</span><br><span class="line">       id: <span class="number">112</span>,</span><br><span class="line">       gname: <span class="string">'美的'</span></span><br><span class="line">     &#125;,</span><br><span class="line"></span><br><span class="line">            ]</span><br><span class="line"></span><br><span class="line">   &#125;, &#123;</span><br><span class="line">     id: <span class="number">12</span>,</span><br><span class="line">     gname: <span class="string">'洗衣机'</span></span><br><span class="line">   &#125;]</span><br><span class="line"> &#125;, &#123;</span><br><span class="line">   id: <span class="number">2</span>,</span><br><span class="line">   name: <span class="string">'服饰'</span></span><br><span class="line">&#125;];</span><br><span class="line"><span class="comment">//1.利用 forEach 去遍历里面的每一个对象</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getID</span>(<span class="params">json, id</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">   json.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">     <span class="comment">// console.log(item); // 2个数组元素</span></span><br><span class="line">     <span class="keyword">if</span> (item.id == id) &#123;</span><br><span class="line">       <span class="comment">// console.log(item);</span></span><br><span class="line">       o = item;</span><br><span class="line">       <span class="keyword">return</span> o;</span><br><span class="line">       <span class="comment">// 2. 我们想要得里层的数据 11 12 可以利用递归函数</span></span><br><span class="line">       <span class="comment">// 里面应该有goods这个数组并且数组的长度不为 0 </span></span><br><span class="line">     &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item.goods &amp;&amp; item.goods.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">       o = getID(item.goods, id);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br><span class="line">   <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="变量的作用域复习"><a href="#变量的作用域复习" class="headerlink" title="变量的作用域复习"></a>变量的作用域复习</h3><p>变量根据作用域的不同分为两种：全局变量和局部变量。</p>
+<ol>
+<li>函数内部可以使用全局变量。</li>
+<li>函数外部不可以使用局部变量。</li>
+<li>当函数执行完毕，本作用域内的局部变量会销毁。</li>
+</ol>
+<h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p>闭包（closure）指有权访问另一个函数作用域中变量的函数。简单理解就是 ，一个作用域可以访问另外一个函数内部的局部变量。 </p>
+<p>![](F:/manythings/07-10 JavaScript网页编程/04-JavaScript高级资料/JavaScript 高级_day03/4-笔记/images/img3.png)</p>
+<h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><p>作用：延伸变量的作用范围。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(num);</span><br><span class="line"> 	&#125;</span><br><span class="line">    <span class="keyword">return</span> fun;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> f = fn();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -1902,38 +1988,6 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;textarea name=<span class="string">""</span> id=<span class="string">"message"</span>&gt;&lt;<span class="regexp">/textarea&gt; &lt;button&gt;提交&lt;/</span>button&gt;</span><br><span class="line">&lt;div&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var text = document.querySelector('textarea');</span></span><br><span class="line"><span class="regexp">    var btn = document.querySelector('button');</span></span><br><span class="line"><span class="regexp">    var div = document.querySelector('div');</span></span><br><span class="line"><span class="regexp">    btn.onclick = function() &#123;</span></span><br><span class="line"><span class="regexp">    	div.innerHTML = text.value.replace(/</span>激情|gay/g, <span class="string">'**'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>递归和闭包</title>
-    <url>/2020/02/23/%E9%80%92%E5%BD%92%E5%92%8C%E9%97%AD%E5%8C%85/</url>
-    <content><![CDATA[<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><h3 id="什么是递归"><a href="#什么是递归" class="headerlink" title="什么是递归"></a>什么是递归</h3><p><strong>递归：</strong>如果一个函数在内部可以调用其本身，那么这个函数就是递归函数。简单理解:函数内部自己调用自己, 这个函数就是递归函数</p>
-<p><strong>注意：</strong>递归函数的作用和循环效果一样，由于递归很容易发生“栈溢出”错误（stack overflow），所以必须要加退出条件return。</p>
-<a id="more"></a>
-
-<h3 id="利用递归求1-n的阶乘"><a href="#利用递归求1-n的阶乘" class="headerlink" title="利用递归求1~n的阶乘"></a>利用递归求1~n的阶乘</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//利用递归函数求1~n的阶乘 1 * 2 * 3 * 4 * ..n</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (n == <span class="number">1</span>) &#123; <span class="comment">//结束条件</span></span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> n * fn(n - <span class="number">1</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">console</span>.log(fn(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
-
-<h3 id="利用递归求斐波那契数列"><a href="#利用递归求斐波那契数列" class="headerlink" title="利用递归求斐波那契数列"></a>利用递归求斐波那契数列</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 利用递归函数求斐波那契数列(兔子序列)  1、1、2、3、5、8、13、21...</span></span><br><span class="line"><span class="comment">// 用户输入一个数字 n 就可以求出 这个数字对应的兔子序列值</span></span><br><span class="line"><span class="comment">// 我们只需要知道用户输入的n 的前面两项(n-1 n-2)就可以计算出n 对应的序列值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fb</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span> || n === <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fb(n - <span class="number">1</span>) + fb(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fb(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
-
-<h3 id="利用递归遍历数据"><a href="#利用递归遍历数据" class="headerlink" title="利用递归遍历数据"></a>利用递归遍历数据</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 我们想要做输入id号,就可以返回的数据对象</span></span><br><span class="line"> <span class="keyword">var</span> data = [&#123;</span><br><span class="line">   id: <span class="number">1</span>,</span><br><span class="line">   name: <span class="string">'家电'</span>,</span><br><span class="line">   goods: [&#123;</span><br><span class="line">     id: <span class="number">11</span>,</span><br><span class="line">     gname: <span class="string">'冰箱'</span>,</span><br><span class="line">     goods: [&#123;</span><br><span class="line">       id: <span class="number">111</span>,</span><br><span class="line">       gname: <span class="string">'海尔'</span></span><br><span class="line">     &#125;, &#123;</span><br><span class="line">       id: <span class="number">112</span>,</span><br><span class="line">       gname: <span class="string">'美的'</span></span><br><span class="line">     &#125;,</span><br><span class="line"></span><br><span class="line">            ]</span><br><span class="line"></span><br><span class="line">   &#125;, &#123;</span><br><span class="line">     id: <span class="number">12</span>,</span><br><span class="line">     gname: <span class="string">'洗衣机'</span></span><br><span class="line">   &#125;]</span><br><span class="line"> &#125;, &#123;</span><br><span class="line">   id: <span class="number">2</span>,</span><br><span class="line">   name: <span class="string">'服饰'</span></span><br><span class="line">&#125;];</span><br><span class="line"><span class="comment">//1.利用 forEach 去遍历里面的每一个对象</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getID</span>(<span class="params">json, id</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">   json.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">     <span class="comment">// console.log(item); // 2个数组元素</span></span><br><span class="line">     <span class="keyword">if</span> (item.id == id) &#123;</span><br><span class="line">       <span class="comment">// console.log(item);</span></span><br><span class="line">       o = item;</span><br><span class="line">       <span class="keyword">return</span> o;</span><br><span class="line">       <span class="comment">// 2. 我们想要得里层的数据 11 12 可以利用递归函数</span></span><br><span class="line">       <span class="comment">// 里面应该有goods这个数组并且数组的长度不为 0 </span></span><br><span class="line">     &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item.goods &amp;&amp; item.goods.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">       o = getID(item.goods, id);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br><span class="line">   <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="变量的作用域复习"><a href="#变量的作用域复习" class="headerlink" title="变量的作用域复习"></a>变量的作用域复习</h3><p>变量根据作用域的不同分为两种：全局变量和局部变量。</p>
-<ol>
-<li>函数内部可以使用全局变量。</li>
-<li>函数外部不可以使用局部变量。</li>
-<li>当函数执行完毕，本作用域内的局部变量会销毁。</li>
-</ol>
-<h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p>闭包（closure）指有权访问另一个函数作用域中变量的函数。简单理解就是 ，一个作用域可以访问另外一个函数内部的局部变量。 </p>
-<p>![](F:/manythings/07-10 JavaScript网页编程/04-JavaScript高级资料/JavaScript 高级_day03/4-笔记/images/img3.png)</p>
-<h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><p>作用：延伸变量的作用范围。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(num);</span><br><span class="line"> 	&#125;</span><br><span class="line">    <span class="keyword">return</span> fun;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> f = fn();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
       <categories>
         <category>前端</category>
       </categories>
