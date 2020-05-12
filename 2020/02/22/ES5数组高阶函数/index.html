@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="ES5新增方法数组方法forEach遍历数组123456arr.forEach(function(value, index, array) &amp;#123;      &#x2F;&#x2F;参数一是:数组元素      &#x2F;&#x2F;参数二是:数组元素的索引      &#x2F;&#x2F;参数三是:当前的数组&amp;#125;) &#x2F;&#x2F;相当于数组遍历的 for循环 没有返回值">
+  <meta name="description" content="ES5数组高阶函数forEach(遍历)forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。(没有返回值，将数组遍历) 注意: forEach() 对于空数组是不会执行回调函数的。 回调函数参数：currentValue  必需。当前元素； index  可选。当前元素的索引值； arr  可选。当前元素所属的数组对象。 filter(过滤，返回新数组)filter() 方法创">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES5新增方法">
-<meta property="og:url" content="http://yoursite.com/2020/02/22/ES5%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:title" content="ES5数组高阶函数">
+<meta property="og:url" content="http://yoursite.com/2020/02/22/ES5%E6%95%B0%E7%BB%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
-<meta property="og:description" content="ES5新增方法数组方法forEach遍历数组123456arr.forEach(function(value, index, array) &amp;#123;      &#x2F;&#x2F;参数一是:数组元素      &#x2F;&#x2F;参数二是:数组元素的索引      &#x2F;&#x2F;参数三是:当前的数组&amp;#125;) &#x2F;&#x2F;相当于数组遍历的 for循环 没有返回值">
+<meta property="og:description" content="ES5数组高阶函数forEach(遍历)forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。(没有返回值，将数组遍历) 注意: forEach() 对于空数组是不会执行回调函数的。 回调函数参数：currentValue  必需。当前元素； index  可选。当前元素的索引值； arr  可选。当前元素所属的数组对象。 filter(过滤，返回新数组)filter() 方法创">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-22T05:35:02.000Z">
-<meta property="article:modified_time" content="2020-05-09T05:37:01.427Z">
+<meta property="article:modified_time" content="2020-05-12T02:20:43.296Z">
 <meta property="article:author" content="zyangg">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/02/22/ES5%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95/">
+<link rel="canonical" href="http://yoursite.com/2020/02/22/ES5%E6%95%B0%E7%BB%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>ES5新增方法 | zyangg的个人博客</title>
+  <title>ES5数组高阶函数 | zyangg的个人博客</title>
   
 
 
@@ -190,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/22/ES5%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/22/ES5%E6%95%B0%E7%BB%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
@@ -203,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ES5新增方法
+          ES5数组高阶函数
         </h1>
 
         <div class="post-meta">
@@ -220,7 +220,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-09 13:37:01" itemprop="dateModified" datetime="2020-05-09T13:37:01+08:00">2020-05-09</time>
+                <time title="修改时间：2020-05-12 10:20:43" itemprop="dateModified" datetime="2020-05-12T10:20:43+08:00">2020-05-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,8 +248,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/02/22/ES5%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/22/ES5%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/02/22/ES5%E6%95%B0%E7%BB%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/22/ES5%E6%95%B0%E7%BB%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -259,7 +259,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -278,29 +278,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="ES5新增方法"><a href="#ES5新增方法" class="headerlink" title="ES5新增方法"></a>ES5新增方法</h2><h3 id="数组方法forEach遍历数组"><a href="#数组方法forEach遍历数组" class="headerlink" title="数组方法forEach遍历数组"></a>数组方法forEach遍历数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, array</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//参数一是:数组元素</span></span><br><span class="line">      <span class="comment">//参数二是:数组元素的索引</span></span><br><span class="line">      <span class="comment">//参数三是:当前的数组</span></span><br><span class="line">&#125;)</span><br><span class="line"> <span class="comment">//相当于数组遍历的 for循环 没有返回值</span></span><br></pre></td></tr></table></figure>
+        <h2 id="ES5数组高阶函数"><a href="#ES5数组高阶函数" class="headerlink" title="ES5数组高阶函数"></a>ES5数组高阶函数</h2><h4 id="forEach-遍历"><a href="#forEach-遍历" class="headerlink" title="forEach(遍历)"></a>forEach(遍历)</h4><p>forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。(没有返回值，将数组遍历)</p>
+<p>注意: forEach() 对于空数组是不会执行回调函数的。</p>
+<p>回调函数参数：currentValue  必需。当前元素； index  可选。当前元素的索引值； arr  可选。当前元素所属的数组对象。</p>
+<h4 id="filter-过滤，返回新数组"><a href="#filter-过滤，返回新数组" class="headerlink" title="filter(过滤，返回新数组)"></a>filter(过滤，返回新数组)</h4><p>filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。</p>
+<p>注意： filter() 不会对空数组进行检测。</p>
+<p>注意： filter() 不会改变原始数组。</p>
+<p>回调函数参数：currentValue  必需。当前元素； index  可选。当前元素的索引值； arr  可选。当前元素所属的数组对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> ages = [<span class="number">32</span>, <span class="number">33</span>, <span class="number">16</span>, <span class="number">40</span>];</span><br><span class="line"><span class="built_in">console</span>.log(ages.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> item &gt; <span class="number">18</span>;	<span class="comment">//返回判断条件为真的数组元素</span></span><br><span class="line">&#125;))</span><br><span class="line"><span class="comment">//输出[32,33,40]</span></span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<h4 id="map-映射，返回新数组"><a href="#map-映射，返回新数组" class="headerlink" title="map(映射，返回新数组)"></a>map(映射，返回新数组)</h4><p>map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。</p>
+<p>map() 方法按照原始数组元素顺序依次处理元素。</p>
+<p>注意： map() 不会对空数组进行检测。</p>
+<p>注意： map() 不会改变原始数组。</p>
+<p>回调函数参数：currentValue  必需。当前元素； index  可选。当前元素的索引值； arr  可选。当前元素所属的数组对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">65</span>, <span class="number">44</span>, <span class="number">12</span>, <span class="number">4</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numbers.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> item * <span class="number">10</span>;</span><br><span class="line">&#125;))</span><br><span class="line"><span class="comment">//输出[650,440,120,40]</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="数组方法filter过滤数组"><a href="#数组方法filter过滤数组" class="headerlink" title="数组方法filter过滤数组"></a>数组方法filter过滤数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">12</span>, <span class="number">66</span>, <span class="number">4</span>, <span class="number">88</span>, <span class="number">3</span>, <span class="number">7</span>];</span><br><span class="line"><span class="keyword">var</span> newArr = arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">value, index,array</span>) </span>&#123;</span><br><span class="line">	 <span class="comment">//参数一是:数组元素</span></span><br><span class="line">   <span class="comment">//参数二是:数组元素的索引</span></span><br><span class="line">   <span class="comment">//参数三是:当前的数组</span></span><br><span class="line">   <span class="keyword">return</span> value &gt;= <span class="number">20</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(newArr);<span class="comment">//[66,88] //返回值是一个新数组</span></span><br></pre></td></tr></table></figure>
+<h4 id="some-判断是否含有符合条件的元素，返回布尔值"><a href="#some-判断是否含有符合条件的元素，返回布尔值" class="headerlink" title="some(判断是否含有符合条件的元素，返回布尔值)"></a>some(判断是否含有符合条件的元素，返回布尔值)</h4><p>some() 方法用于检测数组中的元素是否满足指定条件（函数提供）。</p>
+<p>some() 方法会依次执行数组的每个元素：</p>
+<p>如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测。<br>如果没有满足条件的元素，则返回false。<br>注意： some() 不会对空数组进行检测。</p>
+<p>注意： some() 不会改变原始数组。</p>
+<p>回调函数参数：currentValue  必需。当前元素； index  可选。当前元素的索引值； arr  可选。当前元素所属的数组对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ages = [<span class="number">3</span>, <span class="number">10</span>, <span class="number">18</span>, <span class="number">20</span>];</span><br><span class="line"><span class="built_in">console</span>.log(ages.some(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> item &gt; <span class="number">28</span>;</span><br><span class="line">&#125;))</span><br><span class="line"><span class="comment">//输出false</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="数组方法some"><a href="#数组方法some" class="headerlink" title="数组方法some"></a>数组方法some</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">some 查找数组中是否有满足条件的元素 </span><br><span class="line"> <span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">30</span>, <span class="number">4</span>];</span><br><span class="line"> <span class="keyword">var</span> flag = arr.some(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,array</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//参数一是:数组元素</span></span><br><span class="line">     <span class="comment">//参数二是:数组元素的索引</span></span><br><span class="line">     <span class="comment">//参数三是:当前的数组</span></span><br><span class="line">     <span class="keyword">return</span> value &lt; <span class="number">3</span>;</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(flag);<span class="comment">//false返回值是布尔值,只要查找到满足条件的一个元素就立马终止循环</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="some和forEach区别"><a href="#some和forEach区别" class="headerlink" title="some和forEach区别"></a>some和forEach区别</h3><ul>
-<li>如果查询数组中唯一的元素, 用some方法更合适,在some 里面 遇到 return true 就是终止遍历 迭代效率更高</li>
-<li>在forEach 里面 return 不会终止迭代</li>
-</ul>
-<h3 id="trim方法去除字符串两端的空格"><a href="#trim方法去除字符串两端的空格" class="headerlink" title="trim方法去除字符串两端的空格"></a>trim方法去除字符串两端的空格</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'   hello   '</span></span><br><span class="line"><span class="built_in">console</span>.log(str.trim()）  <span class="comment">//hello 去除两端空格</span></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">'   he l l o   '</span></span><br><span class="line"><span class="built_in">console</span>.log(str.trim()）  <span class="comment">//he l l o  去除两端空格</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="获取对象的属性名"><a href="#获取对象的属性名" class="headerlink" title="获取对象的属性名"></a>获取对象的属性名</h3><p>Object.keys(对象) 获取到当前对象中的属性名 ，返回值是一个数组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> obj = &#123;</span><br><span class="line">     id: <span class="number">1</span>,</span><br><span class="line">     pname: <span class="string">'小米'</span>,</span><br><span class="line">     price: <span class="number">1999</span>,</span><br><span class="line">     num: <span class="number">2000</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> result = <span class="built_in">Object</span>.keys(obj)</span><br><span class="line"><span class="built_in">console</span>.log(result)<span class="comment">//[id，pname,price,num]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h3><p>Object.defineProperty设置或修改对象中的属性</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(对象，修改或新增的属性名，&#123;</span><br><span class="line">		value:修改或新增的属性的值,</span><br><span class="line">		writable:<span class="literal">true</span>/<span class="literal">false</span>,<span class="comment">//如果值为false 不允许修改这个属性值</span></span><br><span class="line">		enumerable: <span class="literal">false</span>,<span class="comment">//enumerable 如果值为false 则不允许遍历</span></span><br><span class="line">        configurable: <span class="literal">false</span>  <span class="comment">//configurable 如果为false 则不允许删除这个属性 属性是否可以被删除或是否可以再次修改特性</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-
+<h4 id="reduce-累加"><a href="#reduce-累加" class="headerlink" title="reduce(累加)"></a>reduce(累加)</h4><p>reduce() 方法接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。</p>
+<p>reduce() 可以作为一个高阶函数，用于函数的 compose。</p>
+<p>注意: reduce() 对于空数组是不会执行回调函数的。</p>
+<p>回调函数参数：total  必需。初始值, 或者计算结束后的返回值； currentValue  必需。当前元素； index  可选。当前元素的索引值； arr  可选。当前元素所属的数组对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [&#123;<span class="attr">price</span>:<span class="number">30</span>,<span class="attr">count</span>:<span class="number">2</span>&#125;,&#123;<span class="attr">price</span>:<span class="number">40</span>,<span class="attr">count</span>:<span class="number">3</span>&#125;,&#123;<span class="attr">price</span>:<span class="number">50</span>,<span class="attr">count</span>:<span class="number">5</span>&#125;];</span><br><span class="line"><span class="comment">//当数组元素为引用类型时需要注意</span></span><br><span class="line"><span class="keyword">var</span> sum = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x.price*x.count + y.price*y.count;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(sum)</span><br><span class="line"><span class="comment">//输出NaN</span></span><br><span class="line"><span class="comment">//正确应该为</span></span><br><span class="line"><span class="keyword">var</span> sum = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x + y.price*y.count;</span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line"><span class="built_in">console</span>.log(sum)</span><br><span class="line"><span class="comment">//输出430</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -386,7 +391,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5新增方法"><span class="nav-number">1.</span> <span class="nav-text">ES5新增方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组方法forEach遍历数组"><span class="nav-number">1.1.</span> <span class="nav-text">数组方法forEach遍历数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组方法filter过滤数组"><span class="nav-number">1.2.</span> <span class="nav-text">数组方法filter过滤数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组方法some"><span class="nav-number">1.3.</span> <span class="nav-text">数组方法some</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#some和forEach区别"><span class="nav-number">1.4.</span> <span class="nav-text">some和forEach区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trim方法去除字符串两端的空格"><span class="nav-number">1.5.</span> <span class="nav-text">trim方法去除字符串两端的空格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取对象的属性名"><span class="nav-number">1.6.</span> <span class="nav-text">获取对象的属性名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-defineProperty"><span class="nav-number">1.7.</span> <span class="nav-text">Object.defineProperty</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5数组高阶函数"><span class="nav-number">1.</span> <span class="nav-text">ES5数组高阶函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#forEach-遍历"><span class="nav-number">1.0.1.</span> <span class="nav-text">forEach(遍历)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter-过滤，返回新数组"><span class="nav-number">1.0.2.</span> <span class="nav-text">filter(过滤，返回新数组)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map-映射，返回新数组"><span class="nav-number">1.0.3.</span> <span class="nav-text">map(映射，返回新数组)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#some-判断是否含有符合条件的元素，返回布尔值"><span class="nav-number">1.0.4.</span> <span class="nav-text">some(判断是否含有符合条件的元素，返回布尔值)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce-累加"><span class="nav-number">1.0.5.</span> <span class="nav-text">reduce(累加)</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
