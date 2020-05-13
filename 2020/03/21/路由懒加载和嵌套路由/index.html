@@ -20,20 +20,28 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="当需要使用多个变量的计算结果时，可以利用vue的计算属性，将计算结果返回给一个计算属性，后面直接调用该属性，利用计算属性结合v-module可以实现简单的计算器功能1.定义和调用计算属性定义在computed中，调用时使用mustache语法调用且后面不跟()">
+  <meta name="description" content="像vue这种单页面应用，如果没有应用懒加载，运用webpack打包后的文件将会异常的大，造成进入首页时，需要加载的内容过多，时间过长，会出啊先长时间的白屏，即使做了loading也是不利于用户体验，而运用懒加载则可以将页面进行划分，需要的时候加载页面，可以有效的分担首页所承担的加载压力，减少首页加载用时 简单的说就是：进入首页不用一次加载过多资源造成用时过长！！！ 如何实现？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue计算属性">
-<meta property="og:url" content="http://yoursite.com/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/index.html">
+<meta property="og:title" content="路由懒加载和嵌套路由">
+<meta property="og:url" content="http://yoursite.com/2020/03/21/%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
-<meta property="og:description" content="当需要使用多个变量的计算结果时，可以利用vue的计算属性，将计算结果返回给一个计算属性，后面直接调用该属性，利用计算属性结合v-module可以实现简单的计算器功能1.定义和调用计算属性定义在computed中，调用时使用mustache语法调用且后面不跟()">
+<meta property="og:description" content="像vue这种单页面应用，如果没有应用懒加载，运用webpack打包后的文件将会异常的大，造成进入首页时，需要加载的内容过多，时间过长，会出啊先长时间的白屏，即使做了loading也是不利于用户体验，而运用懒加载则可以将页面进行划分，需要的时候加载页面，可以有效的分担首页所承担的加载压力，减少首页加载用时 简单的说就是：进入首页不用一次加载过多资源造成用时过长！！！ 如何实现？">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-12T10:26:26.000Z">
-<meta property="article:modified_time" content="2020-05-11T10:31:22.284Z">
+<meta property="og:image" content="https://img-blog.csdn.net/20180319161508677?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018031916242043?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180319162425259?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180319162026891?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180319162256441?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180319162323621?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180319162330451?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="article:published_time" content="2020-03-21T12:08:35.000Z">
+<meta property="article:modified_time" content="2020-05-13T12:24:17.044Z">
 <meta property="article:author" content="zyangg">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180319161508677?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
-<link rel="canonical" href="http://yoursite.com/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">
+<link rel="canonical" href="http://yoursite.com/2020/03/21/%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1/">
 
 
 <script id="page-configurations">
@@ -46,7 +54,7 @@
   };
 </script>
 
-  <title>Vue计算属性 | zyangg的个人博客</title>
+  <title>路由懒加载和嵌套路由 | zyangg的个人博客</title>
   
 
 
@@ -190,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/21/%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
@@ -203,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Vue计算属性
+          路由懒加载和嵌套路由
         </h1>
 
         <div class="post-meta">
@@ -213,14 +221,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-03-12 18:26:26" itemprop="dateCreated datePublished" datetime="2020-03-12T18:26:26+08:00">2020-03-12</time>
+              <time title="创建时间：2020-03-21 20:08:35" itemprop="dateCreated datePublished" datetime="2020-03-21T20:08:35+08:00">2020-03-21</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-11 18:31:22" itemprop="dateModified" datetime="2020-05-11T18:31:22+08:00">2020-05-11</time>
+                <time title="修改时间：2020-05-13 20:24:17" itemprop="dateModified" datetime="2020-05-13T20:24:17+08:00">2020-05-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,8 +256,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/21/%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/21/%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -259,7 +267,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -278,13 +286,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p> <strong><em>当需要使用多个变量的计算结果时，可以利用vue的计算属性，将计算结果返回给一个计算属性，后面直接调用该属性，利用计算属性结合v-module可以实现简单的计算器功能</em></strong><br>1.定义和调用<br>计算属性定义在computed中，调用时使用mustache语法调用且后面不跟() </p>
- <a id="more"></a>![img](https://img-blog.csdnimg.cn/20200331223323961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpbmdsaXUwODI0,size_16,color_FFFFFF,t_70) 
+        <p>像vue这种单页面应用，如果没有应用懒加载，运用webpack打包后的文件将会异常的大，造成进入首页时，需要加载的内容过多，时间过长，会出啊先长时间的白屏，即使做了loading也是不利于用户体验，而运用懒加载则可以将页面进行划分，需要的时候加载页面，可以有效的分担首页所承担的加载压力，减少首页加载用时</p>
+<p>简单的说就是：进入首页不用一次加载过多资源造成用时过长！！！</p>
+<p>如何实现？</p>
+<a id="more"></a>
 
-<p>计算属性得到价格</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li v-<span class="keyword">for</span>=<span class="string">'price in books'</span>&gt;&#123;&#123;price&#125;&#125;&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/u</span>l&gt;</span><br><span class="line">    &lt;h2&gt;总价：&lt;span&gt;&#123;&#123;totalprice&#125;&#125;&lt;<span class="regexp">/span&gt;&lt;/</span>h2&gt;</span><br><span class="line">    &lt;!-- 虽然computed中的totalprice是以函数定义，但是使用时不要在后面加(),</span><br><span class="line">      这里它是一个计算属性，本质是一个属性 --&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;script&gt;</span></span><br><span class="line"><span class="regexp">    const app=new Vue(&#123;</span></span><br><span class="line"><span class="regexp">      el:'#app',</span></span><br><span class="line"><span class="regexp">      data:&#123;</span></span><br><span class="line"><span class="regexp">        books:[&#123;id:'o1',name:'aaa',price:98&#125;,&#123;id:'o2',name:'bbb',price:108&#125;,</span></span><br><span class="line"><span class="regexp">          &#123;id:'o3',name:'ccc',price:78&#125;,&#123;id:'o4',name:'ddd',price:79&#125;</span></span><br><span class="line"><span class="regexp">        ]</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      computed:&#123; /</span><span class="regexp">/ 计算属性定义在computed中，以函数的形式定义并返回一个结果</span></span><br><span class="line"><span class="regexp">        totalprice:function()&#123;</span></span><br><span class="line"><span class="regexp">          let result=0</span></span><br><span class="line"><span class="regexp">          for(let item of this.books)&#123;</span></span><br><span class="line"><span class="regexp">            result+=item.price</span></span><br><span class="line"><span class="regexp">          &#125;</span></span><br><span class="line"><span class="regexp">          return result</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      methods:&#123;</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;)</span></span><br><span class="line"><span class="regexp">  &lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+<p> 一、vue异步懒加载写法： </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">      <span class="comment">// 进行路由配置,规定'/'引入到home组件</span></span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'Home'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../pages/Home.vue'</span>], resolve),</span><br><span class="line">      meta: &#123;</span><br><span class="line">        title: <span class="string">'home'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/about'</span>,</span><br><span class="line">      name: <span class="string">'About'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../pages/About.vue'</span>], resolve)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>注意：计算属性是一个属性，它实际拥有get 和set 方法，但由于一般都不使用set方法，只使用get方法，所以为了简便，我们看到的计算属性就以函数形式定义，所以使用时后面不能加()。<br>2.计算属性和methods的区别：计算属性具有缓存机制。<br>methods中的方法每使用一次方法就会被调用一次，不管里面的数据是否发生变化。而使用计算属性时，只要里面影响结果的变量没有发生变化，无论计算属性被使用多少次，函数都只会被调用一次。</p>
+<p> 二、使用ES6 中的import进行懒加载 ： </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HelloWorld = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">"@/components/HelloWorld"</span>);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">    component: HelloWorld</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*或者*/</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">    component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">"@/components/HelloWorld"</span>)</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p> 假设有home和about两个vue组件。那么我们在注册路由的使用需要定义一下内容。 </p>
+<p> <img src="https://img-blog.csdn.net/20180319161508677?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p>path为需要跳转的路径。同时，需要在使用路由的父组件中使用<router-view></router-view>将路由渲染到当前组件中。<br>同时，使用<router-link to="路径"></router-link> 其中的路径就是我们在上面注册的path.<br>需要注意的是，我们现在在声明并且注册路由之后，需要将路由挂在到vue的实例中，否则是无法使用的。<br>效果图如下：<br> <img src="https://img-blog.csdn.net/2018031916242043?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">  <img src="https://img-blog.csdn.net/20180319162425259?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p>嵌套路由，顾名思义，就是在router中在使用router,注册的方法和上面相差不多，但是，注册子路由是需要在children中进行注册。我们还是在上面的例子中来进行，新建xiaohong.vue和xiaoming.vue。假设我接下来要在about中使用嵌套路由。那么，我们需要在about中来注册子路由的相关信息。<br> <img src="https://img-blog.csdn.net/20180319162026891?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p>children声明了children中的内容就是在about组件中使用。<br>因为我们是在about组件中使用子路由，方法还是与普通路由相同，在about.vue中使用<router-view>,并且使用<router-link to=""></router-link>来定义跳转的组件。<br> <img src="https://img-blog.csdn.net/20180319162256441?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p> 效果图如下： </p>
+<p> <img src="https://img-blog.csdn.net/20180319162323621?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">  <img src="https://img-blog.csdn.net/20180319162330451?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
 
     </div>
 
@@ -303,13 +322,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/11/Vue%E7%9A%84key%E5%85%B3%E9%94%AE%E5%AD%97/" rel="prev" title="Vue的key关键字">
-      <i class="fa fa-chevron-left"></i> Vue的key关键字
+    <a href="/2020/03/20/%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%82/" rel="prev" title="路由传参">
+      <i class="fa fa-chevron-left"></i> 路由传参
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/13/V-model%E6%8C%87%E4%BB%A4/" rel="next" title="V-model指令">
-      V-model指令 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
