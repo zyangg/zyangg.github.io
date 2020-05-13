@@ -20,25 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="元素偏移量offsetoffset 翻译过来就是偏移量， 我们使用 offset系列相关属性可以动态的得到该元素的位置（偏移）、大小等。  获得元素距离带有定位父元素的位置  获得元素自身的大小（宽度高度）  注意：返回的数值都不带单位">
+  <meta name="description" content="关于Vue的路由一直以来个人都觉得是一件很神奇的事情，一个单页面应用居然可以做到多路由跳转并按需加载页面代码。以往的做法都是通过锚点来定位对应的页面代码，而这种古老的操作方式最大的问题就是首屏加载缓慢，一次性加载了所有页面代码。 那么Vue-router又是怎么实现的呢？ 首先，这个router有两种模式：hash模式（默认）、history模式（需配置mode: ‘history’）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="offset client scroll">
-<meta property="og:url" content="http://yoursite.com/2020/02/10/offset-client-scroll/index.html">
+<meta property="og:title" content="hash模式和history模式">
+<meta property="og:url" content="http://yoursite.com/2020/03/18/hash%E6%A8%A1%E5%BC%8F%E5%92%8Chistory%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
-<meta property="og:description" content="元素偏移量offsetoffset 翻译过来就是偏移量， 我们使用 offset系列相关属性可以动态的得到该元素的位置（偏移）、大小等。  获得元素距离带有定位父元素的位置  获得元素自身的大小（宽度高度）  注意：返回的数值都不带单位">
+<meta property="og:description" content="关于Vue的路由一直以来个人都觉得是一件很神奇的事情，一个单页面应用居然可以做到多路由跳转并按需加载页面代码。以往的做法都是通过锚点来定位对应的页面代码，而这种古老的操作方式最大的问题就是首屏加载缓慢，一次性加载了所有页面代码。 那么Vue-router又是怎么实现的呢？ 首先，这个router有两种模式：hash模式（默认）、history模式（需配置mode: ‘history’）">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200426162938643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200426163149926.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200426163220607.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200426163310928.png">
-<meta property="article:published_time" content="2020-02-10T12:31:03.000Z">
-<meta property="article:modified_time" content="2020-05-08T12:32:26.019Z">
+<meta property="article:published_time" content="2020-03-18T09:53:39.000Z">
+<meta property="article:modified_time" content="2020-05-13T09:55:52.977Z">
 <meta property="article:author" content="zyangg">
-<meta property="article:tag" content="js">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200426162938643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="http://yoursite.com/2020/02/10/offset-client-scroll/">
+<link rel="canonical" href="http://yoursite.com/2020/03/18/hash%E6%A8%A1%E5%BC%8F%E5%92%8Chistory%E6%A8%A1%E5%BC%8F/">
 
 
 <script id="page-configurations">
@@ -51,7 +46,7 @@
   };
 </script>
 
-  <title>offset client scroll | zyangg的个人博客</title>
+  <title>hash模式和history模式 | zyangg的个人博客</title>
   
 
 
@@ -195,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/10/offset-client-scroll/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/18/hash%E6%A8%A1%E5%BC%8F%E5%92%8Chistory%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
@@ -208,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          offset client scroll
+          hash模式和history模式
         </h1>
 
         <div class="post-meta">
@@ -218,14 +213,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-02-10 20:31:03" itemprop="dateCreated datePublished" datetime="2020-02-10T20:31:03+08:00">2020-02-10</time>
+              <time title="创建时间：2020-03-18 17:53:39" itemprop="dateCreated datePublished" datetime="2020-03-18T17:53:39+08:00">2020-03-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-08 20:32:26" itemprop="dateModified" datetime="2020-05-08T20:32:26+08:00">2020-05-08</time>
+                <time title="修改时间：2020-05-13 17:55:52" itemprop="dateModified" datetime="2020-05-13T17:55:52+08:00">2020-05-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -253,8 +248,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/02/10/offset-client-scroll/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/10/offset-client-scroll/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/18/hash%E6%A8%A1%E5%BC%8F%E5%92%8Chistory%E6%A8%A1%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/18/hash%E6%A8%A1%E5%BC%8F%E5%92%8Chistory%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -264,7 +259,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>879</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -283,60 +278,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="元素偏移量offset"><a href="#元素偏移量offset" class="headerlink" title="元素偏移量offset"></a>元素偏移量offset</h3><p>offset 翻译过来就是偏移量， 我们使用 offset系列相关属性可以动态的得到该元素的位置（偏移）、大小等。</p>
-<ol>
-<li><p>获得元素距离带有定位父元素的位置</p>
-</li>
-<li><p>获得元素自身的大小（宽度高度）</p>
-</li>
-<li><p>注意：返回的数值都不带单位</p>
-<a id="more"></a>
+        <p>关于Vue的路由一直以来个人都觉得是一件很神奇的事情，一个单页面应用居然可以做到多路由跳转并按需加载页面代码。以往的做法都是通过锚点来定位对应的页面代码，而这种古老的操作方式最大的问题就是首屏加载缓慢，一次性加载了所有页面代码。</p>
+<p>那么Vue-router又是怎么实现的呢？</p>
+<p>首先，这个router有两种模式：hash模式（默认）、history模式（需配置mode: ‘history’）</p>
+ <a id="more"></a>
 
-<p><img src="https://img-blog.csdnimg.cn/20200426162938643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-</ol>
-<h4 id="offset-与-style-区别"><a href="#offset-与-style-区别" class="headerlink" title="offset 与 style 区别"></a>offset 与 style 区别</h4><h4 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h4><ul>
-<li><p>offset 可以得到任意样式表中的样式值</p>
-</li>
-<li><p>offset 系列获得的数值是没有单位的</p>
-</li>
-<li><p>offsetWidth 包含padding+border+width</p>
-</li>
-<li><p>offsetWidth 等属性是只读属性，只能获取不能赋值</p>
-</li>
-<li><blockquote>
-<p>所以，我们想要获取元素大小位置，用offset更合适</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="style"><a href="#style" class="headerlink" title="style"></a>style</h4><ul>
-<li><p>style 只能得到行内样式表中的样式值</p>
-</li>
-<li><p>style.width 获得的是带有单位的字符串</p>
-</li>
-<li><p>style.width 获得不包含padding和border 的值</p>
-</li>
-<li><p>style.width 是可读写属性，可以获取也可以赋值</p>
-</li>
-<li><p>所以，我们想要给元素更改值，则需要用style改变</p>
-</li>
-</ul>
-<h3 id="元素可视区-client"><a href="#元素可视区-client" class="headerlink" title="元素可视区 client"></a>元素可视区 client</h3><p>client 翻译过来就是客户端，我们使用 client 系列的相关属性来获取元素可视区的相关信息。通过 client<br>系列的相关属性可以动态的得到该元素的边框大小、元素大小等。</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200426163149926.png" alt="img"> </p>
-<h3 id="元素滚动-scroll"><a href="#元素滚动-scroll" class="headerlink" title="元素滚动 scroll"></a>元素滚动 scroll</h3><p>scroll 翻译过来就是滚动的，我们使用 scroll 系列的相关属性可以动态的得到该元素的大小、滚动距离等。</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200426163220607.png" alt="在这里插入图片描述"> </p>
-<h3 id="三大系列总结"><a href="#三大系列总结" class="headerlink" title="三大系列总结"></a>三大系列总结</h3><p> <img src="https://img-blog.csdnimg.cn/20200426163310928.png" alt="在这里插入图片描述"> </p>
-<p>1.offset系列 经常用于获得元素位置    offsetLeft  offsetTop</p>
-<p>2.client经常用于获取元素大小  clientWidth clientHeight</p>
-<p>3.scroll 经常用于获取滚动距离 scrollTop  scrollLeft  </p>
-<p>4.注意页面滚动的距离通过 window.pageXOffset  获得</p>
-<h3 id="mouseenter-和mouseover的区别"><a href="#mouseenter-和mouseover的区别" class="headerlink" title="mouseenter 和mouseover的区别"></a>mouseenter 和mouseover的区别</h3><ul>
-<li>当鼠标移动到元素上时就会触发mouseenter 事件</li>
-<li>类似 mouseover，它们两者之间的差别是</li>
-<li>mouseover 鼠标经过自身盒子会触发，经过子盒子还会触发。mouseenter  只会经过自身盒子触发</li>
-<li>之所以这样，就是因为mouseenter不会冒泡</li>
-<li>跟mouseenter搭配鼠标离开 mouseleave  同样不会冒泡</li>
-</ul>
+<h3 id="hash与history的区别"><a href="#hash与history的区别" class="headerlink" title="hash与history的区别"></a>hash与history的区别</h3><pre><code>hash    history</code></pre><p>url显示    有#，很Low    无#，好看<br>回车刷新    可以加载到hash值对应页面    一般就是404掉了<br>支持版本    支持低版本浏览器和IE浏览器    HTML5新推出的API</p>
+<p>然后，我们来研究下两者的原理：</p>
+<h4 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h4><p>我们先来认识下这位朋友#，这个#就是hash符号，中文名哈希符或锚点，当然这在我们前端领域姑且这么称呼。</p>
+<p>然后哈希符后面的值，我们称之为哈希值。OK，接下来我们继续分析他的原理。路由的哈希模式其实是利用了window可以监听onhashchange事件，也就是说你的url中的哈希值（#后面的值）如果有变化，前端是可以做到监听并做一些响应（搞点事情），这么一来，即使前端并没有发起http请求他也能够找到对应页面的代码块进行按需加载。</p>
+<p>后来人们给他起了一个霸气的名字叫前端路由，成为了单页应用标配。</p>
+<p>大伙可以围观下网易云音乐的url模式：<a href="https://music.163.com/#/friend" target="_blank" rel="noopener">https://music.163.com/#/friend</a></p>
+<h4 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h4><p>我们先介绍一下H5新推出的两个神器：pushState与replaceState</p>
+<p>具体自行百度，简而言之，这两个神器的作用就是可以将url替换并且不刷新页面，好比挂羊头卖狗肉，http并没有去请求服务器该路径下的资源，一旦刷新就会暴露这个实际不存在的“羊头”，显示404。</p>
+<p>那么如何去解决history模式下刷新报404的弊端呢，这就需要服务器端做点手脚，将不存在的路径请求重定向到入口文件（index.html），前后端联手，齐心协力做好“挂羊头卖狗肉”的完美特效。</p>
+<p>至此，我们的前端路由在实现与展示效果上又更进了一步！</p>
+<p>总之，pushState方法不会触发页面刷新，只是导致history对象发生变化，地址栏会有反应。</p>
+<p>总结<br>传统的路由指的是：当用户访问一个url时，对应的服务器会接收这个请求，然后解析url中的路径，从而执行对应的处理逻辑。这样就完成了一次路由分发。</p>
+<p>而前端路由是不涉及服务器的，是前端利用hash或者HTML5的history API来实现的，一般用于不同内容的展示和切换。</p>
+<p>—————————–  补充 —————————–</p>
+<p>history模式下，build之后本地 index.html 打开是无效的。</p>
+<p>hash模式下，build之后本地 index.html 打开正常！</p>
 
     </div>
 
@@ -346,7 +308,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/js/" rel="tag"># js</a>
+              <a href="/tags/Vue/" rel="tag"># Vue</a>
           </div>
 
         
@@ -355,12 +317,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/02/09/js-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" rel="prev" title="js-鼠标键盘事件对象">
-      <i class="fa fa-chevron-left"></i> js-鼠标键盘事件对象
+    <a href="/2020/03/17/Vue-render%E5%87%BD%E6%95%B0/" rel="prev" title="Vue render函数">
+      <i class="fa fa-chevron-left"></i> Vue render函数
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/02/20/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/" rel="next" title="本地存储">
-      本地存储 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/04/05/Vue-%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/" rel="next" title="创建vue脚手架">
+      创建vue脚手架 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -421,7 +383,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#元素偏移量offset"><span class="nav-number">1.</span> <span class="nav-text">元素偏移量offset</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#offset-与-style-区别"><span class="nav-number">1.1.</span> <span class="nav-text">offset 与 style 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#offset"><span class="nav-number">1.2.</span> <span class="nav-text">offset</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#style"><span class="nav-number">1.3.</span> <span class="nav-text">style</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素可视区-client"><span class="nav-number">2.</span> <span class="nav-text">元素可视区 client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素滚动-scroll"><span class="nav-number">3.</span> <span class="nav-text">元素滚动 scroll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三大系列总结"><span class="nav-number">4.</span> <span class="nav-text">三大系列总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mouseenter-和mouseover的区别"><span class="nav-number">5.</span> <span class="nav-text">mouseenter 和mouseover的区别</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hash与history的区别"><span class="nav-number">1.</span> <span class="nav-text">hash与history的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hash模式"><span class="nav-number">1.1.</span> <span class="nav-text">hash模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history模式"><span class="nav-number">1.2.</span> <span class="nav-text">history模式</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
