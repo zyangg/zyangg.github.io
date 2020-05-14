@@ -294,56 +294,6 @@
       </tags>
   </entry>
   <entry>
-    <title>TDK三大标签SEO优化</title>
-    <url>/2020/01/16/TDK%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BESEO%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<h3 id="网站优化三大标签"><a href="#网站优化三大标签" class="headerlink" title="网站优化三大标签"></a>网站优化三大标签</h3><p>SEO是由英文Search Engine Optimization缩写而来， 中文意译为“搜索引擎优化”！</p>
-<p>常见的搜索引擎，比如百度，谷歌，雅虎，搜狗等等..</p>
-<a id="more"></a>
-
-<p>SEO是指通过对网站进行站内优化、网站结构调整、网站内容建设、网站代码优化等)和站外优化，从而提高网站的关键词排名以及公司产品的曝光度。 简单的说就是，把产品做好，搜索引擎就会介绍客户来。  </p>
-<h4 id="1-网页title-标题"><a href="#1-网页title-标题" class="headerlink" title="1). 网页title 标题"></a>1). 网页title 标题</h4><p>title具有不可替代性，是我们的内页第一个重要标签，是搜索引擎了解网页的入口，和对网页主题归属的最佳判断点。</p>
-<p>建议：</p>
-<p>首页标题：网站名（产品名）- 网站的介绍    </p>
-<p>例如：</p>
-<p>品优购-综合网购首选-正品低价、品质保障、配送及时、轻松购物！</p>
-<p>小米商城 - 小米5s、红米Note 4、小米MIX、小米笔记本官方网站</p>
-<h4 id="2-Description-网站说明"><a href="#2-Description-网站说明" class="headerlink" title="2. Description  网站说明"></a>2. Description  网站说明</h4><p>对于关键词的作用明显降低，但由于很多搜索引擎，仍然大量采用网页的MATA标签中描述部分作为搜索结果的“内容摘要”。 就是简要说明我们网站的主要做什么的。<br>我们提倡，Description作为网站的总体业务和主题概括，多采用“我们是…”“我们提供…”“×××网作为…”“电话：010…”之类语句。</p>
-<p>品优购网：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;品优购JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意点：</p>
-<ol>
-<li>描述中出现关键词，与正文内容相关，这部分内容是给人看的，所以要写的很详细，让人感兴趣， 吸引用户点击。</li>
-<li>同样遵循简短原则，字符数含空格在内不要超过 120  个汉字。</li>
-<li>补充在 title  和 keywords  中未能充分表述的说明.</li>
-<li>用英文逗号 关键词1,关键词2</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;小米商城直营小米公司旗下所有产品，囊括小米手机系列小米MIX、小米Note 2，红米手机系列红米Note 4、红米4，智能硬件，配件及小米生活周边，同时提供小米客户服务及售后支持。&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-Keywords-关键字"><a href="#3-Keywords-关键字" class="headerlink" title="3. Keywords 关键字"></a>3. Keywords 关键字</h4><p>Keywords是页面关键词，是搜索引擎关注点之一。Keywords应该限制在6～8个关键词左右，电商类网站可以多 少许。</p>
-<p>品优购网：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;Keywords&quot; content&#x3D;&quot;网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,品优购&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>小米网：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;keywords&quot; content&#x3D;&quot;小米,小米6,红米Note4,小米MIX,小米商城&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-总结"><a href="#4-总结" class="headerlink" title="4). 总结"></a>4). 总结</h4><ol>
-<li>我们的网页要做的优秀，符合搜索引擎的要求，才可以让搜索引擎优先显示我们的网页。  </li>
-</ol>
-<p>所以我们的网站要做很多的优化， 其中就有这三大标签。</p>
-<ol start="2">
-<li>一般情况下，三大标签里面的优化词，都是专门的优化人员写的，我们大概了解一下规范就可以了。</li>
-<li>我们的主要任务是，能写出这三大标签， 然后把优化人员给我们的内容，添加到里面。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mongodb</title>
     <url>/2020/03/01/Mongodb/</url>
     <content><![CDATA[<h3 id="第三方包"><a href="#第三方包" class="headerlink" title="第三方包"></a>第三方包</h3><p>使用Node.js操作MongoDB数据库需要依赖Node.js第三方包mongoose<br>使用npm install mongoose命令下载</p>
@@ -401,6 +351,56 @@
       </categories>
       <tags>
         <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TDK三大标签SEO优化</title>
+    <url>/2020/01/16/TDK%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BESEO%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h3 id="网站优化三大标签"><a href="#网站优化三大标签" class="headerlink" title="网站优化三大标签"></a>网站优化三大标签</h3><p>SEO是由英文Search Engine Optimization缩写而来， 中文意译为“搜索引擎优化”！</p>
+<p>常见的搜索引擎，比如百度，谷歌，雅虎，搜狗等等..</p>
+<a id="more"></a>
+
+<p>SEO是指通过对网站进行站内优化、网站结构调整、网站内容建设、网站代码优化等)和站外优化，从而提高网站的关键词排名以及公司产品的曝光度。 简单的说就是，把产品做好，搜索引擎就会介绍客户来。  </p>
+<h4 id="1-网页title-标题"><a href="#1-网页title-标题" class="headerlink" title="1). 网页title 标题"></a>1). 网页title 标题</h4><p>title具有不可替代性，是我们的内页第一个重要标签，是搜索引擎了解网页的入口，和对网页主题归属的最佳判断点。</p>
+<p>建议：</p>
+<p>首页标题：网站名（产品名）- 网站的介绍    </p>
+<p>例如：</p>
+<p>品优购-综合网购首选-正品低价、品质保障、配送及时、轻松购物！</p>
+<p>小米商城 - 小米5s、红米Note 4、小米MIX、小米笔记本官方网站</p>
+<h4 id="2-Description-网站说明"><a href="#2-Description-网站说明" class="headerlink" title="2. Description  网站说明"></a>2. Description  网站说明</h4><p>对于关键词的作用明显降低，但由于很多搜索引擎，仍然大量采用网页的MATA标签中描述部分作为搜索结果的“内容摘要”。 就是简要说明我们网站的主要做什么的。<br>我们提倡，Description作为网站的总体业务和主题概括，多采用“我们是…”“我们提供…”“×××网作为…”“电话：010…”之类语句。</p>
+<p>品优购网：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;品优购JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意点：</p>
+<ol>
+<li>描述中出现关键词，与正文内容相关，这部分内容是给人看的，所以要写的很详细，让人感兴趣， 吸引用户点击。</li>
+<li>同样遵循简短原则，字符数含空格在内不要超过 120  个汉字。</li>
+<li>补充在 title  和 keywords  中未能充分表述的说明.</li>
+<li>用英文逗号 关键词1,关键词2</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;小米商城直营小米公司旗下所有产品，囊括小米手机系列小米MIX、小米Note 2，红米手机系列红米Note 4、红米4，智能硬件，配件及小米生活周边，同时提供小米客户服务及售后支持。&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-Keywords-关键字"><a href="#3-Keywords-关键字" class="headerlink" title="3. Keywords 关键字"></a>3. Keywords 关键字</h4><p>Keywords是页面关键词，是搜索引擎关注点之一。Keywords应该限制在6～8个关键词左右，电商类网站可以多 少许。</p>
+<p>品优购网：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;Keywords&quot; content&#x3D;&quot;网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,品优购&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>小米网：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;keywords&quot; content&#x3D;&quot;小米,小米6,红米Note4,小米MIX,小米商城&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-总结"><a href="#4-总结" class="headerlink" title="4). 总结"></a>4). 总结</h4><ol>
+<li>我们的网页要做的优秀，符合搜索引擎的要求，才可以让搜索引擎优先显示我们的网页。  </li>
+</ol>
+<p>所以我们的网站要做很多的优化， 其中就有这三大标签。</p>
+<ol start="2">
+<li>一般情况下，三大标签里面的优化词，都是专门的优化人员写的，我们大概了解一下规范就可以了。</li>
+<li>我们的主要任务是，能写出这三大标签， 然后把优化人员给我们的内容，添加到里面。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -480,6 +480,36 @@
 <p> <img src="https://upload-images.jianshu.io/upload_images/13429147-4c7f8bdf4b804bd9.png" alt="img"> </p>
 <p>Vue支持我们通过<code>data</code>参数传递一个JavaScript对象做为组件数据，然后Vue将遍历此对象属性，使用<a href="https://www.w3cplus.com/vue/vue-two-way-binding-object-defineproperty.html" target="_blank" rel="noopener"><code>Object.defineProperty</code>方法</a>设置描述对象，通过存取器函数可以追踪该属性的变更，Vue创建了一层<code>Watcher</code>层，在组件渲染的过程中把属性记录为依赖，之后当依赖项的<code>setter</code>被调用时，会通知<code>Watcher</code>重新计算，从而使它关联的组件得以更新,如下图：</p>
 <p> <img src="https://upload-images.jianshu.io/upload_images/13429147-e5ab233db6c73c31.png" alt="img"> </p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue-基本语法</title>
+    <url>/2020/03/03/Vue-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<p>为了更好的理解Vue语法的组成，我们先来了解一下Vue的运作方式</p>
+<h1 id="一、Vue的运作方式"><a href="#一、Vue的运作方式" class="headerlink" title="一、Vue的运作方式"></a>一、Vue的运作方式</h1><p>  Vue是以<strong>数据驱动</strong>和<strong>组件化</strong>为核心的JavaScript MVVM库，通过ViewModel实现数据和视图的<strong>双向绑定</strong>。下图展示了MVVM模式和Vue的运作方式</p>
+ <a id="more"></a>![img](https://upload-images.jianshu.io/upload_images/21260932-bfb1edafe026f1e8.png)
+
+<p>1.基本概念<br> ① <strong>MVVM</strong>：Model-View-ViewModel 的简称；<br> ② <strong>Model</strong>：数据模型，也可以理解成在Model中定义的数据修改和操作的业务逻辑；<br> ③ <strong>View</strong>：UI组件，负责将数据模型转化成UI展现出来<br> ④ ViewModel：视图模型，是一个同步View 和 Model的对象。<br> 2.相互关系<br> ① Model、View、ViewModel：在MVVM架构下，<strong>View 和 Model 之间没有直接的联系，而是通过ViewModel进行交互</strong>，View 数据的变化会同步到Model中，而Model 数据的变化也会立即反应到View 上，这就是上面所说的双向绑定。<br> ② Vue和ViewModel：每个 Vue 应用都需要通过实例化 Vue 来实现，而<strong>ViewModel是Vue.js的核心，是Vue的一个实例</strong>。Vue实例是作用于某一个HTML元素上的，这个元素可以是HTML的body元素，也可以是指定了id的某个元素。<br> 3.运作方式<br>  由图可以看到，ViewModel中包含了Dom Listerners和Dom Blindings。<strong>DOM Listeners会监测页面上DOM元素的变化</strong>，如果有变化，则更改Model中的数据；而<strong>Data Bindings会帮更新页面中的DOM元素</strong>这就是双向绑定的实现</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- View模型 --&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    &lt;!-- Model --&gt;</span><br><span class="line">    <span class="keyword">var</span> message=&#123;</span><br><span class="line">        site:<span class="string">'Hello Vue！'</span></span><br><span class="line">    &#125;</span><br><span class="line">    &lt;!--创建Vue实例，将View和Model绑定在一起--&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#app'</span>,</span><br><span class="line">        data: message</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、基本语法"><a href="#二、基本语法" class="headerlink" title="二、基本语法"></a>二、基本语法</h1><p>  经过上面的讲解，我们可以通俗的理解成，每个 Vue 应用的实现就是不断完成MVVM模型的过程，因此定义Vue语法可以分成以下三步：<br><strong>1.定义View</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">      &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>  定义View其实就是定义HTML结构和插值表达式。插值表达式是用例输出在Model模型中的数据、属性或者是函数的返回值</p>
+<h5 id="2-定义Model"><a href="#2-定义Model" class="headerlink" title="2.定义Model"></a>2.定义Model</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> message=&#123;</span><br><span class="line">      site:<span class="string">'Hello Vue！'</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 定义Model就是<strong>定义一个对象</strong>，对象内的属性名就是在View在插值表达式内的变量名 </p>
+<h5 id="3-创建Vue实例"><a href="#3-创建Vue实例" class="headerlink" title="3.创建Vue实例"></a>3.创建Vue实例</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#app'</span>,</span><br><span class="line">        data: message</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，Vue实例中有两个组成部分：<strong>el和data</strong>。<strong>el</strong>是element元素的英文名称缩写，<strong>是连接View模型中的元素</strong>；<strong>data</strong>是数据，<strong>用来连接Model模型</strong>。所以才说ViewModel是连接Model和View的关键。<br> 综上所述，定义一个完整的Vue语法如下所示;</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- View模型 --&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    &lt;!-- Model --&gt;</span><br><span class="line">    <span class="keyword">var</span> message=&#123;</span><br><span class="line">        site:<span class="string">'Hello Vue！'</span></span><br><span class="line">    &#125;</span><br><span class="line">    &lt;!--创建Vue实例，将View和Model绑定在一起--&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#app'</span>,</span><br><span class="line">        data: message</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>前端</category>
@@ -697,6 +727,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue的key关键字</title>
+    <url>/2020/03/11/Vue%E7%9A%84key%E5%85%B3%E9%94%AE%E5%AD%97/</url>
+    <content><![CDATA[<h4 id="v-if中用-key-管理可复用的元素"><a href="#v-if中用-key-管理可复用的元素" class="headerlink" title="v-if中用 key 管理可复用的元素"></a>v-if中用 key 管理可复用的元素</h4><p>Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。这么做，除了使 Vue 变得非常快之外，还有一些有用的好处。例如，如果你允许用户在不同的登录方式之间切换:</p>
+<a id="more"></a>
+
+<pre><code>&lt;template v-if=&quot;loginType === &apos;username&apos;&quot;&gt;  
+  &lt;label&gt;Username&lt;/label&gt;  
+  &lt;input placeholder=&quot;Enter your username&quot;&gt;  
+&lt;/template&gt;  
+&lt;template v-else&gt;  
+  &lt;label&gt;Email&lt;/label&gt;  
+  &lt;input placeholder=&quot;Enter your email address&quot;&gt;  
+&lt;/template&gt;  </code></pre><p>那么在上面的代码中切换 loginType 将不会清除用户已经输入的内容。因为两个模版使用了相同的元素，<input> 不会被替换掉——仅仅是替换了它的 placeholder。<br>这样也不总是符合实际需求，所以 Vue 为你提供了一种方式来声明“这两个元素是完全独立的——不要复用它们”。只需添加一个具有唯一值的 key 属性即可：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template v-<span class="keyword">if</span>=<span class="string">"loginType === 'username'"</span>&gt;  </span><br><span class="line">  &lt;label&gt;Username&lt;<span class="regexp">/label&gt;  </span></span><br><span class="line"><span class="regexp">  &lt;input placeholder="Enter your username" key="username-input"&gt;  </span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;  </span><br><span class="line">&lt;template v-<span class="keyword">else</span>&gt;  </span><br><span class="line">  &lt;label&gt;Email&lt;<span class="regexp">/label&gt;  </span></span><br><span class="line"><span class="regexp">  &lt;input placeholder="Enter your email address" key="email-input"&gt;  </span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>现在，每次切换时，输入框都将被重新渲染。注意, <label> 元素仍然会被高效地复用，因为它们没有添加 key 属性<br>2、v-for中的key</p>
+<p>  当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用 “就地复用” 策略。如果数据项的顺序被改变，Vue将不是移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。这个类似 Vue 1.x 的 track-by=”$index” 。<br>  这个默认的模式是有效的，但是只适用于不依赖子组件状态或临时 DOM 状态（例如：表单输入值）的列表渲染输出。</p>
+<p> 为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key 属性。理想的 key 值是每项都有唯一 id。这个特殊的属性相当于 Vue 1.x 的 track-by ，但它的工作方式类似于一个属性，所以你需要用 v-bind 来绑定动态值（在这里使用简写）：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div v-<span class="keyword">for</span>=<span class="string">"item in items"</span> :key=<span class="string">"item.id"</span>&gt;  <span class="comment">// key不能绑定index,因为index会改变</span></span><br><span class="line"><span class="comment">// key的出现就是为了提高性能  必须具备唯一性</span></span><br><span class="line">  &lt;!-- 内容 --&gt;  </span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue组件注册</title>
     <url>/2020/03/13/Vue%E7%BB%84%E4%BB%B6%E6%B3%A8%E5%86%8C/</url>
     <content><![CDATA[<h4 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h4><p>组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码。组件系统让我们可以用独立可复用的小组件来构建大型应用，几乎任意类型的应用的界面都可以抽象为一个组件树：</p>
@@ -724,26 +783,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue的key关键字</title>
-    <url>/2020/03/11/Vue%E7%9A%84key%E5%85%B3%E9%94%AE%E5%AD%97/</url>
-    <content><![CDATA[<h4 id="v-if中用-key-管理可复用的元素"><a href="#v-if中用-key-管理可复用的元素" class="headerlink" title="v-if中用 key 管理可复用的元素"></a>v-if中用 key 管理可复用的元素</h4><p>Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。这么做，除了使 Vue 变得非常快之外，还有一些有用的好处。例如，如果你允许用户在不同的登录方式之间切换:</p>
-<a id="more"></a>
+    <title>Vue计算属性</title>
+    <url>/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/</url>
+    <content><![CDATA[<p> <strong><em>当需要使用多个变量的计算结果时，可以利用vue的计算属性，将计算结果返回给一个计算属性，后面直接调用该属性，利用计算属性结合v-module可以实现简单的计算器功能</em></strong><br>1.定义和调用<br>计算属性定义在computed中，调用时使用mustache语法调用且后面不跟() </p>
+ <a id="more"></a>![img](https://img-blog.csdnimg.cn/20200331223323961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpbmdsaXUwODI0,size_16,color_FFFFFF,t_70) 
 
-<pre><code>&lt;template v-if=&quot;loginType === &apos;username&apos;&quot;&gt;  
-  &lt;label&gt;Username&lt;/label&gt;  
-  &lt;input placeholder=&quot;Enter your username&quot;&gt;  
-&lt;/template&gt;  
-&lt;template v-else&gt;  
-  &lt;label&gt;Email&lt;/label&gt;  
-  &lt;input placeholder=&quot;Enter your email address&quot;&gt;  
-&lt;/template&gt;  </code></pre><p>那么在上面的代码中切换 loginType 将不会清除用户已经输入的内容。因为两个模版使用了相同的元素，<input> 不会被替换掉——仅仅是替换了它的 placeholder。<br>这样也不总是符合实际需求，所以 Vue 为你提供了一种方式来声明“这两个元素是完全独立的——不要复用它们”。只需添加一个具有唯一值的 key 属性即可：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template v-<span class="keyword">if</span>=<span class="string">"loginType === 'username'"</span>&gt;  </span><br><span class="line">  &lt;label&gt;Username&lt;<span class="regexp">/label&gt;  </span></span><br><span class="line"><span class="regexp">  &lt;input placeholder="Enter your username" key="username-input"&gt;  </span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;  </span><br><span class="line">&lt;template v-<span class="keyword">else</span>&gt;  </span><br><span class="line">  &lt;label&gt;Email&lt;<span class="regexp">/label&gt;  </span></span><br><span class="line"><span class="regexp">  &lt;input placeholder="Enter your email address" key="email-input"&gt;  </span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br></pre></td></tr></table></figure>
+<p>计算属性得到价格</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li v-<span class="keyword">for</span>=<span class="string">'price in books'</span>&gt;&#123;&#123;price&#125;&#125;&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/u</span>l&gt;</span><br><span class="line">    &lt;h2&gt;总价：&lt;span&gt;&#123;&#123;totalprice&#125;&#125;&lt;<span class="regexp">/span&gt;&lt;/</span>h2&gt;</span><br><span class="line">    &lt;!-- 虽然computed中的totalprice是以函数定义，但是使用时不要在后面加(),</span><br><span class="line">      这里它是一个计算属性，本质是一个属性 --&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;script&gt;</span></span><br><span class="line"><span class="regexp">    const app=new Vue(&#123;</span></span><br><span class="line"><span class="regexp">      el:'#app',</span></span><br><span class="line"><span class="regexp">      data:&#123;</span></span><br><span class="line"><span class="regexp">        books:[&#123;id:'o1',name:'aaa',price:98&#125;,&#123;id:'o2',name:'bbb',price:108&#125;,</span></span><br><span class="line"><span class="regexp">          &#123;id:'o3',name:'ccc',price:78&#125;,&#123;id:'o4',name:'ddd',price:79&#125;</span></span><br><span class="line"><span class="regexp">        ]</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      computed:&#123; /</span><span class="regexp">/ 计算属性定义在computed中，以函数的形式定义并返回一个结果</span></span><br><span class="line"><span class="regexp">        totalprice:function()&#123;</span></span><br><span class="line"><span class="regexp">          let result=0</span></span><br><span class="line"><span class="regexp">          for(let item of this.books)&#123;</span></span><br><span class="line"><span class="regexp">            result+=item.price</span></span><br><span class="line"><span class="regexp">          &#125;</span></span><br><span class="line"><span class="regexp">          return result</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      methods:&#123;</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;)</span></span><br><span class="line"><span class="regexp">  &lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
 
-<p>现在，每次切换时，输入框都将被重新渲染。注意, <label> 元素仍然会被高效地复用，因为它们没有添加 key 属性<br>2、v-for中的key</p>
-<p>  当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用 “就地复用” 策略。如果数据项的顺序被改变，Vue将不是移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。这个类似 Vue 1.x 的 track-by=”$index” 。<br>  这个默认的模式是有效的，但是只适用于不依赖子组件状态或临时 DOM 状态（例如：表单输入值）的列表渲染输出。</p>
-<p> 为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key 属性。理想的 key 值是每项都有唯一 id。这个特殊的属性相当于 Vue 1.x 的 track-by ，但它的工作方式类似于一个属性，所以你需要用 v-bind 来绑定动态值（在这里使用简写）：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div v-<span class="keyword">for</span>=<span class="string">"item in items"</span> :key=<span class="string">"item.id"</span>&gt;  <span class="comment">// key不能绑定index,因为index会改变</span></span><br><span class="line"><span class="comment">// key的出现就是为了提高性能  必须具备唯一性</span></span><br><span class="line">  &lt;!-- 内容 --&gt;  </span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
-
+<p>注意：计算属性是一个属性，它实际拥有get 和set 方法，但由于一般都不使用set方法，只使用get方法，所以为了简便，我们看到的计算属性就以函数形式定义，所以使用时后面不能加()。<br>2.计算属性和methods的区别：计算属性具有缓存机制。<br>methods中的方法每使用一次方法就会被调用一次，不管里面的数据是否发生变化。而使用计算属性时，只要里面影响结果的变量没有发生变化，无论计算属性被使用多少次，函数都只会被调用一次。</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -793,99 +841,6 @@
       </categories>
       <tags>
         <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue计算属性</title>
-    <url>/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/</url>
-    <content><![CDATA[<p> <strong><em>当需要使用多个变量的计算结果时，可以利用vue的计算属性，将计算结果返回给一个计算属性，后面直接调用该属性，利用计算属性结合v-module可以实现简单的计算器功能</em></strong><br>1.定义和调用<br>计算属性定义在computed中，调用时使用mustache语法调用且后面不跟() </p>
- <a id="more"></a>![img](https://img-blog.csdnimg.cn/20200331223323961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpbmdsaXUwODI0,size_16,color_FFFFFF,t_70) 
-
-<p>计算属性得到价格</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li v-<span class="keyword">for</span>=<span class="string">'price in books'</span>&gt;&#123;&#123;price&#125;&#125;&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/u</span>l&gt;</span><br><span class="line">    &lt;h2&gt;总价：&lt;span&gt;&#123;&#123;totalprice&#125;&#125;&lt;<span class="regexp">/span&gt;&lt;/</span>h2&gt;</span><br><span class="line">    &lt;!-- 虽然computed中的totalprice是以函数定义，但是使用时不要在后面加(),</span><br><span class="line">      这里它是一个计算属性，本质是一个属性 --&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;script&gt;</span></span><br><span class="line"><span class="regexp">    const app=new Vue(&#123;</span></span><br><span class="line"><span class="regexp">      el:'#app',</span></span><br><span class="line"><span class="regexp">      data:&#123;</span></span><br><span class="line"><span class="regexp">        books:[&#123;id:'o1',name:'aaa',price:98&#125;,&#123;id:'o2',name:'bbb',price:108&#125;,</span></span><br><span class="line"><span class="regexp">          &#123;id:'o3',name:'ccc',price:78&#125;,&#123;id:'o4',name:'ddd',price:79&#125;</span></span><br><span class="line"><span class="regexp">        ]</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      computed:&#123; /</span><span class="regexp">/ 计算属性定义在computed中，以函数的形式定义并返回一个结果</span></span><br><span class="line"><span class="regexp">        totalprice:function()&#123;</span></span><br><span class="line"><span class="regexp">          let result=0</span></span><br><span class="line"><span class="regexp">          for(let item of this.books)&#123;</span></span><br><span class="line"><span class="regexp">            result+=item.price</span></span><br><span class="line"><span class="regexp">          &#125;</span></span><br><span class="line"><span class="regexp">          return result</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      methods:&#123;</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;)</span></span><br><span class="line"><span class="regexp">  &lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意：计算属性是一个属性，它实际拥有get 和set 方法，但由于一般都不使用set方法，只使用get方法，所以为了简便，我们看到的计算属性就以函数形式定义，所以使用时后面不能加()。<br>2.计算属性和methods的区别：计算属性具有缓存机制。<br>methods中的方法每使用一次方法就会被调用一次，不管里面的数据是否发生变化。而使用计算属性时，只要里面影响结果的变量没有发生变化，无论计算属性被使用多少次，函数都只会被调用一次。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css-显示模式</title>
-    <url>/2020/01/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
-
-<p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的块元素有<span class="tag">&lt;<span class="name">h1</span>&gt;</span>~<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">li</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
-
-<p>块级元素的特点</p>
-<p>（1）比较霸道，自己独占一行</p>
-<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
-<p>（3）宽度默认是容器（父级宽度）的100%</p>
-<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
-<p>注意：</p>
-<p>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </p>
-<p>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</p>
-<h4 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h4><p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的行内元素有<span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">b</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">del</span>&gt;</span>、<span class="tag">&lt;<span class="name">s</span>&gt;</span>、<span class="tag">&lt;<span class="name">ins</span>&gt;</span>、<span class="tag">&lt;<span class="name">u</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">span</span>&gt;</span>标签最典型的行内元素。有的地方也成内联元素</span><br></pre></td></tr></table></figure>
-
-<p>行内元素的特点：</p>
-<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
-<p>（2）高、宽直接设置是无效的。</p>
-<p>（3）默认宽度就是它本身内容的宽度。</p>
-<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
-<p>注意：</p>
-<p>链接里面不能再放链接。</p>
-<p>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全</p>
-<h4 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h4><p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——<span class="tag">&lt;<span class="name">img</span> /&gt;</span>、<span class="tag">&lt;<span class="name">input</span> /&gt;</span>、<span class="tag">&lt;<span class="name">td</span>&gt;</span>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br></pre></td></tr></table></figure>
-
-<p>行内块元素的特点：</p>
-<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
-<thead>
-<tr>
-<th>元素模式</th>
-<th>元素排列</th>
-<th>设置样式</th>
-<th>默认宽度</th>
-<th>包含</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>块级元素</td>
-<td>一行只能放一个块级元素</td>
-<td>可以设置宽度高度</td>
-<td>容器的100%</td>
-<td>容器级可以包含任何标签</td>
-</tr>
-<tr>
-<td>行内元素</td>
-<td>一行可以放多个行内元素</td>
-<td>不可以直接设置宽度高度</td>
-<td>它本身内容的宽度</td>
-<td>容纳文本或则其他行内元素</td>
-</tr>
-<tr>
-<td>行内块元素</td>
-<td>一行放多个行内块元素</td>
-<td>可以设置宽度和高度</td>
-<td>它本身内容的宽度</td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
-<p>行内转块：display:block;</p>
-<p>块、行内元素转换为行内块： display: inline-block</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -997,6 +952,81 @@
 <p>也就是说，我们给盒子改为了浮动或者定位，就不会有垂直外边距合并的问题了。</p>
 <p>定位的盒子会压住文字</p>
 <p>浮动的盒子不会压住文字，因为早期浮动的出现就是为了文字的环绕</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css-显示模式</title>
+    <url>/2020/01/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
+
+<p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的块元素有<span class="tag">&lt;<span class="name">h1</span>&gt;</span>~<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">li</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
+
+<p>块级元素的特点</p>
+<p>（1）比较霸道，自己独占一行</p>
+<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
+<p>（3）宽度默认是容器（父级宽度）的100%</p>
+<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
+<p>注意：</p>
+<p>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </p>
+<p>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</p>
+<h4 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h4><p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的行内元素有<span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">b</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">del</span>&gt;</span>、<span class="tag">&lt;<span class="name">s</span>&gt;</span>、<span class="tag">&lt;<span class="name">ins</span>&gt;</span>、<span class="tag">&lt;<span class="name">u</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">span</span>&gt;</span>标签最典型的行内元素。有的地方也成内联元素</span><br></pre></td></tr></table></figure>
+
+<p>行内元素的特点：</p>
+<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
+<p>（2）高、宽直接设置是无效的。</p>
+<p>（3）默认宽度就是它本身内容的宽度。</p>
+<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
+<p>注意：</p>
+<p>链接里面不能再放链接。</p>
+<p>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全</p>
+<h4 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h4><p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——<span class="tag">&lt;<span class="name">img</span> /&gt;</span>、<span class="tag">&lt;<span class="name">input</span> /&gt;</span>、<span class="tag">&lt;<span class="name">td</span>&gt;</span>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br></pre></td></tr></table></figure>
+
+<p>行内块元素的特点：</p>
+<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
+<thead>
+<tr>
+<th>元素模式</th>
+<th>元素排列</th>
+<th>设置样式</th>
+<th>默认宽度</th>
+<th>包含</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>块级元素</td>
+<td>一行只能放一个块级元素</td>
+<td>可以设置宽度高度</td>
+<td>容器的100%</td>
+<td>容器级可以包含任何标签</td>
+</tr>
+<tr>
+<td>行内元素</td>
+<td>一行可以放多个行内元素</td>
+<td>不可以直接设置宽度高度</td>
+<td>它本身内容的宽度</td>
+<td>容纳文本或则其他行内元素</td>
+</tr>
+<tr>
+<td>行内块元素</td>
+<td>一行放多个行内块元素</td>
+<td>可以设置宽度和高度</td>
+<td>它本身内容的宽度</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
+<p>行内转块：display:block;</p>
+<p>块、行内元素转换为行内块： display: inline-block</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1907,29 +1937,6 @@
       </tags>
   </entry>
   <entry>
-    <title>js-鼠标键盘事件对象</title>
-    <url>/2020/02/09/js-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="事件对象-event"><a href="#事件对象-event" class="headerlink" title="事件对象/event"></a>事件对象/event</h3><p><strong>event包含了发生事件的所有信息内容，不如:发生事件类型，发生事件的元素，键盘按下状态等等</strong></p>
-<p><strong>事件对象的创建，当事件发生时，游浏览器帮我们创建的,并通过参数的形式传递给事件处理程序的</strong></p>
-<a id="more"></a>
-
-<h4 id="常用鼠标事件"><a href="#常用鼠标事件" class="headerlink" title="常用鼠标事件"></a>常用鼠标事件</h4><p><img src="https://img-blog.csdnimg.cn/20200425200435783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h4><p><img src="https://img-blog.csdnimg.cn/20200425200520945.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="常用的键盘事件"><a href="#常用的键盘事件" class="headerlink" title="常用的键盘事件"></a>常用的键盘事件</h4><p><img src="https://img-blog.csdnimg.cn/20200425200618448.png" alt="在这里插入图片描述"> </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 常用的键盘事件</span></span><br><span class="line">    <span class="comment">//1. keyup 按键弹起的时候触发 </span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我弹起了'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. keypress 按键按下的时候触发  不能识别功能键 比如 ctrl shift 左右箭头啊</span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keypress'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'我按下了press'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">//2. keydown 按键按下的时候触发  能识别功能键 比如 ctrl shift 左右箭头啊</span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keydown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'我按下了down'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 4. 三个事件的执行顺序  keydown -- keypress -- keyup</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="键盘事件对象"><a href="#键盘事件对象" class="headerlink" title="键盘事件对象"></a>键盘事件对象</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">keyCode   返回该键的ASCLL值</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://img-blog.csdnimg.cn/20200425200836213.png" alt="img"> </p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>offset client scroll</title>
     <url>/2020/02/10/offset-client-scroll/</url>
     <content><![CDATA[<h3 id="元素偏移量offset"><a href="#元素偏移量offset" class="headerlink" title="元素偏移量offset"></a>元素偏移量offset</h3><p>offset 翻译过来就是偏移量， 我们使用 offset系列相关属性可以动态的得到该元素的位置（偏移）、大小等。</p>
@@ -1986,6 +1993,29 @@
 <li>之所以这样，就是因为mouseenter不会冒泡</li>
 <li>跟mouseenter搭配鼠标离开 mouseleave  同样不会冒泡</li>
 </ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-鼠标键盘事件对象</title>
+    <url>/2020/02/09/js-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="事件对象-event"><a href="#事件对象-event" class="headerlink" title="事件对象/event"></a>事件对象/event</h3><p><strong>event包含了发生事件的所有信息内容，不如:发生事件类型，发生事件的元素，键盘按下状态等等</strong></p>
+<p><strong>事件对象的创建，当事件发生时，游浏览器帮我们创建的,并通过参数的形式传递给事件处理程序的</strong></p>
+<a id="more"></a>
+
+<h4 id="常用鼠标事件"><a href="#常用鼠标事件" class="headerlink" title="常用鼠标事件"></a>常用鼠标事件</h4><p><img src="https://img-blog.csdnimg.cn/20200425200435783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h4><p><img src="https://img-blog.csdnimg.cn/20200425200520945.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="常用的键盘事件"><a href="#常用的键盘事件" class="headerlink" title="常用的键盘事件"></a>常用的键盘事件</h4><p><img src="https://img-blog.csdnimg.cn/20200425200618448.png" alt="在这里插入图片描述"> </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 常用的键盘事件</span></span><br><span class="line">    <span class="comment">//1. keyup 按键弹起的时候触发 </span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我弹起了'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. keypress 按键按下的时候触发  不能识别功能键 比如 ctrl shift 左右箭头啊</span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keypress'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'我按下了press'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">//2. keydown 按键按下的时候触发  能识别功能键 比如 ctrl shift 左右箭头啊</span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keydown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'我按下了down'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 4. 三个事件的执行顺序  keydown -- keypress -- keyup</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="键盘事件对象"><a href="#键盘事件对象" class="headerlink" title="键盘事件对象"></a>键盘事件对象</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">keyCode   返回该键的ASCLL值</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://img-blog.csdnimg.cn/20200425200836213.png" alt="img"> </p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -2253,35 +2283,6 @@
       </tags>
   </entry>
   <entry>
-    <title>路由懒加载和嵌套路由</title>
-    <url>/2020/03/21/%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<p>像vue这种单页面应用，如果没有应用懒加载，运用webpack打包后的文件将会异常的大，造成进入首页时，需要加载的内容过多，时间过长，会出啊先长时间的白屏，即使做了loading也是不利于用户体验，而运用懒加载则可以将页面进行划分，需要的时候加载页面，可以有效的分担首页所承担的加载压力，减少首页加载用时</p>
-<p>简单的说就是：进入首页不用一次加载过多资源造成用时过长！！！</p>
-<p>如何实现？</p>
-<a id="more"></a>
-
-<p> 一、vue异步懒加载写法： </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">      <span class="comment">// 进行路由配置,规定'/'引入到home组件</span></span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'Home'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../pages/Home.vue'</span>], resolve),</span><br><span class="line">      meta: &#123;</span><br><span class="line">        title: <span class="string">'home'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/about'</span>,</span><br><span class="line">      name: <span class="string">'About'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../pages/About.vue'</span>], resolve)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p> 二、使用ES6 中的import进行懒加载 ： </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> HelloWorld = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">"@/components/HelloWorld"</span>);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">    component: HelloWorld</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*或者*/</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">    component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">"@/components/HelloWorld"</span>)</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p> 假设有home和about两个vue组件。那么我们在注册路由的使用需要定义一下内容。 </p>
-<p> <img src="https://img-blog.csdn.net/20180319161508677?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
-<p>path为需要跳转的路径。同时，需要在使用路由的父组件中使用<router-view></router-view>将路由渲染到当前组件中。<br>同时，使用<router-link to="路径"></router-link> 其中的路径就是我们在上面注册的path.<br>需要注意的是，我们现在在声明并且注册路由之后，需要将路由挂在到vue的实例中，否则是无法使用的。<br>效果图如下：<br> <img src="https://img-blog.csdn.net/2018031916242043?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">  <img src="https://img-blog.csdn.net/20180319162425259?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
-<p>嵌套路由，顾名思义，就是在router中在使用router,注册的方法和上面相差不多，但是，注册子路由是需要在children中进行注册。我们还是在上面的例子中来进行，新建xiaohong.vue和xiaoming.vue。假设我接下来要在about中使用嵌套路由。那么，我们需要在about中来注册子路由的相关信息。<br> <img src="https://img-blog.csdn.net/20180319162026891?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
-<p>children声明了children中的内容就是在about组件中使用。<br>因为我们是在about组件中使用子路由，方法还是与普通路由相同，在about.vue中使用<router-view>,并且使用<router-link to=""></router-link>来定义跳转的组件。<br> <img src="https://img-blog.csdn.net/20180319162256441?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
-<p> 效果图如下： </p>
-<p> <img src="https://img-blog.csdn.net/20180319162323621?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">  <img src="https://img-blog.csdn.net/20180319162330451?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>递归和闭包</title>
     <url>/2020/02/23/%E9%80%92%E5%BD%92%E5%92%8C%E9%97%AD%E5%8C%85/</url>
     <content><![CDATA[<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><h3 id="什么是递归"><a href="#什么是递归" class="headerlink" title="什么是递归"></a>什么是递归</h3><p><strong>递归：</strong>如果一个函数在内部可以调用其本身，那么这个函数就是递归函数。简单理解:函数内部自己调用自己, 这个函数就是递归函数</p>
@@ -2311,6 +2312,35 @@
       </categories>
       <tags>
         <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>路由懒加载和嵌套路由</title>
+    <url>/2020/03/21/%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p>像vue这种单页面应用，如果没有应用懒加载，运用webpack打包后的文件将会异常的大，造成进入首页时，需要加载的内容过多，时间过长，会出啊先长时间的白屏，即使做了loading也是不利于用户体验，而运用懒加载则可以将页面进行划分，需要的时候加载页面，可以有效的分担首页所承担的加载压力，减少首页加载用时</p>
+<p>简单的说就是：进入首页不用一次加载过多资源造成用时过长！！！</p>
+<p>如何实现？</p>
+<a id="more"></a>
+
+<p> 一、vue异步懒加载写法： </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">      <span class="comment">// 进行路由配置,规定'/'引入到home组件</span></span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'Home'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../pages/Home.vue'</span>], resolve),</span><br><span class="line">      meta: &#123;</span><br><span class="line">        title: <span class="string">'home'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/about'</span>,</span><br><span class="line">      name: <span class="string">'About'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../pages/About.vue'</span>], resolve)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p> 二、使用ES6 中的import进行懒加载 ： </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> HelloWorld = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">"@/components/HelloWorld"</span>);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">    component: HelloWorld</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*或者*/</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">    component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">"@/components/HelloWorld"</span>)</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p> 假设有home和about两个vue组件。那么我们在注册路由的使用需要定义一下内容。 </p>
+<p> <img src="https://img-blog.csdn.net/20180319161508677?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p>path为需要跳转的路径。同时，需要在使用路由的父组件中使用<router-view></router-view>将路由渲染到当前组件中。<br>同时，使用<router-link to="路径"></router-link> 其中的路径就是我们在上面注册的path.<br>需要注意的是，我们现在在声明并且注册路由之后，需要将路由挂在到vue的实例中，否则是无法使用的。<br>效果图如下：<br> <img src="https://img-blog.csdn.net/2018031916242043?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">  <img src="https://img-blog.csdn.net/20180319162425259?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p>嵌套路由，顾名思义，就是在router中在使用router,注册的方法和上面相差不多，但是，注册子路由是需要在children中进行注册。我们还是在上面的例子中来进行，新建xiaohong.vue和xiaoming.vue。假设我接下来要在about中使用嵌套路由。那么，我们需要在about中来注册子路由的相关信息。<br> <img src="https://img-blog.csdn.net/20180319162026891?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p>children声明了children中的内容就是在about组件中使用。<br>因为我们是在about组件中使用子路由，方法还是与普通路由相同，在about.vue中使用<router-view>,并且使用<router-link to=""></router-link>来定义跳转的组件。<br> <img src="https://img-blog.csdn.net/20180319162256441?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p> 效果图如下： </p>
+<p> <img src="https://img-blog.csdn.net/20180319162323621?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">  <img src="https://img-blog.csdn.net/20180319162330451?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
       </tags>
   </entry>
 </search>
