@@ -294,56 +294,6 @@
       </tags>
   </entry>
   <entry>
-    <title>TDK三大标签SEO优化</title>
-    <url>/2020/01/16/TDK%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BESEO%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<h3 id="网站优化三大标签"><a href="#网站优化三大标签" class="headerlink" title="网站优化三大标签"></a>网站优化三大标签</h3><p>SEO是由英文Search Engine Optimization缩写而来， 中文意译为“搜索引擎优化”！</p>
-<p>常见的搜索引擎，比如百度，谷歌，雅虎，搜狗等等..</p>
-<a id="more"></a>
-
-<p>SEO是指通过对网站进行站内优化、网站结构调整、网站内容建设、网站代码优化等)和站外优化，从而提高网站的关键词排名以及公司产品的曝光度。 简单的说就是，把产品做好，搜索引擎就会介绍客户来。  </p>
-<h4 id="1-网页title-标题"><a href="#1-网页title-标题" class="headerlink" title="1). 网页title 标题"></a>1). 网页title 标题</h4><p>title具有不可替代性，是我们的内页第一个重要标签，是搜索引擎了解网页的入口，和对网页主题归属的最佳判断点。</p>
-<p>建议：</p>
-<p>首页标题：网站名（产品名）- 网站的介绍    </p>
-<p>例如：</p>
-<p>品优购-综合网购首选-正品低价、品质保障、配送及时、轻松购物！</p>
-<p>小米商城 - 小米5s、红米Note 4、小米MIX、小米笔记本官方网站</p>
-<h4 id="2-Description-网站说明"><a href="#2-Description-网站说明" class="headerlink" title="2. Description  网站说明"></a>2. Description  网站说明</h4><p>对于关键词的作用明显降低，但由于很多搜索引擎，仍然大量采用网页的MATA标签中描述部分作为搜索结果的“内容摘要”。 就是简要说明我们网站的主要做什么的。<br>我们提倡，Description作为网站的总体业务和主题概括，多采用“我们是…”“我们提供…”“×××网作为…”“电话：010…”之类语句。</p>
-<p>品优购网：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;品优购JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意点：</p>
-<ol>
-<li>描述中出现关键词，与正文内容相关，这部分内容是给人看的，所以要写的很详细，让人感兴趣， 吸引用户点击。</li>
-<li>同样遵循简短原则，字符数含空格在内不要超过 120  个汉字。</li>
-<li>补充在 title  和 keywords  中未能充分表述的说明.</li>
-<li>用英文逗号 关键词1,关键词2</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;小米商城直营小米公司旗下所有产品，囊括小米手机系列小米MIX、小米Note 2，红米手机系列红米Note 4、红米4，智能硬件，配件及小米生活周边，同时提供小米客户服务及售后支持。&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-Keywords-关键字"><a href="#3-Keywords-关键字" class="headerlink" title="3. Keywords 关键字"></a>3. Keywords 关键字</h4><p>Keywords是页面关键词，是搜索引擎关注点之一。Keywords应该限制在6～8个关键词左右，电商类网站可以多 少许。</p>
-<p>品优购网：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;Keywords&quot; content&#x3D;&quot;网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,品优购&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>小米网：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;keywords&quot; content&#x3D;&quot;小米,小米6,红米Note4,小米MIX,小米商城&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-总结"><a href="#4-总结" class="headerlink" title="4). 总结"></a>4). 总结</h4><ol>
-<li>我们的网页要做的优秀，符合搜索引擎的要求，才可以让搜索引擎优先显示我们的网页。  </li>
-</ol>
-<p>所以我们的网站要做很多的优化， 其中就有这三大标签。</p>
-<ol start="2">
-<li>一般情况下，三大标签里面的优化词，都是专门的优化人员写的，我们大概了解一下规范就可以了。</li>
-<li>我们的主要任务是，能写出这三大标签， 然后把优化人员给我们的内容，添加到里面。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mongodb</title>
     <url>/2020/03/01/Mongodb/</url>
     <content><![CDATA[<h3 id="第三方包"><a href="#第三方包" class="headerlink" title="第三方包"></a>第三方包</h3><p>使用Node.js操作MongoDB数据库需要依赖Node.js第三方包mongoose<br>使用npm install mongoose命令下载</p>
@@ -404,6 +354,89 @@
       </tags>
   </entry>
   <entry>
+    <title>TDK三大标签SEO优化</title>
+    <url>/2020/01/16/TDK%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BESEO%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h3 id="网站优化三大标签"><a href="#网站优化三大标签" class="headerlink" title="网站优化三大标签"></a>网站优化三大标签</h3><p>SEO是由英文Search Engine Optimization缩写而来， 中文意译为“搜索引擎优化”！</p>
+<p>常见的搜索引擎，比如百度，谷歌，雅虎，搜狗等等..</p>
+<a id="more"></a>
+
+<p>SEO是指通过对网站进行站内优化、网站结构调整、网站内容建设、网站代码优化等)和站外优化，从而提高网站的关键词排名以及公司产品的曝光度。 简单的说就是，把产品做好，搜索引擎就会介绍客户来。  </p>
+<h4 id="1-网页title-标题"><a href="#1-网页title-标题" class="headerlink" title="1). 网页title 标题"></a>1). 网页title 标题</h4><p>title具有不可替代性，是我们的内页第一个重要标签，是搜索引擎了解网页的入口，和对网页主题归属的最佳判断点。</p>
+<p>建议：</p>
+<p>首页标题：网站名（产品名）- 网站的介绍    </p>
+<p>例如：</p>
+<p>品优购-综合网购首选-正品低价、品质保障、配送及时、轻松购物！</p>
+<p>小米商城 - 小米5s、红米Note 4、小米MIX、小米笔记本官方网站</p>
+<h4 id="2-Description-网站说明"><a href="#2-Description-网站说明" class="headerlink" title="2. Description  网站说明"></a>2. Description  网站说明</h4><p>对于关键词的作用明显降低，但由于很多搜索引擎，仍然大量采用网页的MATA标签中描述部分作为搜索结果的“内容摘要”。 就是简要说明我们网站的主要做什么的。<br>我们提倡，Description作为网站的总体业务和主题概括，多采用“我们是…”“我们提供…”“×××网作为…”“电话：010…”之类语句。</p>
+<p>品优购网：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;品优购JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意点：</p>
+<ol>
+<li>描述中出现关键词，与正文内容相关，这部分内容是给人看的，所以要写的很详细，让人感兴趣， 吸引用户点击。</li>
+<li>同样遵循简短原则，字符数含空格在内不要超过 120  个汉字。</li>
+<li>补充在 title  和 keywords  中未能充分表述的说明.</li>
+<li>用英文逗号 关键词1,关键词2</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;小米商城直营小米公司旗下所有产品，囊括小米手机系列小米MIX、小米Note 2，红米手机系列红米Note 4、红米4，智能硬件，配件及小米生活周边，同时提供小米客户服务及售后支持。&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-Keywords-关键字"><a href="#3-Keywords-关键字" class="headerlink" title="3. Keywords 关键字"></a>3. Keywords 关键字</h4><p>Keywords是页面关键词，是搜索引擎关注点之一。Keywords应该限制在6～8个关键词左右，电商类网站可以多 少许。</p>
+<p>品优购网：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;Keywords&quot; content&#x3D;&quot;网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,品优购&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>小米网：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;keywords&quot; content&#x3D;&quot;小米,小米6,红米Note4,小米MIX,小米商城&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-总结"><a href="#4-总结" class="headerlink" title="4). 总结"></a>4). 总结</h4><ol>
+<li>我们的网页要做的优秀，符合搜索引擎的要求，才可以让搜索引擎优先显示我们的网页。  </li>
+</ol>
+<p>所以我们的网站要做很多的优化， 其中就有这三大标签。</p>
+<ol start="2">
+<li>一般情况下，三大标签里面的优化词，都是专门的优化人员写的，我们大概了解一下规范就可以了。</li>
+<li>我们的主要任务是，能写出这三大标签， 然后把优化人员给我们的内容，添加到里面。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue render函数</title>
+    <url>/2020/03/17/Vue-render%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h2 id="Vue的一些基本概念"><a href="#Vue的一些基本概念" class="headerlink" title="Vue的一些基本概念"></a>Vue的一些基本概念</h2><p> Vue的应用程序是如何运行起来的，模板通过编译生成AST，再由AST生成Vue的<code>render</code>函数（渲染函数），渲染函数结合数据生成Virtual DOM树，Diff和Patch后生成新的UI。 </p>
+<a id="more"></a>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13429147-32832d6b08b108c4.jpg" alt="img"> </p>
+<p>从这张图中，可以接触到Vue的一些主要概念：</p>
+<ul>
+<li><strong>模板</strong>：Vue的模板基于纯HTML，基于Vue的模板语法，我们可以比较方便地声明数据和UI的关系。</li>
+<li><strong>AST</strong>：AST是<strong>Abstract Syntax Tree</strong>的简称，Vue使用HTML的Parser将HTML模板解析为AST，并且对AST进行一些优化的标记处理，提取最大的静态树，方便Virtual DOM时直接跳过Diff。</li>
+<li><strong>渲染函数</strong>：渲染函数是用来生成Virtual DOM的。Vue推荐使用模板来构建我们的应用界面，在底层实现中Vue会将模板编译成渲染函数，当然我们也可以不写模板，直接写渲染函数，以获得更好的控制 （这部分是我们今天主要要了解和学习的部分）。</li>
+<li><strong>Virtual DOM</strong>：虚拟DOM树，Vue的Virtual DOM Patching算法是基于<strong><a href="https://github.com/snabbdom/snabbdom" target="_blank" rel="noopener">Snabbdom</a></strong>的实现，并在些基础上作了很多的调整和改进。</li>
+<li><strong>Watcher</strong>：每个Vue组件都有一个对应的<code>watcher</code>，这个<code>watcher</code>将会在组件<code>render</code>的时候收集组件所依赖的数据，并在依赖有更新的时候，触发组件重新渲染。你根本不需要写<code>shouldComponentUpdate</code>，Vue会自动优化并更新要更新的UI。</li>
+</ul>
+<p>上图中，<code>render</code>函数可以作为一道分割线，<code>render</code>函数的左边可以称之为<strong>编译期</strong>，将Vue的模板转换为<strong>渲染函数</strong>。<code>render</code>函数的右边是Vue的运行时，主要是基于渲染函数生成Virtual DOM树，Diff和Patch。</p>
+<h2 id="渲染函数的基础"><a href="#渲染函数的基础" class="headerlink" title="渲染函数的基础"></a>渲染函数的基础</h2><p>Vue推荐在绝大多数情况下使用<code>template</code>来创建你的HTML。然而在一些场景中，需要使用JavaScript的编程能力和创建HTML，这就是<strong><code>render</code>函数</strong>，它比<code>template</code>更接近编译器。</p>
+<h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h2><p>在Vue 2.0中，渲染层的实现做了根本性改动，那就是引入了虚拟DOM。</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13429147-4eb2a73597a2a9aa.png" alt="img"> </p>
+<p>Vue的编译器在编译模板之后，会把这些模板编译成一个渲染函数。而函数被调用的时候就会渲染并且返回一个<strong>虚拟DOM的树</strong>。</p>
+<p>当我们有了这个虚拟的树之后，再交给一个<strong>Patch函数</strong>，负责把这些虚拟DOM真正施加到真实的DOM上。在这个过程中，Vue有自身的响应式系统来侦测在渲染过程中所依赖到的数据来源。在渲染过程中，侦测到数据来源之后就可以精确感知数据源的变动。到时候就可以根据需要重新进行渲染。当重新进行渲染之后，会生成一个新的树，将新的树与旧的树进行对比，就可以最终得出应施加到真实DOM上的改动。最后再通过Patch函数施加改动。</p>
+<p>简单点讲，在Vue的底层实现上，Vue将模板编译成虚拟DOM渲染函数。结合Vue自带的响应系统，在应该状态改变时，Vue能够智能地计算出重新渲染组件的最小代价并应到DOM操作上。</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13429147-4c7f8bdf4b804bd9.png" alt="img"> </p>
+<p>Vue支持我们通过<code>data</code>参数传递一个JavaScript对象做为组件数据，然后Vue将遍历此对象属性，使用<a href="https://www.w3cplus.com/vue/vue-two-way-binding-object-defineproperty.html" target="_blank" rel="noopener"><code>Object.defineProperty</code>方法</a>设置描述对象，通过存取器函数可以追踪该属性的变更，Vue创建了一层<code>Watcher</code>层，在组件渲染的过程中把属性记录为依赖，之后当依赖项的<code>setter</code>被调用时，会通知<code>Watcher</code>重新计算，从而使它关联的组件得以更新,如下图：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13429147-e5ab233db6c73c31.png" alt="img"> </p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>V-model指令</title>
     <url>/2020/03/13/V-model%E6%8C%87%E4%BB%A4/</url>
     <content><![CDATA[<p><strong>v-model用于表单类元素的双向绑定数据：</strong></p>
@@ -451,39 +484,6 @@
 <p>v-model的修饰符</p>
 <p>v-model的修饰符,可串联；<br>.lazy:输入框中同步数据的方式从原来的input事件变为change事件(只有当失去焦点或者enter时才会同步)；<br> .number:数字输入框将输入的数字由字符串类型转化为number类型；<br>.trim:过滤在输入内容的时候,输入的首尾空格。</p>
 ]]></content>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue render函数</title>
-    <url>/2020/03/17/Vue-render%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h2 id="Vue的一些基本概念"><a href="#Vue的一些基本概念" class="headerlink" title="Vue的一些基本概念"></a>Vue的一些基本概念</h2><p> Vue的应用程序是如何运行起来的，模板通过编译生成AST，再由AST生成Vue的<code>render</code>函数（渲染函数），渲染函数结合数据生成Virtual DOM树，Diff和Patch后生成新的UI。 </p>
-<a id="more"></a>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13429147-32832d6b08b108c4.jpg" alt="img"> </p>
-<p>从这张图中，可以接触到Vue的一些主要概念：</p>
-<ul>
-<li><strong>模板</strong>：Vue的模板基于纯HTML，基于Vue的模板语法，我们可以比较方便地声明数据和UI的关系。</li>
-<li><strong>AST</strong>：AST是<strong>Abstract Syntax Tree</strong>的简称，Vue使用HTML的Parser将HTML模板解析为AST，并且对AST进行一些优化的标记处理，提取最大的静态树，方便Virtual DOM时直接跳过Diff。</li>
-<li><strong>渲染函数</strong>：渲染函数是用来生成Virtual DOM的。Vue推荐使用模板来构建我们的应用界面，在底层实现中Vue会将模板编译成渲染函数，当然我们也可以不写模板，直接写渲染函数，以获得更好的控制 （这部分是我们今天主要要了解和学习的部分）。</li>
-<li><strong>Virtual DOM</strong>：虚拟DOM树，Vue的Virtual DOM Patching算法是基于<strong><a href="https://github.com/snabbdom/snabbdom" target="_blank" rel="noopener">Snabbdom</a></strong>的实现，并在些基础上作了很多的调整和改进。</li>
-<li><strong>Watcher</strong>：每个Vue组件都有一个对应的<code>watcher</code>，这个<code>watcher</code>将会在组件<code>render</code>的时候收集组件所依赖的数据，并在依赖有更新的时候，触发组件重新渲染。你根本不需要写<code>shouldComponentUpdate</code>，Vue会自动优化并更新要更新的UI。</li>
-</ul>
-<p>上图中，<code>render</code>函数可以作为一道分割线，<code>render</code>函数的左边可以称之为<strong>编译期</strong>，将Vue的模板转换为<strong>渲染函数</strong>。<code>render</code>函数的右边是Vue的运行时，主要是基于渲染函数生成Virtual DOM树，Diff和Patch。</p>
-<h2 id="渲染函数的基础"><a href="#渲染函数的基础" class="headerlink" title="渲染函数的基础"></a>渲染函数的基础</h2><p>Vue推荐在绝大多数情况下使用<code>template</code>来创建你的HTML。然而在一些场景中，需要使用JavaScript的编程能力和创建HTML，这就是<strong><code>render</code>函数</strong>，它比<code>template</code>更接近编译器。</p>
-<h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h2><p>在Vue 2.0中，渲染层的实现做了根本性改动，那就是引入了虚拟DOM。</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13429147-4eb2a73597a2a9aa.png" alt="img"> </p>
-<p>Vue的编译器在编译模板之后，会把这些模板编译成一个渲染函数。而函数被调用的时候就会渲染并且返回一个<strong>虚拟DOM的树</strong>。</p>
-<p>当我们有了这个虚拟的树之后，再交给一个<strong>Patch函数</strong>，负责把这些虚拟DOM真正施加到真实的DOM上。在这个过程中，Vue有自身的响应式系统来侦测在渲染过程中所依赖到的数据来源。在渲染过程中，侦测到数据来源之后就可以精确感知数据源的变动。到时候就可以根据需要重新进行渲染。当重新进行渲染之后，会生成一个新的树，将新的树与旧的树进行对比，就可以最终得出应施加到真实DOM上的改动。最后再通过Patch函数施加改动。</p>
-<p>简单点讲，在Vue的底层实现上，Vue将模板编译成虚拟DOM渲染函数。结合Vue自带的响应系统，在应该状态改变时，Vue能够智能地计算出重新渲染组件的最小代价并应到DOM操作上。</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13429147-4c7f8bdf4b804bd9.png" alt="img"> </p>
-<p>Vue支持我们通过<code>data</code>参数传递一个JavaScript对象做为组件数据，然后Vue将遍历此对象属性，使用<a href="https://www.w3cplus.com/vue/vue-two-way-binding-object-defineproperty.html" target="_blank" rel="noopener"><code>Object.defineProperty</code>方法</a>设置描述对象，通过存取器函数可以追踪该属性的变更，Vue创建了一层<code>Watcher</code>层，在组件渲染的过程中把属性记录为依赖，之后当依赖项的<code>setter</code>被调用时，会通知<code>Watcher</code>重新计算，从而使它关联的组件得以更新,如下图：</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13429147-e5ab233db6c73c31.png" alt="img"> </p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
       <tags>
         <tag>Vue</tag>
       </tags>
@@ -576,50 +576,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue-常用指令1</title>
-    <url>/2020/03/04/Vue-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A41/</url>
-    <content><![CDATA[<h1 id="一、指令、参数、修饰符"><a href="#一、指令、参数、修饰符" class="headerlink" title="一、指令、参数、修饰符"></a>一、指令、参数、修饰符</h1><h5 id="1-指令：指令是指带有v-作为前缀的特殊属性，例如：-v-html就是一个指令，表示控制标签的HTML结构。"><a href="#1-指令：指令是指带有v-作为前缀的特殊属性，例如：-v-html就是一个指令，表示控制标签的HTML结构。" class="headerlink" title="1.指令：指令是指带有v-作为前缀的特殊属性，例如： v-html就是一个指令，表示控制标签的HTML结构。"></a>1.指令：指令是指带有v-作为前缀的特殊属性，例如： v-html就是一个指令，表示控制标签的HTML结构。</h5><h5 id="2-参数：参数在指令后以冒号指明。"><a href="#2-参数：参数在指令后以冒号指明。" class="headerlink" title="2.参数：参数在指令后以冒号指明。"></a>2.参数：参数在指令后以冒号指明。</h5><a id="more"></a>
-
-<p>① 参数可以是<strong>某个属性</strong>，例如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;a v-bind：href=“url”&gt;&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> href 是参数，告知 v-bind 指令将a的 href 属性与表达式 url 的值绑定。<br>② 参数还可以是<strong>事件名</strong>，例如： </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;button v-on:click=<span class="string">"bto&gt;&lt;/button&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> 在这里，参数是监听的事件名<br>③ <strong>动态参数</strong><br>  Vue中的动态参数可以是使用方括号[]括起来的JavaScript 表达式或者某个属性或者是事件 </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;a v-bind:[box1]&gt; 动态参数&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var vm = new Vue(&#123;</span></span><br><span class="line"><span class="regexp">        el:".warp",</span></span><br><span class="line"><span class="regexp">        data:&#123;</span></span><br><span class="line"><span class="regexp">            box1:"url",</span></span><br><span class="line"><span class="regexp">            url:"https:/</span><span class="regexp">/www.runoob.com/</span>vue2/vue-template-syntax.html<span class="string">", </span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;) </span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> 在本例中，box1是动态参数，在Vue实例中为box1赋值url,然后在为url赋值一个地址，用法类似于形式参数<br> <strong>④ 动态参数的约束</strong><br> 4.1 对动态参数的<strong>值</strong>的约束<br>  动态参数预期会<strong>求出一个字符串</strong>，异常情况下值为 null。这个特殊的 null 值可以被显性地用于移除绑定。任何其它非字符串类型的值都将会触发一个警告。<br> 4.2 对动态参数<strong>表达式</strong>的约束<br>  <strong>空格和引号</strong>放在 HTML attribute 名里是无效的会报错。例如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;a v-bind:[<span class="string">'foo'</span> + bar]=<span class="string">"value"</span>&gt; ... &lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/会触发一个编译警告</span></span><br></pre></td></tr></table></figure>
-
-<p>因此，建议使用没有空格或引号的表达式，或用计算属性替代这种复杂表达式。</p>
-<h5 id="3-修饰符"><a href="#3-修饰符" class="headerlink" title="3.修饰符"></a>3.修饰符</h5><p>  修饰符<strong>以半角句号 . 指明的特殊后缀</strong>，用于指出一个指令应该以特殊方式绑定。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;form v-on:submit.prevent=<span class="string">"onSubmit"</span>&gt;...&lt;<span class="regexp">/form&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：</p>
-<h1 id="二、插值：使用“Mustache”语法-双大括号"><a href="#二、插值：使用“Mustache”语法-双大括号" class="headerlink" title="二、插值：使用“Mustache”语法 (双大括号)"></a>二、插值：使用“Mustache”语法 (双大括号)</h1><p><strong>① 响应式改变数值</strong>：在Vue中，可以直接使用插值表达式来插入想要在页面中插入的内容</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;message&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">".warp"</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            message:<span class="string">"使用文本插入"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;) </span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>此时插值表达式标签就被绑定的数据对象message的值替代，只要message的数值发生改变，插值处的内容也会跟着更新。<br> <strong>② 非响应式改变数值</strong>：如果不想插入处的值跟随被绑定的数据对象的值改变，可以在标签中使用 v-once指令</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span> v-once&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;message&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">".warp"</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">                message:<span class="string">"使用文本插入"</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;) </span><br><span class="line">    vm.message=<span class="string">"Hello,Vue!"</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>③ 不能识别html标签</strong></p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;message&#125;&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">".warp"</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            message:<span class="string">"&lt;span&gt;Hello,Vue!&lt;/span&gt;"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;) </span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>以上就是数据绑定最基本的用法，使用插值表达式要知道的三点知识：首先数值是可以响应式变化的；其次如果不想数值响应式变化，可以通过v-once指令限制；最后Mustache语法不能够识别HTML的标签</p>
-<h1 id="三、控制HTML内容指令–v-html、v-text"><a href="#三、控制HTML内容指令–v-html、v-text" class="headerlink" title="三、控制HTML内容指令–v-html、v-text"></a>三、控制HTML内容指令–v-html、v-text</h1><p><strong>① v-html</strong>：能够识别HTML标签<br> <strong>② v-text</strong>：不能识别HTML标签</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span>&gt;          </span><br><span class="line">    &lt;p v-html=<span class="string">"message"</span>&gt;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">    &lt;p v-text="message"&gt;&lt;/</span>p&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var vm = new Vue(&#123;</span></span><br><span class="line"><span class="regexp">            el:".warp",</span></span><br><span class="line"><span class="regexp">            data:message,</span></span><br><span class="line"><span class="regexp">        &#125;) </span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="四、控制属性指令–-v-bind"><a href="#四、控制属性指令–-v-bind" class="headerlink" title="四、控制属性指令– v-bind"></a>四、控制属性指令– v-bind</h1><p>  使用v-bind指令控制属性时，结构如下：<strong>v-bind：属性=“变量”</strong>，这样就可以动态的为某个标签绑定特定的属性</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.color</span>&#123;</span></span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line"><span class="css">            <span class="selector-tag">background</span><span class="selector-pseudo">:pink</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"warp"</span>&gt;</span>          </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">".warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                    box:<span class="string">"color"</span></span></span><br><span class="line">                &#125;</span><br><span class="line">        &#125;) </span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue-常用指令2</title>
     <url>/2020/03/04/Vue-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A42/</url>
     <content><![CDATA[<h1 id="一、条件语句"><a href="#一、条件语句" class="headerlink" title="一、条件语句"></a>一、条件语句</h1><h5 id="1-v-if"><a href="#1-v-if" class="headerlink" title="1.v-if"></a>1.v-if</h5><p>  用于条件性的渲染一块内容，只有当条件的返回值为真时，才会渲染该块的内容,一般默认值是true</p>
@@ -669,6 +625,148 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue-常用指令1</title>
+    <url>/2020/03/04/Vue-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A41/</url>
+    <content><![CDATA[<h1 id="一、指令、参数、修饰符"><a href="#一、指令、参数、修饰符" class="headerlink" title="一、指令、参数、修饰符"></a>一、指令、参数、修饰符</h1><h5 id="1-指令：指令是指带有v-作为前缀的特殊属性，例如：-v-html就是一个指令，表示控制标签的HTML结构。"><a href="#1-指令：指令是指带有v-作为前缀的特殊属性，例如：-v-html就是一个指令，表示控制标签的HTML结构。" class="headerlink" title="1.指令：指令是指带有v-作为前缀的特殊属性，例如： v-html就是一个指令，表示控制标签的HTML结构。"></a>1.指令：指令是指带有v-作为前缀的特殊属性，例如： v-html就是一个指令，表示控制标签的HTML结构。</h5><h5 id="2-参数：参数在指令后以冒号指明。"><a href="#2-参数：参数在指令后以冒号指明。" class="headerlink" title="2.参数：参数在指令后以冒号指明。"></a>2.参数：参数在指令后以冒号指明。</h5><a id="more"></a>
+
+<p>① 参数可以是<strong>某个属性</strong>，例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;a v-bind：href=“url”&gt;&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> href 是参数，告知 v-bind 指令将a的 href 属性与表达式 url 的值绑定。<br>② 参数还可以是<strong>事件名</strong>，例如： </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;button v-on:click=<span class="string">"bto&gt;&lt;/button&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> 在这里，参数是监听的事件名<br>③ <strong>动态参数</strong><br>  Vue中的动态参数可以是使用方括号[]括起来的JavaScript 表达式或者某个属性或者是事件 </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;a v-bind:[box1]&gt; 动态参数&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var vm = new Vue(&#123;</span></span><br><span class="line"><span class="regexp">        el:".warp",</span></span><br><span class="line"><span class="regexp">        data:&#123;</span></span><br><span class="line"><span class="regexp">            box1:"url",</span></span><br><span class="line"><span class="regexp">            url:"https:/</span><span class="regexp">/www.runoob.com/</span>vue2/vue-template-syntax.html<span class="string">", </span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;) </span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> 在本例中，box1是动态参数，在Vue实例中为box1赋值url,然后在为url赋值一个地址，用法类似于形式参数<br> <strong>④ 动态参数的约束</strong><br> 4.1 对动态参数的<strong>值</strong>的约束<br>  动态参数预期会<strong>求出一个字符串</strong>，异常情况下值为 null。这个特殊的 null 值可以被显性地用于移除绑定。任何其它非字符串类型的值都将会触发一个警告。<br> 4.2 对动态参数<strong>表达式</strong>的约束<br>  <strong>空格和引号</strong>放在 HTML attribute 名里是无效的会报错。例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;a v-bind:[<span class="string">'foo'</span> + bar]=<span class="string">"value"</span>&gt; ... &lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/会触发一个编译警告</span></span><br></pre></td></tr></table></figure>
+
+<p>因此，建议使用没有空格或引号的表达式，或用计算属性替代这种复杂表达式。</p>
+<h5 id="3-修饰符"><a href="#3-修饰符" class="headerlink" title="3.修饰符"></a>3.修饰符</h5><p>  修饰符<strong>以半角句号 . 指明的特殊后缀</strong>，用于指出一个指令应该以特殊方式绑定。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;form v-on:submit.prevent=<span class="string">"onSubmit"</span>&gt;...&lt;<span class="regexp">/form&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：</p>
+<h1 id="二、插值：使用“Mustache”语法-双大括号"><a href="#二、插值：使用“Mustache”语法-双大括号" class="headerlink" title="二、插值：使用“Mustache”语法 (双大括号)"></a>二、插值：使用“Mustache”语法 (双大括号)</h1><p><strong>① 响应式改变数值</strong>：在Vue中，可以直接使用插值表达式来插入想要在页面中插入的内容</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;message&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">".warp"</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            message:<span class="string">"使用文本插入"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;) </span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>此时插值表达式标签就被绑定的数据对象message的值替代，只要message的数值发生改变，插值处的内容也会跟着更新。<br> <strong>② 非响应式改变数值</strong>：如果不想插入处的值跟随被绑定的数据对象的值改变，可以在标签中使用 v-once指令</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span> v-once&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;message&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">".warp"</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">                message:<span class="string">"使用文本插入"</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;) </span><br><span class="line">    vm.message=<span class="string">"Hello,Vue!"</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>③ 不能识别html标签</strong></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;message&#125;&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">".warp"</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            message:<span class="string">"&lt;span&gt;Hello,Vue!&lt;/span&gt;"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;) </span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>以上就是数据绑定最基本的用法，使用插值表达式要知道的三点知识：首先数值是可以响应式变化的；其次如果不想数值响应式变化，可以通过v-once指令限制；最后Mustache语法不能够识别HTML的标签</p>
+<h1 id="三、控制HTML内容指令–v-html、v-text"><a href="#三、控制HTML内容指令–v-html、v-text" class="headerlink" title="三、控制HTML内容指令–v-html、v-text"></a>三、控制HTML内容指令–v-html、v-text</h1><p><strong>① v-html</strong>：能够识别HTML标签<br> <strong>② v-text</strong>：不能识别HTML标签</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span>&gt;          </span><br><span class="line">    &lt;p v-html=<span class="string">"message"</span>&gt;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">    &lt;p v-text="message"&gt;&lt;/</span>p&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var vm = new Vue(&#123;</span></span><br><span class="line"><span class="regexp">            el:".warp",</span></span><br><span class="line"><span class="regexp">            data:message,</span></span><br><span class="line"><span class="regexp">        &#125;) </span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、控制属性指令–-v-bind"><a href="#四、控制属性指令–-v-bind" class="headerlink" title="四、控制属性指令– v-bind"></a>四、控制属性指令– v-bind</h1><p>  使用v-bind指令控制属性时，结构如下：<strong>v-bind：属性=“变量”</strong>，这样就可以动态的为某个标签绑定特定的属性</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.color</span>&#123;</span></span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line"><span class="css">            <span class="selector-tag">background</span><span class="selector-pseudo">:pink</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"warp"</span>&gt;</span>          </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">".warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                    box:<span class="string">"color"</span></span></span><br><span class="line">                &#125;</span><br><span class="line">        &#125;) </span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue-计算属性</title>
+    <url>/2020/03/05/Vue-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/</url>
+    <content><![CDATA[<h1 id="一、计算属性：computed"><a href="#一、计算属性：computed" class="headerlink" title="一、计算属性：computed"></a>一、计算属性：computed</h1><p>为了让大家进一步的了解为什么使用计算属性，我们先来看下面的一个例子</p>
+<a id="more"></a>
+
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">          &#123;&#123; message.split(<span class="string">''</span>).reverse().<span class="keyword">join</span>(<span class="string">''</span>) &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">".warp"</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">                message:<span class="string">"I Love Vue"</span></span><br><span class="line">            &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在这里例子中，主要是将message的内容经过拆分然后反向输出。<br>  可以看到的是，我们将实现message内容反转输出的逻辑部分写在了View模板部分，这会造成以下两个问题：<br> <strong>① 维护难</strong>：设计View模板的初衷是用于简单运算的，如果在模板中放入太多的逻辑会让模板过重且难以维护；<br> <strong>② 不利于代码的重复利用</strong>：如果一个网页中需要多次翻转内容，那么就必须在每个地方书写一遍反转的逻辑代码<br>  因此，我们建议，将实现业务的逻辑部分放置在Vue实例中，而计算属性computed就是其中一个办法</p>
+<h5 id="1-目的"><a href="#1-目的" class="headerlink" title="1.目的"></a>1.目的</h5><p>  用于处理复杂的逻辑，类似于JavaScript中函数的封装一样，将实现某个特定功能的代码块封装在一起。</p>
+<h5 id="2-结构"><a href="#2-结构" class="headerlink" title="2.结构"></a>2.结构</h5><p>  computed和Vue实例中的methods方法结果类似，内部放置要实现的函数对象</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>原来数据：&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>新数据：&#123;&#123;reversemessage&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">".warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                message:<span class="string">"I Love Vue"</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            computed:&#123;</span><br><span class="line"><span class="actionscript">                reversemessage:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https:////upload-images.jianshu.io/upload_images/21260932-3fb52591dfa92887.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/259/format/webp" alt="img"></p>
+<p>  在这个例子中，原始数据的输入依旧在Vue实例的data中；不同的是业务的逻辑部分已经在Vue实例的computed计算属性中实现。首先是在computed内部<strong>声明了计算属性reversemessage</strong>，然后将提供的匿名函数将用作属性 vm.reverseMessage 的 <strong>getter 函数</strong>，最终用<strong>return返回相应的数据</strong>。<br>  和函数封装不一样的地方是，computed是<strong>有依赖的函数封装</strong>，例如本例中，<br> reversemessage属性会依赖message的变化而变化。<strong>以声明的方式创建了依赖关系</strong>。<br> 但是如果在表达式中调用方法来也可以达到同样的效果：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>原来数据：&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>新数据：&#123;&#123;reversemessage()&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">".warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                message:<span class="string">"I Love Vue"</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            methods:&#123;</span><br><span class="line"><span class="actionscript">                reversemessage:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https:////upload-images.jianshu.io/upload_images/21260932-cab4fb556ad68df7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/259/format/webp" alt="img"></p>
+<p>这就是我们需要知道的另外一点：computed和methods的区别</p>
+<h5 id="3-computed和methods的区别"><a href="#3-computed和methods的区别" class="headerlink" title="3.computed和methods的区别"></a>3.computed和methods的区别</h5><p><strong>① 调用</strong><br>  1.1 computed：调用computed时相当于调用一个<strong>属性</strong><br>  1.2 methods：调用methods时相当于调用一个<strong>方法</strong><br> <strong>② 缓存</strong><br>  2.1 computed：是<strong>依赖缓存</strong>的，即每次进入页面将一直沿用第一次的信息，信息是不随时间变化而变化的，这就是依赖缓存。（有延时的情况下 多次输出时间相同）。只有当<strong>相关依赖</strong>发生改变时才会重新取值呢 （所谓的相关依赖，就是比方说 reversedMessage function() 计算属性中调用了 message 变量）<br>  2.2 methods是<strong>实时</strong>的，在重新渲染时，函数总会重新调用执行，不会缓存<br> <strong>③ 性能</strong><br>  3.1 computed：相对来说computed的<strong>性能会比较好</strong>。比如A是一个很庞大的数组，每次遍历A需要多费一定的时间，而数据B会多次调用数组A来进行计算。如果不使用缓存，每次计算B的同时还要花费时间来遍历数组A；如果使用了缓存，子啊第一次遍历A的时候将相应的结果记录下来，每次计算B时直接从缓存A的空间读取A数组即可，而不必要每次都需要在遍历一遍数组A<br>  3.2 methods：如果你<strong>不希望缓存</strong>，你可以使用 methods 属性，即methods比较使用与<strong>实时切换</strong>的场合</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span>&gt;</span>    <span class="comment">&lt;!--computed计算属性--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;now&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;now&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">hr</span> /&gt;</span>            <span class="comment">&lt;!--横线分割--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test2"</span>&gt;</span>   <span class="comment">&lt;!--methods方法，注意new（）加了括号--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;now()&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;now()&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="comment">//computed</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> myVue = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el: <span class="string">".test"</span>,</span></span><br><span class="line">            computed: &#123;</span><br><span class="line"><span class="actionscript">                now: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">var</span> yanshi = <span class="number">0</span>;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">for</span>(<span class="keyword">var</span> o = <span class="number">0</span>; o &lt; <span class="number">2000</span>; o++) &#123;     <span class="comment">//延时</span></span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">for</span>(<span class="keyword">var</span> q = <span class="number">0</span>; q &lt; <span class="number">2000</span>; q++) &#123;</span></span><br><span class="line">                            yanshi++;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"><span class="javascript">                    <span class="keyword">return</span> <span class="built_in">Date</span>.now()</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"><span class="actionscript"><span class="comment">//methods</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vue2 = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el: <span class="string">'.test2'</span>,</span></span><br><span class="line">            methods: &#123;</span><br><span class="line"><span class="actionscript">                now: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">var</span> yanshi = <span class="number">0</span>;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">for</span>(<span class="keyword">var</span> o = <span class="number">0</span>; o &lt; <span class="number">2000</span>; o++) &#123;</span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">for</span>(<span class="keyword">var</span> q = <span class="number">0</span>; q &lt; <span class="number">2000</span>; q++) &#123;</span></span><br><span class="line">                            yanshi++;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"><span class="javascript">                    <span class="keyword">return</span> <span class="built_in">Date</span>.now()</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https:////upload-images.jianshu.io/upload_images/21260932-1ad9c5400b009f0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/212/format/webp" alt="img"></p>
+<p>由上图可知<br>  <strong>对于computed而言</strong>，一开始进入页面缓存的数据尾数是2055，所以每次进入页面将一直沿用第一次的信息，不会再触发now，说明computed是<strong>依赖缓存</strong>的；而<strong>只有当相关依赖发生变化时</strong>，缓存的信息才会再次改变。<br>  <strong>而对于methods而言</strong>，是<strong>实时变化</strong>的，所以两次返回的时间是不一样的。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue动态路由</title>
+    <url>/2020/03/20/Vue%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p>vue动态路由和get的传值—-&gt;同属于路由的传参</p>
+<p>1，vue动态路由：</p>
+<p>动态路由的配置：</p>
+<p>①，在配置路由时加上动态路由标识，后面属性值可随意！</p>
+<a id="more"></a>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/11969846-599573a45ddda125.png" alt="img"> </p>
+<p> ②，在<router-view></router-view>中配置链接值 </p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/11969846-d81d76ebf5ed6960.png" alt="img"> </p>
+<p> ③，在组件中打印路由传参信息 </p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/11969846-8f998b6f77079827.png" alt="img"> </p>
+<p>2，vue的get传参</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/11969846-7ef871248397abac.png" alt="img"> </p>
+<p> ②，在<router-view></router-view>中配置get传参 </p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/11969846-37ff8a80a117d9db.png" alt="img"> </p>
+<p> ③，在组件中打印路由传参信息 </p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/11969846-9f6ca9ce5b7fbddc.png" alt="img"> </p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue父子组件传值</title>
+    <url>/2020/03/14/Vue%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/</url>
+    <content><![CDATA[<h1 id="Vue父子组件传值"><a href="#Vue父子组件传值" class="headerlink" title="Vue父子组件传值"></a>Vue父子组件传值</h1><h2 id="父组件传值给子组件"><a href="#父组件传值给子组件" class="headerlink" title="父组件传值给子组件"></a>父组件传值给子组件</h2><h2 id="1-案例场景"><a href="#1-案例场景" class="headerlink" title="1.案例场景"></a>1.案例场景</h2><p>  我们先准备下基础页面，具体如下</p>
+<a id="more"></a>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="./</span>lib/vue<span class="number">-2.4</span><span class="number">.0</span>.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">    &lt;div id="</span>app<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        &lt;!--父组件的使用--&gt;</span></span><br><span class="line"><span class="string">        &lt;h1&gt;父组件--&#123;&#123;msg&#125;&#125;&lt;/h1&gt;</span></span><br><span class="line"><span class="string">        &lt;!--子组件的使用--&gt;</span></span><br><span class="line"><span class="string">        &lt;com1&gt;&lt;/com1&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;script&gt;</span></span><br><span class="line"><span class="string">        // com1 子组件</span></span><br><span class="line"><span class="string">        var com1 = &#123;</span></span><br><span class="line"><span class="string">            template: "</span>&lt;h3&gt;我是子组件--&lt;<span class="regexp">/h3&gt;"</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 定义的 Vue实例</span></span><br><span class="line"><span class="regexp">        var vm = new Vue(&#123;</span></span><br><span class="line"><span class="regexp">            el: "#app",</span></span><br><span class="line"><span class="regexp">            data: &#123;</span></span><br><span class="line"><span class="regexp">                msg: "hello--我是父组件"</span></span><br><span class="line"><span class="regexp">            &#125;,</span></span><br><span class="line"><span class="regexp">            methods: &#123;&#125;,</span></span><br><span class="line"><span class="regexp">            components:&#123;</span></span><br><span class="line"><span class="regexp">                com1</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp">        &#125;)</span></span><br><span class="line"><span class="regexp">    &lt;/</span>script&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>页面效果</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190729164136913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h2 id="效果实现"><a href="#效果实现" class="headerlink" title="效果实现"></a>效果实现</h2><p>  现在我们想要将Vue实例中的 msg 的值传递给 子组件，实现步骤如下</p>
+<p>1.父组件，可以在引用子组件的时候， 通过 <strong>属性绑定</strong>（v-bind:） 的形式, 把 需要传递给 子组件的数据，以属性绑定的形式，传递到子组件内部，供子组件使用</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190729164411895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<p>在子组件中有个 <strong>props</strong> 属性，该属性中保存的都是 父组件传递给子组件的数据，注意：props 中的数据，都是只读的，无法重新赋值</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190729164629803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<p> 我们在子组件中使用在 props中保存的数据 </p>
+<p> <img src="https://img-blog.csdnimg.cn/20190729164731441.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<p> 获取到了数据，完整代码如下: </p>
+<figure class="highlight h"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=<span class="string">"./lib/vue-2.4.0.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;!--父组件的使用--&gt;</span><br><span class="line">        &lt;h1&gt;父组件--&#123;&#123;msg&#125;&#125;&lt;/h1&gt;</span><br><span class="line">        &lt;!--子组件的使用--&gt;</span><br><span class="line">        &lt;com1 v-bind:parentmsg=<span class="string">"msg"</span>&gt;&lt;/com1&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="comment">// com1 子组件</span></span><br><span class="line">        var com1 = &#123;</span><br><span class="line">            <span class="keyword">template</span>: <span class="string">"&lt;h3&gt;我是子组件-- &#123;&#123;parentmsg&#125;&#125;&lt;/h3&gt;"</span>,</span><br><span class="line">            props:['parentmsg']</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 定义的 Vue实例</span></span><br><span class="line">        var vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">"#app"</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                msg: <span class="string">"hello--我是父组件"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;&#125;,</span><br><span class="line">            components:&#123;</span><br><span class="line">                com1</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="子组件传值给父组件"><a href="#子组件传值给父组件" class="headerlink" title="子组件传值给父组件"></a>子组件传值给父组件</h2><p>  与上面的例子相反，我们想要将子组件的数据传递给父组件，这时怎么办呢？我们可以通过将父组件中的方法传递给子组件调用，然后通过传参的形式来实现数据的传递效果，具体如下</p>
+<p> <img src="https://img-blog.csdnimg.cn/2019072917065123.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p> 父组件向子组件传递方法是通过 v-on 绑定机制来实现的，当我们自定义了 一个 事件属性之后，那么，子组件就能够，通过某些方式，来调用 传递进去的 这个 方法了<img src="https://img-blog.csdnimg.cn/20190729170246496.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p> 首先在父组件中创建了一个 show 方法，该方法的作用是将获取的参数赋值给 Vue实例中的 data 中的 msg </p>
+<p> <img src="https://img-blog.csdnimg.cn/20190729170024180.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p> 完整代码如下: </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="./</span>lib/vue<span class="number">-2.4</span><span class="number">.0</span>.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    &lt;div id="</span>app<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        &lt;h3&gt;我是父组件: &#123;&#123;msg&#125;&#125;&lt;/h3&gt;</span></span><br><span class="line"><span class="string">        &lt;com1 v-on:func="</span>show<span class="string">"&gt;&lt;/com1&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &lt;template id="</span>temp1<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        &lt;div&gt;</span></span><br><span class="line"><span class="string">            &lt;h3 &gt;我是子组件&lt;/h3&gt;</span></span><br><span class="line"><span class="string">            &lt;input type="</span>button<span class="string">" value="</span>调用父组件的方法<span class="string">" @click="</span>myclick<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &lt;/template&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &lt;script&gt;</span></span><br><span class="line"><span class="string">        var com1 = &#123;</span></span><br><span class="line">            template: "#temp1",</span><br><span class="line">            data()&#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;<span class="attr">sonmsg</span>:&#123;<span class="attr">name</span>:<span class="string">'波波烤鸭'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;&#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                myclick()&#123;</span><br><span class="line">                    <span class="keyword">this</span>.$emit(<span class="string">'func'</span>,<span class="keyword">this</span>.sonmsg)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">"#app"</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                msg:<span class="literal">null</span></span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                show(data)&#123;</span><br><span class="line">                    <span class="keyword">this</span>.msg = data</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            components: &#123;</span><br><span class="line">                com1</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue插槽</title>
     <url>/2020/03/14/Vue%E6%8F%92%E6%A7%BD/</url>
     <content><![CDATA[<h3 id="单个插槽-（匿名插槽）"><a href="#单个插槽-（匿名插槽）" class="headerlink" title="单个插槽 （匿名插槽）"></a>单个插槽 （匿名插槽）</h3><p>  在没有使用插槽前，组件内部写入的后备内容都会被抛弃，原因很简单，在父组件渲染的时候，会使用子组件里的内容来替换它在父组件的占位。如果不想被丢弃，就需要在子组件中使用单个插槽来接收内容</p>
@@ -706,42 +804,6 @@
 
 <p> 如果存在别的插槽，则不能混用，注意，这里也可以使用<code>v-slot</code>的简写 </p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;todo-list&gt; </span><br><span class="line">    &lt;template #default="slotProps"&gt;</span><br><span class="line">      &lt;span&gt;&#123;&#123; slotProp.todo.text &#125;&#125;&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>template&gt;</span><br><span class="line">    &lt;template #other="otherSlotProps"&gt;</span><br><span class="line">      &lt;span&gt;&#123;&#123; otherSlotProps.todo.text &#125;&#125;&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>template&gt;</span><br><span class="line">  &lt;<span class="regexp">/todo-list&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue父子组件传值</title>
-    <url>/2020/03/14/Vue%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/</url>
-    <content><![CDATA[<h1 id="Vue父子组件传值"><a href="#Vue父子组件传值" class="headerlink" title="Vue父子组件传值"></a>Vue父子组件传值</h1><h2 id="父组件传值给子组件"><a href="#父组件传值给子组件" class="headerlink" title="父组件传值给子组件"></a>父组件传值给子组件</h2><h2 id="1-案例场景"><a href="#1-案例场景" class="headerlink" title="1.案例场景"></a>1.案例场景</h2><p>  我们先准备下基础页面，具体如下</p>
-<a id="more"></a>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="./</span>lib/vue<span class="number">-2.4</span><span class="number">.0</span>.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">    &lt;div id="</span>app<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        &lt;!--父组件的使用--&gt;</span></span><br><span class="line"><span class="string">        &lt;h1&gt;父组件--&#123;&#123;msg&#125;&#125;&lt;/h1&gt;</span></span><br><span class="line"><span class="string">        &lt;!--子组件的使用--&gt;</span></span><br><span class="line"><span class="string">        &lt;com1&gt;&lt;/com1&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;script&gt;</span></span><br><span class="line"><span class="string">        // com1 子组件</span></span><br><span class="line"><span class="string">        var com1 = &#123;</span></span><br><span class="line"><span class="string">            template: "</span>&lt;h3&gt;我是子组件--&lt;<span class="regexp">/h3&gt;"</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 定义的 Vue实例</span></span><br><span class="line"><span class="regexp">        var vm = new Vue(&#123;</span></span><br><span class="line"><span class="regexp">            el: "#app",</span></span><br><span class="line"><span class="regexp">            data: &#123;</span></span><br><span class="line"><span class="regexp">                msg: "hello--我是父组件"</span></span><br><span class="line"><span class="regexp">            &#125;,</span></span><br><span class="line"><span class="regexp">            methods: &#123;&#125;,</span></span><br><span class="line"><span class="regexp">            components:&#123;</span></span><br><span class="line"><span class="regexp">                com1</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp">        &#125;)</span></span><br><span class="line"><span class="regexp">    &lt;/</span>script&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>页面效果</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190729164136913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h2 id="效果实现"><a href="#效果实现" class="headerlink" title="效果实现"></a>效果实现</h2><p>  现在我们想要将Vue实例中的 msg 的值传递给 子组件，实现步骤如下</p>
-<p>1.父组件，可以在引用子组件的时候， 通过 <strong>属性绑定</strong>（v-bind:） 的形式, 把 需要传递给 子组件的数据，以属性绑定的形式，传递到子组件内部，供子组件使用</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190729164411895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p>在子组件中有个 <strong>props</strong> 属性，该属性中保存的都是 父组件传递给子组件的数据，注意：props 中的数据，都是只读的，无法重新赋值</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190729164629803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p> 我们在子组件中使用在 props中保存的数据 </p>
-<p> <img src="https://img-blog.csdnimg.cn/20190729164731441.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p> 获取到了数据，完整代码如下: </p>
-<figure class="highlight h"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=<span class="string">"./lib/vue-2.4.0.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;!--父组件的使用--&gt;</span><br><span class="line">        &lt;h1&gt;父组件--&#123;&#123;msg&#125;&#125;&lt;/h1&gt;</span><br><span class="line">        &lt;!--子组件的使用--&gt;</span><br><span class="line">        &lt;com1 v-bind:parentmsg=<span class="string">"msg"</span>&gt;&lt;/com1&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="comment">// com1 子组件</span></span><br><span class="line">        var com1 = &#123;</span><br><span class="line">            <span class="keyword">template</span>: <span class="string">"&lt;h3&gt;我是子组件-- &#123;&#123;parentmsg&#125;&#125;&lt;/h3&gt;"</span>,</span><br><span class="line">            props:['parentmsg']</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 定义的 Vue实例</span></span><br><span class="line">        var vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">"#app"</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                msg: <span class="string">"hello--我是父组件"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;&#125;,</span><br><span class="line">            components:&#123;</span><br><span class="line">                com1</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="子组件传值给父组件"><a href="#子组件传值给父组件" class="headerlink" title="子组件传值给父组件"></a>子组件传值给父组件</h2><p>  与上面的例子相反，我们想要将子组件的数据传递给父组件，这时怎么办呢？我们可以通过将父组件中的方法传递给子组件调用，然后通过传参的形式来实现数据的传递效果，具体如下</p>
-<p> <img src="https://img-blog.csdnimg.cn/2019072917065123.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p> 父组件向子组件传递方法是通过 v-on 绑定机制来实现的，当我们自定义了 一个 事件属性之后，那么，子组件就能够，通过某些方式，来调用 传递进去的 这个 方法了<img src="https://img-blog.csdnimg.cn/20190729170246496.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p> 首先在父组件中创建了一个 show 方法，该方法的作用是将获取的参数赋值给 Vue实例中的 data 中的 msg </p>
-<p> <img src="https://img-blog.csdnimg.cn/20190729170024180.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9kcGItYm9ib2thb3lhLXNtLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p> 完整代码如下: </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="./</span>lib/vue<span class="number">-2.4</span><span class="number">.0</span>.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    &lt;div id="</span>app<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        &lt;h3&gt;我是父组件: &#123;&#123;msg&#125;&#125;&lt;/h3&gt;</span></span><br><span class="line"><span class="string">        &lt;com1 v-on:func="</span>show<span class="string">"&gt;&lt;/com1&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &lt;template id="</span>temp1<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        &lt;div&gt;</span></span><br><span class="line"><span class="string">            &lt;h3 &gt;我是子组件&lt;/h3&gt;</span></span><br><span class="line"><span class="string">            &lt;input type="</span>button<span class="string">" value="</span>调用父组件的方法<span class="string">" @click="</span>myclick<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &lt;/template&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &lt;script&gt;</span></span><br><span class="line"><span class="string">        var com1 = &#123;</span></span><br><span class="line">            template: "#temp1",</span><br><span class="line">            data()&#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;<span class="attr">sonmsg</span>:&#123;<span class="attr">name</span>:<span class="string">'波波烤鸭'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;&#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                myclick()&#123;</span><br><span class="line">                    <span class="keyword">this</span>.$emit(<span class="string">'func'</span>,<span class="keyword">this</span>.sonmsg)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">"#app"</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                msg:<span class="literal">null</span></span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                show(data)&#123;</span><br><span class="line">                    <span class="keyword">this</span>.msg = data</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            components: &#123;</span><br><span class="line">                com1</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -849,24 +911,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue计算属性</title>
-    <url>/2020/03/12/Vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/</url>
-    <content><![CDATA[<p> <strong><em>当需要使用多个变量的计算结果时，可以利用vue的计算属性，将计算结果返回给一个计算属性，后面直接调用该属性，利用计算属性结合v-module可以实现简单的计算器功能</em></strong><br>1.定义和调用<br>计算属性定义在computed中，调用时使用mustache语法调用且后面不跟() </p>
- <a id="more"></a>![img](https://img-blog.csdnimg.cn/20200331223323961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpbmdsaXUwODI0,size_16,color_FFFFFF,t_70) 
-
-<p>计算属性得到价格</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li v-<span class="keyword">for</span>=<span class="string">'price in books'</span>&gt;&#123;&#123;price&#125;&#125;&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/u</span>l&gt;</span><br><span class="line">    &lt;h2&gt;总价：&lt;span&gt;&#123;&#123;totalprice&#125;&#125;&lt;<span class="regexp">/span&gt;&lt;/</span>h2&gt;</span><br><span class="line">    &lt;!-- 虽然computed中的totalprice是以函数定义，但是使用时不要在后面加(),</span><br><span class="line">      这里它是一个计算属性，本质是一个属性 --&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;script&gt;</span></span><br><span class="line"><span class="regexp">    const app=new Vue(&#123;</span></span><br><span class="line"><span class="regexp">      el:'#app',</span></span><br><span class="line"><span class="regexp">      data:&#123;</span></span><br><span class="line"><span class="regexp">        books:[&#123;id:'o1',name:'aaa',price:98&#125;,&#123;id:'o2',name:'bbb',price:108&#125;,</span></span><br><span class="line"><span class="regexp">          &#123;id:'o3',name:'ccc',price:78&#125;,&#123;id:'o4',name:'ddd',price:79&#125;</span></span><br><span class="line"><span class="regexp">        ]</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      computed:&#123; /</span><span class="regexp">/ 计算属性定义在computed中，以函数的形式定义并返回一个结果</span></span><br><span class="line"><span class="regexp">        totalprice:function()&#123;</span></span><br><span class="line"><span class="regexp">          let result=0</span></span><br><span class="line"><span class="regexp">          for(let item of this.books)&#123;</span></span><br><span class="line"><span class="regexp">            result+=item.price</span></span><br><span class="line"><span class="regexp">          &#125;</span></span><br><span class="line"><span class="regexp">          return result</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      methods:&#123;</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;)</span></span><br><span class="line"><span class="regexp">  &lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意：计算属性是一个属性，它实际拥有get 和set 方法，但由于一般都不使用set方法，只使用get方法，所以为了简便，我们看到的计算属性就以函数形式定义，所以使用时后面不能加()。<br>2.计算属性和methods的区别：计算属性具有缓存机制。<br>methods中的方法每使用一次方法就会被调用一次，不管里面的数据是否发生变化。而使用计算属性时，只要里面影响结果的变量没有发生变化，无论计算属性被使用多少次，函数都只会被调用一次。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>call bind apply</title>
     <url>/2020/02/23/call-bind-apply/</url>
     <content><![CDATA[<h3 id="改变函数内部-this-指向"><a href="#改变函数内部-this-指向" class="headerlink" title="改变函数内部 this 指向"></a>改变函数内部 this 指向</h3><h4 id="call方法"><a href="#call方法" class="headerlink" title="call方法"></a>call方法</h4><p>call()方法调用一个对象。简单理解为调用函数的方式，但是它可以改变函数的 this 指向</p>
@@ -907,6 +951,81 @@
       </categories>
       <tags>
         <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css-显示模式</title>
+    <url>/2020/01/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
+
+<p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的块元素有<span class="tag">&lt;<span class="name">h1</span>&gt;</span>~<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">li</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
+
+<p>块级元素的特点</p>
+<p>（1）比较霸道，自己独占一行</p>
+<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
+<p>（3）宽度默认是容器（父级宽度）的100%</p>
+<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
+<p>注意：</p>
+<p>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </p>
+<p>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</p>
+<h4 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h4><p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的行内元素有<span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">b</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">del</span>&gt;</span>、<span class="tag">&lt;<span class="name">s</span>&gt;</span>、<span class="tag">&lt;<span class="name">ins</span>&gt;</span>、<span class="tag">&lt;<span class="name">u</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">span</span>&gt;</span>标签最典型的行内元素。有的地方也成内联元素</span><br></pre></td></tr></table></figure>
+
+<p>行内元素的特点：</p>
+<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
+<p>（2）高、宽直接设置是无效的。</p>
+<p>（3）默认宽度就是它本身内容的宽度。</p>
+<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
+<p>注意：</p>
+<p>链接里面不能再放链接。</p>
+<p>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全</p>
+<h4 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h4><p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——<span class="tag">&lt;<span class="name">img</span> /&gt;</span>、<span class="tag">&lt;<span class="name">input</span> /&gt;</span>、<span class="tag">&lt;<span class="name">td</span>&gt;</span>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br></pre></td></tr></table></figure>
+
+<p>行内块元素的特点：</p>
+<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
+<thead>
+<tr>
+<th>元素模式</th>
+<th>元素排列</th>
+<th>设置样式</th>
+<th>默认宽度</th>
+<th>包含</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>块级元素</td>
+<td>一行只能放一个块级元素</td>
+<td>可以设置宽度高度</td>
+<td>容器的100%</td>
+<td>容器级可以包含任何标签</td>
+</tr>
+<tr>
+<td>行内元素</td>
+<td>一行可以放多个行内元素</td>
+<td>不可以直接设置宽度高度</td>
+<td>它本身内容的宽度</td>
+<td>容纳文本或则其他行内元素</td>
+</tr>
+<tr>
+<td>行内块元素</td>
+<td>一行放多个行内块元素</td>
+<td>可以设置宽度和高度</td>
+<td>它本身内容的宽度</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
+<p>行内转块：display:block;</p>
+<p>块、行内元素转换为行内块： display: inline-block</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -1018,81 +1137,6 @@
 <p>也就是说，我们给盒子改为了浮动或者定位，就不会有垂直外边距合并的问题了。</p>
 <p>定位的盒子会压住文字</p>
 <p>浮动的盒子不会压住文字，因为早期浮动的出现就是为了文字的环绕</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css-显示模式</title>
-    <url>/2020/01/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
-
-<p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的块元素有<span class="tag">&lt;<span class="name">h1</span>&gt;</span>~<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">li</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
-
-<p>块级元素的特点</p>
-<p>（1）比较霸道，自己独占一行</p>
-<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
-<p>（3）宽度默认是容器（父级宽度）的100%</p>
-<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
-<p>注意：</p>
-<p>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </p>
-<p>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</p>
-<h4 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h4><p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的行内元素有<span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">b</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">del</span>&gt;</span>、<span class="tag">&lt;<span class="name">s</span>&gt;</span>、<span class="tag">&lt;<span class="name">ins</span>&gt;</span>、<span class="tag">&lt;<span class="name">u</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">span</span>&gt;</span>标签最典型的行内元素。有的地方也成内联元素</span><br></pre></td></tr></table></figure>
-
-<p>行内元素的特点：</p>
-<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
-<p>（2）高、宽直接设置是无效的。</p>
-<p>（3）默认宽度就是它本身内容的宽度。</p>
-<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
-<p>注意：</p>
-<p>链接里面不能再放链接。</p>
-<p>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全</p>
-<h4 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h4><p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——<span class="tag">&lt;<span class="name">img</span> /&gt;</span>、<span class="tag">&lt;<span class="name">input</span> /&gt;</span>、<span class="tag">&lt;<span class="name">td</span>&gt;</span>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br></pre></td></tr></table></figure>
-
-<p>行内块元素的特点：</p>
-<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
-<thead>
-<tr>
-<th>元素模式</th>
-<th>元素排列</th>
-<th>设置样式</th>
-<th>默认宽度</th>
-<th>包含</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>块级元素</td>
-<td>一行只能放一个块级元素</td>
-<td>可以设置宽度高度</td>
-<td>容器的100%</td>
-<td>容器级可以包含任何标签</td>
-</tr>
-<tr>
-<td>行内元素</td>
-<td>一行可以放多个行内元素</td>
-<td>不可以直接设置宽度高度</td>
-<td>它本身内容的宽度</td>
-<td>容纳文本或则其他行内元素</td>
-</tr>
-<tr>
-<td>行内块元素</td>
-<td>一行放多个行内块元素</td>
-<td>可以设置宽度和高度</td>
-<td>它本身内容的宽度</td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
-<p>行内转块：display:block;</p>
-<p>块、行内元素转换为行内块： display: inline-block</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1355,6 +1399,57 @@
       </tags>
   </entry>
   <entry>
+    <title>css3-过渡</title>
+    <url>/2020/01/15/css3%E8%BF%87%E6%B8%A1/</url>
+    <content><![CDATA[<h4 id="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"><a href="#CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。" class="headerlink" title="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"></a>CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。</h4><a id="more"></a>
+
+<p>CSS3 过渡是元素从一种样式逐渐改变为另一种的效果<br>要实现这一点，必须规定两项内容：<br>  指定要添加效果的CSS属性<br>  指定效果的持续时间</p>
+<p>实例：应用于宽度属性的过渡效果，时长为 2 秒：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">   <span class="attribute">transition</span>: width <span class="number">2s</span>;</span><br><span class="line">   <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意： 如果未指定的期限，transition将没有任何效果，因为默认值是0。</p>
+<p>指定的CSS属性的值更改时效果会发生变化。一个典型CSS属性的变化是用户鼠标放在一个元素上时：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">     <span class="selector-tag">div</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">background</span>:red;</span><br><span class="line">      <span class="attribute">transition</span>:width <span class="number">2s</span>;</span><br><span class="line">      <span class="attribute">-webkit-transition</span>:width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>多项改变</p>
+<p>要添加多个样式的变换效果，添加的属性由逗号分隔：或者用all来代替</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">   <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, -webkit-transform <span class="number">2s</span>; <span class="comment">/* For Safari 3.1 to 6.0 */</span></span><br><span class="line">    transition: width 2s, height 2s, transform 2s; // all 2s</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>); <span class="comment">/* Chrome, Safari, Opera */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>transition-property</td>
+<td>规定应用过渡的 CSS 属性的名称。</td>
+</tr>
+<tr>
+<td>transition-duration</td>
+<td>定义过渡效果花费的时间。默认是 0。</td>
+</tr>
+<tr>
+<td>transition-timing-function</td>
+<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
+</tr>
+<tr>
+<td>transition-delay</td>
+<td>规定过渡效果何时开始。默认是 0。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css3</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flex布局</title>
     <url>/2020/01/26/css3-flex%E5%B8%83%E5%B1%80/</url>
     <content><![CDATA[<h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><p>布局的传统解决方案：是基于盒模型，这种布局依赖<code>display</code>属性 + <code>position</code>属性 + <code>float</code>属性，但是对于一些特殊的布局是不方便的，比如说：对于垂直布局就不容易实现。、</p>
@@ -1491,57 +1586,6 @@
       </tags>
   </entry>
   <entry>
-    <title>css3-过渡</title>
-    <url>/2020/01/15/css3%E8%BF%87%E6%B8%A1/</url>
-    <content><![CDATA[<h4 id="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"><a href="#CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。" class="headerlink" title="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"></a>CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。</h4><a id="more"></a>
-
-<p>CSS3 过渡是元素从一种样式逐渐改变为另一种的效果<br>要实现这一点，必须规定两项内容：<br>  指定要添加效果的CSS属性<br>  指定效果的持续时间</p>
-<p>实例：应用于宽度属性的过渡效果，时长为 2 秒：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">   <span class="attribute">transition</span>: width <span class="number">2s</span>;</span><br><span class="line">   <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意： 如果未指定的期限，transition将没有任何效果，因为默认值是0。</p>
-<p>指定的CSS属性的值更改时效果会发生变化。一个典型CSS属性的变化是用户鼠标放在一个元素上时：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">     <span class="selector-tag">div</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">background</span>:red;</span><br><span class="line">      <span class="attribute">transition</span>:width <span class="number">2s</span>;</span><br><span class="line">      <span class="attribute">-webkit-transition</span>:width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<p>多项改变</p>
-<p>要添加多个样式的变换效果，添加的属性由逗号分隔：或者用all来代替</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">   <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, -webkit-transform <span class="number">2s</span>; <span class="comment">/* For Safari 3.1 to 6.0 */</span></span><br><span class="line">    transition: width 2s, height 2s, transform 2s; // all 2s</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>); <span class="comment">/* Chrome, Safari, Opera */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>transition-property</td>
-<td>规定应用过渡的 CSS 属性的名称。</td>
-</tr>
-<tr>
-<td>transition-duration</td>
-<td>定义过渡效果花费的时间。默认是 0。</td>
-</tr>
-<tr>
-<td>transition-timing-function</td>
-<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
-</tr>
-<tr>
-<td>transition-delay</td>
-<td>规定过渡效果何时开始。默认是 0。</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css3</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hash模式和history模式</title>
     <url>/2020/03/19/hash%E6%A8%A1%E5%BC%8F%E5%92%8Chistory%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<p>关于Vue的路由一直以来个人都觉得是一件很神奇的事情，一个单页面应用居然可以做到多路由跳转并按需加载页面代码。以往的做法都是通过锚点来定位对应的页面代码，而这种古老的操作方式最大的问题就是首屏加载缓慢，一次性加载了所有页面代码。</p>
@@ -1565,34 +1609,6 @@
 <p>—————————–  补充 —————————–</p>
 <p>history模式下，build之后本地 index.html 打开是无效的。</p>
 <p>hash模式下，build之后本地 index.html 打开正常！</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue动态路由</title>
-    <url>/2020/03/20/Vue%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<p>vue动态路由和get的传值—-&gt;同属于路由的传参</p>
-<p>1，vue动态路由：</p>
-<p>动态路由的配置：</p>
-<p>①，在配置路由时加上动态路由标识，后面属性值可随意！</p>
-<a id="more"></a>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/11969846-599573a45ddda125.png" alt="img"> </p>
-<p> ②，在<router-view></router-view>中配置链接值 </p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/11969846-d81d76ebf5ed6960.png" alt="img"> </p>
-<p> ③，在组件中打印路由传参信息 </p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/11969846-8f998b6f77079827.png" alt="img"> </p>
-<p>2，vue的get传参</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/11969846-7ef871248397abac.png" alt="img"> </p>
-<p> ②，在<router-view></router-view>中配置get传参 </p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/11969846-37ff8a80a117d9db.png" alt="img"> </p>
-<p> ③，在组件中打印路由传参信息 </p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/11969846-9f6ca9ce5b7fbddc.png" alt="img"> </p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1647,6 +1663,48 @@
 <p>​    <strong>获取指定范围内的随机整数</strong>：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandom</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-事件对象</title>
+    <url>/2020/02/09/js-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><p>事件发生后，跟事件相关的一系列信息数据的集合都放到这个对象里面，这个对象就是事件对象。</p>
+<p>比如：  </p>
+<ol>
+<li><p>谁绑定了这个事件。</p>
+</li>
+<li><p>鼠标触发事件的话，会得到鼠标的相关信息，如鼠标位置。</p>
+</li>
+<li><p>键盘触发事件的话，会得到键盘的相关信息，如按了哪个键。</p>
+<a id="more"></a>
+
+</li>
+</ol>
+<h4 id="事件对象的使用"><a href="#事件对象的使用" class="headerlink" title="事件对象的使用"></a>事件对象的使用</h4><p>事件触发发生时就会产生事件对象，并且系统会以实参的形式传给事件处理函数。</p>
+<p>所以，在事件处理函数中声明1个形参用来接收事件对象。</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200425200103792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;<span class="number">123</span>&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var div = document.querySelector('div');</span></span><br><span class="line"><span class="regexp">    div.onclick = function(e) &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ 事件对象</span></span><br><span class="line"><span class="regexp">            e = e || window.event; /</span><span class="regexp">/处理兼容性</span></span><br><span class="line"><span class="regexp">            console.log(e);</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="事件对象的属性和方法"><a href="#事件对象的属性和方法" class="headerlink" title="事件对象的属性和方法"></a>事件对象的属性和方法</h4><p><img src="https://img-blog.csdnimg.cn/20200425200156635.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="e-target-和-this-的区别"><a href="#e-target-和-this-的区别" class="headerlink" title="e.target 和 this 的区别"></a>e.target 和 this 的区别</h4><ul>
+<li><p>this 是事件绑定的元素（绑定这个事件处理函数的元素） 。</p>
+</li>
+<li><p>e.target 是事件触发的元素。</p>
+</li>
+</ul>
+<h4 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h4><blockquote>
+<p>html中一些标签有默认行为，例如a标签被单击后，默认会进行页面跳转。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;a href=<span class="string">"http://www.baidu.com"</span>&gt;百度&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 2. 阻止默认行为 让链接不跳转 </span></span><br><span class="line"><span class="regexp">    var a = document.querySelector('a');</span></span><br><span class="line"><span class="regexp">    a.addEventListener('click', function(e) &#123;</span></span><br><span class="line"><span class="regexp">         e.preventDefault(); /</span><span class="regexp">/  dom 标准写法</span></span><br><span class="line"><span class="regexp">    &#125;);</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 3. 传统的注册方式</span></span><br><span class="line"><span class="regexp">    a.onclick = function(e) &#123;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 普通浏览器 e.preventDefault();  方法</span></span><br><span class="line"><span class="regexp">        e.preventDefault();</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 低版本浏览器 ie678  returnValue  属性</span></span><br><span class="line"><span class="regexp">        e.returnValue = false;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 我们可以利用return false 也能阻止默认行为 没有兼容性问题</span></span><br><span class="line"><span class="regexp">        return false;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"father"</span>&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"son"</span>&gt;son儿子&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">      <span class="keyword">var</span> son = <span class="built_in">document</span>.querySelector(<span class="string">'.son'</span>);</span><br><span class="line"><span class="comment">// 给son注册单击事件</span></span><br><span class="line">      son.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'son'</span>);</span><br><span class="line">          e.stopPropagation(); <span class="comment">// stop 停止  Propagation 传播</span></span><br><span class="line">          <span class="built_in">window</span>.event.cancelBubble = <span class="literal">true</span>; <span class="comment">// 非标准 cancel 取消 bubble 泡泡</span></span><br><span class="line">      &#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> father = <span class="built_in">document</span>.querySelector(<span class="string">'.father'</span>);</span><br><span class="line"><span class="comment">// 给father注册单击事件</span></span><br><span class="line">      father.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'father'</span>);</span><br><span class="line">      &#125;, <span class="literal">false</span>);</span><br><span class="line"><span class="comment">// 给document注册单击事件</span></span><br><span class="line">      <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'document'</span>);</span><br><span class="line">      &#125;)</span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4>]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -1714,48 +1772,6 @@
 
 <p>输出为4-&gt;1，事件在到达具体元素后，停止了冒泡。但不影响父元素的事件捕获。</p>
 ]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-事件对象</title>
-    <url>/2020/02/09/js-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><p>事件发生后，跟事件相关的一系列信息数据的集合都放到这个对象里面，这个对象就是事件对象。</p>
-<p>比如：  </p>
-<ol>
-<li><p>谁绑定了这个事件。</p>
-</li>
-<li><p>鼠标触发事件的话，会得到鼠标的相关信息，如鼠标位置。</p>
-</li>
-<li><p>键盘触发事件的话，会得到键盘的相关信息，如按了哪个键。</p>
-<a id="more"></a>
-
-</li>
-</ol>
-<h4 id="事件对象的使用"><a href="#事件对象的使用" class="headerlink" title="事件对象的使用"></a>事件对象的使用</h4><p>事件触发发生时就会产生事件对象，并且系统会以实参的形式传给事件处理函数。</p>
-<p>所以，在事件处理函数中声明1个形参用来接收事件对象。</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200425200103792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;<span class="number">123</span>&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var div = document.querySelector('div');</span></span><br><span class="line"><span class="regexp">    div.onclick = function(e) &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ 事件对象</span></span><br><span class="line"><span class="regexp">            e = e || window.event; /</span><span class="regexp">/处理兼容性</span></span><br><span class="line"><span class="regexp">            console.log(e);</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="事件对象的属性和方法"><a href="#事件对象的属性和方法" class="headerlink" title="事件对象的属性和方法"></a>事件对象的属性和方法</h4><p><img src="https://img-blog.csdnimg.cn/20200425200156635.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="e-target-和-this-的区别"><a href="#e-target-和-this-的区别" class="headerlink" title="e.target 和 this 的区别"></a>e.target 和 this 的区别</h4><ul>
-<li><p>this 是事件绑定的元素（绑定这个事件处理函数的元素） 。</p>
-</li>
-<li><p>e.target 是事件触发的元素。</p>
-</li>
-</ul>
-<h4 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h4><blockquote>
-<p>html中一些标签有默认行为，例如a标签被单击后，默认会进行页面跳转。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;a href=<span class="string">"http://www.baidu.com"</span>&gt;百度&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 2. 阻止默认行为 让链接不跳转 </span></span><br><span class="line"><span class="regexp">    var a = document.querySelector('a');</span></span><br><span class="line"><span class="regexp">    a.addEventListener('click', function(e) &#123;</span></span><br><span class="line"><span class="regexp">         e.preventDefault(); /</span><span class="regexp">/  dom 标准写法</span></span><br><span class="line"><span class="regexp">    &#125;);</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 3. 传统的注册方式</span></span><br><span class="line"><span class="regexp">    a.onclick = function(e) &#123;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 普通浏览器 e.preventDefault();  方法</span></span><br><span class="line"><span class="regexp">        e.preventDefault();</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 低版本浏览器 ie678  returnValue  属性</span></span><br><span class="line"><span class="regexp">        e.returnValue = false;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 我们可以利用return false 也能阻止默认行为 没有兼容性问题</span></span><br><span class="line"><span class="regexp">        return false;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"father"</span>&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"son"</span>&gt;son儿子&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">      <span class="keyword">var</span> son = <span class="built_in">document</span>.querySelector(<span class="string">'.son'</span>);</span><br><span class="line"><span class="comment">// 给son注册单击事件</span></span><br><span class="line">      son.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'son'</span>);</span><br><span class="line">          e.stopPropagation(); <span class="comment">// stop 停止  Propagation 传播</span></span><br><span class="line">          <span class="built_in">window</span>.event.cancelBubble = <span class="literal">true</span>; <span class="comment">// 非标准 cancel 取消 bubble 泡泡</span></span><br><span class="line">      &#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> father = <span class="built_in">document</span>.querySelector(<span class="string">'.father'</span>);</span><br><span class="line"><span class="comment">// 给father注册单击事件</span></span><br><span class="line">      father.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'father'</span>);</span><br><span class="line">      &#125;, <span class="literal">false</span>);</span><br><span class="line"><span class="comment">// 给document注册单击事件</span></span><br><span class="line">      <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          alert(<span class="string">'document'</span>);</span><br><span class="line">      &#125;)</span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4>]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -2245,35 +2261,6 @@
       </tags>
   </entry>
   <entry>
-    <title>路由懒加载和嵌套路由</title>
-    <url>/2020/03/21/%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<p>像vue这种单页面应用，如果没有应用懒加载，运用webpack打包后的文件将会异常的大，造成进入首页时，需要加载的内容过多，时间过长，会出啊先长时间的白屏，即使做了loading也是不利于用户体验，而运用懒加载则可以将页面进行划分，需要的时候加载页面，可以有效的分担首页所承担的加载压力，减少首页加载用时</p>
-<p>简单的说就是：进入首页不用一次加载过多资源造成用时过长！！！</p>
-<p>如何实现？</p>
-<a id="more"></a>
-
-<p> 一、vue异步懒加载写法： </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">      <span class="comment">// 进行路由配置,规定'/'引入到home组件</span></span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'Home'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../pages/Home.vue'</span>], resolve),</span><br><span class="line">      meta: &#123;</span><br><span class="line">        title: <span class="string">'home'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/about'</span>,</span><br><span class="line">      name: <span class="string">'About'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../pages/About.vue'</span>], resolve)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p> 二、使用ES6 中的import进行懒加载 ： </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> HelloWorld = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">"@/components/HelloWorld"</span>);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">    component: HelloWorld</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*或者*/</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">    component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">"@/components/HelloWorld"</span>)</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p> 假设有home和about两个vue组件。那么我们在注册路由的使用需要定义一下内容。 </p>
-<p> <img src="https://img-blog.csdn.net/20180319161508677?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
-<p>path为需要跳转的路径。同时，需要在使用路由的父组件中使用<router-view></router-view>将路由渲染到当前组件中。<br>同时，使用<router-link to="路径"></router-link> 其中的路径就是我们在上面注册的path.<br>需要注意的是，我们现在在声明并且注册路由之后，需要将路由挂在到vue的实例中，否则是无法使用的。<br>效果图如下：<br> <img src="https://img-blog.csdn.net/2018031916242043?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">  <img src="https://img-blog.csdn.net/20180319162425259?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
-<p>嵌套路由，顾名思义，就是在router中在使用router,注册的方法和上面相差不多，但是，注册子路由是需要在children中进行注册。我们还是在上面的例子中来进行，新建xiaohong.vue和xiaoming.vue。假设我接下来要在about中使用嵌套路由。那么，我们需要在about中来注册子路由的相关信息。<br> <img src="https://img-blog.csdn.net/20180319162026891?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
-<p>children声明了children中的内容就是在about组件中使用。<br>因为我们是在about组件中使用子路由，方法还是与普通路由相同，在about.vue中使用<router-view>,并且使用<router-link to=""></router-link>来定义跳转的组件。<br> <img src="https://img-blog.csdn.net/20180319162256441?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
-<p> 效果图如下： </p>
-<p> <img src="https://img-blog.csdn.net/20180319162323621?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">  <img src="https://img-blog.csdn.net/20180319162330451?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>正则表达式</title>
     <url>/2020/02/24/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="正则表达式概述"><a href="#正则表达式概述" class="headerlink" title="正则表达式概述"></a>正则表达式概述</h2><h3 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h3><p>正则表达式（ Regular Expression ）是用于匹配字符串中字符组合的模式。在JavaScript中，正则表达式也是对象。</p>
@@ -2435,6 +2422,35 @@
       </categories>
       <tags>
         <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>路由懒加载和嵌套路由</title>
+    <url>/2020/03/21/%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p>像vue这种单页面应用，如果没有应用懒加载，运用webpack打包后的文件将会异常的大，造成进入首页时，需要加载的内容过多，时间过长，会出啊先长时间的白屏，即使做了loading也是不利于用户体验，而运用懒加载则可以将页面进行划分，需要的时候加载页面，可以有效的分担首页所承担的加载压力，减少首页加载用时</p>
+<p>简单的说就是：进入首页不用一次加载过多资源造成用时过长！！！</p>
+<p>如何实现？</p>
+<a id="more"></a>
+
+<p> 一、vue异步懒加载写法： </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">      <span class="comment">// 进行路由配置,规定'/'引入到home组件</span></span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'Home'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../pages/Home.vue'</span>], resolve),</span><br><span class="line">      meta: &#123;</span><br><span class="line">        title: <span class="string">'home'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/about'</span>,</span><br><span class="line">      name: <span class="string">'About'</span>,</span><br><span class="line">      component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../pages/About.vue'</span>], resolve)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p> 二、使用ES6 中的import进行懒加载 ： </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> HelloWorld = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">"@/components/HelloWorld"</span>);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">    component: HelloWorld</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*或者*/</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">    component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">"@/components/HelloWorld"</span>)</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p> 假设有home和about两个vue组件。那么我们在注册路由的使用需要定义一下内容。 </p>
+<p> <img src="https://img-blog.csdn.net/20180319161508677?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p>path为需要跳转的路径。同时，需要在使用路由的父组件中使用<router-view></router-view>将路由渲染到当前组件中。<br>同时，使用<router-link to="路径"></router-link> 其中的路径就是我们在上面注册的path.<br>需要注意的是，我们现在在声明并且注册路由之后，需要将路由挂在到vue的实例中，否则是无法使用的。<br>效果图如下：<br> <img src="https://img-blog.csdn.net/2018031916242043?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">  <img src="https://img-blog.csdn.net/20180319162425259?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p>嵌套路由，顾名思义，就是在router中在使用router,注册的方法和上面相差不多，但是，注册子路由是需要在children中进行注册。我们还是在上面的例子中来进行，新建xiaohong.vue和xiaoming.vue。假设我接下来要在about中使用嵌套路由。那么，我们需要在about中来注册子路由的相关信息。<br> <img src="https://img-blog.csdn.net/20180319162026891?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p>children声明了children中的内容就是在about组件中使用。<br>因为我们是在about组件中使用子路由，方法还是与普通路由相同，在about.vue中使用<router-view>,并且使用<router-link to=""></router-link>来定义跳转的组件。<br> <img src="https://img-blog.csdn.net/20180319162256441?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p> 效果图如下： </p>
+<p> <img src="https://img-blog.csdn.net/20180319162323621?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">  <img src="https://img-blog.csdn.net/20180319162330451?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTI5NDU5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
       </tags>
   </entry>
 </search>
