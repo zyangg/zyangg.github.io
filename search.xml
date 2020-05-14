@@ -95,6 +95,116 @@
       </tags>
   </entry>
   <entry>
+    <title>Express</title>
+    <url>/2020/03/02/Express/</url>
+    <content><![CDATA[<h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入Express框架</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="comment">// 使用框架创建web服务器</span></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 当客户端以get方式访问/路由时</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">   <span class="comment">// 对客户端做出响应 send方法会根据内容的类型自动设置请求头</span></span><br><span class="line">   res.send(<span class="string">'Hello Express'</span>); <span class="comment">// &lt;h2&gt;Hello Express&lt;/h2&gt; &#123;say: 'hello'&#125;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 程序监听3000端口</span></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h4 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h4><p>中间件主要由两部分构成，中间件方法以及请求处理函数。<br>中间件方法由Express提供，负责拦截请求，请求处理函数由开发人员提供，负责处理请求</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.get(<span class="string">'请求路径'</span>, <span class="string">'处理函数'</span>)   <span class="comment">// 接收并处理get请求</span></span><br><span class="line">app.post(<span class="string">'请求路径'</span>, <span class="string">'处理函数'</span>)  <span class="comment">// 接收并处理post请求</span></span><br></pre></td></tr></table></figure>
+
+<p>可以针对同一个请求设置多个中间件，对同一个请求进行多次处理。<br>默认情况下，请求从上到下依次匹配中间件，一旦匹配成功，终止匹配。<br>可以调用next方法将请求的控制权交给下一个中间件，直到遇到结束请求的中间件</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.get(<span class="string">'/request'</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">    req.name = <span class="string">"张三"</span>;</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br><span class="line">app.get(<span class="string">'/request'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(req.name);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="app-use中间件"><a href="#app-use中间件" class="headerlink" title="app.use中间件"></a>app.use中间件</h4><p>app.use 匹配所有的请求方式，可以直接传入请求处理函数，代表接收所有的请求。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.use(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.url);</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>app.use 第一个参数也可以传入请求地址，代表不论什么请求方式，只要是这个请求地址就接收这个请求。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.use(<span class="string">'/admin'</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.url);</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="错误处理中间件"><a href="#错误处理中间件" class="headerlink" title="错误处理中间件"></a>错误处理中间件</h4><p>在程序执行的过程中，不可避免的会出现一些无法预料的错误，比如文件读取失败，数据库连接失败。<br>错误处理中间件是一个集中处理错误的地方。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.use(<span class="function">(<span class="params">err, req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    res.status(<span class="number">500</span>).send(<span class="string">'服务器发生未知错误'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//当程序出现错误时，调用next()方法，并且将错误信息通过参数的形式传递给next()方法，即可触发错误处理中间件。</span></span><br><span class="line"> </span><br><span class="line">app.get(<span class="string">"/"</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">     fs.readFile(<span class="string">"/file-does-not-exist"</span>, (err, data) =&gt; &#123;</span><br><span class="line">         <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            next(err);</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="捕获错误"><a href="#捕获错误" class="headerlink" title="捕获错误"></a>捕获错误</h4><p>try catch 可以捕获异步函数以及其他同步代码在执行过程中发生的错误，但是不能其他类型的API发生的错误</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.get(<span class="string">"/"</span>, <span class="keyword">async</span> (req, res, next) =&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> User.find(&#123;<span class="attr">name</span>: <span class="string">'张三'</span>&#125;)</span><br><span class="line">    &#125;<span class="keyword">catch</span>(ex) &#123;</span><br><span class="line">        next(ex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="模块化路由"><a href="#模块化路由" class="headerlink" title="模块化路由"></a>模块化路由</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// home.js</span></span><br><span class="line"><span class="keyword">const</span> home = express.Router(); </span><br><span class="line">home.get(<span class="string">'/index'</span>, () =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'欢迎来到博客展示页面'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = home;</span><br><span class="line"></span><br><span class="line"><span class="comment">// admin.js</span></span><br><span class="line"><span class="keyword">const</span> admin = express.Router();</span><br><span class="line">admin.get(<span class="string">'/index'</span>, () =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'欢迎来到博客管理页面'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = admin;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// admin.js</span></span><br><span class="line"><span class="keyword">const</span> admin = express.Router();</span><br><span class="line">admin.get(<span class="string">'/index'</span>, () =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'欢迎来到博客管理页面'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = admin;</span><br></pre></td></tr></table></figure>
+
+<h4 id="GET参数的获取"><a href="#GET参数的获取" class="headerlink" title="GET参数的获取"></a>GET参数的获取</h4><p>Express框架中使用req.query即可获取GET参数，框架内部会将GET参数转换为对象并返回。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 接收地址栏中问号后面的参数</span></span><br><span class="line"><span class="comment">// 例如: http://localhost:3000/?name=zhangsan&amp;age=30</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(req.query); <span class="comment">// &#123;"name": "zhangsan", "age": "30"&#125;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="POST参数的获取"><a href="#POST参数的获取" class="headerlink" title="POST参数的获取"></a>POST参数的获取</h4><p>Express中接收post请求参数需要借助第三方包 body-parser。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入body-parser模块</span></span><br><span class="line"> <span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"> <span class="comment">// 配置body-parser模块</span></span><br><span class="line"> app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));</span><br><span class="line"> <span class="comment">// 接收请求</span></span><br><span class="line"> app.post(<span class="string">'/add'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 接收请求参数</span></span><br><span class="line">    <span class="built_in">console</span>.log(req.body);</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Express路由参数"><a href="#Express路由参数" class="headerlink" title="Express路由参数"></a>Express路由参数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.get(<span class="string">'/find/:id'</span>, (req, res) =&gt; &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(req.params); <span class="comment">// &#123;id: 123&#125; </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="静态资源的处理"><a href="#静态资源的处理" class="headerlink" title="静态资源的处理"></a>静态资源的处理</h4><p>通过Express内置的express.static可以方便地托管静态文件，例如img、CSS、JavaScript 文件等。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.use(express.static(<span class="string">'public'</span>));</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mongodb</title>
+    <url>/2020/03/01/Mongodb/</url>
+    <content><![CDATA[<h3 id="第三方包"><a href="#第三方包" class="headerlink" title="第三方包"></a>第三方包</h3><p>使用Node.js操作MongoDB数据库需要依赖Node.js第三方包mongoose<br>使用npm install mongoose命令下载</p>
+<p>启动MongoDB</p>
+<a id="more"></a>
+
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> mongoDB</span><br></pre></td></tr></table></figure>
+
+<p>停止MongoDB</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> stop mongoDB</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mongoose.connect(<span class="string">'mongodb://localhost/playground'</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接成功'</span>))</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接失败'</span>, err));</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h3><p>创建集合分为两步，一是对对集合设定规则，二是创建集合，创建mongoose.Schema构造函数的实例即可创建集合。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 设定集合规则</span></span><br><span class="line"><span class="keyword">const</span> courseSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    author: <span class="built_in">String</span>,</span><br><span class="line">    isPublished: <span class="built_in">Boolean</span></span><br><span class="line">&#125;);</span><br><span class="line"> <span class="comment">// 创建集合并应用规则</span></span><br><span class="line"><span class="keyword">const</span> Course = mongoose.model(<span class="string">'Course'</span>, courseSchema); <span class="comment">// courses</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="创建文档"><a href="#创建文档" class="headerlink" title="创建文档"></a>创建文档</h4><p>创建文档实际上就是向集合中插入数据。<br>分为两步：<br>创建集合实例。<br>调用实例对象下的save方法将数据保存到数据库中。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 创建集合实例</span></span><br><span class="line"><span class="keyword">const</span> course = <span class="keyword">new</span> Course(&#123;</span><br><span class="line">    name: <span class="string">'Node.js course'</span>,</span><br><span class="line">    author: <span class="string">'黑马讲师'</span>,</span><br><span class="line">    tags: [<span class="string">'node'</span>, <span class="string">'backend'</span>],</span><br><span class="line">    isPublished: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"> <span class="comment">// 将数据保存到数据库中</span></span><br><span class="line">course.save();</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Course.create(&#123;<span class="attr">name</span>: <span class="string">'JavaScript基础'</span>, <span class="attr">author</span>: <span class="string">'黑马讲师'</span>, <span class="attr">isPublish</span>: <span class="literal">true</span>&#125;, (err, doc) =&gt; &#123; </span><br><span class="line">     <span class="comment">//  错误对象</span></span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">     <span class="comment">//  当前插入的文档</span></span><br><span class="line">    <span class="built_in">console</span>.log(doc)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Course.create(&#123;<span class="attr">name</span>: <span class="string">'JavaScript基础'</span>, <span class="attr">author</span>: <span class="string">'黑马讲师'</span>, <span class="attr">isPublish</span>: <span class="literal">true</span>&#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">doc</span> =&gt;</span> <span class="built_in">console</span>.log(doc))</span><br><span class="line">      .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure>
+
+<h4 id="mongoDB数据库导入数据"><a href="#mongoDB数据库导入数据" class="headerlink" title="mongoDB数据库导入数据"></a>mongoDB数据库导入数据</h4><p>mongoimport –d 数据库名称 –c 集合名称 –-file 要导入的数据文件<br>找到mongodb数据库的安装目录，将安装目录下的bin目录放置在环境变量中。</p>
+<h4 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  根据条件查找文档</span></span><br><span class="line">Course.findOne(&#123;<span class="attr">name</span>: <span class="string">'node.js基础'</span>&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  根据条件查找文档（条件为空则查找所有文档）</span></span><br><span class="line">Course.find().then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  匹配大于 小于</span></span><br><span class="line">User.find(&#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>: <span class="number">20</span>, <span class="attr">$lt</span>: <span class="number">50</span>&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  匹配包含</span></span><br><span class="line">User.find(&#123;<span class="attr">hobbies</span>: &#123;<span class="attr">$in</span>: [<span class="string">'敲代码'</span>]&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  选择要查询的字段  </span></span><br><span class="line"> User.find().select(<span class="string">'name email'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将数据按照年龄进行排序</span></span><br><span class="line"> User.find().sort(<span class="string">'age'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  skip 跳过多少条数据  limit 限制查询数量</span></span><br><span class="line">User.find().skip(<span class="number">2</span>).limit(<span class="number">2</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 删除单个</span></span><br><span class="line">Course.findOneAndDelete(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 删除多个</span></span><br><span class="line">User.deleteMany(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<h4 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">/ 更新单个</span><br><span class="line">User.updateOne(&#123;查询条件&#125;, &#123;要修改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 更新多个</span></span><br><span class="line">User.updateMany(&#123;查询条件&#125;, &#123;要更改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
+
+<h3 id="mongoose验证"><a href="#mongoose验证" class="headerlink" title="mongoose验证"></a>mongoose验证</h3><p>required: true 必传字段<br>minlength：3 字符串最小长度<br>maxlength: 20 字符串最大长度<br>min: 2 数值最小为2<br>max: 100 数值最大为100<br>enum: [‘html’, ‘css’, ‘javascript’, ‘node.js’]<br>trim: true 去除字符串两边的空格<br>validate: 自定义验证器<br>default: 默认值</p>
+<p>获取错误信息：error.errors[‘字段名称’].message</p>
+<h4 id="集合关联实现"><a href="#集合关联实现" class="headerlink" title="集合关联实现"></a>集合关联实现</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用户集合</span></span><br><span class="line"><span class="keyword">const</span> User = mongoose.model(<span class="string">'User'</span>, <span class="keyword">new</span> mongoose.Schema(&#123; <span class="attr">name</span>: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125; &#125;)); </span><br><span class="line"><span class="comment">// 文章集合</span></span><br><span class="line"><span class="keyword">const</span> Post = mongoose.model(<span class="string">'Post'</span>, <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    title: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125;,</span><br><span class="line">    <span class="comment">// 使用ID将文章集合和作者集合进行关联</span></span><br><span class="line">    author: &#123; <span class="attr">type</span>: mongoose.Schema.Types.ObjectId, <span class="attr">ref</span>: <span class="string">'User'</span> &#125;</span><br><span class="line">&#125;));</span><br><span class="line"><span class="comment">//联合查询</span></span><br><span class="line">Post.find()</span><br><span class="line">      .populate(<span class="string">'author'</span>)</span><br><span class="line">      .then(<span class="function">(<span class="params">err, result</span>) =&gt;</span> <span class="built_in">console</span>.log(result));</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ES6的类和对象</title>
     <url>/2020/02/21/ES6%E7%9A%84%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h3 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a>面向过程</h3><ul>
@@ -200,116 +310,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Mongodb</title>
-    <url>/2020/03/01/Mongodb/</url>
-    <content><![CDATA[<h3 id="第三方包"><a href="#第三方包" class="headerlink" title="第三方包"></a>第三方包</h3><p>使用Node.js操作MongoDB数据库需要依赖Node.js第三方包mongoose<br>使用npm install mongoose命令下载</p>
-<p>启动MongoDB</p>
-<a id="more"></a>
-
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> mongoDB</span><br></pre></td></tr></table></figure>
-
-<p>停止MongoDB</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> stop mongoDB</span><br></pre></td></tr></table></figure>
-
-<h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mongoose.connect(<span class="string">'mongodb://localhost/playground'</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接成功'</span>))</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'数据库连接失败'</span>, err));</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h3><p>创建集合分为两步，一是对对集合设定规则，二是创建集合，创建mongoose.Schema构造函数的实例即可创建集合。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 设定集合规则</span></span><br><span class="line"><span class="keyword">const</span> courseSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    author: <span class="built_in">String</span>,</span><br><span class="line">    isPublished: <span class="built_in">Boolean</span></span><br><span class="line">&#125;);</span><br><span class="line"> <span class="comment">// 创建集合并应用规则</span></span><br><span class="line"><span class="keyword">const</span> Course = mongoose.model(<span class="string">'Course'</span>, courseSchema); <span class="comment">// courses</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="创建文档"><a href="#创建文档" class="headerlink" title="创建文档"></a>创建文档</h4><p>创建文档实际上就是向集合中插入数据。<br>分为两步：<br>创建集合实例。<br>调用实例对象下的save方法将数据保存到数据库中。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 创建集合实例</span></span><br><span class="line"><span class="keyword">const</span> course = <span class="keyword">new</span> Course(&#123;</span><br><span class="line">    name: <span class="string">'Node.js course'</span>,</span><br><span class="line">    author: <span class="string">'黑马讲师'</span>,</span><br><span class="line">    tags: [<span class="string">'node'</span>, <span class="string">'backend'</span>],</span><br><span class="line">    isPublished: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"> <span class="comment">// 将数据保存到数据库中</span></span><br><span class="line">course.save();</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Course.create(&#123;<span class="attr">name</span>: <span class="string">'JavaScript基础'</span>, <span class="attr">author</span>: <span class="string">'黑马讲师'</span>, <span class="attr">isPublish</span>: <span class="literal">true</span>&#125;, (err, doc) =&gt; &#123; </span><br><span class="line">     <span class="comment">//  错误对象</span></span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">     <span class="comment">//  当前插入的文档</span></span><br><span class="line">    <span class="built_in">console</span>.log(doc)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Course.create(&#123;<span class="attr">name</span>: <span class="string">'JavaScript基础'</span>, <span class="attr">author</span>: <span class="string">'黑马讲师'</span>, <span class="attr">isPublish</span>: <span class="literal">true</span>&#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">doc</span> =&gt;</span> <span class="built_in">console</span>.log(doc))</span><br><span class="line">      .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure>
-
-<h4 id="mongoDB数据库导入数据"><a href="#mongoDB数据库导入数据" class="headerlink" title="mongoDB数据库导入数据"></a>mongoDB数据库导入数据</h4><p>mongoimport –d 数据库名称 –c 集合名称 –-file 要导入的数据文件<br>找到mongodb数据库的安装目录，将安装目录下的bin目录放置在环境变量中。</p>
-<h4 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  根据条件查找文档</span></span><br><span class="line">Course.findOne(&#123;<span class="attr">name</span>: <span class="string">'node.js基础'</span>&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  根据条件查找文档（条件为空则查找所有文档）</span></span><br><span class="line">Course.find().then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  匹配大于 小于</span></span><br><span class="line">User.find(&#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>: <span class="number">20</span>, <span class="attr">$lt</span>: <span class="number">50</span>&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  匹配包含</span></span><br><span class="line">User.find(&#123;<span class="attr">hobbies</span>: &#123;<span class="attr">$in</span>: [<span class="string">'敲代码'</span>]&#125;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  选择要查询的字段  </span></span><br><span class="line"> User.find().select(<span class="string">'name email'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将数据按照年龄进行排序</span></span><br><span class="line"> User.find().sort(<span class="string">'age'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  skip 跳过多少条数据  limit 限制查询数量</span></span><br><span class="line">User.find().skip(<span class="number">2</span>).limit(<span class="number">2</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<h4 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 删除单个</span></span><br><span class="line">Course.findOneAndDelete(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 删除多个</span></span><br><span class="line">User.deleteMany(&#123;&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<h4 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">/ 更新单个</span><br><span class="line">User.updateOne(&#123;查询条件&#125;, &#123;要修改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 更新多个</span></span><br><span class="line">User.updateMany(&#123;查询条件&#125;, &#123;要更改的值&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br></pre></td></tr></table></figure>
-
-<h3 id="mongoose验证"><a href="#mongoose验证" class="headerlink" title="mongoose验证"></a>mongoose验证</h3><p>required: true 必传字段<br>minlength：3 字符串最小长度<br>maxlength: 20 字符串最大长度<br>min: 2 数值最小为2<br>max: 100 数值最大为100<br>enum: [‘html’, ‘css’, ‘javascript’, ‘node.js’]<br>trim: true 去除字符串两边的空格<br>validate: 自定义验证器<br>default: 默认值</p>
-<p>获取错误信息：error.errors[‘字段名称’].message</p>
-<h4 id="集合关联实现"><a href="#集合关联实现" class="headerlink" title="集合关联实现"></a>集合关联实现</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用户集合</span></span><br><span class="line"><span class="keyword">const</span> User = mongoose.model(<span class="string">'User'</span>, <span class="keyword">new</span> mongoose.Schema(&#123; <span class="attr">name</span>: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125; &#125;)); </span><br><span class="line"><span class="comment">// 文章集合</span></span><br><span class="line"><span class="keyword">const</span> Post = mongoose.model(<span class="string">'Post'</span>, <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    title: &#123; <span class="attr">type</span>: <span class="built_in">String</span> &#125;,</span><br><span class="line">    <span class="comment">// 使用ID将文章集合和作者集合进行关联</span></span><br><span class="line">    author: &#123; <span class="attr">type</span>: mongoose.Schema.Types.ObjectId, <span class="attr">ref</span>: <span class="string">'User'</span> &#125;</span><br><span class="line">&#125;));</span><br><span class="line"><span class="comment">//联合查询</span></span><br><span class="line">Post.find()</span><br><span class="line">      .populate(<span class="string">'author'</span>)</span><br><span class="line">      .then(<span class="function">(<span class="params">err, result</span>) =&gt;</span> <span class="built_in">console</span>.log(result));</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Express</title>
-    <url>/2020/03/02/Express/</url>
-    <content><![CDATA[<h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入Express框架</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="comment">// 使用框架创建web服务器</span></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 当客户端以get方式访问/路由时</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">   <span class="comment">// 对客户端做出响应 send方法会根据内容的类型自动设置请求头</span></span><br><span class="line">   res.send(<span class="string">'Hello Express'</span>); <span class="comment">// &lt;h2&gt;Hello Express&lt;/h2&gt; &#123;say: 'hello'&#125;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 程序监听3000端口</span></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h4 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h4><p>中间件主要由两部分构成，中间件方法以及请求处理函数。<br>中间件方法由Express提供，负责拦截请求，请求处理函数由开发人员提供，负责处理请求</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.get(<span class="string">'请求路径'</span>, <span class="string">'处理函数'</span>)   <span class="comment">// 接收并处理get请求</span></span><br><span class="line">app.post(<span class="string">'请求路径'</span>, <span class="string">'处理函数'</span>)  <span class="comment">// 接收并处理post请求</span></span><br></pre></td></tr></table></figure>
-
-<p>可以针对同一个请求设置多个中间件，对同一个请求进行多次处理。<br>默认情况下，请求从上到下依次匹配中间件，一旦匹配成功，终止匹配。<br>可以调用next方法将请求的控制权交给下一个中间件，直到遇到结束请求的中间件</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.get(<span class="string">'/request'</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">    req.name = <span class="string">"张三"</span>;</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br><span class="line">app.get(<span class="string">'/request'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(req.name);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="app-use中间件"><a href="#app-use中间件" class="headerlink" title="app.use中间件"></a>app.use中间件</h4><p>app.use 匹配所有的请求方式，可以直接传入请求处理函数，代表接收所有的请求。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.use(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.url);</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>app.use 第一个参数也可以传入请求地址，代表不论什么请求方式，只要是这个请求地址就接收这个请求。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.use(<span class="string">'/admin'</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.url);</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="错误处理中间件"><a href="#错误处理中间件" class="headerlink" title="错误处理中间件"></a>错误处理中间件</h4><p>在程序执行的过程中，不可避免的会出现一些无法预料的错误，比如文件读取失败，数据库连接失败。<br>错误处理中间件是一个集中处理错误的地方。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.use(<span class="function">(<span class="params">err, req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    res.status(<span class="number">500</span>).send(<span class="string">'服务器发生未知错误'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//当程序出现错误时，调用next()方法，并且将错误信息通过参数的形式传递给next()方法，即可触发错误处理中间件。</span></span><br><span class="line"> </span><br><span class="line">app.get(<span class="string">"/"</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">     fs.readFile(<span class="string">"/file-does-not-exist"</span>, (err, data) =&gt; &#123;</span><br><span class="line">         <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            next(err);</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="捕获错误"><a href="#捕获错误" class="headerlink" title="捕获错误"></a>捕获错误</h4><p>try catch 可以捕获异步函数以及其他同步代码在执行过程中发生的错误，但是不能其他类型的API发生的错误</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.get(<span class="string">"/"</span>, <span class="keyword">async</span> (req, res, next) =&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> User.find(&#123;<span class="attr">name</span>: <span class="string">'张三'</span>&#125;)</span><br><span class="line">    &#125;<span class="keyword">catch</span>(ex) &#123;</span><br><span class="line">        next(ex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="模块化路由"><a href="#模块化路由" class="headerlink" title="模块化路由"></a>模块化路由</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// home.js</span></span><br><span class="line"><span class="keyword">const</span> home = express.Router(); </span><br><span class="line">home.get(<span class="string">'/index'</span>, () =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'欢迎来到博客展示页面'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = home;</span><br><span class="line"></span><br><span class="line"><span class="comment">// admin.js</span></span><br><span class="line"><span class="keyword">const</span> admin = express.Router();</span><br><span class="line">admin.get(<span class="string">'/index'</span>, () =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'欢迎来到博客管理页面'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = admin;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// admin.js</span></span><br><span class="line"><span class="keyword">const</span> admin = express.Router();</span><br><span class="line">admin.get(<span class="string">'/index'</span>, () =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'欢迎来到博客管理页面'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = admin;</span><br></pre></td></tr></table></figure>
-
-<h4 id="GET参数的获取"><a href="#GET参数的获取" class="headerlink" title="GET参数的获取"></a>GET参数的获取</h4><p>Express框架中使用req.query即可获取GET参数，框架内部会将GET参数转换为对象并返回。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 接收地址栏中问号后面的参数</span></span><br><span class="line"><span class="comment">// 例如: http://localhost:3000/?name=zhangsan&amp;age=30</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(req.query); <span class="comment">// &#123;"name": "zhangsan", "age": "30"&#125;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="POST参数的获取"><a href="#POST参数的获取" class="headerlink" title="POST参数的获取"></a>POST参数的获取</h4><p>Express中接收post请求参数需要借助第三方包 body-parser。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入body-parser模块</span></span><br><span class="line"> <span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"> <span class="comment">// 配置body-parser模块</span></span><br><span class="line"> app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));</span><br><span class="line"> <span class="comment">// 接收请求</span></span><br><span class="line"> app.post(<span class="string">'/add'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 接收请求参数</span></span><br><span class="line">    <span class="built_in">console</span>.log(req.body);</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="Express路由参数"><a href="#Express路由参数" class="headerlink" title="Express路由参数"></a>Express路由参数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.get(<span class="string">'/find/:id'</span>, (req, res) =&gt; &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(req.params); <span class="comment">// &#123;id: 123&#125; </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="静态资源的处理"><a href="#静态资源的处理" class="headerlink" title="静态资源的处理"></a>静态资源的处理</h4><p>通过Express内置的express.static可以方便地托管静态文件，例如img、CSS、JavaScript 文件等。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.use(express.static(<span class="string">'public'</span>));</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>TDK三大标签SEO优化</title>
     <url>/2020/01/16/TDK%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BESEO%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<h3 id="网站优化三大标签"><a href="#网站优化三大标签" class="headerlink" title="网站优化三大标签"></a>网站优化三大标签</h3><p>SEO是由英文Search Engine Optimization缩写而来， 中文意译为“搜索引擎优化”！</p>
@@ -357,37 +357,6 @@
       </categories>
       <tags>
         <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue-基本语法</title>
-    <url>/2020/03/03/Vue-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<p>为了更好的理解Vue语法的组成，我们先来了解一下Vue的运作方式</p>
-<h1 id="一、Vue的运作方式"><a href="#一、Vue的运作方式" class="headerlink" title="一、Vue的运作方式"></a>一、Vue的运作方式</h1><p>  Vue是以<strong>数据驱动</strong>和<strong>组件化</strong>为核心的JavaScript MVVM库，通过ViewModel实现数据和视图的<strong>双向绑定</strong>。下图展示了MVVM模式和Vue的运作方式</p>
- <a id="more"></a>
-
-<p> <img src="https://img-blog.csdnimg.cn/20200514124445685.png" alt="在这里插入图片描述"> </p>
-<p>1.基本概念<br> ① <strong>MVVM</strong>：Model-View-ViewModel 的简称；<br> ② <strong>Model</strong>：数据模型，也可以理解成在Model中定义的数据修改和操作的业务逻辑；<br> ③ <strong>View</strong>：UI组件，负责将数据模型转化成UI展现出来<br> ④ ViewModel：视图模型，是一个同步View 和 Model的对象。<br> 2.相互关系<br> ① Model、View、ViewModel：在MVVM架构下，<strong>View 和 Model 之间没有直接的联系，而是通过ViewModel进行交互</strong>，View 数据的变化会同步到Model中，而Model 数据的变化也会立即反应到View 上，这就是上面所说的双向绑定。<br> ② Vue和ViewModel：每个 Vue 应用都需要通过实例化 Vue 来实现，而<strong>ViewModel是Vue.js的核心，是Vue的一个实例</strong>。Vue实例是作用于某一个HTML元素上的，这个元素可以是HTML的body元素，也可以是指定了id的某个元素。<br> 3.运作方式<br>  由图可以看到，ViewModel中包含了Dom Listerners和Dom Blindings。<strong>DOM Listeners会监测页面上DOM元素的变化</strong>，如果有变化，则更改Model中的数据；而<strong>Data Bindings会帮更新页面中的DOM元素</strong>这就是双向绑定的实现</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- View模型 --&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    &lt;!-- Model --&gt;</span><br><span class="line">    <span class="keyword">var</span> message=&#123;</span><br><span class="line">        site:<span class="string">'Hello Vue！'</span></span><br><span class="line">    &#125;</span><br><span class="line">    &lt;!--创建Vue实例，将View和Model绑定在一起--&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#app'</span>,</span><br><span class="line">        data: message</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="二、基本语法"><a href="#二、基本语法" class="headerlink" title="二、基本语法"></a>二、基本语法</h1><p>  经过上面的讲解，我们可以通俗的理解成，每个 Vue 应用的实现就是不断完成MVVM模型的过程，因此定义Vue语法可以分成以下三步：<br><strong>1.定义View</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">      &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>  定义View其实就是定义HTML结构和插值表达式。插值表达式是用例输出在Model模型中的数据、属性或者是函数的返回值</p>
-<h5 id="2-定义Model"><a href="#2-定义Model" class="headerlink" title="2.定义Model"></a>2.定义Model</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> message=&#123;</span><br><span class="line">      site:<span class="string">'Hello Vue！'</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p> 定义Model就是<strong>定义一个对象</strong>，对象内的属性名就是在View在插值表达式内的变量名 </p>
-<h5 id="3-创建Vue实例"><a href="#3-创建Vue实例" class="headerlink" title="3.创建Vue实例"></a>3.创建Vue实例</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#app'</span>,</span><br><span class="line">        data: message</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>可以看到，Vue实例中有两个组成部分：<strong>el和data</strong>。<strong>el</strong>是element元素的英文名称缩写，<strong>是连接View模型中的元素</strong>；<strong>data</strong>是数据，<strong>用来连接Model模型</strong>。所以才说ViewModel是连接Model和View的关键。<br> 综上所述，定义一个完整的Vue语法如下所示;</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- View模型 --&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    &lt;!-- Model --&gt;</span><br><span class="line">    <span class="keyword">var</span> message=&#123;</span><br><span class="line">        site:<span class="string">'Hello Vue！'</span></span><br><span class="line">    &#125;</span><br><span class="line">    &lt;!--创建Vue实例，将View和Model绑定在一起--&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#app'</span>,</span><br><span class="line">        data: message</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -456,6 +425,37 @@
 
 
 <p>  在本例子中，当点击了黑色区域，，说明在使用了 .self事件修饰符的元素中，只会执行子级本身的函数而不会执行父级的函数  以上就是几个常用的事件修饰符：** .stop .prevent .once .capture .slef**</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue-基本语法</title>
+    <url>/2020/03/03/Vue-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<p>为了更好的理解Vue语法的组成，我们先来了解一下Vue的运作方式</p>
+<h1 id="一、Vue的运作方式"><a href="#一、Vue的运作方式" class="headerlink" title="一、Vue的运作方式"></a>一、Vue的运作方式</h1><p>  Vue是以<strong>数据驱动</strong>和<strong>组件化</strong>为核心的JavaScript MVVM库，通过ViewModel实现数据和视图的<strong>双向绑定</strong>。下图展示了MVVM模式和Vue的运作方式</p>
+ <a id="more"></a>
+
+<p> <img src="https://img-blog.csdnimg.cn/20200514124445685.png" alt="在这里插入图片描述"> </p>
+<p>1.基本概念<br> ① <strong>MVVM</strong>：Model-View-ViewModel 的简称；<br> ② <strong>Model</strong>：数据模型，也可以理解成在Model中定义的数据修改和操作的业务逻辑；<br> ③ <strong>View</strong>：UI组件，负责将数据模型转化成UI展现出来<br> ④ ViewModel：视图模型，是一个同步View 和 Model的对象。<br> 2.相互关系<br> ① Model、View、ViewModel：在MVVM架构下，<strong>View 和 Model 之间没有直接的联系，而是通过ViewModel进行交互</strong>，View 数据的变化会同步到Model中，而Model 数据的变化也会立即反应到View 上，这就是上面所说的双向绑定。<br> ② Vue和ViewModel：每个 Vue 应用都需要通过实例化 Vue 来实现，而<strong>ViewModel是Vue.js的核心，是Vue的一个实例</strong>。Vue实例是作用于某一个HTML元素上的，这个元素可以是HTML的body元素，也可以是指定了id的某个元素。<br> 3.运作方式<br>  由图可以看到，ViewModel中包含了Dom Listerners和Dom Blindings。<strong>DOM Listeners会监测页面上DOM元素的变化</strong>，如果有变化，则更改Model中的数据；而<strong>Data Bindings会帮更新页面中的DOM元素</strong>这就是双向绑定的实现</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- View模型 --&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    &lt;!-- Model --&gt;</span><br><span class="line">    <span class="keyword">var</span> message=&#123;</span><br><span class="line">        site:<span class="string">'Hello Vue！'</span></span><br><span class="line">    &#125;</span><br><span class="line">    &lt;!--创建Vue实例，将View和Model绑定在一起--&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#app'</span>,</span><br><span class="line">        data: message</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、基本语法"><a href="#二、基本语法" class="headerlink" title="二、基本语法"></a>二、基本语法</h1><p>  经过上面的讲解，我们可以通俗的理解成，每个 Vue 应用的实现就是不断完成MVVM模型的过程，因此定义Vue语法可以分成以下三步：<br><strong>1.定义View</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">      &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>  定义View其实就是定义HTML结构和插值表达式。插值表达式是用例输出在Model模型中的数据、属性或者是函数的返回值</p>
+<h5 id="2-定义Model"><a href="#2-定义Model" class="headerlink" title="2.定义Model"></a>2.定义Model</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> message=&#123;</span><br><span class="line">      site:<span class="string">'Hello Vue！'</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 定义Model就是<strong>定义一个对象</strong>，对象内的属性名就是在View在插值表达式内的变量名 </p>
+<h5 id="3-创建Vue实例"><a href="#3-创建Vue实例" class="headerlink" title="3.创建Vue实例"></a>3.创建Vue实例</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#app'</span>,</span><br><span class="line">        data: message</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，Vue实例中有两个组成部分：<strong>el和data</strong>。<strong>el</strong>是element元素的英文名称缩写，<strong>是连接View模型中的元素</strong>；<strong>data</strong>是数据，<strong>用来连接Model模型</strong>。所以才说ViewModel是连接Model和View的关键。<br> 综上所述，定义一个完整的Vue语法如下所示;</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- View模型 --&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    &lt;!-- Model --&gt;</span><br><span class="line">    <span class="keyword">var</span> message=&#123;</span><br><span class="line">        site:<span class="string">'Hello Vue！'</span></span><br><span class="line">    &#125;</span><br><span class="line">    &lt;!--创建Vue实例，将View和Model绑定在一起--&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#app'</span>,</span><br><span class="line">        data: message</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>前端</category>
@@ -627,6 +627,54 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue-组件化思想</title>
+    <url>/2020/03/09/Vue-%E7%BB%84%E4%BB%B6%E5%8C%96%E6%80%9D%E6%83%B3/</url>
+    <content><![CDATA[<h1 id="一、组件化思想"><a href="#一、组件化思想" class="headerlink" title="一、组件化思想"></a>一、组件化思想</h1><h4 id="1-引例"><a href="#1-引例" class="headerlink" title="1. 引例"></a>1. 引例</h4><p>  人在处理逻辑十分复杂的问题时，往往不知从何处下手，但是人有一种本能，就是<strong>把复杂的东西简单化</strong>，把一个复杂的问题划分成若干个小问题，<strong>然后逐一逐一解决小问题</strong>，当把所有的小问题都解决完时，你就会发下复杂的问题已经被你解决了。组件化也是同样的思想</p>
+<a id="more"></a>
+
+<h4 id="2-定义"><a href="#2-定义" class="headerlink" title="2. 定义"></a>2. 定义</h4><p>  如果将一个页面中的逻辑功能全部放在一块（比如一个页面的逻辑功能放在一个.js文件中或者.vue文件中），处理起来十分麻烦，并且不利于后期的维护和拓展新的功能（因为代码量太多，如果让你去维护别人写的十多万行的代码，你肯定十分头疼）而组件化的思想就是<strong>将一个页面的功能拆分成很多的小功能块，每个小功能快独立完成自己的功能</strong>。比如下面的例子：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-50dd383925aed2a6.png" alt="img"> </p>
+<p>组件.png</p>
+<p> ① 将一个页面<br><strong>组件内**</strong>继续划分成组件** ③ 每个组件自己模块的相关功能 ④ 每个组件完成功能后再到页面中 这就是组件化的基本思路，利用组件化，可以非常容易管理和维护这个页面的功能</p>
+<h4 id="3-Vue组件化思想"><a href="#3-Vue组件化思想" class="headerlink" title="3. Vue组件化思想"></a>3. Vue组件化思想</h4><p>  组件化在Vue中的应用，就是提供了一种<strong>抽象</strong>的思想，让我们可以开发出一个个<strong>独立且可以重复使用的小组件</strong>来构造我们的应用，并且<strong>任何的应用都被抽象成组件树</strong>，比如下图：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-19685d7b16ffde87.png" alt="img"> </p>
+<p>组件数.png</p>
+<p> ① 我们可以将（比如首页为一个组件，详情页为一个组件） ② 页面内部也可以看成一个组件（比如首页中，导航栏 nav为一个组件，主要内容section为一个组件） ③ 将每个组件逐渐的细化，就构成了一棵。</p>
+<h1 id="二、使用组件的步骤"><a href="#二、使用组件的步骤" class="headerlink" title="二、使用组件的步骤"></a>二、使用组件的步骤</h1><p>在Vue中使用组件可以分成三个步骤： <strong>创建组件构造器–&gt;注册组件–&gt;使用组件</strong>，下面针对这三个步骤进行详细是说明</p>
+<h4 id="1-创建组件构造器"><a href="#1-创建组件构造器" class="headerlink" title="1.创建组件构造器"></a>1.创建组件构造器</h4><p><strong>首先，拿到Vue对象并使用extend方法</strong><br> 注解：<br> ① Vue对象在我们导入了vue.js文件中已经存在，所以可以直接使用<br> ② extend方法传递的参数是一个<strong>对象</strong>（和创建Vue实例的用法一样）<br> <strong>其次，声明一个构造器，格式如下： const + 构造器名字</strong><br> <strong>最后，使用template属性创建构造器的模板</strong>（就是一部分功能块的HTML结构）<br> 代码如下：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> cpnC = Vue.extend(&#123;</span></span><br><span class="line">        template:`</span><br><span class="line"><span class="handlebars"><span class="xml">            <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>我的段落1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line">            `</span><br><span class="line">        &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>  在这个例子中，使用了Vue中的<strong>extend</strong>方法传递了属性为<strong>template</strong>的对象，最后将这个对象赋值给构造器 <strong>cpnC</strong><br>  和以往定义字符串不同的是，此处用的不是单引号，而是一个<strong>小撇</strong> ` 。小撇和单双引号的功能一样可以用来定义字符串，不过小撇比单双引号多的功能就是<strong>可以实现换行</strong></p>
+<h4 id="2-注册组件"><a href="#2-注册组件" class="headerlink" title="2.注册组件"></a>2.注册组件</h4><p>  注册组件使用Vue中的<strong>component方法</strong>，需传递两个参数，第一个参数是<strong>组件标签名</strong>【即应该用什么样的标签来使用组件】，第二个参数是<strong>组件构造器的名字</strong>【就是在第一步创建构造器的名字】，代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-cpn'</span>,cpnC)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-使用组件"><a href="#3-使用组件" class="headerlink" title="3.使用组件"></a>3.使用组件</h4><p>直接通过步骤二声明的<strong>组件标签名</strong>使用即可</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">my-cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">my-cpn</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>结合上面三个步骤，给出完整的代码：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">my-cpn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">const</span> cpnC = Vue.extend(&#123;</span></span><br><span class="line">            template:`</span><br><span class="line"><span class="handlebars"><span class="xml">                <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                    <span class="tag">&lt;<span class="name">span</span>&gt;</span>我是span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我的段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line">            `</span><br><span class="line">        &#125;)</span><br><span class="line"><span class="actionscript">        Vue.component(<span class="string">'my-cpn'</span>,cpnC)</span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">'#warp'</span>,</span></span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-dc51afbc3764619f.png" alt="img"> </p>
+<p>image.png</p>
+<h4 id="4-注意事项"><a href="#4-注意事项" class="headerlink" title="4.注意事项"></a>4.注意事项</h4><p><strong>① 使用组件的范围</strong>： 使用组件的范围，必须是<strong>在Vue实例中使用</strong>，如果不在Vue实例中使用是不会生效的<br> 例如：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span> </span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">my-cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">my-cpn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">const</span> cpnC = Vue.extend(&#123;</span></span><br><span class="line">            template:`</span><br><span class="line"><span class="handlebars"><span class="xml">                <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                    <span class="tag">&lt;<span class="name">span</span>&gt;</span>我是span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我的段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line">            `</span><br><span class="line">        &#125;)</span><br><span class="line"><span class="actionscript">        Vue.component(<span class="string">'my-cpn'</span>,cpnC)</span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">'#warp'</span>,</span></span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>  Vue实例的范围是id名为warp的div，而组件的使用却在div之外，这是不允许的<br> <strong>② template模板</strong>：书写template模板是时候，如果有多条的HTML语句，最好<strong>用div包裹起来</strong>，如果不用div包裹起来，在多条的HTML语句中，仅仅显示第一条。<br> 例如：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">my-cpn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">const</span> cpnC = Vue.extend(&#123;</span></span><br><span class="line">            template:`</span><br><span class="line"><span class="handlebars"><span class="xml">                <span class="tag">&lt;<span class="name">span</span>&gt;</span>我是span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>我的段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line">            `</span><br><span class="line">        &#125;)</span><br><span class="line"><span class="actionscript">        Vue.component(<span class="string">'my-cpn'</span>,cpnC)</span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">'#warp'</span>,</span></span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-605a1eeb5e37f3a5.png" alt="img"> </p>
+<p>image.png</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue-表单操作1</title>
     <url>/2020/03/08/Vue-%E8%A1%A8%E5%8D%95%E6%93%8D%E4%BD%9C1/</url>
     <content><![CDATA[<h1 id="一、v-model-双向绑定的本质"><a href="#一、v-model-双向绑定的本质" class="headerlink" title="一、v-model 双向绑定的本质"></a>一、v-model 双向绑定的本质</h1><p>  在使用v-model操作表单元素之前，相信大家在很多的资料中看到过v-model能实现双向绑定，那么什么又是双向数据绑定呢？<br>  所谓的双向绑定可以简单的理解为：<strong>修改model中的值，页面的值会改变；修改了页面的值，model的值也会发生变化</strong>。比如：</p>
@@ -759,40 +807,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue-计算属性</title>
-    <url>/2020/03/05/Vue-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/</url>
-    <content><![CDATA[<h1 id="一、计算属性：computed"><a href="#一、计算属性：computed" class="headerlink" title="一、计算属性：computed"></a>一、计算属性：computed</h1><p>为了让大家进一步的了解为什么使用计算属性，我们先来看下面的一个例子</p>
-<a id="more"></a>
-
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">          &#123;&#123; message.split(<span class="string">''</span>).reverse().<span class="keyword">join</span>(<span class="string">''</span>) &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">".warp"</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">                message:<span class="string">"I Love Vue"</span></span><br><span class="line">            &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>在这里例子中，主要是将message的内容经过拆分然后反向输出。<br>  可以看到的是，我们将实现message内容反转输出的逻辑部分写在了View模板部分，这会造成以下两个问题：<br> <strong>① 维护难</strong>：设计View模板的初衷是用于简单运算的，如果在模板中放入太多的逻辑会让模板过重且难以维护；<br> <strong>② 不利于代码的重复利用</strong>：如果一个网页中需要多次翻转内容，那么就必须在每个地方书写一遍反转的逻辑代码<br>  因此，我们建议，将实现业务的逻辑部分放置在Vue实例中，而计算属性computed就是其中一个办法</p>
-<h5 id="1-目的"><a href="#1-目的" class="headerlink" title="1.目的"></a>1.目的</h5><p>  用于处理复杂的逻辑，类似于JavaScript中函数的封装一样，将实现某个特定功能的代码块封装在一起。</p>
-<h5 id="2-结构"><a href="#2-结构" class="headerlink" title="2.结构"></a>2.结构</h5><p>  computed和Vue实例中的methods方法结果类似，内部放置要实现的函数对象</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>原来数据：&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>新数据：&#123;&#123;reversemessage&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">".warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                message:<span class="string">"I Love Vue"</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            computed:&#123;</span><br><span class="line"><span class="actionscript">                reversemessage:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://img-blog.csdnimg.cn/20200514131014784.png" alt="在这里插入图片描述"> </p>
-<p>  在这个例子中，原始数据的输入依旧在Vue实例的data中；不同的是业务的逻辑部分已经在Vue实例的computed计算属性中实现。首先是在computed内部<strong>声明了计算属性reversemessage</strong>，然后将提供的匿名函数将用作属性 vm.reverseMessage 的 <strong>getter 函数</strong>，最终用<strong>return返回相应的数据</strong>。<br>  和函数封装不一样的地方是，computed是<strong>有依赖的函数封装</strong>，例如本例中，<br> reversemessage属性会依赖message的变化而变化。<strong>以声明的方式创建了依赖关系</strong>。<br> 但是如果在表达式中调用方法来也可以达到同样的效果：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>原来数据：&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>新数据：&#123;&#123;reversemessage()&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">".warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                message:<span class="string">"I Love Vue"</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            methods:&#123;</span><br><span class="line"><span class="actionscript">                reversemessage:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://img-blog.csdnimg.cn/20200514131014755.png" alt="在这里插入图片描述"> </p>
-<p>这就是我们需要知道的另外一点：computed和methods的区别</p>
-<h5 id="3-computed和methods的区别"><a href="#3-computed和methods的区别" class="headerlink" title="3.computed和methods的区别"></a>3.computed和methods的区别</h5><p><strong>① 调用</strong><br>  1.1 computed：调用computed时相当于调用一个<strong>属性</strong><br>  1.2 methods：调用methods时相当于调用一个<strong>方法</strong><br> <strong>② 缓存</strong><br>  2.1 computed：是<strong>依赖缓存</strong>的，即每次进入页面将一直沿用第一次的信息，信息是不随时间变化而变化的，这就是依赖缓存。（有延时的情况下 多次输出时间相同）。只有当<strong>相关依赖</strong>发生改变时才会重新取值呢 （所谓的相关依赖，就是比方说 reversedMessage function() 计算属性中调用了 message 变量）<br>  2.2 methods是<strong>实时</strong>的，在重新渲染时，函数总会重新调用执行，不会缓存<br> <strong>③ 性能</strong><br>  3.1 computed：相对来说computed的<strong>性能会比较好</strong>。比如A是一个很庞大的数组，每次遍历A需要多费一定的时间，而数据B会多次调用数组A来进行计算。如果不使用缓存，每次计算B的同时还要花费时间来遍历数组A；如果使用了缓存，子啊第一次遍历A的时候将相应的结果记录下来，每次计算B时直接从缓存A的空间读取A数组即可，而不必要每次都需要在遍历一遍数组A<br>  3.2 methods：如果你<strong>不希望缓存</strong>，你可以使用 methods 属性，即methods比较使用与<strong>实时切换</strong>的场合</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span>&gt;</span>    <span class="comment">&lt;!--computed计算属性--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;now&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;now&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">hr</span> /&gt;</span>            <span class="comment">&lt;!--横线分割--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test2"</span>&gt;</span>   <span class="comment">&lt;!--methods方法，注意new（）加了括号--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;now()&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;now()&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="comment">//computed</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> myVue = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el: <span class="string">".test"</span>,</span></span><br><span class="line">            computed: &#123;</span><br><span class="line"><span class="actionscript">                now: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">var</span> yanshi = <span class="number">0</span>;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">for</span>(<span class="keyword">var</span> o = <span class="number">0</span>; o &lt; <span class="number">2000</span>; o++) &#123;     <span class="comment">//延时</span></span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">for</span>(<span class="keyword">var</span> q = <span class="number">0</span>; q &lt; <span class="number">2000</span>; q++) &#123;</span></span><br><span class="line">                            yanshi++;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"><span class="javascript">                    <span class="keyword">return</span> <span class="built_in">Date</span>.now()</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"><span class="actionscript"><span class="comment">//methods</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vue2 = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el: <span class="string">'.test2'</span>,</span></span><br><span class="line">            methods: &#123;</span><br><span class="line"><span class="actionscript">                now: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">var</span> yanshi = <span class="number">0</span>;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">for</span>(<span class="keyword">var</span> o = <span class="number">0</span>; o &lt; <span class="number">2000</span>; o++) &#123;</span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">for</span>(<span class="keyword">var</span> q = <span class="number">0</span>; q &lt; <span class="number">2000</span>; q++) &#123;</span></span><br><span class="line">                            yanshi++;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"><span class="javascript">                    <span class="keyword">return</span> <span class="built_in">Date</span>.now()</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p> <img src="https://img-blog.csdnimg.cn/20200514131014756.png" alt="在这里插入图片描述"> </p>
-<p>由上图可知<br>  <strong>对于computed而言</strong>，一开始进入页面缓存的数据尾数是2055，所以每次进入页面将一直沿用第一次的信息，不会再触发now，说明computed是<strong>依赖缓存</strong>的；而<strong>只有当相关依赖发生变化时</strong>，缓存的信息才会再次改变。<br>  <strong>而对于methods而言</strong>，是<strong>实时变化</strong>的，所以两次返回的时间是不一样的。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>call bind apply</title>
     <url>/2020/02/23/call-bind-apply/</url>
     <content><![CDATA[<h3 id="改变函数内部-this-指向"><a href="#改变函数内部-this-指向" class="headerlink" title="改变函数内部 this 指向"></a>改变函数内部 this 指向</h3><h4 id="call方法"><a href="#call方法" class="headerlink" title="call方法"></a>call方法</h4><p>call()方法调用一个对象。简单理解为调用函数的方式，但是它可以改变函数的 this 指向</p>
@@ -833,6 +847,40 @@
       </categories>
       <tags>
         <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue-计算属性</title>
+    <url>/2020/03/05/Vue-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/</url>
+    <content><![CDATA[<h1 id="一、计算属性：computed"><a href="#一、计算属性：computed" class="headerlink" title="一、计算属性：computed"></a>一、计算属性：computed</h1><p>为了让大家进一步的了解为什么使用计算属性，我们先来看下面的一个例子</p>
+<a id="more"></a>
+
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">          &#123;&#123; message.split(<span class="string">''</span>).reverse().<span class="keyword">join</span>(<span class="string">''</span>) &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">".warp"</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">                message:<span class="string">"I Love Vue"</span></span><br><span class="line">            &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在这里例子中，主要是将message的内容经过拆分然后反向输出。<br>  可以看到的是，我们将实现message内容反转输出的逻辑部分写在了View模板部分，这会造成以下两个问题：<br> <strong>① 维护难</strong>：设计View模板的初衷是用于简单运算的，如果在模板中放入太多的逻辑会让模板过重且难以维护；<br> <strong>② 不利于代码的重复利用</strong>：如果一个网页中需要多次翻转内容，那么就必须在每个地方书写一遍反转的逻辑代码<br>  因此，我们建议，将实现业务的逻辑部分放置在Vue实例中，而计算属性computed就是其中一个办法</p>
+<h5 id="1-目的"><a href="#1-目的" class="headerlink" title="1.目的"></a>1.目的</h5><p>  用于处理复杂的逻辑，类似于JavaScript中函数的封装一样，将实现某个特定功能的代码块封装在一起。</p>
+<h5 id="2-结构"><a href="#2-结构" class="headerlink" title="2.结构"></a>2.结构</h5><p>  computed和Vue实例中的methods方法结果类似，内部放置要实现的函数对象</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>原来数据：&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>新数据：&#123;&#123;reversemessage&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">".warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                message:<span class="string">"I Love Vue"</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            computed:&#123;</span><br><span class="line"><span class="actionscript">                reversemessage:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://img-blog.csdnimg.cn/20200514131014784.png" alt="在这里插入图片描述"> </p>
+<p>  在这个例子中，原始数据的输入依旧在Vue实例的data中；不同的是业务的逻辑部分已经在Vue实例的computed计算属性中实现。首先是在computed内部<strong>声明了计算属性reversemessage</strong>，然后将提供的匿名函数将用作属性 vm.reverseMessage 的 <strong>getter 函数</strong>，最终用<strong>return返回相应的数据</strong>。<br>  和函数封装不一样的地方是，computed是<strong>有依赖的函数封装</strong>，例如本例中，<br> reversemessage属性会依赖message的变化而变化。<strong>以声明的方式创建了依赖关系</strong>。<br> 但是如果在表达式中调用方法来也可以达到同样的效果：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>原来数据：&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>新数据：&#123;&#123;reversemessage()&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">".warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                message:<span class="string">"I Love Vue"</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            methods:&#123;</span><br><span class="line"><span class="actionscript">                reversemessage:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://img-blog.csdnimg.cn/20200514131014755.png" alt="在这里插入图片描述"> </p>
+<p>这就是我们需要知道的另外一点：computed和methods的区别</p>
+<h5 id="3-computed和methods的区别"><a href="#3-computed和methods的区别" class="headerlink" title="3.computed和methods的区别"></a>3.computed和methods的区别</h5><p><strong>① 调用</strong><br>  1.1 computed：调用computed时相当于调用一个<strong>属性</strong><br>  1.2 methods：调用methods时相当于调用一个<strong>方法</strong><br> <strong>② 缓存</strong><br>  2.1 computed：是<strong>依赖缓存</strong>的，即每次进入页面将一直沿用第一次的信息，信息是不随时间变化而变化的，这就是依赖缓存。（有延时的情况下 多次输出时间相同）。只有当<strong>相关依赖</strong>发生改变时才会重新取值呢 （所谓的相关依赖，就是比方说 reversedMessage function() 计算属性中调用了 message 变量）<br>  2.2 methods是<strong>实时</strong>的，在重新渲染时，函数总会重新调用执行，不会缓存<br> <strong>③ 性能</strong><br>  3.1 computed：相对来说computed的<strong>性能会比较好</strong>。比如A是一个很庞大的数组，每次遍历A需要多费一定的时间，而数据B会多次调用数组A来进行计算。如果不使用缓存，每次计算B的同时还要花费时间来遍历数组A；如果使用了缓存，子啊第一次遍历A的时候将相应的结果记录下来，每次计算B时直接从缓存A的空间读取A数组即可，而不必要每次都需要在遍历一遍数组A<br>  3.2 methods：如果你<strong>不希望缓存</strong>，你可以使用 methods 属性，即methods比较使用与<strong>实时切换</strong>的场合</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span>&gt;</span>    <span class="comment">&lt;!--computed计算属性--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;now&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;now&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">hr</span> /&gt;</span>            <span class="comment">&lt;!--横线分割--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test2"</span>&gt;</span>   <span class="comment">&lt;!--methods方法，注意new（）加了括号--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;now()&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;now()&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="comment">//computed</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> myVue = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el: <span class="string">".test"</span>,</span></span><br><span class="line">            computed: &#123;</span><br><span class="line"><span class="actionscript">                now: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">var</span> yanshi = <span class="number">0</span>;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">for</span>(<span class="keyword">var</span> o = <span class="number">0</span>; o &lt; <span class="number">2000</span>; o++) &#123;     <span class="comment">//延时</span></span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">for</span>(<span class="keyword">var</span> q = <span class="number">0</span>; q &lt; <span class="number">2000</span>; q++) &#123;</span></span><br><span class="line">                            yanshi++;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"><span class="javascript">                    <span class="keyword">return</span> <span class="built_in">Date</span>.now()</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"><span class="actionscript"><span class="comment">//methods</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vue2 = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el: <span class="string">'.test2'</span>,</span></span><br><span class="line">            methods: &#123;</span><br><span class="line"><span class="actionscript">                now: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">var</span> yanshi = <span class="number">0</span>;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">for</span>(<span class="keyword">var</span> o = <span class="number">0</span>; o &lt; <span class="number">2000</span>; o++) &#123;</span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">for</span>(<span class="keyword">var</span> q = <span class="number">0</span>; q &lt; <span class="number">2000</span>; q++) &#123;</span></span><br><span class="line">                            yanshi++;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"><span class="javascript">                    <span class="keyword">return</span> <span class="built_in">Date</span>.now()</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p> <img src="https://img-blog.csdnimg.cn/20200514131014756.png" alt="在这里插入图片描述"> </p>
+<p>由上图可知<br>  <strong>对于computed而言</strong>，一开始进入页面缓存的数据尾数是2055，所以每次进入页面将一直沿用第一次的信息，不会再触发now，说明computed是<strong>依赖缓存</strong>的；而<strong>只有当相关依赖发生变化时</strong>，缓存的信息才会再次改变。<br>  <strong>而对于methods而言</strong>，是<strong>实时变化</strong>的，所以两次返回的时间是不一样的。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -1281,57 +1329,6 @@
       </tags>
   </entry>
   <entry>
-    <title>css3-过渡</title>
-    <url>/2020/01/15/css3%E8%BF%87%E6%B8%A1/</url>
-    <content><![CDATA[<h4 id="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"><a href="#CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。" class="headerlink" title="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"></a>CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。</h4><a id="more"></a>
-
-<p>CSS3 过渡是元素从一种样式逐渐改变为另一种的效果<br>要实现这一点，必须规定两项内容：<br>  指定要添加效果的CSS属性<br>  指定效果的持续时间</p>
-<p>实例：应用于宽度属性的过渡效果，时长为 2 秒：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">   <span class="attribute">transition</span>: width <span class="number">2s</span>;</span><br><span class="line">   <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意： 如果未指定的期限，transition将没有任何效果，因为默认值是0。</p>
-<p>指定的CSS属性的值更改时效果会发生变化。一个典型CSS属性的变化是用户鼠标放在一个元素上时：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">     <span class="selector-tag">div</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">background</span>:red;</span><br><span class="line">      <span class="attribute">transition</span>:width <span class="number">2s</span>;</span><br><span class="line">      <span class="attribute">-webkit-transition</span>:width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<p>多项改变</p>
-<p>要添加多个样式的变换效果，添加的属性由逗号分隔：或者用all来代替</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">   <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, -webkit-transform <span class="number">2s</span>; <span class="comment">/* For Safari 3.1 to 6.0 */</span></span><br><span class="line">    transition: width 2s, height 2s, transform 2s; // all 2s</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>); <span class="comment">/* Chrome, Safari, Opera */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>transition-property</td>
-<td>规定应用过渡的 CSS 属性的名称。</td>
-</tr>
-<tr>
-<td>transition-duration</td>
-<td>定义过渡效果花费的时间。默认是 0。</td>
-</tr>
-<tr>
-<td>transition-timing-function</td>
-<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
-</tr>
-<tr>
-<td>transition-delay</td>
-<td>规定过渡效果何时开始。默认是 0。</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css3</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Flex布局</title>
     <url>/2020/01/26/css3-flex%E5%B8%83%E5%B1%80/</url>
     <content><![CDATA[<h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><p>布局的传统解决方案：是基于盒模型，这种布局依赖<code>display</code>属性 + <code>position</code>属性 + <code>float</code>属性，但是对于一些特殊的布局是不方便的，比如说：对于垂直布局就不容易实现。、</p>
@@ -1431,6 +1428,57 @@
       </tags>
   </entry>
   <entry>
+    <title>css3-过渡</title>
+    <url>/2020/01/15/css3%E8%BF%87%E6%B8%A1/</url>
+    <content><![CDATA[<h4 id="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"><a href="#CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。" class="headerlink" title="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"></a>CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。</h4><a id="more"></a>
+
+<p>CSS3 过渡是元素从一种样式逐渐改变为另一种的效果<br>要实现这一点，必须规定两项内容：<br>  指定要添加效果的CSS属性<br>  指定效果的持续时间</p>
+<p>实例：应用于宽度属性的过渡效果，时长为 2 秒：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">   <span class="attribute">transition</span>: width <span class="number">2s</span>;</span><br><span class="line">   <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意： 如果未指定的期限，transition将没有任何效果，因为默认值是0。</p>
+<p>指定的CSS属性的值更改时效果会发生变化。一个典型CSS属性的变化是用户鼠标放在一个元素上时：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">     <span class="selector-tag">div</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">background</span>:red;</span><br><span class="line">      <span class="attribute">transition</span>:width <span class="number">2s</span>;</span><br><span class="line">      <span class="attribute">-webkit-transition</span>:width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>多项改变</p>
+<p>要添加多个样式的变换效果，添加的属性由逗号分隔：或者用all来代替</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">   <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, -webkit-transform <span class="number">2s</span>; <span class="comment">/* For Safari 3.1 to 6.0 */</span></span><br><span class="line">    transition: width 2s, height 2s, transform 2s; // all 2s</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>); <span class="comment">/* Chrome, Safari, Opera */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>transition-property</td>
+<td>规定应用过渡的 CSS 属性的名称。</td>
+</tr>
+<tr>
+<td>transition-duration</td>
+<td>定义过渡效果花费的时间。默认是 0。</td>
+</tr>
+<tr>
+<td>transition-timing-function</td>
+<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
+</tr>
+<tr>
+<td>transition-delay</td>
+<td>规定过渡效果何时开始。默认是 0。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css3</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>css3-选择器</title>
     <url>/2020/01/14/css3%E9%80%89%E6%8B%A9%E5%99%A8/</url>
     <content><![CDATA[<h3 id="css3新增了属性选择器-结构伪类选择器-伪元素选择器"><a href="#css3新增了属性选择器-结构伪类选择器-伪元素选择器" class="headerlink" title="css3新增了属性选择器 结构伪类选择器 伪元素选择器"></a>css3新增了属性选择器 结构伪类选择器 伪元素选择器</h3><a id="more"></a>
@@ -1465,6 +1513,35 @@
       </categories>
       <tags>
         <tag>css3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-事件委托</title>
+    <url>/2020/02/09/js-%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
+    <content><![CDATA[<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>事件冒泡本身的特性，会带来的坏处，也会带来的好处。</p>
+<h4 id="什么是事件委托"><a href="#什么是事件委托" class="headerlink" title="什么是事件委托"></a>什么是事件委托</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">把事情委托给别人，代为处理。</span><br></pre></td></tr></table></figure>
+
+<p>事件委托也称为事件代理，在 jQuery 里面称为事件委派。</p>
+<a id="more"></a>
+
+<blockquote>
+<p>说白了就是，不给子元素注册事件，给父元素注册事件，把处理代码在父元素的事件中执行。</p>
+</blockquote>
+<h4 id="事件委托的原理"><a href="#事件委托的原理" class="headerlink" title="事件委托的原理"></a>事件委托的原理</h4><p>​    给父元素注册事件，利用事件冒泡，当子元素的事件触发，会冒泡到父元素，然后去控制相应的子元素。</p>
+<h4 id="事件委托的作用"><a href="#事件委托的作用" class="headerlink" title="事件委托的作用"></a>事件委托的作用</h4><ul>
+<li><p>我们只操作了一次 DOM ，提高了程序的性能。</p>
+</li>
+<li><p>动态新创建的子元素，也拥有事件。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 事件委托的核心原理：给父节点添加侦听器， 利用事件冒泡影响每一个子节点</span></span><br><span class="line">    <span class="keyword">var</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);</span><br><span class="line">    ul.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// e.target 这个可以得到我们点击的对象</span></span><br><span class="line">        e.target.style.backgroundColor = <span class="string">'pink'</span>;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -1512,35 +1589,6 @@
 <p>​    注意：上面的方法使用时必须带括号</p>
 <p>​    <strong>获取指定范围内的随机整数</strong>：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandom</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-事件委托</title>
-    <url>/2020/02/09/js-%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
-    <content><![CDATA[<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>事件冒泡本身的特性，会带来的坏处，也会带来的好处。</p>
-<h4 id="什么是事件委托"><a href="#什么是事件委托" class="headerlink" title="什么是事件委托"></a>什么是事件委托</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">把事情委托给别人，代为处理。</span><br></pre></td></tr></table></figure>
-
-<p>事件委托也称为事件代理，在 jQuery 里面称为事件委派。</p>
-<a id="more"></a>
-
-<blockquote>
-<p>说白了就是，不给子元素注册事件，给父元素注册事件，把处理代码在父元素的事件中执行。</p>
-</blockquote>
-<h4 id="事件委托的原理"><a href="#事件委托的原理" class="headerlink" title="事件委托的原理"></a>事件委托的原理</h4><p>​    给父元素注册事件，利用事件冒泡，当子元素的事件触发，会冒泡到父元素，然后去控制相应的子元素。</p>
-<h4 id="事件委托的作用"><a href="#事件委托的作用" class="headerlink" title="事件委托的作用"></a>事件委托的作用</h4><ul>
-<li><p>我们只操作了一次 DOM ，提高了程序的性能。</p>
-</li>
-<li><p>动态新创建的子元素，也拥有事件。</p>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;知否知否，点我应有弹框在手！&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 事件委托的核心原理：给父节点添加侦听器， 利用事件冒泡影响每一个子节点</span></span><br><span class="line">    <span class="keyword">var</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);</span><br><span class="line">    ul.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// e.target 这个可以得到我们点击的对象</span></span><br><span class="line">        e.target.style.backgroundColor = <span class="string">'pink'</span>;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1647,59 +1695,6 @@
 
 <h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-字符串对象</title>
-    <url>/2020/02/05/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h3><h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>​        为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
-<p>​        基本包装类型就是把简单数据类型包装成为复杂数据类型，这样基本数据类型就有了属性和方法。</p>
-<a id="more"></a>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面代码有什么问题？</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'andy'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);</span><br></pre></td></tr></table></figure>
-
-<p>​        按道理基本数据类型是没有属性和方法的，而对象才有属性和方法，但上面代码却可以执行，这是因为</p>
-<p>​        js 会把基本数据类型包装为复杂数据类型，其执行过程如下 ：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 生成临时变量，把简单类型包装为复杂数据类型</span></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'andy'</span>);</span><br><span class="line"><span class="comment">// 2. 赋值给我们声明的字符变量</span></span><br><span class="line">str = temp;</span><br><span class="line"><span class="comment">// 3. 销毁临时变量</span></span><br><span class="line">temp = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="字符串的不可变"><a href="#字符串的不可变" class="headerlink" title="字符串的不可变"></a>字符串的不可变</h4><p>​        指的是里面的值不可变，虽然看上去可以改变内容，但其实是地址变了，内存中新开辟了一个内存空间。</p>
-<p>​        当重新给字符串变量赋值的时候，变量之前保存的字符串不会被修改，依然在内存中重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变。<br>​        由于字符串的不可变，在<strong>大量拼接字符串</strong>的时候会有效率问题</p>
-<h4 id="根据字符返回位置"><a href="#根据字符返回位置" class="headerlink" title="根据字符返回位置"></a>根据字符返回位置</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是返回指定字符的位置的方法：</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507102344642.png" alt="在这里插入图片描述"> </p>
-<p>​        案例：查找字符串”abcoefoxyozzopp”中所有o出现的位置以及次数</p>
-<ol>
-<li>先查找第一个o出现的位置</li>
-<li>然后 只要indexOf 返回的结果不是 -1 就继续往后查找</li>
-<li>因为indexOf 只能查找到第一个，所以后面的查找，利用第二个参数，当前索引加1，从而继续查找     </li>
-</ol>
-<h4 id="根据位置返回字符"><a href="#根据位置返回字符" class="headerlink" title="根据位置返回字符"></a>根据位置返回字符</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是根据位置返回指定位置上的字符：</p>
-<p>​     <img src="https://img-blog.csdnimg.cn/20200507102344654.png" alt="在这里插入图片描述"> </p>
-<p>​        在上述方法中，charCodeAt方法返回的是指定位置上字符对应的ASCII码，ASCII码对照表如下：</p>
-<p>​          <img src="https://img-blog.csdnimg.cn/20200507102344840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>​        案例：判断一个字符串 ‘abcoefoxyozzopp’ 中出现次数最多的字符，并统计其次数</p>
-<ol>
-<li><p>核心算法：利用 charAt(） 遍历这个字符串</p>
-</li>
-<li><p>把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1</p>
-</li>
-<li><p>遍历对象，得到最大值和该字符     </p>
-<p>​    注意：在遍历的过程中，把字符串中的每个字符作为对象的属性存储在对象总，对应的属性值是该字符出现的次数</p>
-</li>
-</ol>
-<h4 id="字符串操作方法"><a href="#字符串操作方法" class="headerlink" title="字符串操作方法"></a>字符串操作方法</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是部分操作方法：</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507102344695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<h4 id="replace-方法"><a href="#replace-方法" class="headerlink" title="replace()方法"></a>replace()方法</h4><p>​        replace() 方法用于在字符串中用一些字符替换另一些字符，其使用格式如下：  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.replace(被替换的字符串， 要替换为的字符串)；</span><br></pre></td></tr></table></figure>
-
-<h4 id="split-方法"><a href="#split-方法" class="headerlink" title="split()方法"></a>split()方法</h4><p>​        split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
-<p>​        其使用格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.split(&quot;分割字符&quot;)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1830,6 +1825,59 @@
 </ul>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-字符串对象</title>
+    <url>/2020/02/05/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h3><h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>​        为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
+<p>​        基本包装类型就是把简单数据类型包装成为复杂数据类型，这样基本数据类型就有了属性和方法。</p>
+<a id="more"></a>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面代码有什么问题？</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'andy'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);</span><br></pre></td></tr></table></figure>
+
+<p>​        按道理基本数据类型是没有属性和方法的，而对象才有属性和方法，但上面代码却可以执行，这是因为</p>
+<p>​        js 会把基本数据类型包装为复杂数据类型，其执行过程如下 ：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 生成临时变量，把简单类型包装为复杂数据类型</span></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'andy'</span>);</span><br><span class="line"><span class="comment">// 2. 赋值给我们声明的字符变量</span></span><br><span class="line">str = temp;</span><br><span class="line"><span class="comment">// 3. 销毁临时变量</span></span><br><span class="line">temp = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串的不可变"><a href="#字符串的不可变" class="headerlink" title="字符串的不可变"></a>字符串的不可变</h4><p>​        指的是里面的值不可变，虽然看上去可以改变内容，但其实是地址变了，内存中新开辟了一个内存空间。</p>
+<p>​        当重新给字符串变量赋值的时候，变量之前保存的字符串不会被修改，依然在内存中重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变。<br>​        由于字符串的不可变，在<strong>大量拼接字符串</strong>的时候会有效率问题</p>
+<h4 id="根据字符返回位置"><a href="#根据字符返回位置" class="headerlink" title="根据字符返回位置"></a>根据字符返回位置</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是返回指定字符的位置的方法：</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507102344642.png" alt="在这里插入图片描述"> </p>
+<p>​        案例：查找字符串”abcoefoxyozzopp”中所有o出现的位置以及次数</p>
+<ol>
+<li>先查找第一个o出现的位置</li>
+<li>然后 只要indexOf 返回的结果不是 -1 就继续往后查找</li>
+<li>因为indexOf 只能查找到第一个，所以后面的查找，利用第二个参数，当前索引加1，从而继续查找     </li>
+</ol>
+<h4 id="根据位置返回字符"><a href="#根据位置返回字符" class="headerlink" title="根据位置返回字符"></a>根据位置返回字符</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是根据位置返回指定位置上的字符：</p>
+<p>​     <img src="https://img-blog.csdnimg.cn/20200507102344654.png" alt="在这里插入图片描述"> </p>
+<p>​        在上述方法中，charCodeAt方法返回的是指定位置上字符对应的ASCII码，ASCII码对照表如下：</p>
+<p>​          <img src="https://img-blog.csdnimg.cn/20200507102344840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>​        案例：判断一个字符串 ‘abcoefoxyozzopp’ 中出现次数最多的字符，并统计其次数</p>
+<ol>
+<li><p>核心算法：利用 charAt(） 遍历这个字符串</p>
+</li>
+<li><p>把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1</p>
+</li>
+<li><p>遍历对象，得到最大值和该字符     </p>
+<p>​    注意：在遍历的过程中，把字符串中的每个字符作为对象的属性存储在对象总，对应的属性值是该字符出现的次数</p>
+</li>
+</ol>
+<h4 id="字符串操作方法"><a href="#字符串操作方法" class="headerlink" title="字符串操作方法"></a>字符串操作方法</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是部分操作方法：</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507102344695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<h4 id="replace-方法"><a href="#replace-方法" class="headerlink" title="replace()方法"></a>replace()方法</h4><p>​        replace() 方法用于在字符串中用一些字符替换另一些字符，其使用格式如下：  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.replace(被替换的字符串， 要替换为的字符串)；</span><br></pre></td></tr></table></figure>
+
+<h4 id="split-方法"><a href="#split-方法" class="headerlink" title="split()方法"></a>split()方法</h4><p>​        split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
+<p>​        其使用格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.split(&quot;分割字符&quot;)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>前端</category>
