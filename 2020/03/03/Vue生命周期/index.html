@@ -20,25 +20,26 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="事件对象&#x2F;eventevent包含了发生事件的所有信息内容，不如:发生事件类型，发生事件的元素，键盘按下状态等等 事件对象的创建，当事件发生时，游浏览器帮我们创建的,并通过参数的形式传递给事件处理程序的">
+  <meta name="description" content="vue的生命周期是什么  vue每个组件都是独立的，每个组件都有一个属于它的生命周期，从一个组件创建、数据初始化、挂载、更新、销毁，这就是一个组件所谓的生命周期。在组件中具体的方法有:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js-鼠标键盘事件对象">
-<meta property="og:url" content="http://yoursite.com/2020/02/09/js-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:title" content="Vue生命周期">
+<meta property="og:url" content="http://yoursite.com/2020/03/03/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
-<meta property="og:description" content="事件对象&#x2F;eventevent包含了发生事件的所有信息内容，不如:发生事件类型，发生事件的元素，键盘按下状态等等 事件对象的创建，当事件发生时，游浏览器帮我们创建的,并通过参数的形式传递给事件处理程序的">
+<meta property="og:description" content="vue的生命周期是什么  vue每个组件都是独立的，每个组件都有一个属于它的生命周期，从一个组件创建、数据初始化、挂载、更新、销毁，这就是一个组件所谓的生命周期。在组件中具体的方法有:">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200425200435783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200425200520945.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200425200618448.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200425200836213.png">
-<meta property="article:published_time" content="2020-02-09T07:17:13.000Z">
-<meta property="article:modified_time" content="2020-05-08T07:55:59.795Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13119812-eaf493b1b2050a93.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13119812-551024dfb2fe9961.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13119812-095add76ef7c1953.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13119812-4980a396e64eee6e.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13119812-c8feee355871be70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/538/format/webp">
+<meta property="article:published_time" content="2020-03-03T06:15:24.000Z">
+<meta property="article:modified_time" content="2020-05-14T08:57:00.563Z">
 <meta property="article:author" content="zyangg">
-<meta property="article:tag" content="js">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200425200435783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13119812-eaf493b1b2050a93.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/02/09/js-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/">
+<link rel="canonical" href="http://yoursite.com/2020/03/03/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
 
 
 <script id="page-configurations">
@@ -51,7 +52,7 @@
   };
 </script>
 
-  <title>js-鼠标键盘事件对象 | zyangg的个人博客</title>
+  <title>Vue生命周期 | zyangg的个人博客</title>
   
 
 
@@ -195,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/09/js-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
@@ -208,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          js-鼠标键盘事件对象
+          Vue生命周期
         </h1>
 
         <div class="post-meta">
@@ -218,14 +219,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-02-09 15:17:13" itemprop="dateCreated datePublished" datetime="2020-02-09T15:17:13+08:00">2020-02-09</time>
+              <time title="创建时间：2020-03-03 14:15:24" itemprop="dateCreated datePublished" datetime="2020-03-03T14:15:24+08:00">2020-03-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-08 15:55:59" itemprop="dateModified" datetime="2020-05-08T15:55:59+08:00">2020-05-08</time>
+                <time title="修改时间：2020-05-14 16:57:00" itemprop="dateModified" datetime="2020-05-14T16:57:00+08:00">2020-05-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -253,8 +254,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/02/09/js-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/09/js-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/03/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/03/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -264,7 +265,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>593</span>
+              <span>978</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -283,18 +284,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="事件对象-event"><a href="#事件对象-event" class="headerlink" title="事件对象/event"></a>事件对象/event</h3><p><strong>event包含了发生事件的所有信息内容，不如:发生事件类型，发生事件的元素，键盘按下状态等等</strong></p>
-<p><strong>事件对象的创建，当事件发生时，游浏览器帮我们创建的,并通过参数的形式传递给事件处理程序的</strong></p>
+        <h4 id="vue的生命周期是什么"><a href="#vue的生命周期是什么" class="headerlink" title="vue的生命周期是什么"></a><strong>vue的生命周期是什么</strong></h4><p>  vue每个组件都是独立的，每个组件都有一个属于它的生命周期，从一个组件<strong>创建、数据初始化、挂载、更新、销毁</strong>，这就是一个组件所谓的生命周期。在组件中具体的方法有:</p>
 <a id="more"></a>
 
-<h4 id="常用鼠标事件"><a href="#常用鼠标事件" class="headerlink" title="常用鼠标事件"></a>常用鼠标事件</h4><p><img src="https://img-blog.csdnimg.cn/20200425200435783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h4><p><img src="https://img-blog.csdnimg.cn/20200425200520945.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="常用的键盘事件"><a href="#常用的键盘事件" class="headerlink" title="常用的键盘事件"></a>常用的键盘事件</h4><p><img src="https://img-blog.csdnimg.cn/20200425200618448.png" alt="在这里插入图片描述"> </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 常用的键盘事件</span></span><br><span class="line">    <span class="comment">//1. keyup 按键弹起的时候触发 </span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我弹起了'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. keypress 按键按下的时候触发  不能识别功能键 比如 ctrl shift 左右箭头啊</span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keypress'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'我按下了press'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">//2. keydown 按键按下的时候触发  能识别功能键 比如 ctrl shift 左右箭头啊</span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keydown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'我按下了down'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 4. 三个事件的执行顺序  keydown -- keypress -- keyup</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    beforeCreate</span><br><span class="line">    created</span><br><span class="line">    beforeMount</span><br><span class="line">    mounted</span><br><span class="line">    (</span><br><span class="line">        beforeUpdate</span><br><span class="line">        updated</span><br><span class="line">    )</span><br><span class="line">    beforeDestroy</span><br><span class="line">    destroyed</span><br></pre></td></tr></table></figure>
 
-<h4 id="键盘事件对象"><a href="#键盘事件对象" class="headerlink" title="键盘事件对象"></a>键盘事件对象</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keyCode   返回该键的ASCLL值</span><br></pre></td></tr></table></figure>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-eaf493b1b2050a93.png" alt="img"> </p>
+<p><strong>vue中内置的方法 属性和vue生命周期的运行顺序（methods、computed、data、watch、props)</strong></p>
+<p>  从第一二点可知道data的初始化是在created时已经完成数据观测(data observer)，并且诸如methods、computed属性 props等已经初始化；那问题来了，</p>
+<p>data props computed watch methods他们之间的生成顺序是什么呢？</p>
+<p>根据翻看vue源码可知：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-551024dfb2fe9961.png" alt="img"> </p>
+<p><strong>props =&gt; methods =&gt;data =&gt; computed =&gt; watch</strong>; 懂了没 </p>
+<p><strong>vue生命周期的在项目中的执行顺序</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">data () &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line"></span><br><span class="line">  rendered: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
-<p> <img src="https://img-blog.csdnimg.cn/20200425200836213.png" alt="img"> </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>beforeCeate()&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.rendered);  <span class="comment">// undefined </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.</span>created() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);<span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>.rendered); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.</span>beforeMount() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el)；<span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4.</span>mounted() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-095add76ef7c1953.png" alt="img"> </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5.</span>beforeDestroty()&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.rendered); </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-4980a396e64eee6e.png" alt="img"> </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6.</span>destroyed() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.rendered);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-c8feee355871be70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/538/format/webp" alt="img"> </p>
 
     </div>
 
@@ -304,7 +323,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/js/" rel="tag"># js</a>
+              <a href="/tags/Vue/" rel="tag"># Vue</a>
           </div>
 
         
@@ -313,12 +332,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/02/09/js-%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" rel="prev" title="js-事件委托">
-      <i class="fa fa-chevron-left"></i> js-事件委托
+    <a href="/2020/03/03/Vue-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" rel="prev" title="Vue-基本语法">
+      <i class="fa fa-chevron-left"></i> Vue-基本语法
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/02/10/offset-client-scroll/" rel="next" title="offset client scroll">
-      offset client scroll <i class="fa fa-chevron-right"></i>
+    <a href="/2020/03/04/Vue-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A41/" rel="next" title="Vue-常用指令1">
+      Vue-常用指令1 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -379,7 +398,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件对象-event"><span class="nav-number">1.</span> <span class="nav-text">事件对象&#x2F;event</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用鼠标事件"><span class="nav-number">1.1.</span> <span class="nav-text">常用鼠标事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#鼠标事件对象"><span class="nav-number">1.2.</span> <span class="nav-text">鼠标事件对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用的键盘事件"><span class="nav-number">1.3.</span> <span class="nav-text">常用的键盘事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#键盘事件对象"><span class="nav-number">1.4.</span> <span class="nav-text">键盘事件对象</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue的生命周期是什么"><span class="nav-number">1.</span> <span class="nav-text">vue的生命周期是什么</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
