@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="一、通过$children  children是复数，就意味着父组件通过children拿到的可能不止一个子组件，因为在Vue中明文规定是可以让父组件拥有一个或者多个子组件的。就像是二胎政策的开放，国家已经规定夫妻间可以拥有多个孩子一样。  所以如果父组件通过$children拿到子组件的对象，一定要具体到是哪一个孩子。就像你父母在叫孩子的时候，一定会叫特殊昵称一样。下面小编为你们展示如何通过ch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue-组件访问之父访子">
+<meta property="og:url" content="http://yoursite.com/2020/05/12/Vue-%E7%BB%84%E4%BB%B6%E8%AE%BF%E9%97%AE%E4%B9%8B%E7%88%B6%E8%AE%BF%E5%AD%90/index.html">
+<meta property="og:site_name" content="zyangg的个人博客">
+<meta property="og:description" content="一、通过$children  children是复数，就意味着父组件通过children拿到的可能不止一个子组件，因为在Vue中明文规定是可以让父组件拥有一个或者多个子组件的。就像是二胎政策的开放，国家已经规定夫妻间可以拥有多个孩子一样。  所以如果父组件通过$children拿到子组件的对象，一定要具体到是哪一个孩子。就像你父母在叫孩子的时候，一定会叫特殊昵称一样。下面小编为你们展示如何通过ch">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/21260932-fc7c1f34732e4f0b.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/21260932-07d4ececca01604b.gif">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/21260932-ec4bd1bab162be3f.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/21260932-dc94ce8617a7de6b.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/21260932-389fdfba1d710835.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/21260932-761705b5712f4fe4.gif">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/21260932-8f8069d80d9f39f2.png">
+<meta property="article:published_time" content="2020-05-12T07:05:21.000Z">
+<meta property="article:modified_time" content="2020-05-14T07:18:15.057Z">
+<meta property="article:author" content="zyangg">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/21260932-fc7c1f34732e4f0b.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/05/12/Vue-%E7%BB%84%E4%BB%B6%E8%AE%BF%E9%97%AE%E4%B9%8B%E7%88%B6%E8%AE%BF%E5%AD%90/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Vue-组件访问之父访子 | zyangg的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zyangg的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">你的🐏</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/Vue-%E7%BB%84%E4%BB%B6%E8%AE%BF%E9%97%AE%E4%B9%8B%E7%88%B6%E8%AE%BF%E5%AD%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+      <meta itemprop="name" content="zyangg">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zyangg的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vue-组件访问之父访子
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-12 15:05:21" itemprop="dateCreated datePublished" datetime="2020-05-12T15:05:21+08:00">2020-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-14 15:18:15" itemprop="dateModified" datetime="2020-05-14T15:18:15+08:00">2020-05-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/05/12/Vue-%E7%BB%84%E4%BB%B6%E8%AE%BF%E9%97%AE%E4%B9%8B%E7%88%B6%E8%AE%BF%E5%AD%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/12/Vue-%E7%BB%84%E4%BB%B6%E8%AE%BF%E9%97%AE%E4%B9%8B%E7%88%B6%E8%AE%BF%E5%AD%90/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="一、通过-children"><a href="#一、通过-children" class="headerlink" title="一、通过$children"></a>一、通过$children</h1><p>  children是复数，就意味着<strong>父组件通过children拿到的可能不止一个子组件</strong>，因为在Vue中明文规定是可以让父组件拥有一个或者多个子组件的。就像是二胎政策的开放，国家已经规定夫妻间可以拥有多个孩子一样。<br>  <strong>所以如果父组件通过$children拿到子组件的对象，一定要具体到是哪一个孩子。</strong>就像你父母在叫孩子的时候，一定会叫特殊昵称一样。下面小编为你们展示如何通过children访问子组件，先看下面的基础代码：</p>
+<a id="more"></a>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cnp</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tmp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是子组件<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">".warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line">                </span><br><span class="line">            &#125;,</span><br><span class="line">            components:&#123;</span><br><span class="line">                cnp:&#123;</span><br><span class="line"><span class="actionscript">                    template:<span class="string">"#tmp"</span>,</span></span><br><span class="line">                    methods:&#123;</span><br><span class="line">                        showMessage()&#123;</span><br><span class="line"><span class="actionscript">                            alert(<span class="string">'我是通过$children访问的函数'</span>)</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>  子组件cnp为局部组件，并且有一个showMessage的方法，当调用这个方法就会弹出对话框。父组件依旧是我们的Vue老大，模板中有子组件cnp和按钮两个小老弟。<br>  下面小编希望当点击按钮的时候就通过$children来访问子组件中的showMessage方法。很明显，<strong>首先要为button绑定点击事件，然后在点击事件内部通过children来访问子组件中的showMessage方法。</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为按钮绑定点击事件</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">    &lt;cnp&gt;&lt;<span class="regexp">/cnp&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click="btnClick"&gt;按钮&lt;/</span>button&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/在Vue老大的method方法中处理btnClick事件</span></span><br><span class="line"><span class="regexp">methods:&#123;</span></span><br><span class="line"><span class="regexp">    btnClick()&#123;</span></span><br><span class="line"><span class="regexp">        console.log(this.$children);</span></span><br><span class="line"><span class="regexp">        this.$children[0].showMessage()</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们先来看看它到底是个啥玩意儿：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-fc7c1f34732e4f0b.png" alt="img"> </p>
+<p>$children是这玩意儿.png</p>
+<p>  没错，它是【别问我为啥知道，因为它有中括号】数组内的元素是VueComponent,也就是说是，并且也有一个children,子组件的children为一个空数组，因为它还没有孩子，所以children的内容是空的，最后也有showMessage函数。</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-07d4ececca01604b.gif" alt="img"> </p>
+<p>效果图.gif</p>
+<p>  可以看到，当点击按钮的时候确实弹出了弹出框的内容。  但是，每个孩子都不是完美的，金无足赤人无完人，也有他缺陷。，这就注定了它不是个完美的孩子，比如：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-ec4bd1bab162be3f.png" alt="img"> </p>
+<p>image.png</p>
+<p>  原来只有三个子组件，想要访问第三个组件的话，通过this.$children[2]就可以获取，但是，保不准哪天遇到了奇葩客户，增加了很多无厘头的需求，然后父组件的模板就变成了下面的样子:</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-dc94ce8617a7de6b.png" alt="img"> </p>
+<p>image.png</p>
+<p>  我依旧不忘初心，想要访问第三个cnp，由于中间杀出了很多程咬金，我需要将下标值改成6才可以获取到。这就是children的缺陷，所以才产生了下面的方法：</p>
+<h1 id="二、通过refs"><a href="#二、通过refs" class="headerlink" title="二、通过refs"></a>二、通过refs</h1><p>  既然都是访问子组件的，那么想必他们的用法是一样的，于是小编就信心满满的写成了下面的样子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">    btnClick()&#123;</span><br><span class="line">            console.<span class="built_in">log</span>(<span class="keyword">this</span>.$refs);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果是这样的：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-389fdfba1d710835.png" alt="img"> </p>
+<p>image.png</p>
+<p>  天真了吧。傻了吧。它真不是个东西，是一个空对象！后来经过小编七七四十九天的炼制，终于炼出了灵丹妙药来惩治这个妖孽：于是乎就有了下面的代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">    &lt;cnp&gt;&lt;<span class="regexp">/cnp&gt;</span></span><br><span class="line"><span class="regexp">    &lt;cnp&gt;&lt;/</span>cnp&gt;</span><br><span class="line">    &lt;!--第一步：为子组件绑定ref=“a”的属性--&gt;</span><br><span class="line">    &lt;cnp ref=<span class="string">'a'</span>&gt;&lt;<span class="regexp">/cnp&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click="btnClick"&gt;按钮&lt;/</span>button&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">methods:&#123;</span></span><br><span class="line"><span class="regexp">    btnClick()&#123;</span></span><br><span class="line"><span class="regexp">            console.log(this.$refs.a);</span></span><br><span class="line"><span class="regexp">            &lt;!--第二步：通过refs访问子组 --&gt;</span></span><br><span class="line"><span class="regexp">            this.$refs.a.showMessage();</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-761705b5712f4fe4.gif" alt="img"> </p>
+<p>refe访问子组件.gif</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-8f8069d80d9f39f2.png" alt="img"> </p>
+<p>image.png</p>
+<p> 妖孽成功的降服了！而且看到这个妖孽是一个对象类型的。  要注意，比如本例中的属性值是a，所以使用的时候是this.$refs.a.XXXX。至于为什么要加上ref属性呢，因为这样相当于 <strong>做了标志，不管前面增加多少个标签，访问的依旧是属性值为a的子组件</strong>。 </p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Vue/" rel="tag"># Vue</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/12/Vue-%E7%BB%84%E4%BB%B6%E8%AE%BF%E9%97%AE%E4%B9%8B%E5%AD%90%E8%AE%BF%E7%88%B6/" rel="prev" title="Vue-组件访问之子访父">
+      <i class="fa fa-chevron-left"></i> Vue-组件访问之子访父
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、通过-children"><span class="nav-number">1.</span> <span class="nav-text">一、通过$children</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、通过refs"><span class="nav-number">2.</span> <span class="nav-text">二、通过refs</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zyangg"
+      src="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+  <p class="site-author-name" itemprop="name">zyangg</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zyangg" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zyangg" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://cn.vuejs.org/" title="https:&#x2F;&#x2F;cn.vuejs.org&#x2F;" rel="noopener" target="_blank">Vue</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://element.eleme.cn/#/zh-CN" title="https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN" rel="noopener" target="_blank">Element</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <!--<span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>-->
+  <span class="author" itemprop="copyrightHolder">zyangg</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">99k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:30</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '4rCRJXfw8gRVMig58URu4P0j-gzGzoHsz',
+      appKey     : 'Hn4FxrLx0cjirhX2cVuiNxMh',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
