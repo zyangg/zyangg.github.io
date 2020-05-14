@@ -434,6 +434,55 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue-作用域插槽</title>
+    <url>/2020/03/14/Vue-%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD/</url>
+    <content><![CDATA[<h1 id="一、作用域"><a href="#一、作用域" class="headerlink" title="一、作用域"></a>一、作用域</h1><p>  说白了，<strong>作用域就是变量的使用范围</strong>，那么本例的问题是该如果给变量找范围。一言不合就上代码，这是小编的风格⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄</p>
+<a id="more"></a>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cnp</span> <span class="attr">v-show</span>=<span class="string">"isShow"</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">"#warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                isShow:<span class="literal">false</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            components:&#123;</span><br><span class="line">                cnp:&#123;</span><br><span class="line"><span class="actionscript">                    template:<span class="string">"#tem"</span>,</span></span><br><span class="line">                    data()&#123;</span><br><span class="line"><span class="actionscript">                        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">                            isShow:<span class="literal">true</span></span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>  还是老样子，Vue作为父组件，声明cnp子组件是局部变量，并且在Vue和cnp中都有变量isShow，只是取值不一样，在Vue中是false，在cnp中是true。<br>  小编希望通过是否显示子组件cnp的内容来判断变量isShow的作用域。如果子组件cnp没有显示内容，说明使用的是Vue中的isShow，反之就是使用了子组件中的isShow。<br>  大是显示内容，小是不显示内容，各位客官，买定离手了喂，买定离手了喂。</p>
+<p>  结果发现是不显示的，说明isShow用的是Vue中的数据。如果将Vue中的isShow修改为true，结果是显示的。这就涉及到了变量的作用域问题  官方给出的准则是这样的：比如上面的案例是在父组件的div模板中使用的，所以浏览器会到父组件中的data对变量isShow进行编译。  在懂了作用域的概念后，作用域的插槽就好办多了 o()o</p>
+<h1 id="二、作用域插槽"><a href="#二、作用域插槽" class="headerlink" title="二、作用域插槽"></a>二、作用域插槽</h1><p>  作用域插槽呢，就是<strong>在父组件中替换插槽的标签，但是内容是由子组件提供的。</strong>这说的是啥？？？？？</p>
+<p>image.png</p>
+<p> 没关系，先让我们来看一下下面的例子：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in pLanguage"</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">"#warp"</span>,</span></span><br><span class="line">            components:&#123;</span><br><span class="line">                cpn:&#123;</span><br><span class="line"><span class="actionscript">                    template:<span class="string">"#tem"</span>,</span></span><br><span class="line">                    data()&#123;</span><br><span class="line"><span class="actionscript">                        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">                            pLanguage:[<span class="string">'JavaScript'</span>,<span class="string">'Java'</span>,<span class="string">'C++'</span>,<span class="string">'C#'</span>]</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https:////upload-images.jianshu.io/upload_images/21260932-77c233fd30060b19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/194/format/webp" alt="img"></p>
+<p>image.png</p>
+<p>  这个例子中，我们通过在子组件中使用v-for指令使pLanguage的数据以列表的形式展示出来。<br>  现在的需求是，我们希望在第二个子组件中，数据是“ JavaScript - Java - C++ - C# ” 这种形式展示的。这跟作用域插槽的作用是不是很像：在父组件中替换插槽的标签，但是内容是由子组件提供的。替换标签就相当于展示的形式不一样了嘛，内容依旧是子组件中的pLanguage提供。<br>  目标已经十分的明确，首先是要获取子组件中的pLanguage数据，然后在父组件中修改自己想要的样式，小编觉得直接在子组件使用插槽，然后在父组件中修改样式就可以实现，于是乎写下了这样的代码：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">        <span class="comment">&lt;!-- 在父组件修改想要展示的形式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"item in pLanguage"</span>&gt;</span>&#123;&#123;item&#125;&#125; - <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">&lt;!-- 在子组件使用插槽 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">slot</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in pLanguage"</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>本以为离成功还差一步的时候，深刻体会到了一句话：现实是残酷的！</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/21260932-174d0487c13b81c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/523/format/webp" alt="img"></p>
+<p>image.png</p>
+<p>  意思是说，。但硬是要获取子组件的数据，怎么办呢？  这个时候就到了 作用域插槽 出场了使用作用域大概分成以下来两个步骤：<strong>第一步：为slot设置属性，将子组件中的数据复制给属性**</strong>第二部：使用slot-scope 获取slot对象，通过slot.属性名来获取子组中的数**</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 在父组件通过slot-scope获取到slot对象,并且通过slot.data获取子组件中的pLanguage --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot-scope</span>=<span class="string">"slot"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"item in slot.data"</span>&gt;</span>&#123;&#123;item&#125;&#125; - <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!-- 在子组件声明了名字为 data 的属性 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">slot</span> <span class="attr">:data</span>=<span class="string">'pLanguage'</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in pLanguage"</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https:////upload-images.jianshu.io/upload_images/21260932-8719f19bf5972e8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/371/format/webp" alt="img"></p>
+<p>image.png</p>
+<p>  首先，，这样子当cnp没有书写别的格式时就可以直接使用slot中的格式  其次，【当然，属性名是可以人任意的】，并且将pLanguage赋值给属性data，这就意味着data中的数据和pLanguage是一样的  然后，在父组件中，并且在slot对象中有个叫data的属性，这样就相当于父组件获取到了子组件pLanguage中的数据  最后，，并且显示出来  这就是使用作用域插槽的过程，这个时候你就会很好理解的这句话的含义</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/21260932-dfceb97e0908a360.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720/format/webp" alt="img"></p>
+<p>image.png</p>
+<p>  我知道，这里众多的读者中肯定有跟小编一样的强迫症患者，想把那个尾巴去掉</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/21260932-1470a560a9925a81.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/385/format/webp" alt="img"></p>
+<p>image.png</p>
+<p> 其实很简单，用就好</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">&lt;span&gt;&#123;&#123;slot.data.<span class="keyword">join</span>(<span class="string">' - '</span>)&#125;&#125;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https:////upload-images.jianshu.io/upload_images/21260932-72fdef62adf44dcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/341/format/webp" alt="img"></p>
+<p>image.png</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue-全局组件和局部组件</title>
     <url>/2020/03/09/Vue-%E5%85%A8%E5%B1%80%E7%BB%84%E4%BB%B6%E5%92%8C%E5%B1%80%E9%83%A8%E7%BB%84%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="一、全局组件"><a href="#一、全局组件" class="headerlink" title="一、全局组件"></a>一、全局组件</h1><p><strong>1.定义</strong>：可以在<strong>多个Vue实例中应用</strong><br> <strong>2.声明</strong>：通过Vue中的<strong>component方法</strong>声明，代码如下：</p>
@@ -920,6 +969,57 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue-组件插槽</title>
+    <url>/2020/03/14/Vue-%E7%BB%84%E4%BB%B6%E6%8F%92%E6%A7%BD/</url>
+    <content><![CDATA[<h3 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h3><p>  上面最佳的解决办法是<strong>将共性抽取到组件中，将不同暴露给插槽</strong>，一旦我们<strong>使用了插槽，就相当于预留了空间</strong>，<strong>空间的内容取决于使用者</strong>。具体呢可以分成以下两种用法：</p>
+<a id="more"></a>
+
+<h5 id="1-使用空插槽"><a href="#1-使用空插槽" class="headerlink" title="1.使用空插槽"></a>1.使用空插槽</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cnp</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cnp</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cnp</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">"#warp"</span>,</span></span><br><span class="line">            components:&#123;</span><br><span class="line">                cnp:&#123;</span><br><span class="line"><span class="actionscript">                    template:<span class="string">"#tem"</span></span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-3db271400f5de21e.png" alt="img"> </p>
+<p>image.png</p>
+<p>  将第二个子组件的按钮变成span标签，将第三个子组件的按钮变成i标签，只需要引入slot标签，然后在cnp标签添加内容即可</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 第一步：在子组件模板使用slot标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 第一步：在子组件cnp标签填充内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cnp</span>&gt;</span><span class="tag">&lt;<span class="name">buton</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">buton</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cnp</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>我是span标签<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cnp</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span>我是i标签<span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-6965efa99cf0265c.png" alt="img"> </p>
+<p>image.png</p>
+<p>  使用了slot标签，就相当于预留了空间，空间的内容取决于使用者。比如本例子中，，比如第一个slot的内容就被button标签替换了，第二个slot的内容就被span标签替换了。</p>
+<h5 id="2-有默认值的插槽"><a href="#2-有默认值的插槽" class="headerlink" title="2.有默认值的插槽"></a>2.有默认值的插槽</h5><p>  这种情况一般是，总共有十个东西，八个的内容是一样的，只有两个内容不一样情况。比如接着上面的例子，小编想第一个子组件和第二个子组件都是按钮，第三个子组件是span标签，只需要在slot标签填充默认的内容即可：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cnp</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cnp</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cnp</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>我是span标签<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-c9a5874122625dc1.png" alt="img"> </p>
+<p>image.png</p>
+<p>  为什么这里的第一个cnp和第二个cnp标签没有内容也有东西显示出来呢？因为slot有默认的button。当cnp没有写内容的时候，就显示slot默认的内容；当cnp写了内容，原本slot默认的内容就会被覆盖。<br>  其实小编很好奇【因为小编是好奇宝宝，哈哈哈O(∩_∩)O哈哈~】如果是下面这种情况，slot的内容会被那个标签替换呢？</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cnp</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>哈哈哈<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>呵呵呵<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span>&gt;</span>嘻嘻嘻<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>  被“哈哈哈”替代？被“呵呵呵”替代？被“嘻嘻嘻”替代？那么究竟花落谁家呢？让我们拭目以待吧!</p>
+<p>骗你的，其实下面就有答案：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-3bb79be89d951ade.png" alt="img"> </p>
+<p>image.png</p>
+<p>  事实证明，slot被三个标签同时替代了！也就是说会被cnp标签的所有内容替换掉，记住了嘛？这个是小黑板的知识点唷o()o</p>
+<h1 id="四、具名插槽"><a href="#四、具名插槽" class="headerlink" title="四、具名插槽"></a>四、具名插槽</h1><p>  什么是具名插槽呢？简单的理解就是<strong>给slot起名字</strong>，为什么要起名字呢？因为有名字我们才好区分，<strong>才好让使用者对某个特定名字的插槽进行不同的操作</strong>。比如：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-57bc3bed18d6cab8.png" alt="img"> </p>
+<p>image.png</p>
+<p> 三个页面的导航栏不一样，那么我们就需要在子组件cnp的模板中用三个插槽</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;template id=<span class="string">"tem"</span>&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;slot&gt;&lt;&lt;<span class="regexp">/slot&gt;</span></span><br><span class="line"><span class="regexp">        &lt;slot&gt;购物车&lt;/</span>slot&gt;</span><br><span class="line">        &lt;slot&gt;···&lt;<span class="regexp">/slot&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-cb0e74eef8e9cff6.png" alt="img"> </p>
+<p>image.png</p>
+<p>  可以发现，通过给solt设置默认值是可以实现这个样式的。但是呢，我们子组件一般都提倡复用，在第一个页面可能有“购物车”这个样式，第二个页面未必有这个样式，如果每调用一次子组件就修改slot的默认值，你会发现这是一件非常错误的事情。<br> 所以我们通过具名插槽来实现，具体看下面的代码：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;template id=<span class="string">"tem"</span>&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;slot name=<span class="string">"left"</span>&gt;&lt;<span class="regexp">/slot&gt;</span></span><br><span class="line"><span class="regexp">        &lt;slot name="center"&gt;&lt;/</span>slot&gt;</span><br><span class="line">        &lt;slot name=<span class="string">"right"</span>&gt;&lt;<span class="regexp">/slot&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;div id="warp"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;cnp&gt;</span></span><br><span class="line"><span class="regexp">        &lt;span slot="left"&gt;&lt;&lt;/</span>span&gt;</span><br><span class="line">        &lt;span slot=<span class="string">"center"</span>&gt;购物车&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">        &lt;span slot="right"&gt;···&lt;/</span>span&gt;</span><br><span class="line">    &lt;<span class="regexp">/cnp&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>  <strong>首先我们为插槽起了名字，然后在使用的时候，只要告诉某个标签，你的内容想显示在那个插槽，就写入那个插槽的名字</strong>。就像去参加</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue-组件化思想</title>
     <url>/2020/03/09/Vue-%E7%BB%84%E4%BB%B6%E5%8C%96%E6%80%9D%E6%83%B3/</url>
     <content><![CDATA[<h1 id="一、组件化思想"><a href="#一、组件化思想" class="headerlink" title="一、组件化思想"></a>一、组件化思想</h1><h4 id="1-引例"><a href="#1-引例" class="headerlink" title="1. 引例"></a>1. 引例</h4><p>  人在处理逻辑十分复杂的问题时，往往不知从何处下手，但是人有一种本能，就是<strong>把复杂的东西简单化</strong>，把一个复杂的问题划分成若干个小问题，<strong>然后逐一逐一解决小问题</strong>，当把所有的小问题都解决完时，你就会发下复杂的问题已经被你解决了。组件化也是同样的思想</p>
@@ -1004,54 +1104,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue-组件访问之父访子</title>
-    <url>/2020/05/12/Vue-%E7%BB%84%E4%BB%B6%E8%AE%BF%E9%97%AE%E4%B9%8B%E7%88%B6%E8%AE%BF%E5%AD%90/</url>
-    <content><![CDATA[<h1 id="一、通过-children"><a href="#一、通过-children" class="headerlink" title="一、通过$children"></a>一、通过$children</h1><p>  children是复数，就意味着<strong>父组件通过children拿到的可能不止一个子组件</strong>，因为在Vue中明文规定是可以让父组件拥有一个或者多个子组件的。就像是二胎政策的开放，国家已经规定夫妻间可以拥有多个孩子一样。<br>  <strong>所以如果父组件通过$children拿到子组件的对象，一定要具体到是哪一个孩子。</strong>就像你父母在叫孩子的时候，一定会叫特殊昵称一样。下面小编为你们展示如何通过children访问子组件，先看下面的基础代码：</p>
-<a id="more"></a>
-
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cnp</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tmp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是子组件<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">".warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line">                </span><br><span class="line">            &#125;,</span><br><span class="line">            components:&#123;</span><br><span class="line">                cnp:&#123;</span><br><span class="line"><span class="actionscript">                    template:<span class="string">"#tmp"</span>,</span></span><br><span class="line">                    methods:&#123;</span><br><span class="line">                        showMessage()&#123;</span><br><span class="line"><span class="actionscript">                            alert(<span class="string">'我是通过$children访问的函数'</span>)</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>  子组件cnp为局部组件，并且有一个showMessage的方法，当调用这个方法就会弹出对话框。父组件依旧是我们的Vue老大，模板中有子组件cnp和按钮两个小老弟。<br>  下面小编希望当点击按钮的时候就通过$children来访问子组件中的showMessage方法。很明显，<strong>首先要为button绑定点击事件，然后在点击事件内部通过children来访问子组件中的showMessage方法。</strong></p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 为按钮绑定点击事件</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">    &lt;cnp&gt;&lt;<span class="regexp">/cnp&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click="btnClick"&gt;按钮&lt;/</span>button&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/在Vue老大的method方法中处理btnClick事件</span></span><br><span class="line"><span class="regexp">methods:&#123;</span></span><br><span class="line"><span class="regexp">    btnClick()&#123;</span></span><br><span class="line"><span class="regexp">        console.log(this.$children);</span></span><br><span class="line"><span class="regexp">        this.$children[0].showMessage()</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>我们先来看看它到底是个啥玩意儿：</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-fc7c1f34732e4f0b.png" alt="img"> </p>
-<p>$children是这玩意儿.png</p>
-<p>  没错，它是【别问我为啥知道，因为它有中括号】数组内的元素是VueComponent,也就是说是，并且也有一个children,子组件的children为一个空数组，因为它还没有孩子，所以children的内容是空的，最后也有showMessage函数。</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-07d4ececca01604b.gif" alt="img"> </p>
-<p>效果图.gif</p>
-<p>  可以看到，当点击按钮的时候确实弹出了弹出框的内容。  但是，每个孩子都不是完美的，金无足赤人无完人，也有他缺陷。，这就注定了它不是个完美的孩子，比如：</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-ec4bd1bab162be3f.png" alt="img"> </p>
-<p>image.png</p>
-<p>  原来只有三个子组件，想要访问第三个组件的话，通过this.$children[2]就可以获取，但是，保不准哪天遇到了奇葩客户，增加了很多无厘头的需求，然后父组件的模板就变成了下面的样子:</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-dc94ce8617a7de6b.png" alt="img"> </p>
-<p>image.png</p>
-<p>  我依旧不忘初心，想要访问第三个cnp，由于中间杀出了很多程咬金，我需要将下标值改成6才可以获取到。这就是children的缺陷，所以才产生了下面的方法：</p>
-<h1 id="二、通过refs"><a href="#二、通过refs" class="headerlink" title="二、通过refs"></a>二、通过refs</h1><p>  既然都是访问子组件的，那么想必他们的用法是一样的，于是小编就信心满满的写成了下面的样子：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">    btnClick()&#123;</span><br><span class="line">            console.<span class="built_in">log</span>(<span class="keyword">this</span>.$refs);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果是这样的：</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-389fdfba1d710835.png" alt="img"> </p>
-<p>image.png</p>
-<p>  天真了吧。傻了吧。它真不是个东西，是一个空对象！后来经过小编七七四十九天的炼制，终于炼出了灵丹妙药来惩治这个妖孽：于是乎就有了下面的代码：</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">    &lt;cnp&gt;&lt;<span class="regexp">/cnp&gt;</span></span><br><span class="line"><span class="regexp">    &lt;cnp&gt;&lt;/</span>cnp&gt;</span><br><span class="line">    &lt;!--第一步：为子组件绑定ref=“a”的属性--&gt;</span><br><span class="line">    &lt;cnp ref=<span class="string">'a'</span>&gt;&lt;<span class="regexp">/cnp&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click="btnClick"&gt;按钮&lt;/</span>button&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">methods:&#123;</span></span><br><span class="line"><span class="regexp">    btnClick()&#123;</span></span><br><span class="line"><span class="regexp">            console.log(this.$refs.a);</span></span><br><span class="line"><span class="regexp">            &lt;!--第二步：通过refs访问子组 --&gt;</span></span><br><span class="line"><span class="regexp">            this.$refs.a.showMessage();</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-761705b5712f4fe4.gif" alt="img"> </p>
-<p>refe访问子组件.gif</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-8f8069d80d9f39f2.png" alt="img"> </p>
-<p>image.png</p>
-<p> 妖孽成功的降服了！而且看到这个妖孽是一个对象类型的。  要注意，比如本例中的属性值是a，所以使用的时候是this.$refs.a.XXXX。至于为什么要加上ref属性呢，因为这样相当于 <strong>做了标志，不管前面增加多少个标签，访问的依旧是属性值为a的子组件</strong>。 </p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue-表单操作1</title>
     <url>/2020/03/08/Vue-%E8%A1%A8%E5%8D%95%E6%93%8D%E4%BD%9C1/</url>
     <content><![CDATA[<h1 id="一、v-model-双向绑定的本质"><a href="#一、v-model-双向绑定的本质" class="headerlink" title="一、v-model 双向绑定的本质"></a>一、v-model 双向绑定的本质</h1><p>  在使用v-model操作表单元素之前，相信大家在很多的资料中看到过v-model能实现双向绑定，那么什么又是双向数据绑定呢？<br>  所谓的双向绑定可以简单的理解为：<strong>修改model中的值，页面的值会改变；修改了页面的值，model的值也会发生变化</strong>。比如：</p>
@@ -1100,6 +1152,54 @@
 <h4 id="2-多个多选框"><a href="#2-多个多选框" class="headerlink" title="2.多个多选框"></a>2.多个多选框</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"语文"</span> <span class="attr">v-model</span>=<span class="string">"subject"</span>&gt;</span>语文</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"数学"</span> <span class="attr">v-model</span>=<span class="string">"subject"</span>&gt;</span>数学</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"英语"</span> <span class="attr">v-model</span>=<span class="string">"subject"</span>&gt;</span>英语</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"化学"</span> <span class="attr">v-model</span>=<span class="string">"subject"</span>&gt;</span>化学</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>你喜欢的科目是:&#123;&#123;subject&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> vm  = <span class="keyword">new</span> Vue (&#123;</span></span><br><span class="line"><span class="actionscript">        el:<span class="string">".warp"</span>,</span></span><br><span class="line">        data:&#123;</span><br><span class="line">            subject:[]</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>  当有多个多选框时，我们需要用数组来存储用户点击的数据，这样子方便后去传给后台的时候是一整条数据传递过去的</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue-组件访问之父访子</title>
+    <url>/2020/03/12/Vue-%E7%BB%84%E4%BB%B6%E8%AE%BF%E9%97%AE%E4%B9%8B%E7%88%B6%E8%AE%BF%E5%AD%90/</url>
+    <content><![CDATA[<h1 id="一、通过-children"><a href="#一、通过-children" class="headerlink" title="一、通过$children"></a>一、通过$children</h1><p>  children是复数，就意味着<strong>父组件通过children拿到的可能不止一个子组件</strong>，因为在Vue中明文规定是可以让父组件拥有一个或者多个子组件的。就像是二胎政策的开放，国家已经规定夫妻间可以拥有多个孩子一样。<br>  <strong>所以如果父组件通过$children拿到子组件的对象，一定要具体到是哪一个孩子。</strong>就像你父母在叫孩子的时候，一定会叫特殊昵称一样。下面小编为你们展示如何通过children访问子组件，先看下面的基础代码：</p>
+<a id="more"></a>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cnp</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tmp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是子组件<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">".warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line">                </span><br><span class="line">            &#125;,</span><br><span class="line">            components:&#123;</span><br><span class="line">                cnp:&#123;</span><br><span class="line"><span class="actionscript">                    template:<span class="string">"#tmp"</span>,</span></span><br><span class="line">                    methods:&#123;</span><br><span class="line">                        showMessage()&#123;</span><br><span class="line"><span class="actionscript">                            alert(<span class="string">'我是通过$children访问的函数'</span>)</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>  子组件cnp为局部组件，并且有一个showMessage的方法，当调用这个方法就会弹出对话框。父组件依旧是我们的Vue老大，模板中有子组件cnp和按钮两个小老弟。<br>  下面小编希望当点击按钮的时候就通过$children来访问子组件中的showMessage方法。很明显，<strong>首先要为button绑定点击事件，然后在点击事件内部通过children来访问子组件中的showMessage方法。</strong></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 为按钮绑定点击事件</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">    &lt;cnp&gt;&lt;<span class="regexp">/cnp&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click="btnClick"&gt;按钮&lt;/</span>button&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/在Vue老大的method方法中处理btnClick事件</span></span><br><span class="line"><span class="regexp">methods:&#123;</span></span><br><span class="line"><span class="regexp">    btnClick()&#123;</span></span><br><span class="line"><span class="regexp">        console.log(this.$children);</span></span><br><span class="line"><span class="regexp">        this.$children[0].showMessage()</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们先来看看它到底是个啥玩意儿：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-fc7c1f34732e4f0b.png" alt="img"> </p>
+<p>$children是这玩意儿.png</p>
+<p>  没错，它是【别问我为啥知道，因为它有中括号】数组内的元素是VueComponent,也就是说是，并且也有一个children,子组件的children为一个空数组，因为它还没有孩子，所以children的内容是空的，最后也有showMessage函数。</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-07d4ececca01604b.gif" alt="img"> </p>
+<p>效果图.gif</p>
+<p>  可以看到，当点击按钮的时候确实弹出了弹出框的内容。  但是，每个孩子都不是完美的，金无足赤人无完人，也有他缺陷。，这就注定了它不是个完美的孩子，比如：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-ec4bd1bab162be3f.png" alt="img"> </p>
+<p>image.png</p>
+<p>  原来只有三个子组件，想要访问第三个组件的话，通过this.$children[2]就可以获取，但是，保不准哪天遇到了奇葩客户，增加了很多无厘头的需求，然后父组件的模板就变成了下面的样子:</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-dc94ce8617a7de6b.png" alt="img"> </p>
+<p>image.png</p>
+<p>  我依旧不忘初心，想要访问第三个cnp，由于中间杀出了很多程咬金，我需要将下标值改成6才可以获取到。这就是children的缺陷，所以才产生了下面的方法：</p>
+<h1 id="二、通过refs"><a href="#二、通过refs" class="headerlink" title="二、通过refs"></a>二、通过refs</h1><p>  既然都是访问子组件的，那么想必他们的用法是一样的，于是小编就信心满满的写成了下面的样子：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">    btnClick()&#123;</span><br><span class="line">            console.<span class="built_in">log</span>(<span class="keyword">this</span>.$refs);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果是这样的：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-389fdfba1d710835.png" alt="img"> </p>
+<p>image.png</p>
+<p>  天真了吧。傻了吧。它真不是个东西，是一个空对象！后来经过小编七七四十九天的炼制，终于炼出了灵丹妙药来惩治这个妖孽：于是乎就有了下面的代码：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"warp"</span>&gt;</span><br><span class="line">    &lt;cnp&gt;&lt;<span class="regexp">/cnp&gt;</span></span><br><span class="line"><span class="regexp">    &lt;cnp&gt;&lt;/</span>cnp&gt;</span><br><span class="line">    &lt;!--第一步：为子组件绑定ref=“a”的属性--&gt;</span><br><span class="line">    &lt;cnp ref=<span class="string">'a'</span>&gt;&lt;<span class="regexp">/cnp&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click="btnClick"&gt;按钮&lt;/</span>button&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">methods:&#123;</span></span><br><span class="line"><span class="regexp">    btnClick()&#123;</span></span><br><span class="line"><span class="regexp">            console.log(this.$refs.a);</span></span><br><span class="line"><span class="regexp">            &lt;!--第二步：通过refs访问子组 --&gt;</span></span><br><span class="line"><span class="regexp">            this.$refs.a.showMessage();</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-761705b5712f4fe4.gif" alt="img"> </p>
+<p>refe访问子组件.gif</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/21260932-8f8069d80d9f39f2.png" alt="img"> </p>
+<p>image.png</p>
+<p> 妖孽成功的降服了！而且看到这个妖孽是一个对象类型的。  要注意，比如本例中的属性值是a，所以使用的时候是this.$refs.a.XXXX。至于为什么要加上ref属性呢，因为这样相当于 <strong>做了标志，不管前面增加多少个标签，访问的依旧是属性值为a的子组件</strong>。 </p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1261,6 +1361,81 @@
       </tags>
   </entry>
   <entry>
+    <title>css-显示模式</title>
+    <url>/2020/01/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
+
+<p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的块元素有<span class="tag">&lt;<span class="name">h1</span>&gt;</span>~<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">li</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
+
+<p>块级元素的特点</p>
+<p>（1）比较霸道，自己独占一行</p>
+<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
+<p>（3）宽度默认是容器（父级宽度）的100%</p>
+<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
+<p>注意：</p>
+<p>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </p>
+<p>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</p>
+<h4 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h4><p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的行内元素有<span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">b</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">del</span>&gt;</span>、<span class="tag">&lt;<span class="name">s</span>&gt;</span>、<span class="tag">&lt;<span class="name">ins</span>&gt;</span>、<span class="tag">&lt;<span class="name">u</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">span</span>&gt;</span>标签最典型的行内元素。有的地方也成内联元素</span><br></pre></td></tr></table></figure>
+
+<p>行内元素的特点：</p>
+<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
+<p>（2）高、宽直接设置是无效的。</p>
+<p>（3）默认宽度就是它本身内容的宽度。</p>
+<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
+<p>注意：</p>
+<p>链接里面不能再放链接。</p>
+<p>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全</p>
+<h4 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h4><p>例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——<span class="tag">&lt;<span class="name">img</span> /&gt;</span>、<span class="tag">&lt;<span class="name">input</span> /&gt;</span>、<span class="tag">&lt;<span class="name">td</span>&gt;</span>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br></pre></td></tr></table></figure>
+
+<p>行内块元素的特点：</p>
+<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
+<thead>
+<tr>
+<th>元素模式</th>
+<th>元素排列</th>
+<th>设置样式</th>
+<th>默认宽度</th>
+<th>包含</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>块级元素</td>
+<td>一行只能放一个块级元素</td>
+<td>可以设置宽度高度</td>
+<td>容器的100%</td>
+<td>容器级可以包含任何标签</td>
+</tr>
+<tr>
+<td>行内元素</td>
+<td>一行可以放多个行内元素</td>
+<td>不可以直接设置宽度高度</td>
+<td>它本身内容的宽度</td>
+<td>容纳文本或则其他行内元素</td>
+</tr>
+<tr>
+<td>行内块元素</td>
+<td>一行放多个行内块元素</td>
+<td>可以设置宽度和高度</td>
+<td>它本身内容的宽度</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
+<p>行内转块：display:block;</p>
+<p>块、行内元素转换为行内块： display: inline-block</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>css-定位</title>
     <url>/2020/01/12/css-%E5%AE%9A%E4%BD%8D/</url>
     <content><![CDATA[<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">定位 = 定位模式 + 边偏移</span><br></pre></td></tr></table></figure>
@@ -1369,81 +1544,6 @@
 <p>也就是说，我们给盒子改为了浮动或者定位，就不会有垂直外边距合并的问题了。</p>
 <p>定位的盒子会压住文字</p>
 <p>浮动的盒子不会压住文字，因为早期浮动的出现就是为了文字的环绕</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css-显示模式</title>
-    <url>/2020/01/08/css-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h3><h4 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h4><a id="more"></a>
-
-<p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的块元素有<span class="tag">&lt;<span class="name">h1</span>&gt;</span>~<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">li</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签是最典型的块元素。</span><br></pre></td></tr></table></figure>
-
-<p>块级元素的特点</p>
-<p>（1）比较霸道，自己独占一行</p>
-<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
-<p>（3）宽度默认是容器（父级宽度）的100%</p>
-<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
-<p>注意：</p>
-<p>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </p>
-<p>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</p>
-<h4 id="行内元素-inline-level"><a href="#行内元素-inline-level" class="headerlink" title="行内元素(inline-level)"></a>行内元素(inline-level)</h4><p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">常见的行内元素有<span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">b</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">del</span>&gt;</span>、<span class="tag">&lt;<span class="name">s</span>&gt;</span>、<span class="tag">&lt;<span class="name">ins</span>&gt;</span>、<span class="tag">&lt;<span class="name">u</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>等，其中<span class="tag">&lt;<span class="name">span</span>&gt;</span>标签最典型的行内元素。有的地方也成内联元素</span><br></pre></td></tr></table></figure>
-
-<p>行内元素的特点：</p>
-<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
-<p>（2）高、宽直接设置是无效的。</p>
-<p>（3）默认宽度就是它本身内容的宽度。</p>
-<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
-<p>注意：</p>
-<p>链接里面不能再放链接。</p>
-<p>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全</p>
-<h4 id="行内块元素（inline-block）"><a href="#行内块元素（inline-block）" class="headerlink" title="行内块元素（inline-block）"></a>行内块元素（inline-block）</h4><p>例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在行内元素中有几个特殊的标签——<span class="tag">&lt;<span class="name">img</span> /&gt;</span>、<span class="tag">&lt;<span class="name">input</span> /&gt;</span>、<span class="tag">&lt;<span class="name">td</span>&gt;</span>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</span><br></pre></td></tr></table></figure>
-
-<p>行内块元素的特点：</p>
-<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
-<thead>
-<tr>
-<th>元素模式</th>
-<th>元素排列</th>
-<th>设置样式</th>
-<th>默认宽度</th>
-<th>包含</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>块级元素</td>
-<td>一行只能放一个块级元素</td>
-<td>可以设置宽度高度</td>
-<td>容器的100%</td>
-<td>容器级可以包含任何标签</td>
-</tr>
-<tr>
-<td>行内元素</td>
-<td>一行可以放多个行内元素</td>
-<td>不可以直接设置宽度高度</td>
-<td>它本身内容的宽度</td>
-<td>容纳文本或则其他行内元素</td>
-</tr>
-<tr>
-<td>行内块元素</td>
-<td>一行放多个行内块元素</td>
-<td>可以设置宽度和高度</td>
-<td>它本身内容的宽度</td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h4><p>块转行内：display:inline;</p>
-<p>行内转块：display:block;</p>
-<p>块、行内元素转换为行内块： display: inline-block</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1706,57 +1806,6 @@
       </tags>
   </entry>
   <entry>
-    <title>css3-过渡</title>
-    <url>/2020/01/15/css3%E8%BF%87%E6%B8%A1/</url>
-    <content><![CDATA[<h4 id="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"><a href="#CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。" class="headerlink" title="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"></a>CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。</h4><a id="more"></a>
-
-<p>CSS3 过渡是元素从一种样式逐渐改变为另一种的效果<br>要实现这一点，必须规定两项内容：<br>  指定要添加效果的CSS属性<br>  指定效果的持续时间</p>
-<p>实例：应用于宽度属性的过渡效果，时长为 2 秒：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">   <span class="attribute">transition</span>: width <span class="number">2s</span>;</span><br><span class="line">   <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意： 如果未指定的期限，transition将没有任何效果，因为默认值是0。</p>
-<p>指定的CSS属性的值更改时效果会发生变化。一个典型CSS属性的变化是用户鼠标放在一个元素上时：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">     <span class="selector-tag">div</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">background</span>:red;</span><br><span class="line">      <span class="attribute">transition</span>:width <span class="number">2s</span>;</span><br><span class="line">      <span class="attribute">-webkit-transition</span>:width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<p>多项改变</p>
-<p>要添加多个样式的变换效果，添加的属性由逗号分隔：或者用all来代替</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">   <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, -webkit-transform <span class="number">2s</span>; <span class="comment">/* For Safari 3.1 to 6.0 */</span></span><br><span class="line">    transition: width 2s, height 2s, transform 2s; // all 2s</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>); <span class="comment">/* Chrome, Safari, Opera */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>transition-property</td>
-<td>规定应用过渡的 CSS 属性的名称。</td>
-</tr>
-<tr>
-<td>transition-duration</td>
-<td>定义过渡效果花费的时间。默认是 0。</td>
-</tr>
-<tr>
-<td>transition-timing-function</td>
-<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
-</tr>
-<tr>
-<td>transition-delay</td>
-<td>规定过渡效果何时开始。默认是 0。</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css3</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Flex布局</title>
     <url>/2020/01/26/css3-flex%E5%B8%83%E5%B1%80/</url>
     <content><![CDATA[<h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><p>布局的传统解决方案：是基于盒模型，这种布局依赖<code>display</code>属性 + <code>position</code>属性 + <code>float</code>属性，但是对于一些特殊的布局是不方便的，比如说：对于垂直布局就不容易实现。、</p>
@@ -1853,6 +1902,57 @@
       </categories>
       <tags>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css3-过渡</title>
+    <url>/2020/01/15/css3%E8%BF%87%E6%B8%A1/</url>
+    <content><![CDATA[<h4 id="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"><a href="#CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。" class="headerlink" title="CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。"></a>CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。</h4><a id="more"></a>
+
+<p>CSS3 过渡是元素从一种样式逐渐改变为另一种的效果<br>要实现这一点，必须规定两项内容：<br>  指定要添加效果的CSS属性<br>  指定效果的持续时间</p>
+<p>实例：应用于宽度属性的过渡效果，时长为 2 秒：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">   <span class="attribute">transition</span>: width <span class="number">2s</span>;</span><br><span class="line">   <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意： 如果未指定的期限，transition将没有任何效果，因为默认值是0。</p>
+<p>指定的CSS属性的值更改时效果会发生变化。一个典型CSS属性的变化是用户鼠标放在一个元素上时：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">     <span class="selector-tag">div</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">background</span>:red;</span><br><span class="line">      <span class="attribute">transition</span>:width <span class="number">2s</span>;</span><br><span class="line">      <span class="attribute">-webkit-transition</span>:width <span class="number">2s</span>; <span class="comment">/* Safari */</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>多项改变</p>
+<p>要添加多个样式的变换效果，添加的属性由逗号分隔：或者用all来代替</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">   <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, -webkit-transform <span class="number">2s</span>; <span class="comment">/* For Safari 3.1 to 6.0 */</span></span><br><span class="line">    transition: width 2s, height 2s, transform 2s; // all 2s</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>); <span class="comment">/* Chrome, Safari, Opera */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>transition-property</td>
+<td>规定应用过渡的 CSS 属性的名称。</td>
+</tr>
+<tr>
+<td>transition-duration</td>
+<td>定义过渡效果花费的时间。默认是 0。</td>
+</tr>
+<tr>
+<td>transition-timing-function</td>
+<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
+</tr>
+<tr>
+<td>transition-delay</td>
+<td>规定过渡效果何时开始。默认是 0。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css3</tag>
       </tags>
   </entry>
   <entry>
@@ -2017,32 +2117,6 @@
       </tags>
   </entry>
   <entry>
-    <title>js-冒泡排序</title>
-    <url>/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
-<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
-<a id="more"></a>
-
-<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
-<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
-<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>js-事件流</title>
     <url>/2020/02/08/js-%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
     <content><![CDATA[<h2 id="什么是事件流？"><a href="#什么是事件流？" class="headerlink" title="什么是事件流？"></a>什么是事件流？</h2><p>事件流：描述的就是从页面中接受事件的顺序。分有事件冒泡与事件捕获两种。</p>
@@ -2072,6 +2146,85 @@
 <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">button.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">   <span class="comment">// event为事件对象</span></span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'1. You click Button'</span>);</span><br><span class="line">   event.stopPropagation();</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'Stop Propagation!'</span>);</span><br><span class="line"> &#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 
 <p>输出为4-&gt;1，事件在到达具体元素后，停止了冒泡。但不影响父元素的事件捕获。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-字符串对象</title>
+    <url>/2020/02/05/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h3><h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>​        为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
+<p>​        基本包装类型就是把简单数据类型包装成为复杂数据类型，这样基本数据类型就有了属性和方法。</p>
+<a id="more"></a>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面代码有什么问题？</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'andy'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);</span><br></pre></td></tr></table></figure>
+
+<p>​        按道理基本数据类型是没有属性和方法的，而对象才有属性和方法，但上面代码却可以执行，这是因为</p>
+<p>​        js 会把基本数据类型包装为复杂数据类型，其执行过程如下 ：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 生成临时变量，把简单类型包装为复杂数据类型</span></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'andy'</span>);</span><br><span class="line"><span class="comment">// 2. 赋值给我们声明的字符变量</span></span><br><span class="line">str = temp;</span><br><span class="line"><span class="comment">// 3. 销毁临时变量</span></span><br><span class="line">temp = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串的不可变"><a href="#字符串的不可变" class="headerlink" title="字符串的不可变"></a>字符串的不可变</h4><p>​        指的是里面的值不可变，虽然看上去可以改变内容，但其实是地址变了，内存中新开辟了一个内存空间。</p>
+<p>​        当重新给字符串变量赋值的时候，变量之前保存的字符串不会被修改，依然在内存中重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变。<br>​        由于字符串的不可变，在<strong>大量拼接字符串</strong>的时候会有效率问题</p>
+<h4 id="根据字符返回位置"><a href="#根据字符返回位置" class="headerlink" title="根据字符返回位置"></a>根据字符返回位置</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是返回指定字符的位置的方法：</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507102344642.png" alt="在这里插入图片描述"> </p>
+<p>​        案例：查找字符串”abcoefoxyozzopp”中所有o出现的位置以及次数</p>
+<ol>
+<li>先查找第一个o出现的位置</li>
+<li>然后 只要indexOf 返回的结果不是 -1 就继续往后查找</li>
+<li>因为indexOf 只能查找到第一个，所以后面的查找，利用第二个参数，当前索引加1，从而继续查找     </li>
+</ol>
+<h4 id="根据位置返回字符"><a href="#根据位置返回字符" class="headerlink" title="根据位置返回字符"></a>根据位置返回字符</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是根据位置返回指定位置上的字符：</p>
+<p>​     <img src="https://img-blog.csdnimg.cn/20200507102344654.png" alt="在这里插入图片描述"> </p>
+<p>​        在上述方法中，charCodeAt方法返回的是指定位置上字符对应的ASCII码，ASCII码对照表如下：</p>
+<p>​          <img src="https://img-blog.csdnimg.cn/20200507102344840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>​        案例：判断一个字符串 ‘abcoefoxyozzopp’ 中出现次数最多的字符，并统计其次数</p>
+<ol>
+<li><p>核心算法：利用 charAt(） 遍历这个字符串</p>
+</li>
+<li><p>把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1</p>
+</li>
+<li><p>遍历对象，得到最大值和该字符     </p>
+<p>​    注意：在遍历的过程中，把字符串中的每个字符作为对象的属性存储在对象总，对应的属性值是该字符出现的次数</p>
+</li>
+</ol>
+<h4 id="字符串操作方法"><a href="#字符串操作方法" class="headerlink" title="字符串操作方法"></a>字符串操作方法</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是部分操作方法：</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507102344695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<h4 id="replace-方法"><a href="#replace-方法" class="headerlink" title="replace()方法"></a>replace()方法</h4><p>​        replace() 方法用于在字符串中用一些字符替换另一些字符，其使用格式如下：  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.replace(被替换的字符串， 要替换为的字符串)；</span><br></pre></td></tr></table></figure>
+
+<h4 id="split-方法"><a href="#split-方法" class="headerlink" title="split()方法"></a>split()方法</h4><p>​        split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
+<p>​        其使用格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.split(&quot;分割字符&quot;)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js-冒泡排序</title>
+    <url>/2020/02/02/js-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h4 id="冒泡排序原理："><a href="#冒泡排序原理：" class="headerlink" title="冒泡排序原理："></a>冒泡排序原理：</h4><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
+<p>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
+<a id="more"></a>
+
+<p>3.针对所有的元素重复以上的步骤，除了最后一个。</p>
+<p>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比比较</p>
+<h5 id="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"><a href="#白话就是：比如有6个数，你需要比较5趟，这个是固定死的" class="headerlink" title="白话就是：比如有6个数，你需要比较5趟，这个是固定死的"></a>白话就是：比如有6个数，你需要比较5趟，这个是固定死的</h5><h5 id="但是每一趟比较的次数，是递减的"><a href="#但是每一趟比较的次数，是递减的" class="headerlink" title="但是每一趟比较的次数，是递减的"></a>但是每一趟比较的次数，是递减的</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>];</span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="原理示意图"><a href="#原理示意图" class="headerlink" title="原理示意图"></a>原理示意图</h4><p><img src="https://img-blog.csdnimg.cn/2019062716565643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODQ1ODU4,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h4 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">// 编写方法，实现冒泡</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">arr</span>)</span>&#123;     <span class="comment">// 1:套一个函数的壳子，将参数传入</span></span><br><span class="line"><span class="comment">//外层循环，控制趟数，每一次找到一个最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 内层循环,控制比较的次数，并且判断两个数的大小</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="comment">// 白话解释：如果前面的数大，放到后面(当然是从小到大的冒泡排序)</span></span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> arr  <span class="comment">//2: 将执行完的结果返回就可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">29</span>,<span class="number">45</span>,<span class="number">51</span>,<span class="number">68</span>,<span class="number">72</span>,<span class="number">97</span>]; </span><br><span class="line">   <span class="built_in">console</span>.log(bubble(arr));<span class="comment">//[2, 4, 5, 12, 31, 32, 45, 52, 78, 89]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="判断冒泡的时候，是不是数组，数组是否为空"><a href="#判断冒泡的时候，是不是数组，数组是否为空" class="headerlink" title="判断冒泡的时候，是不是数组，数组是否为空"></a>判断冒泡的时候，是不是数组，数组是否为空</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; arr.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">// 冒泡</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>前端</category>
@@ -2168,102 +2321,6 @@
       </tags>
   </entry>
   <entry>
-    <title>js-字符串对象</title>
-    <url>/2020/02/05/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h3><h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>​        为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String、Number和 Boolean。</p>
-<p>​        基本包装类型就是把简单数据类型包装成为复杂数据类型，这样基本数据类型就有了属性和方法。</p>
-<a id="more"></a>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面代码有什么问题？</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'andy'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);</span><br></pre></td></tr></table></figure>
-
-<p>​        按道理基本数据类型是没有属性和方法的，而对象才有属性和方法，但上面代码却可以执行，这是因为</p>
-<p>​        js 会把基本数据类型包装为复杂数据类型，其执行过程如下 ：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 生成临时变量，把简单类型包装为复杂数据类型</span></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'andy'</span>);</span><br><span class="line"><span class="comment">// 2. 赋值给我们声明的字符变量</span></span><br><span class="line">str = temp;</span><br><span class="line"><span class="comment">// 3. 销毁临时变量</span></span><br><span class="line">temp = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="字符串的不可变"><a href="#字符串的不可变" class="headerlink" title="字符串的不可变"></a>字符串的不可变</h4><p>​        指的是里面的值不可变，虽然看上去可以改变内容，但其实是地址变了，内存中新开辟了一个内存空间。</p>
-<p>​        当重新给字符串变量赋值的时候，变量之前保存的字符串不会被修改，依然在内存中重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变。<br>​        由于字符串的不可变，在<strong>大量拼接字符串</strong>的时候会有效率问题</p>
-<h4 id="根据字符返回位置"><a href="#根据字符返回位置" class="headerlink" title="根据字符返回位置"></a>根据字符返回位置</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是返回指定字符的位置的方法：</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507102344642.png" alt="在这里插入图片描述"> </p>
-<p>​        案例：查找字符串”abcoefoxyozzopp”中所有o出现的位置以及次数</p>
-<ol>
-<li>先查找第一个o出现的位置</li>
-<li>然后 只要indexOf 返回的结果不是 -1 就继续往后查找</li>
-<li>因为indexOf 只能查找到第一个，所以后面的查找，利用第二个参数，当前索引加1，从而继续查找     </li>
-</ol>
-<h4 id="根据位置返回字符"><a href="#根据位置返回字符" class="headerlink" title="根据位置返回字符"></a>根据位置返回字符</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是根据位置返回指定位置上的字符：</p>
-<p>​     <img src="https://img-blog.csdnimg.cn/20200507102344654.png" alt="在这里插入图片描述"> </p>
-<p>​        在上述方法中，charCodeAt方法返回的是指定位置上字符对应的ASCII码，ASCII码对照表如下：</p>
-<p>​          <img src="https://img-blog.csdnimg.cn/20200507102344840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>​        案例：判断一个字符串 ‘abcoefoxyozzopp’ 中出现次数最多的字符，并统计其次数</p>
-<ol>
-<li><p>核心算法：利用 charAt(） 遍历这个字符串</p>
-</li>
-<li><p>把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1</p>
-</li>
-<li><p>遍历对象，得到最大值和该字符     </p>
-<p>​    注意：在遍历的过程中，把字符串中的每个字符作为对象的属性存储在对象总，对应的属性值是该字符出现的次数</p>
-</li>
-</ol>
-<h4 id="字符串操作方法"><a href="#字符串操作方法" class="headerlink" title="字符串操作方法"></a>字符串操作方法</h4><p>​        字符串通过基本包装类型可以调用部分方法来操作字符串，以下是部分操作方法：</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507102344695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<h4 id="replace-方法"><a href="#replace-方法" class="headerlink" title="replace()方法"></a>replace()方法</h4><p>​        replace() 方法用于在字符串中用一些字符替换另一些字符，其使用格式如下：  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.replace(被替换的字符串， 要替换为的字符串)；</span><br></pre></td></tr></table></figure>
-
-<h4 id="split-方法"><a href="#split-方法" class="headerlink" title="split()方法"></a>split()方法</h4><p>​        split()方法用于切分字符串，它可以将字符串切分为数组。在切分完毕之后，返回的是一个新数组。</p>
-<p>​        其使用格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符串.split(&quot;分割字符&quot;)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js-日期对象</title>
-    <url>/2020/02/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
-<a id="more"></a>
-
-<ul>
-<li><p>使用Date实例化日期对象</p>
-<ul>
-<li>获取当前时间必须实例化：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>获取指定时间的日期对象</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
-</li>
-<li><p>使用Date实例的方法和属性    </p>
-<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-<li><p>通过Date实例获取总毫米数</p>
-<ul>
-<li><p>总毫秒数的含义</p>
-<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
-</li>
-<li><p>获取总毫秒数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>js-构造函数和原型</title>
     <url>/2020/02/22/js-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B/</url>
     <content><![CDATA[<h3 id="构造函数原型prototype"><a href="#构造函数原型prototype" class="headerlink" title="构造函数原型prototype"></a>构造函数原型prototype</h3><p>构造函数通过原型分配的函数是所有对象所共享的。</p>
@@ -2322,6 +2379,49 @@
       </tags>
   </entry>
   <entry>
+    <title>js-日期对象</title>
+    <url>/2020/02/05/js-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><p>​         Date 对象和 Math 对象不一样，Date是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间</p>
+<a id="more"></a>
+
+<ul>
+<li><p>使用Date实例化日期对象</p>
+<ul>
+<li>获取当前时间必须实例化：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取指定时间的日期对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> future = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019/5/1'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果创建实例时并未传入参数，则得到的日期对象是当前时间对应的日期对象</p>
+</li>
+<li><p>使用Date实例的方法和属性    </p>
+<p> <img src="https://img-blog.csdnimg.cn/20200507101815991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+<li><p>通过Date实例获取总毫米数</p>
+<ul>
+<li><p>总毫秒数的含义</p>
+<p>​    基于1970年1月1日（世界标准时间）起的毫秒数</p>
+</li>
+<li><p>获取总毫秒数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实例化Date对象</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 1. 用于获取对象的原始值</span></span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf())	</span><br><span class="line"><span class="built_in">console</span>.log(date.getTime())	</span><br><span class="line"><span class="comment">// 2. 简单写可以这么做</span></span><br><span class="line"><span class="keyword">var</span> now = + <span class="keyword">new</span> <span class="built_in">Date</span>();			</span><br><span class="line"><span class="comment">// 3. HTML5中提供的方法，有兼容性问题</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="built_in">Date</span>.now();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js-鼠标键盘事件对象</title>
     <url>/2020/02/09/js-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h3 id="事件对象-event"><a href="#事件对象-event" class="headerlink" title="事件对象/event"></a>事件对象/event</h3><p><strong>event包含了发生事件的所有信息内容，不如:发生事件类型，发生事件的元素，键盘按下状态等等</strong></p>
@@ -2336,6 +2436,71 @@
 <h4 id="键盘事件对象"><a href="#键盘事件对象" class="headerlink" title="键盘事件对象"></a>键盘事件对象</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">keyCode   返回该键的ASCLL值</span><br></pre></td></tr></table></figure>
 
 <p> <img src="https://img-blog.csdnimg.cn/20200425200836213.png" alt="img"> </p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>offset client scroll</title>
+    <url>/2020/02/10/offset-client-scroll/</url>
+    <content><![CDATA[<h3 id="元素偏移量offset"><a href="#元素偏移量offset" class="headerlink" title="元素偏移量offset"></a>元素偏移量offset</h3><p>offset 翻译过来就是偏移量， 我们使用 offset系列相关属性可以动态的得到该元素的位置（偏移）、大小等。</p>
+<ol>
+<li><p>获得元素距离带有定位父元素的位置</p>
+</li>
+<li><p>获得元素自身的大小（宽度高度）</p>
+</li>
+<li><p>注意：返回的数值都不带单位</p>
+<a id="more"></a>
+
+<p><img src="https://img-blog.csdnimg.cn/20200426162938643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+</li>
+</ol>
+<h4 id="offset-与-style-区别"><a href="#offset-与-style-区别" class="headerlink" title="offset 与 style 区别"></a>offset 与 style 区别</h4><h4 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h4><ul>
+<li><p>offset 可以得到任意样式表中的样式值</p>
+</li>
+<li><p>offset 系列获得的数值是没有单位的</p>
+</li>
+<li><p>offsetWidth 包含padding+border+width</p>
+</li>
+<li><p>offsetWidth 等属性是只读属性，只能获取不能赋值</p>
+</li>
+<li><blockquote>
+<p>所以，我们想要获取元素大小位置，用offset更合适</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="style"><a href="#style" class="headerlink" title="style"></a>style</h4><ul>
+<li><p>style 只能得到行内样式表中的样式值</p>
+</li>
+<li><p>style.width 获得的是带有单位的字符串</p>
+</li>
+<li><p>style.width 获得不包含padding和border 的值</p>
+</li>
+<li><p>style.width 是可读写属性，可以获取也可以赋值</p>
+</li>
+<li><p>所以，我们想要给元素更改值，则需要用style改变</p>
+</li>
+</ul>
+<h3 id="元素可视区-client"><a href="#元素可视区-client" class="headerlink" title="元素可视区 client"></a>元素可视区 client</h3><p>client 翻译过来就是客户端，我们使用 client 系列的相关属性来获取元素可视区的相关信息。通过 client<br>系列的相关属性可以动态的得到该元素的边框大小、元素大小等。</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200426163149926.png" alt="img"> </p>
+<h3 id="元素滚动-scroll"><a href="#元素滚动-scroll" class="headerlink" title="元素滚动 scroll"></a>元素滚动 scroll</h3><p>scroll 翻译过来就是滚动的，我们使用 scroll 系列的相关属性可以动态的得到该元素的大小、滚动距离等。</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200426163220607.png" alt="在这里插入图片描述"> </p>
+<h3 id="三大系列总结"><a href="#三大系列总结" class="headerlink" title="三大系列总结"></a>三大系列总结</h3><p> <img src="https://img-blog.csdnimg.cn/20200426163310928.png" alt="在这里插入图片描述"> </p>
+<p>1.offset系列 经常用于获得元素位置    offsetLeft  offsetTop</p>
+<p>2.client经常用于获取元素大小  clientWidth clientHeight</p>
+<p>3.scroll 经常用于获取滚动距离 scrollTop  scrollLeft  </p>
+<p>4.注意页面滚动的距离通过 window.pageXOffset  获得</p>
+<h3 id="mouseenter-和mouseover的区别"><a href="#mouseenter-和mouseover的区别" class="headerlink" title="mouseenter 和mouseover的区别"></a>mouseenter 和mouseover的区别</h3><ul>
+<li>当鼠标移动到元素上时就会触发mouseenter 事件</li>
+<li>类似 mouseover，它们两者之间的差别是</li>
+<li>mouseover 鼠标经过自身盒子会触发，经过子盒子还会触发。mouseenter  只会经过自身盒子触发</li>
+<li>之所以这样，就是因为mouseenter不会冒泡</li>
+<li>跟mouseenter搭配鼠标离开 mouseleave  同样不会冒泡</li>
+</ul>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -2508,71 +2673,6 @@
 <p><strong>案例:过滤敏感词汇</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;textarea name=<span class="string">""</span> id=<span class="string">"message"</span>&gt;&lt;<span class="regexp">/textarea&gt; &lt;button&gt;提交&lt;/</span>button&gt;</span><br><span class="line">&lt;div&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var text = document.querySelector('textarea');</span></span><br><span class="line"><span class="regexp">    var btn = document.querySelector('button');</span></span><br><span class="line"><span class="regexp">    var div = document.querySelector('div');</span></span><br><span class="line"><span class="regexp">    btn.onclick = function() &#123;</span></span><br><span class="line"><span class="regexp">    	div.innerHTML = text.value.replace(/</span>激情|gay/g, <span class="string">'**'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>offset client scroll</title>
-    <url>/2020/02/10/offset-client-scroll/</url>
-    <content><![CDATA[<h3 id="元素偏移量offset"><a href="#元素偏移量offset" class="headerlink" title="元素偏移量offset"></a>元素偏移量offset</h3><p>offset 翻译过来就是偏移量， 我们使用 offset系列相关属性可以动态的得到该元素的位置（偏移）、大小等。</p>
-<ol>
-<li><p>获得元素距离带有定位父元素的位置</p>
-</li>
-<li><p>获得元素自身的大小（宽度高度）</p>
-</li>
-<li><p>注意：返回的数值都不带单位</p>
-<a id="more"></a>
-
-<p><img src="https://img-blog.csdnimg.cn/20200426162938643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-</li>
-</ol>
-<h4 id="offset-与-style-区别"><a href="#offset-与-style-区别" class="headerlink" title="offset 与 style 区别"></a>offset 与 style 区别</h4><h4 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h4><ul>
-<li><p>offset 可以得到任意样式表中的样式值</p>
-</li>
-<li><p>offset 系列获得的数值是没有单位的</p>
-</li>
-<li><p>offsetWidth 包含padding+border+width</p>
-</li>
-<li><p>offsetWidth 等属性是只读属性，只能获取不能赋值</p>
-</li>
-<li><blockquote>
-<p>所以，我们想要获取元素大小位置，用offset更合适</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="style"><a href="#style" class="headerlink" title="style"></a>style</h4><ul>
-<li><p>style 只能得到行内样式表中的样式值</p>
-</li>
-<li><p>style.width 获得的是带有单位的字符串</p>
-</li>
-<li><p>style.width 获得不包含padding和border 的值</p>
-</li>
-<li><p>style.width 是可读写属性，可以获取也可以赋值</p>
-</li>
-<li><p>所以，我们想要给元素更改值，则需要用style改变</p>
-</li>
-</ul>
-<h3 id="元素可视区-client"><a href="#元素可视区-client" class="headerlink" title="元素可视区 client"></a>元素可视区 client</h3><p>client 翻译过来就是客户端，我们使用 client 系列的相关属性来获取元素可视区的相关信息。通过 client<br>系列的相关属性可以动态的得到该元素的边框大小、元素大小等。</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200426163149926.png" alt="img"> </p>
-<h3 id="元素滚动-scroll"><a href="#元素滚动-scroll" class="headerlink" title="元素滚动 scroll"></a>元素滚动 scroll</h3><p>scroll 翻译过来就是滚动的，我们使用 scroll 系列的相关属性可以动态的得到该元素的大小、滚动距离等。</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200426163220607.png" alt="在这里插入图片描述"> </p>
-<h3 id="三大系列总结"><a href="#三大系列总结" class="headerlink" title="三大系列总结"></a>三大系列总结</h3><p> <img src="https://img-blog.csdnimg.cn/20200426163310928.png" alt="在这里插入图片描述"> </p>
-<p>1.offset系列 经常用于获得元素位置    offsetLeft  offsetTop</p>
-<p>2.client经常用于获取元素大小  clientWidth clientHeight</p>
-<p>3.scroll 经常用于获取滚动距离 scrollTop  scrollLeft  </p>
-<p>4.注意页面滚动的距离通过 window.pageXOffset  获得</p>
-<h3 id="mouseenter-和mouseover的区别"><a href="#mouseenter-和mouseover的区别" class="headerlink" title="mouseenter 和mouseover的区别"></a>mouseenter 和mouseover的区别</h3><ul>
-<li>当鼠标移动到元素上时就会触发mouseenter 事件</li>
-<li>类似 mouseover，它们两者之间的差别是</li>
-<li>mouseover 鼠标经过自身盒子会触发，经过子盒子还会触发。mouseenter  只会经过自身盒子触发</li>
-<li>之所以这样，就是因为mouseenter不会冒泡</li>
-<li>跟mouseenter搭配鼠标离开 mouseleave  同样不会冒泡</li>
-</ul>
 ]]></content>
       <categories>
         <category>前端</category>
