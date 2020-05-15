@@ -1,6 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Vue-作用域插槽</title>
+    <url>/2020/03/10/Vue-%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD/</url>
+    <content><![CDATA[<h1 id="一、作用域"><a href="#一、作用域" class="headerlink" title="一、作用域"></a>一、作用域</h1><p>  说白了，<strong>作用域就是变量的使用范围</strong>，那么本例的问题是该如果给变量找范围。</p>
+<a id="more"></a>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cnp</span> <span class="attr">v-show</span>=<span class="string">"isShow"</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">"#warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                isShow:<span class="literal">false</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            components:&#123;</span><br><span class="line">                cnp:&#123;</span><br><span class="line"><span class="actionscript">                    template:<span class="string">"#tem"</span>,</span></span><br><span class="line">                    data()&#123;</span><br><span class="line"><span class="actionscript">                        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">                            isShow:<span class="literal">true</span></span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>  还是老样子，Vue作为父组件，声明cnp子组件是局部变量，并且在Vue和cnp中都有变量isShow，只是取值不一样，在Vue中是false，在cnp中是true。<br>  希望通过是否显示子组件cnp的内容来判断变量isShow的作用域。如果子组件cnp没有显示内容，说明使用的是Vue中的isShow，反之就是使用了子组件中的isShow。</p>
+<p>  结果发现是不显示的，说明isShow用的是Vue中的数据。如果将Vue中的isShow修改为true，结果是显示的。这就涉及到了变量的作用域问题  官方给出的准则是这样的：比如上面的案例是在父组件的div模板中使用的，所以浏览器会到父组件中的data对变量isShow进行编译。  在懂了作用域的概念后，作用域的插槽就好办多了 </p>
+<h1 id="二、作用域插槽"><a href="#二、作用域插槽" class="headerlink" title="二、作用域插槽"></a>二、作用域插槽</h1><p>  作用域插槽呢，就是<strong>在父组件中替换插槽的标签，但是内容是由子组件提供的。</strong></p>
+<p>先让我们来看一下下面的例子：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in pLanguage"</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">"#warp"</span>,</span></span><br><span class="line">            components:&#123;</span><br><span class="line">                cpn:&#123;</span><br><span class="line"><span class="actionscript">                    template:<span class="string">"#tem"</span>,</span></span><br><span class="line">                    data()&#123;</span><br><span class="line"><span class="actionscript">                        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">                            pLanguage:[<span class="string">'JavaScript'</span>,<span class="string">'Java'</span>,<span class="string">'C++'</span>,<span class="string">'C#'</span>]</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://img-blog.csdnimg.cn/2020051511105156.png" alt="img"> </p>
+<p>  这个例子中，我们通过在子组件中使用v-for指令使pLanguage的数据以列表的形式展示出来。<br>  现在的需求是，我们希望在第二个子组件中，数据是“ JavaScript - Java - C++ - C# ” 这种形式展示的。这跟作用域插槽的作用是不是很像：在父组件中替换插槽的标签，但是内容是由子组件提供的。替换标签就相当于展示的形式不一样了嘛，内容依旧是子组件中的pLanguage提供。<br>  目标已经十分的明确，首先是要获取子组件中的pLanguage数据，然后在父组件中修改自己想要的样式，觉得直接在子组件使用插槽，然后在父组件中修改样式就可以实现，于是乎写下了这样的代码：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">        <span class="comment">&lt;!-- 在父组件修改想要展示的形式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"item in pLanguage"</span>&gt;</span>&#123;&#123;item&#125;&#125; - <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">&lt;!-- 在子组件使用插槽 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">slot</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in pLanguage"</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>本以为离成功还差一步的时候，深刻体会到了一句话：现实是残酷的！</p>
+<p> <img src="https://img-blog.csdnimg.cn/2020051511105158.png" alt="在这里插入图片描述"> </p>
+<p>  意思是说，。但硬是要获取子组件的数据，怎么办呢？  这个时候就到了 作用域插槽 出场了使用作用域大概分成以下来两个步骤：<strong>第一步：为slot设置属性，将子组件中的数据复制给属性**</strong>第二部：使用slot-scope 获取slot对象，通过slot.属性名来获取子组中的数**</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 在父组件通过slot-scope获取到slot对象,并且通过slot.data获取子组件中的pLanguage --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-slot:dafault</span>=<span class="string">"slot"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"item in slot.data"</span>&gt;</span>&#123;&#123;item&#125;&#125; - <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!-- 在子组件声明了名字为 data 的属性 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">slot</span> <span class="attr">:data</span>=<span class="string">'pLanguage'</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in pLanguage"</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://img-blog.csdnimg.cn/2020051511105157.png" alt="在这里插入图片描述"> </p>
+<p>  首先，，这样子当cnp没有书写别的格式时就可以直接使用slot中的格式  其次，【当然，属性名是可以人任意的】，并且将pLanguage赋值给属性data，这就意味着data中的数据和pLanguage是一样的  然后，在父组件中，并且在slot对象中有个叫data的属性，这样就相当于父组件获取到了子组件pLanguage中的数据  最后，，并且显示出来  这就是使用作用域插槽的过程，这个时候你就会很好理解的这句话的含义</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">&lt;span&gt;&#123;&#123;slot.data.<span class="keyword">join</span>(<span class="string">' - '</span>)&#125;&#125;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://img-blog.csdnimg.cn/2020051511105142.png" alt="在这里插入图片描述"> </p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue生命周期</title>
+    <url>/2020/03/03/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+    <content><![CDATA[<h4 id="vue的生命周期是什么"><a href="#vue的生命周期是什么" class="headerlink" title="vue的生命周期是什么"></a><strong>vue的生命周期是什么</strong></h4><p>  vue每个组件都是独立的，每个组件都有一个属于它的生命周期，从一个组件<strong>创建、数据初始化、挂载、更新、销毁</strong>，这就是一个组件所谓的生命周期。在组件中具体的方法有:</p>
+<a id="more"></a>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    beforeCreate</span><br><span class="line">    created</span><br><span class="line">    beforeMount</span><br><span class="line">    mounted</span><br><span class="line">    (</span><br><span class="line">        beforeUpdate</span><br><span class="line">        updated</span><br><span class="line">    )</span><br><span class="line">    beforeDestroy</span><br><span class="line">    destroyed</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-eaf493b1b2050a93.png" alt="img"> </p>
+<p><strong>vue中内置的方法 属性和vue生命周期的运行顺序（methods、computed、data、watch、props)</strong></p>
+<p>  从第一二点可知道data的初始化是在created时已经完成数据观测(data observer)，并且诸如methods、computed属性 props等已经初始化；那问题来了，</p>
+<p>data props computed watch methods他们之间的生成顺序是什么呢？</p>
+<p>根据翻看vue源码可知：</p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-551024dfb2fe9961.png" alt="img"> </p>
+<p><strong>props =&gt; methods =&gt;data =&gt; computed =&gt; watch</strong>; 懂了没 </p>
+<p><strong>vue生命周期的在项目中的执行顺序</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">data () &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line"></span><br><span class="line">  rendered: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>beforeCeate()&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.rendered);  <span class="comment">// undefined </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">2.</span>created() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);<span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>.rendered); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">3.</span>beforeMount() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el)；<span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">4.</span>mounted() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-095add76ef7c1953.png" alt="img"> </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">5.</span>beforeDestroty()&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.rendered); </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-4980a396e64eee6e.png" alt="img"> </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">6.</span>destroyed() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.rendered);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-c8feee355871be70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/538/format/webp" alt="img"> </p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>创建vue脚手架</title>
+    <url>/2020/03/18/Vue-%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
+    <content><![CDATA[<p>Vue-cli</p>
+<p> vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。 </p>
+<a id="more"></a>
+
+<p>1、首先保证全局安装@vue/cli工具 ，没有自行下载</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i @vue/cli -g</span><br></pre></td></tr></table></figure>
+
+<p>2、推荐下载yarn包管理器</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i yarn -g</span><br></pre></td></tr></table></figure>
+
+<p>3、接下来我们就可以在自己的电脑里创建项目，找到电脑某个位置，在此文件夹按住shift同时右键，在此处打开cmd命令窗口或者在此处打开powershell窗口</p>
+<p>4、打开窗口之后运行vue ui命令，此时就会打开ui图形界面</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>5、我们选择创建之后就会进入创建页面</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220705271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>6、点击在此处创建新项目，就会进入项目详情，详情里面，首先填写项目的名字，然后包管理器选择yarn，在填写初始会git默认注释</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220718747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>7、上面填写完毕后，点击下一步，会进入到选择默认配置还是手动配置，以及选择之前的预设，我们选择手动配置</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220731996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>8、选择完后继续点击下一步，选择功能，以下是所有功能介绍，我们可以先选择babel、router、Linter、使用配置文件，开发的时候一般css预处理、vuex也肯定要安装的</p>
+<p>babel （js高级转低级）</p>
+<p>TypeScript （js超级）</p>
+<p>Progressive Web App (PWA) Support （渐进式web应用）</p>
+<p>Router（路由）</p>
+<p>Vuex（状态管理工具）</p>
+<p>CSS Pre-processors（css预处理）</p>
+<p>Linter / Formatter（语法规范检查）</p>
+<p>Unit Testing、E2E Testing（测试方式）</p>
+<p>使用配置文件（配置项是存在单独配置文件）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220750625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220803343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<p>9、上面选择完后，继续点击下一步会进入到配置选项，此处第一个是 是否开启路由的history模式，我们不开启采用hash模式,eslint采用 ESLint + Standard config ，Pick additional lint features选择默认开启</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220817594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>10、选择完后，点击创建项目，会弹出是否存为预设，下一次直接使用，可以存个预设的名字，然后点击 保存预设并创建项目 即创建完毕</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220850644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>11、创建完毕后会进入到项目操作界面</p>
+<p>插件（项目用到的插件可以在这里安装）</p>
+<p>依赖（项目的依赖工具）</p>
+<p>配置（那就是配置了）</p>
+<p>任务（可以运行项目、打包项目等）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220906488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>12、我们选择任务》server》运行，即可将项目运行起来</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220917331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>13、最后点击启动app即可看见我们自己创建的项目</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190613220928205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ES5数组高阶函数</title>
     <url>/2020/02/22/ES5%E6%95%B0%E7%BB%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h2 id="ES5数组高阶函数"><a href="#ES5数组高阶函数" class="headerlink" title="ES5数组高阶函数"></a>ES5数组高阶函数</h2><h4 id="forEach-遍历"><a href="#forEach-遍历" class="headerlink" title="forEach(遍历)"></a>forEach(遍历)</h4><p>forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。(没有返回值，将数组遍历)</p>
@@ -153,75 +286,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue render函数</title>
-    <url>/2020/03/17/Vue-render%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h2 id="Vue的一些基本概念"><a href="#Vue的一些基本概念" class="headerlink" title="Vue的一些基本概念"></a>Vue的一些基本概念</h2><p> Vue的应用程序是如何运行起来的，模板通过编译生成AST，再由AST生成Vue的<code>render</code>函数（渲染函数），渲染函数结合数据生成Virtual DOM树，Diff和Patch后生成新的UI。 </p>
-<a id="more"></a>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13429147-32832d6b08b108c4.jpg" alt="img"> </p>
-<p>从这张图中，可以接触到Vue的一些主要概念：</p>
-<ul>
-<li><strong>模板</strong>：Vue的模板基于纯HTML，基于Vue的模板语法，我们可以比较方便地声明数据和UI的关系。</li>
-<li><strong>AST</strong>：AST是<strong>Abstract Syntax Tree</strong>的简称，Vue使用HTML的Parser将HTML模板解析为AST，并且对AST进行一些优化的标记处理，提取最大的静态树，方便Virtual DOM时直接跳过Diff。</li>
-<li><strong>渲染函数</strong>：渲染函数是用来生成Virtual DOM的。Vue推荐使用模板来构建我们的应用界面，在底层实现中Vue会将模板编译成渲染函数，当然我们也可以不写模板，直接写渲染函数，以获得更好的控制 （这部分是我们今天主要要了解和学习的部分）。</li>
-<li><strong>Virtual DOM</strong>：虚拟DOM树，Vue的Virtual DOM Patching算法是基于<strong><a href="https://github.com/snabbdom/snabbdom" target="_blank" rel="noopener">Snabbdom</a></strong>的实现，并在些基础上作了很多的调整和改进。</li>
-<li><strong>Watcher</strong>：每个Vue组件都有一个对应的<code>watcher</code>，这个<code>watcher</code>将会在组件<code>render</code>的时候收集组件所依赖的数据，并在依赖有更新的时候，触发组件重新渲染。你根本不需要写<code>shouldComponentUpdate</code>，Vue会自动优化并更新要更新的UI。</li>
-</ul>
-<p>上图中，<code>render</code>函数可以作为一道分割线，<code>render</code>函数的左边可以称之为<strong>编译期</strong>，将Vue的模板转换为<strong>渲染函数</strong>。<code>render</code>函数的右边是Vue的运行时，主要是基于渲染函数生成Virtual DOM树，Diff和Patch。</p>
-<h2 id="渲染函数的基础"><a href="#渲染函数的基础" class="headerlink" title="渲染函数的基础"></a>渲染函数的基础</h2><p>Vue推荐在绝大多数情况下使用<code>template</code>来创建你的HTML。然而在一些场景中，需要使用JavaScript的编程能力和创建HTML，这就是<strong><code>render</code>函数</strong>，它比<code>template</code>更接近编译器。</p>
-<h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h2><p>在Vue 2.0中，渲染层的实现做了根本性改动，那就是引入了虚拟DOM。</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13429147-4eb2a73597a2a9aa.png" alt="img"> </p>
-<p>Vue的编译器在编译模板之后，会把这些模板编译成一个渲染函数。而函数被调用的时候就会渲染并且返回一个<strong>虚拟DOM的树</strong>。</p>
-<p>当我们有了这个虚拟的树之后，再交给一个<strong>Patch函数</strong>，负责把这些虚拟DOM真正施加到真实的DOM上。在这个过程中，Vue有自身的响应式系统来侦测在渲染过程中所依赖到的数据来源。在渲染过程中，侦测到数据来源之后就可以精确感知数据源的变动。到时候就可以根据需要重新进行渲染。当重新进行渲染之后，会生成一个新的树，将新的树与旧的树进行对比，就可以最终得出应施加到真实DOM上的改动。最后再通过Patch函数施加改动。</p>
-<p>简单点讲，在Vue的底层实现上，Vue将模板编译成虚拟DOM渲染函数。结合Vue自带的响应系统，在应该状态改变时，Vue能够智能地计算出重新渲染组件的最小代价并应到DOM操作上。</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13429147-4c7f8bdf4b804bd9.png" alt="img"> </p>
-<p>Vue支持我们通过<code>data</code>参数传递一个JavaScript对象做为组件数据，然后Vue将遍历此对象属性，使用<a href="https://www.w3cplus.com/vue/vue-two-way-binding-object-defineproperty.html" target="_blank" rel="noopener"><code>Object.defineProperty</code>方法</a>设置描述对象，通过存取器函数可以追踪该属性的变更，Vue创建了一层<code>Watcher</code>层，在组件渲染的过程中把属性记录为依赖，之后当依赖项的<code>setter</code>被调用时，会通知<code>Watcher</code>重新计算，从而使它关联的组件得以更新,如下图：</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13429147-e5ab233db6c73c31.png" alt="img"> </p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue-作用域插槽</title>
-    <url>/2020/03/10/Vue-%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD/</url>
-    <content><![CDATA[<h1 id="一、作用域"><a href="#一、作用域" class="headerlink" title="一、作用域"></a>一、作用域</h1><p>  说白了，<strong>作用域就是变量的使用范围</strong>，那么本例的问题是该如果给变量找范围。</p>
-<a id="more"></a>
-
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cnp</span> <span class="attr">v-show</span>=<span class="string">"isShow"</span>&gt;</span><span class="tag">&lt;/<span class="name">cnp</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">"#warp"</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                isShow:<span class="literal">false</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            components:&#123;</span><br><span class="line">                cnp:&#123;</span><br><span class="line"><span class="actionscript">                    template:<span class="string">"#tem"</span>,</span></span><br><span class="line">                    data()&#123;</span><br><span class="line"><span class="actionscript">                        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">                            isShow:<span class="literal">true</span></span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>  还是老样子，Vue作为父组件，声明cnp子组件是局部变量，并且在Vue和cnp中都有变量isShow，只是取值不一样，在Vue中是false，在cnp中是true。<br>  希望通过是否显示子组件cnp的内容来判断变量isShow的作用域。如果子组件cnp没有显示内容，说明使用的是Vue中的isShow，反之就是使用了子组件中的isShow。</p>
-<p>  结果发现是不显示的，说明isShow用的是Vue中的数据。如果将Vue中的isShow修改为true，结果是显示的。这就涉及到了变量的作用域问题  官方给出的准则是这样的：比如上面的案例是在父组件的div模板中使用的，所以浏览器会到父组件中的data对变量isShow进行编译。  在懂了作用域的概念后，作用域的插槽就好办多了 </p>
-<h1 id="二、作用域插槽"><a href="#二、作用域插槽" class="headerlink" title="二、作用域插槽"></a>二、作用域插槽</h1><p>  作用域插槽呢，就是<strong>在父组件中替换插槽的标签，但是内容是由子组件提供的。</strong></p>
-<p>先让我们来看一下下面的例子：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in pLanguage"</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">"#warp"</span>,</span></span><br><span class="line">            components:&#123;</span><br><span class="line">                cpn:&#123;</span><br><span class="line"><span class="actionscript">                    template:<span class="string">"#tem"</span>,</span></span><br><span class="line">                    data()&#123;</span><br><span class="line"><span class="actionscript">                        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">                            pLanguage:[<span class="string">'JavaScript'</span>,<span class="string">'Java'</span>,<span class="string">'C++'</span>,<span class="string">'C#'</span>]</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://img-blog.csdnimg.cn/2020051511105156.png" alt="img"> </p>
-<p>  这个例子中，我们通过在子组件中使用v-for指令使pLanguage的数据以列表的形式展示出来。<br>  现在的需求是，我们希望在第二个子组件中，数据是“ JavaScript - Java - C++ - C# ” 这种形式展示的。这跟作用域插槽的作用是不是很像：在父组件中替换插槽的标签，但是内容是由子组件提供的。替换标签就相当于展示的形式不一样了嘛，内容依旧是子组件中的pLanguage提供。<br>  目标已经十分的明确，首先是要获取子组件中的pLanguage数据，然后在父组件中修改自己想要的样式，觉得直接在子组件使用插槽，然后在父组件中修改样式就可以实现，于是乎写下了这样的代码：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">        <span class="comment">&lt;!-- 在父组件修改想要展示的形式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"item in pLanguage"</span>&gt;</span>&#123;&#123;item&#125;&#125; - <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">&lt;!-- 在子组件使用插槽 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">slot</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in pLanguage"</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>本以为离成功还差一步的时候，深刻体会到了一句话：现实是残酷的！</p>
-<p> <img src="https://img-blog.csdnimg.cn/2020051511105158.png" alt="在这里插入图片描述"> </p>
-<p>  意思是说，。但硬是要获取子组件的数据，怎么办呢？  这个时候就到了 作用域插槽 出场了使用作用域大概分成以下来两个步骤：<strong>第一步：为slot设置属性，将子组件中的数据复制给属性**</strong>第二部：使用slot-scope 获取slot对象，通过slot.属性名来获取子组中的数**</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"warp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 在父组件通过slot-scope获取到slot对象,并且通过slot.data获取子组件中的pLanguage --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-slot:dafault</span>=<span class="string">"slot"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"item in slot.data"</span>&gt;</span>&#123;&#123;item&#125;&#125; - <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!-- 在子组件声明了名字为 data 的属性 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tem"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">slot</span> <span class="attr">:data</span>=<span class="string">'pLanguage'</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in pLanguage"</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://img-blog.csdnimg.cn/2020051511105157.png" alt="在这里插入图片描述"> </p>
-<p>  首先，，这样子当cnp没有书写别的格式时就可以直接使用slot中的格式  其次，【当然，属性名是可以人任意的】，并且将pLanguage赋值给属性data，这就意味着data中的数据和pLanguage是一样的  然后，在父组件中，并且在slot对象中有个叫data的属性，这样就相当于父组件获取到了子组件pLanguage中的数据  最后，，并且显示出来  这就是使用作用域插槽的过程，这个时候你就会很好理解的这句话的含义</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">&lt;span&gt;&#123;&#123;slot.data.<span class="keyword">join</span>(<span class="string">' - '</span>)&#125;&#125;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://img-blog.csdnimg.cn/2020051511105142.png" alt="在这里插入图片描述"> </p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue-组件插槽</title>
     <url>/2020/03/10/Vue-%E7%BB%84%E4%BB%B6%E6%8F%92%E6%A7%BD/</url>
     <content><![CDATA[<h3 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h3><p>  上面最佳的解决办法是<strong>将共性抽取到组件中，将不同暴露给插槽</strong>，一旦我们<strong>使用了插槽，就相当于预留了空间</strong>，<strong>空间的内容取决于使用者</strong>。具体呢可以分成以下两种用法：</p>
@@ -266,62 +330,6 @@
       </tags>
   </entry>
   <entry>
-    <title>创建vue脚手架</title>
-    <url>/2020/03/18/Vue-%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
-    <content><![CDATA[<p>Vue-cli</p>
-<p> vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。 </p>
-<a id="more"></a>
-
-<p>1、首先保证全局安装@vue/cli工具 ，没有自行下载</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i @vue/cli -g</span><br></pre></td></tr></table></figure>
-
-<p>2、推荐下载yarn包管理器</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm i yarn -g</span><br></pre></td></tr></table></figure>
-
-<p>3、接下来我们就可以在自己的电脑里创建项目，找到电脑某个位置，在此文件夹按住shift同时右键，在此处打开cmd命令窗口或者在此处打开powershell窗口</p>
-<p>4、打开窗口之后运行vue ui命令，此时就会打开ui图形界面</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220648286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>5、我们选择创建之后就会进入创建页面</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220705271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>6、点击在此处创建新项目，就会进入项目详情，详情里面，首先填写项目的名字，然后包管理器选择yarn，在填写初始会git默认注释</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220718747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>7、上面填写完毕后，点击下一步，会进入到选择默认配置还是手动配置，以及选择之前的预设，我们选择手动配置</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220731996.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>8、选择完后继续点击下一步，选择功能，以下是所有功能介绍，我们可以先选择babel、router、Linter、使用配置文件，开发的时候一般css预处理、vuex也肯定要安装的</p>
-<p>babel （js高级转低级）</p>
-<p>TypeScript （js超级）</p>
-<p>Progressive Web App (PWA) Support （渐进式web应用）</p>
-<p>Router（路由）</p>
-<p>Vuex（状态管理工具）</p>
-<p>CSS Pre-processors（css预处理）</p>
-<p>Linter / Formatter（语法规范检查）</p>
-<p>Unit Testing、E2E Testing（测试方式）</p>
-<p>使用配置文件（配置项是存在单独配置文件）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220750625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220803343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<p>9、上面选择完后，继续点击下一步会进入到配置选项，此处第一个是 是否开启路由的history模式，我们不开启采用hash模式,eslint采用 ESLint + Standard config ，Pick additional lint features选择默认开启</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220817594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>10、选择完后，点击创建项目，会弹出是否存为预设，下一次直接使用，可以存个预设的名字，然后点击 保存预设并创建项目 即创建完毕</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220850644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>11、创建完毕后会进入到项目操作界面</p>
-<p>插件（项目用到的插件可以在这里安装）</p>
-<p>依赖（项目的依赖工具）</p>
-<p>配置（那就是配置了）</p>
-<p>任务（可以运行项目、打包项目等）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220906488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>12、我们选择任务》server》运行，即可将项目运行起来</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220917331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>13、最后点击启动app即可看见我们自己创建的项目</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190613220928205.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgxOTA5OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue-基本语法</title>
     <url>/2020/03/03/Vue-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<p>为了更好的理解Vue语法的组成，我们先来了解一下Vue的运作方式</p>
@@ -344,47 +352,6 @@
 <p>可以看到，Vue实例中有两个组成部分：<strong>el和data</strong>。<strong>el</strong>是element元素的英文名称缩写，<strong>是连接View模型中的元素</strong>；<strong>data</strong>是数据，<strong>用来连接Model模型</strong>。所以才说ViewModel是连接Model和View的关键。<br> 综上所述，定义一个完整的Vue语法如下所示;</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- View模型 --&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    &lt;!-- Model --&gt;</span><br><span class="line">    <span class="keyword">var</span> message=&#123;</span><br><span class="line">        site:<span class="string">'Hello Vue！'</span></span><br><span class="line">    &#125;</span><br><span class="line">    &lt;!--创建Vue实例，将View和Model绑定在一起--&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#app'</span>,</span><br><span class="line">        data: message</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue生命周期</title>
-    <url>/2020/03/03/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
-    <content><![CDATA[<h4 id="vue的生命周期是什么"><a href="#vue的生命周期是什么" class="headerlink" title="vue的生命周期是什么"></a><strong>vue的生命周期是什么</strong></h4><p>  vue每个组件都是独立的，每个组件都有一个属于它的生命周期，从一个组件<strong>创建、数据初始化、挂载、更新、销毁</strong>，这就是一个组件所谓的生命周期。在组件中具体的方法有:</p>
-<a id="more"></a>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    beforeCreate</span><br><span class="line">    created</span><br><span class="line">    beforeMount</span><br><span class="line">    mounted</span><br><span class="line">    (</span><br><span class="line">        beforeUpdate</span><br><span class="line">        updated</span><br><span class="line">    )</span><br><span class="line">    beforeDestroy</span><br><span class="line">    destroyed</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-eaf493b1b2050a93.png" alt="img"> </p>
-<p><strong>vue中内置的方法 属性和vue生命周期的运行顺序（methods、computed、data、watch、props)</strong></p>
-<p>  从第一二点可知道data的初始化是在created时已经完成数据观测(data observer)，并且诸如methods、computed属性 props等已经初始化；那问题来了，</p>
-<p>data props computed watch methods他们之间的生成顺序是什么呢？</p>
-<p>根据翻看vue源码可知：</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-551024dfb2fe9961.png" alt="img"> </p>
-<p><strong>props =&gt; methods =&gt;data =&gt; computed =&gt; watch</strong>; 懂了没 </p>
-<p><strong>vue生命周期的在项目中的执行顺序</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">data () &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line"></span><br><span class="line">  rendered: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>beforeCeate()&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.rendered);  <span class="comment">// undefined </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">2.</span>created() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);<span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>.rendered); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">3.</span>beforeMount() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el)；<span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">4.</span>mounted() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-095add76ef7c1953.png" alt="img"> </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">5.</span>beforeDestroty()&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.rendered); </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-4980a396e64eee6e.png" alt="img"> </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">6.</span>destroyed() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.rendered);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://upload-images.jianshu.io/upload_images/13119812-c8feee355871be70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/538/format/webp" alt="img"> </p>
 ]]></content>
       <categories>
         <category>前端</category>
