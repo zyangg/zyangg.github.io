@@ -1167,7 +1167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/22/ES6%E6%95%B0%E7%BB%84/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/23/ES6%E7%9A%84promise/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
@@ -1181,7 +1181,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/22/ES6%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">ES6数组</a>
+            <a href="/2020/02/23/ES6%E7%9A%84promise/" class="post-title-link" itemprop="url">ES6的promise</a>
         </h2>
 
         <div class="post-meta">
@@ -1191,14 +1191,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-02-22 13:35:02" itemprop="dateCreated datePublished" datetime="2020-02-22T13:35:02+08:00">2020-02-22</time>
+              <time title="创建时间：2020-02-23 22:01:09" itemprop="dateCreated datePublished" datetime="2020-02-23T22:01:09+08:00">2020-02-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-16 19:49:45" itemprop="dateModified" datetime="2020-05-16T19:49:45+08:00">2020-05-16</time>
+                <time title="修改时间：2020-05-16 22:09:37" itemprop="dateModified" datetime="2020-05-16T22:09:37+08:00">2020-05-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1219,8 +1219,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/02/22/ES6%E6%95%B0%E7%BB%84/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/22/ES6%E6%95%B0%E7%BB%84/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/02/23/ES6%E7%9A%84promise/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/23/ES6%E7%9A%84promise/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1230,14 +1230,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>950</span>
+              <span>4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -1249,62 +1249,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="ES6数组"><a href="#ES6数组" class="headerlink" title="ES6数组"></a>ES6数组</h2><p>1.ES6数组的各种方法</p>
-<p>  <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzRFMDhDNjA0Mzg3RjQ4QTM5QzJGMUI0QUFFQ0JBQzA3Lzk2Mzg?x-oss-process=image/format,png" alt="img"> </p>
-<p>2.forEach（）函数</p>
-<p>①数组名.forEach（function（数组中一个元素的值）{对这个值进行处理….}）</p>
-<p>②数组名.forEach（test）test为方法名，不用加（），把函数引用传进去</p>
-<p>  <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzJGRTU3RjgzNjM0QzRFQTVBMkU3N0NEQUI5NTcxQUEyLzk2NTE?x-oss-process=image/format,png" alt="img"> </p>
-<p>  <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlL0Y5RkUwMzUzQUQ4RDRFREFBOUE3MkU0NUE5NUM2MjNGLzk2NTQ?x-oss-process=image/format,png" alt="img"> </p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzEwRkM3NERDNTkxOTRCNjY5RkE1Q0UwMUZEOERGMDFCLzk2NTY?x-oss-process=image/format,png" alt="img"> </p>
-<p>③利用函数引用这种方式的话，会自己把每个值传进去，不需要用（）传进去</p>
-<p>  <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzRGMTg4M0I4MUJDOTQ5RjI4MDc4MjU3RTkyQzFBRjQ1Lzk2NTg?x-oss-process=image/format,png" alt="img"> </p>
-<p>3.map（）方法</p>
-<p>①map（）方法一定要有一个返回值，没有返回值的话就会返回一个undefined</p>
-<p>②map（）方法的返回值是一个数组</p>
-<p>③应用场景：要返回一个要利用原数组经过运算后的数组，或者是在一个对象数组中要拿到某一个属性，并且返回一个新数组的情况</p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlL0MwNzc3QUE5OEIwMjRDRDA5NDZFODRDRTExODJCMzcyLzk2NzI?x-oss-process=image/format,png" alt="img"> </p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlL0U4N0Y0MzIxMzU3NjQyMjdBREMzREE5MzNEN0FBRjZBLzk2NzQ?x-oss-process=image/format,png" alt="img"> </p>
-<p>4.filter（）函数</p>
-<p>①filter可以返回一个新数组，也可以直接改变原数组</p>
-<p>①应用场景：</p>
-<p>1)已知对象数组，要把对象数组中一些符合要求的对象重新组成一个数组</p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzdEMjZCM0FDOEU5NDQzQkY5RTY1NUMxNzgyMEY1OTE1Lzk2OTU?x-oss-process=image/format,png" alt="img"> </p>
-<p>  <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlL0ExQjQ2QjdGQjJFMjQ1NjNBOUZDMDU1OUY3MzJFRjlCLzk2ODY?x-oss-process=image/format,png" alt="img"> </p>
-<p>2）筛选出符合多个条件的对象数组中的一些元素，组成新数组或者是直接覆盖原数组</p>
-<p>  <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzEyQzQzMjMzRjE5QjQ1Mzc5QTdBRkMxQTg2N0ZCNjhDLzk2OTc?x-oss-process=image/format,png" alt="img"> </p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzdDMkNEQjExMEMyMTQ0NTQ4ODUxNERGOUVCQkQ0MTQ4Lzk2OTk?x-oss-process=image/format,png" alt="img"> </p>
-<p>3）有两个数组（A，B），根据A中的ID值，过滤掉B数组中不符合的数据</p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzE1MUE0Q0FFMUI4MDRBODZCMkE4MzVENzY3NTIwNjYyLzk3MDU?x-oss-process=image/format,png" alt="img"> </p>
-<p>5.find（）方法</p>
-<p>①find（）方法只会找到第一个符合的，找到之后就会直接返回，就算下面还有符合要求的，也不会再找下去</p>
-<p>②应用场景</p>
-<p>1)在对象数组中，找到符合要求的对象,只能找到第一个符合要求的</p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlL0I1RUZBRjVFMjUyMjQ1MUJCQjU2QjkwQjJENEIxNjJELzk3MTk?x-oss-process=image/format,png" alt="img"> </p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzcyOUY5QzRFN0MyNTREMEQ4RTI3NjRBRDdCMTFDMDNGLzk3MTM?x-oss-process=image/format,png" alt="img"> </p>
-<p>2)两个对象数组，找A数组中有B数组的ID的元素</p>
-<p>  <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzY1MUEyQjdCNURFRjRGRDk5ODk5QzdGRDRERTM0MjkyLzk3MjU?x-oss-process=image/format,png" alt="img"> </p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlL0JENDIyNkJGREIzMTRFRDg5MTFDQzE4RUQyQzgxODYwLzk3Mjc?x-oss-process=image/format,png" alt="img"> </p>
-<p>3）开发应用环境：博客列表，点击博客列表，根据博客列表的URL的数组，用find找到对应的Id，然后找到对应的列表的详情页的URL，并进行展示</p>
-<p>6.some（）和every（）方法</p>
-<p>①some()方法只要有一个满足就行，every（）方法要所有的满足才可以，即some（）：一真即真，every（）：一假即假，跟逻辑运算符差不多</p>
-<p>  <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzRBRDYxQUY3Q0U2QTRFMDc5QjQ3Q0UzQkYyNEQzQzI5Lzk3MzY?x-oss-process=image/format,png" alt="img"> </p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzlFOEVFNjNBREM4NTQyNkJBOEMyODhDQjA0RDMyQTY2Lzk3NDI?x-oss-process=image/format,png" alt="img"> </p>
-<p>②运用场景</p>
-<p>1)如果所有的操作系统都大于16位，则该程序可用，否则即为不可用</p>
-<p>//some只要有一个大于，它就不会再往下找，直接返回true，因为相当于 || （逻辑或运算符）</p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzEwOTA0MDZEQjlGNjQxNzRBRUYzQUVBOEZENEY5RUJBLzk3NTU?x-oss-process=image/format,png" alt="img"> </p>
-<p>//every()相当于&amp;&amp;，找到第一个错的就直接返回false，不再往下找</p>
-<p>  <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzU0MkNFQjgxQjY0ODREQUJBMTFFNEUzN0Q1MTM2RDQ3Lzk3NjE?x-oss-process=image/format,png" alt="img"> </p>
-<p>7.reduce（）方法</p>
-<p>①reduce（function（sum,number）{…},0）要有两个参数，第一个参数一定要初始化</p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzE3OUU5RTM5NkY0QzQ5NTBBMzM5RUUyMkUwNEFGMzkwLzk3NzA?x-oss-process=image/format,png" alt="img"> </p>
-<p>②应用场景</p>
-<p>1)代替map做一些简单的运算</p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlL0JFQzM4M0YwRUVDMDRCQkFCQUE1MjQ4MkIyRjIwMjAxLzk3Nzk?x-oss-process=image/format,png" alt="img"> </p>
-<p>2）将一个对象数组中的某些属性的值抽出来，组成一个新的数组</p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ub3RlLnlvdWRhby5jb20veXdzL3B1YmxpYy9yZXNvdXJjZS84M2FhMWYxNzM3MjU4YzJlZWM1NzUwNmQyNDYxODJkNy94bWxub3RlLzc0RkE5MTBDQzFEMDQ3RjZBN0YwQzg1RTcwQUFGMTc1Lzk3ODM?x-oss-process=image/format,png" alt="img"> </p>
-
+          <h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h5 id="1-基本定义"><a href="#1-基本定义" class="headerlink" title="1.基本定义"></a>1.基本定义</h5><p>  Promise是<strong>异步编程</strong>的一种解决方案。它是一个<strong>类</strong>，可以通过new的方式创建一个对象。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/23/ES6%E7%9A%84promise/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1321,6 +1274,9 @@
 
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1387,7 +1343,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1454,12 +1410,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">37k</span>
+    <span title="站点总字数">46k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">34 分钟</span>
+    <span title="站点阅读时长">42 分钟</span>
 </div>
 
 <!--

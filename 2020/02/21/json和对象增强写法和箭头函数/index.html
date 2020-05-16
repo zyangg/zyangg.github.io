@@ -20,25 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="hash和history两种模式的区别 众所周知，vue-router有两种模式，hash模式和history模式，这里来谈谈两者的区别。">
+  <meta name="description" content="箭头函数ES6中新增的定义函数的方式。 12() &#x3D;&gt; &amp;#123;&amp;#125; &#x2F;&#x2F;()：代表是函数； &#x3D;&gt;：必须要的符号，指向哪一个代码块；&amp;#123;&amp;#125;：函数体const fn &#x3D; () &#x3D;&gt; &amp;#123;&amp;#125;&#x2F;&#x2F;代表把一个函数赋值给fn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hash和history模式的区别">
-<meta property="og:url" content="http://yoursite.com/2020/03/12/hash%E5%92%8Chistory%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
+<meta property="og:title" content="json和对象增强写法和箭头函数">
+<meta property="og:url" content="http://yoursite.com/2020/02/21/json%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA%E5%86%99%E6%B3%95%E5%92%8C%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
-<meta property="og:description" content="hash和history两种模式的区别 众所周知，vue-router有两种模式，hash模式和history模式，这里来谈谈两者的区别。">
+<meta property="og:description" content="箭头函数ES6中新增的定义函数的方式。 12() &#x3D;&gt; &amp;#123;&amp;#125; &#x2F;&#x2F;()：代表是函数； &#x3D;&gt;：必须要的符号，指向哪一个代码块；&amp;#123;&amp;#125;：函数体const fn &#x3D; () &#x3D;&gt; &amp;#123;&amp;#125;&#x2F;&#x2F;代表把一个函数赋值给fn">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020051516195330.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020051516195333.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200515162111161.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020051516195332.png">
-<meta property="article:published_time" content="2020-03-12T06:18:49.000Z">
-<meta property="article:modified_time" content="2020-05-15T11:04:03.605Z">
+<meta property="article:published_time" content="2020-02-21T13:37:29.000Z">
+<meta property="article:modified_time" content="2020-05-16T13:57:58.638Z">
 <meta property="article:author" content="zyangg">
-<meta property="article:tag" content="Router">
+<meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020051516195330.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/03/12/hash%E5%92%8Chistory%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/">
+<link rel="canonical" href="http://yoursite.com/2020/02/21/json%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA%E5%86%99%E6%B3%95%E5%92%8C%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/">
 
 
 <script id="page-configurations">
@@ -51,7 +46,7 @@
   };
 </script>
 
-  <title>hash和history模式的区别 | zyangg的个人博客</title>
+  <title>json和对象增强写法和箭头函数 | zyangg的个人博客</title>
   
 
 
@@ -195,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/12/hash%E5%92%8Chistory%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/json%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA%E5%86%99%E6%B3%95%E5%92%8C%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
@@ -208,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          hash和history模式的区别
+          json和对象增强写法和箭头函数
         </h1>
 
         <div class="post-meta">
@@ -218,14 +213,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-03-12 14:18:49" itemprop="dateCreated datePublished" datetime="2020-03-12T14:18:49+08:00">2020-03-12</time>
+              <time title="创建时间：2020-02-21 21:37:29" itemprop="dateCreated datePublished" datetime="2020-02-21T21:37:29+08:00">2020-02-21</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-15 19:04:03" itemprop="dateModified" datetime="2020-05-15T19:04:03+08:00">2020-05-15</time>
+                <time title="修改时间：2020-05-16 21:57:58" itemprop="dateModified" datetime="2020-05-16T21:57:58+08:00">2020-05-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,7 +228,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                  <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
                 </span>
             </span>
 
@@ -253,8 +248,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/03/12/hash%E5%92%8Chistory%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/12/hash%E5%92%8Chistory%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/02/21/json%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA%E5%86%99%E6%B3%95%E5%92%8C%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/21/json%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA%E5%86%99%E6%B3%95%E5%92%8C%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -264,7 +259,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -283,32 +278,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="hash和history两种模式的区别"><a href="#hash和history两种模式的区别" class="headerlink" title="hash和history两种模式的区别"></a>hash和history两种模式的区别</h2><blockquote>
-<p>众所周知，vue-router有两种模式，hash模式和history模式，这里来谈谈两者的区别。</p>
+        <h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><p>ES6中新增的定义函数的方式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">() =&gt; &#123;&#125; <span class="comment">//()：代表是函数； =&gt;：必须要的符号，指向哪一个代码块；&#123;&#125;：函数体</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;<span class="comment">//代表把一个函数赋值给fn</span></span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
-</blockquote>
-<h2 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h2><p>hash模式背后的原理是<code>onhashchange</code>事件,可以在window对象上监听这个事件:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(event.oldURL, event.newURL);</span><br><span class="line">     <span class="keyword">let</span> hash = location.hash.slice(<span class="number">1</span>); </span><br><span class="line">     <span class="built_in">document</span>.body.style.color = hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>上面的代码可以通过改变hash来改变页面字体颜色，虽然没什么用，但是一定程度上说明了原理。 更关键的一点是，因为hash发生变化的url都会被浏览器记录下来，从而你会发现浏览器的前进后退都可以用了，同时点击后退时，页面字体颜色也会发生变化。这样一来，尽管浏览器没有请求服务器，但是页面状态和url一一关联起来，后来人们给它起了一个霸气的名字叫前端路由，成为了单页应用标配。</p>
-<h2 id="history路由-放在服务器环境下测试"><a href="#history路由-放在服务器环境下测试" class="headerlink" title="history路由(放在服务器环境下测试)"></a>history路由(放在服务器环境下测试)</h2><p>随着history api的到来，前端路由开始进化了,前面的hashchange，你只能改变#后面的url片段，而history api则给了前端完全的自由</p>
-<p>history api可以分为两大部分，切换和修改，参考MDN，切换历史状态包括<code>back</code>、<code>forward</code>、<code>go</code> 三个方法，对应浏览器的前进，后退，跳转操作，有同学说了，(谷歌)浏览器只有前进和后退，没有跳转，嗯，在前进后退上长按鼠标，会出来所有当前窗口的历史记录，从而可以跳转(也许叫跳更合适)：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">history.<span class="keyword">go</span>(<span class="number">-2</span>);<span class="comment">//后退两次</span></span><br><span class="line">history.<span class="keyword">go</span>(<span class="number">2</span>);<span class="comment">//前进两次</span></span><br><span class="line">history.back(); <span class="comment">//后退</span></span><br><span class="line">hsitory.forward(); <span class="comment">//前进</span></span><br></pre></td></tr></table></figure>
+<p>函数体中只有一句代码，且代码的执行结果就是返回值，可以省略大括号</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> num1 + num2; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//es6写法</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</span><br></pre></td></tr></table></figure>
 
-<h3 id="修改历史状态包括了pushState-replaceState"><a href="#修改历史状态包括了pushState-replaceState" class="headerlink" title="修改历史状态包括了pushState,replaceState"></a>修改历史状态包括了<code>pushState</code>,<code>replaceState</code></h3><p>两个方法,这两个方法接收三个参数:<code>stateObj</code>,<code>title</code>,<code>url</code></p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">history.pushState(&#123;<span class="attr">color</span>:<span class="string">'red'</span>&#125;, <span class="string">'red'</span>, <span class="string">'red'</span>)</span><br><span class="line">history.back();</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     history.forward();</span><br><span class="line"> &#125;,<span class="number">0</span>)</span><br><span class="line"><span class="built_in">window</span>.onpopstate = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(event.state)</span><br><span class="line">     <span class="keyword">if</span>(event.state &amp;&amp; event.state.color === <span class="string">'red'</span>)&#123;</span><br><span class="line">           <span class="built_in">document</span>.body.style.color = <span class="string">'red'</span>;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果形参只有一个，可以省略小括号</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params">v</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> v;</span><br><span class="line"> &#125; </span><br><span class="line"><span class="comment">//es6写法</span></span><br><span class="line"> <span class="keyword">const</span> fn = <span class="function"><span class="params">v</span> =&gt;</span> v;</span><br></pre></td></tr></table></figure>
 
-<p>通过<code>pushstate</code>把页面的状态保存在state对象中，当页面的url再变回这个url时，可以通过<code>event.state</code>取到这个<code>state</code>对象，从而可以对页面状态进行还原，这里的页面状态就是页面字体颜色，其实滚动条的位置，阅读进度，组件的开关的这些页面状态都可以存储到state的里面。</p>
-<h3 id="history模式的问题"><a href="#history模式的问题" class="headerlink" title="history模式的问题"></a>history模式的问题</h3><p>通过history api，我们丢掉了丑陋的#，但是它也有个问题：不怕前进，不怕后退，就怕<strong>刷新</strong>，<strong>f5</strong>，（如果后端没有准备的话）,因为刷新是实实在在地去请求服务器的,不玩虚的。 在hash模式下，前端路由修改的是#中的信息，而浏览器请求时是不带它玩的，所以没有问题.但是在history下，你可以自由的修改path，当刷新时，如果服务器中没有相应的响应或者资源，会分分钟刷出一个404来。</p>
-<h4 id="如何实现修改URL而不刷新页面"><a href="#如何实现修改URL而不刷新页面" class="headerlink" title="如何实现修改URL而不刷新页面"></a>如何实现修改URL而不刷新页面</h4><p><strong>① 修改URL的hash</strong><br> 在控制台中输入命令： location.hash=”xxx”<br>  如果页面的URL发生改变，就会向服务器发送请求，请求的资源我们可以在Network查看。所以演示的步骤如下：在控制台输入  location.hash=”aaa” –&gt;观察浏览器的地址栏是否改变 –&gt; 查看Network 是否有新资源。<br>  <img src="https://img-blog.csdnimg.cn/2020051516195330.png" alt="在这里插入图片描述"> </p>
-<p>在控制台输入  location.hash=”aaa”</p>
-<p> <img src="https://img-blog.csdnimg.cn/2020051516195333.png" alt="在这里插入图片描述"> </p>
-<p><strong>② html5 的pushState</strong></p>
-<p>这是第二种修改URL而不刷新页面的方法，用法如下： history.pushState({…},’xxx’,’URL’)  。第一个参数是对象，第二个参数是title，第三个参数是URL</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200515162111161.png" alt="在这里插入图片描述"> </p>
-<p> <img src="https://img-blog.csdnimg.cn/2020051516195332.png" alt="在这里插入图片描述"> </p>
-<p>  history.pushState指令的原理和栈结构相似。先进后出，当在控制台输入多个history.pushState指令时，URL只会显示最后一条指令的URL。</p>
-<p><strong>③ html5 的replaceState</strong><br> 同样的，和pushState工作的基本原理相似，但是也有不同：<br>  pushState是一个类似栈的结构，会<strong>保存历史记录</strong>，所以可以返回上一次访问过的页面；<br>  而replaceState 是直接用当前的URL替代了上一个URL，所以<strong>不能够返回上一次访问过的页面</strong>。</p>
+<p>箭头函数不绑定this关键字，箭头函数中的this，指向的是函数定义位置的上下文this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">name</span>: <span class="string">'张三'</span>&#125; </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">     <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//this 指向 是obj对象</span></span><br><span class="line">     <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123; </span><br><span class="line">         <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//this 指向 的是箭头函数定义的位置，那么这个箭头函数定义在fn里面，而这个fn指向是的obj对象，所以这个this也指向是obj对象</span></span><br><span class="line">     &#125; </span><br><span class="line"> &#125; </span><br><span class="line"> <span class="keyword">const</span> resFn = fn.call(obj); </span><br><span class="line"> resFn();</span><br></pre></td></tr></table></figure>
+
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
+<li>箭头函数中不绑定this，箭头函数中的this指向是它所定义的位置，可以简单理解成，定义箭头函数中的作用域的this指向谁，它就指向谁</li>
+<li>箭头函数的优点在于解决了this执行环境所造成的一些问题。比如：解决了匿名函数this指向的问题（匿名函数的执行环境具有全局性），包括setTimeout和setInterval中使用this所造成的问题</li>
+</ul>
+<h3 id="字面量增强写法"><a href="#字面量增强写法" class="headerlink" title="字面量增强写法"></a>字面量增强写法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">12</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="string">'aaaa'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 构造对象</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    a: a,</span><br><span class="line">    b: b</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在ES6当中 key和value的值相等所以可以简写为</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    a,</span><br><span class="line">    b</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//ES5对象里的方法是这样定义的</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    a: <span class="number">12</span></span><br><span class="line">    sun: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.a++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ES6可以这样书写</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    a: <span class="number">12</span></span><br><span class="line">    sun()&#123;</span><br><span class="line">        <span class="keyword">this</span>.a++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><p>JSON: JavaScript Object Notation(JavaScript 对象表示法)</p>
+<p>JSON 是存储和交换文本信息的语法。类似 XML。</p>
+<p>JSON 比 XML 更小、更快，更易解析。</p>
+<p>对象语法<br>实例：</p>
+<p>{ “name”:“runoob”, “alexa”:10000, “site”:null }<br>JSON 对象使用在大括号({})中书写。</p>
+<p>对象可以包含多个 key/value（键/值）对。</p>
+<p>key 必须是字符串，value 可以是合法的 JSON 数据类型（字符串, 数字, 对象, 数组, 布尔值或 null）。</p>
+<p>key 和 value 中使用冒号(:)分割。</p>
+<p>每个 key/value 对使用逗号(,)分割。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">“sites”: [</span><br><span class="line">&#123; “name”:“菜鸟教程” , “url”:“www.runoob.com” &#125;,</span><br><span class="line">&#123; “name”:“google” , “url”:“www.google.com” &#125;,</span><br><span class="line">&#123; “name”:“微博” , “url”:“www.weibo.com” &#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="JSON-parse"><a href="#JSON-parse" class="headerlink" title="JSON.parse()"></a>JSON.parse()</h2><p>JSON 通常用于与服务端交换数据。</p>
+<p>在接收服务器数据时一般是字符串。</p>
+<p>我们可以使用 JSON.parse() 方法将数据转换为 JavaScript 对象。</p>
+<h2 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify()"></a>JSON.stringify()</h2><p>JSON 通常用于与服务端交换数据。<br>在向服务器发送数据时一般是字符串。<br>我们可以使用 JSON.stringify() 方法将 JavaScript 对象转换为字符串。</p>
 
     </div>
 
@@ -318,7 +324,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Router/" rel="tag"># Router</a>
+              <a href="/tags/ES6/" rel="tag"># ES6</a>
           </div>
 
         
@@ -327,12 +333,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/02/23/ES6%E7%9A%84promise/" rel="prev" title="ES6的promise">
-      <i class="fa fa-chevron-left"></i> ES6的promise
+    <a href="/2020/02/20/ES6%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E5%92%8C%E5%89%A9%E4%BD%99%E5%8F%82%E6%95%B0/" rel="prev" title="ES6解构赋值和剩余参数">
+      <i class="fa fa-chevron-left"></i> ES6解构赋值和剩余参数
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/03/12/Router%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="next" title="Router的基本使用">
-      Router的基本使用 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/02/22/ES6%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95/" rel="next" title="ES6数组">
+      ES6数组 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -393,7 +399,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hash和history两种模式的区别"><span class="nav-number">1.</span> <span class="nav-text">hash和history两种模式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hash模式"><span class="nav-number">2.</span> <span class="nav-text">hash模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history路由-放在服务器环境下测试"><span class="nav-number">3.</span> <span class="nav-text">history路由(放在服务器环境下测试)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改历史状态包括了pushState-replaceState"><span class="nav-number">3.1.</span> <span class="nav-text">修改历史状态包括了pushState,replaceState</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history模式的问题"><span class="nav-number">3.2.</span> <span class="nav-text">history模式的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何实现修改URL而不刷新页面"><span class="nav-number">3.2.1.</span> <span class="nav-text">如何实现修改URL而不刷新页面</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数"><span class="nav-number">1.</span> <span class="nav-text">箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">1.1.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字面量增强写法"><span class="nav-number">2.</span> <span class="nav-text">字面量增强写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-number">3.</span> <span class="nav-text">JSON</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-parse"><span class="nav-number"></span> <span class="nav-text">JSON.parse()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-stringify"><span class="nav-number"></span> <span class="nav-text">JSON.stringify()</span></a></div>
       </div>
       <!--/noindex-->
 
