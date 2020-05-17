@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="zyangg的个人博客">
 <meta property="og:description" content="await后面接一个会return new promise的函数并执行它 await只能放在async函数里">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14361446-966597ef223e0522.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/282/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14361446-16e11aa344d19540.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/347/format/webp">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200517140238546.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200517140238545.png">
 <meta property="article:published_time" content="2020-03-20T05:44:32.000Z">
-<meta property="article:modified_time" content="2020-05-17T05:57:20.469Z">
+<meta property="article:modified_time" content="2020-05-17T06:02:58.892Z">
 <meta property="article:author" content="zyangg">
 <meta property="article:tag" content="axios">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/14361446-966597ef223e0522.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/282/format/webp">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200517140238546.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/03/20/async%E5%92%8Cawait/">
 
@@ -223,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-17 13:57:20" itemprop="dateModified" datetime="2020-05-17T13:57:20+08:00">2020-05-17</time>
+                <time title="修改时间：2020-05-17 14:02:58" itemprop="dateModified" datetime="2020-05-17T14:02:58+08:00">2020-05-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -320,13 +320,13 @@
 <li>async函数会返回一个promise，并且Promise对象的状态值是resolved（成功的）</li>
 </ul>
 <ol>
-<li>如果你没有在async函数中写return，那么Promise对象resolve的值就是是undefined</li>
+<li><p>如果你没有在async函数中写return，那么Promise对象resolve的值就是是undefined</p>
+<p><img src="https://img-blog.csdnimg.cn/20200517140238546.png" alt="在这里插入图片描述"> </p>
+</li>
+<li><p>如果你写了return，那么return的值就会作为你成功的时候传入的值</p>
+<p><img src="https://img-blog.csdnimg.cn/20200517140238545.png" alt="img"> </p>
+</li>
 </ol>
-<p><img src="https:////upload-images.jianshu.io/upload_images/14361446-966597ef223e0522.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/282/format/webp" alt="img"></p>
-<ol>
-<li>如果你写了return，那么return的值就会作为你成功的时候传入的值</li>
-</ol>
-<p><img src="https:////upload-images.jianshu.io/upload_images/14361446-16e11aa344d19540.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/347/format/webp" alt="img"></p>
 <p><strong>await 等到之后，做了一件什么事情？</strong><br> 那么右侧表达式的结果，就是await要等的东西。<br> 等到之后，对于await来说，分2个情况</p>
 <ul>
 <li>不是promise对象</li>
