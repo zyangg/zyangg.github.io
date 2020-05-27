@@ -20,28 +20,48 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zyangg的个人博客">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="一、Flex 布局是什么？Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。 任何一个容器都可以指定为 Flex 布局。  123.box&amp;#123;  display: flex;&amp;#125;  行内元素也可以使用 Flex 布局。  123.box&amp;#123;  display: inline-flex;&amp;#125;  Webkit 内核的浏览器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flex布局">
+<meta property="og:url" content="http://yoursite.com/2020/01/27/Flex%E5%B8%83%E5%B1%80/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
+<meta property="og:description" content="一、Flex 布局是什么？Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。 任何一个容器都可以指定为 Flex 布局。  123.box&amp;#123;  display: flex;&amp;#125;  行内元素也可以使用 Flex 布局。  123.box&amp;#123;  display: inline-flex;&amp;#125;  Webkit 内核的浏览器">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071005.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071006.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071007.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071008.jpg">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071009.jpg">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071010.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071011.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071012.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071013.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071014.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071015.jpg">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071016.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071323.png">
+<meta property="article:published_time" content="2020-01-27T02:37:09.000Z">
+<meta property="article:modified_time" content="2020-05-27T02:43:47.776Z">
 <meta property="article:author" content="zyangg">
+<meta property="article:tag" content="Flex">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png">
 
-<link rel="canonical" href="http://yoursite.com/page/2/">
+<link rel="canonical" href="http://yoursite.com/2020/01/27/Flex%E5%B8%83%E5%B1%80/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>zyangg的个人博客</title>
+  <title>Flex布局 | zyangg的个人博客</title>
   
 
 
@@ -178,666 +198,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/12/hash%E5%92%8Chistory%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-      <meta itemprop="name" content="zyangg">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zyangg的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/12/hash%E5%92%8Chistory%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">hash和history模式的区别</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-12 14:18:49" itemprop="dateCreated datePublished" datetime="2020-03-12T14:18:49+08:00">2020-03-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-15 19:04:03" itemprop="dateModified" datetime="2020-05-15T19:04:03+08:00">2020-05-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/03/12/hash%E5%92%8Chistory%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/12/hash%E5%92%8Chistory%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="hash和history两种模式的区别"><a href="#hash和history两种模式的区别" class="headerlink" title="hash和history两种模式的区别"></a>hash和history两种模式的区别</h2><blockquote>
-<p>众所周知，vue-router有两种模式，hash模式和history模式，这里来谈谈两者的区别。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/12/hash%E5%92%8Chistory%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/23/ES6%E7%9A%84promise/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-      <meta itemprop="name" content="zyangg">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zyangg的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/23/ES6%E7%9A%84promise/" class="post-title-link" itemprop="url">ES6的promise</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-23 22:01:09" itemprop="dateCreated datePublished" datetime="2020-02-23T22:01:09+08:00">2020-02-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-16 22:09:37" itemprop="dateModified" datetime="2020-05-16T22:09:37+08:00">2020-05-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/02/23/ES6%E7%9A%84promise/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/23/ES6%E7%9A%84promise/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h5 id="1-基本定义"><a href="#1-基本定义" class="headerlink" title="1.基本定义"></a>1.基本定义</h5><p>  Promise是<strong>异步编程</strong>的一种解决方案。它是一个<strong>类</strong>，可以通过new的方式创建一个对象。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/23/ES6%E7%9A%84promise/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/22/ES6%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-      <meta itemprop="name" content="zyangg">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zyangg的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/22/ES6%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95/" class="post-title-link" itemprop="url">ES6数组</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-22 13:35:02" itemprop="dateCreated datePublished" datetime="2020-02-22T13:35:02+08:00">2020-02-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-16 21:32:57" itemprop="dateModified" datetime="2020-05-16T21:32:57+08:00">2020-05-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/02/22/ES6%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/22/ES6%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="数组扩展方法"><a href="#数组扩展方法" class="headerlink" title="数组扩展方法"></a>数组扩展方法</h2><p>1.ES6数组的各种方法</p>
-<p>在ES5的基础上ES6有了许多新的操作数组的方法，使得我们操作数组更加遍历</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/22/ES6%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/json%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA%E5%86%99%E6%B3%95%E5%92%8C%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-      <meta itemprop="name" content="zyangg">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zyangg的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/21/json%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA%E5%86%99%E6%B3%95%E5%92%8C%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">json和对象增强写法和箭头函数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-21 21:37:29" itemprop="dateCreated datePublished" datetime="2020-02-21T21:37:29+08:00">2020-02-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-16 21:57:58" itemprop="dateModified" datetime="2020-05-16T21:57:58+08:00">2020-05-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/02/21/json%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA%E5%86%99%E6%B3%95%E5%92%8C%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/21/json%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA%E5%86%99%E6%B3%95%E5%92%8C%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><p>ES6中新增的定义函数的方式。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">() =&gt; &#123;&#125; <span class="comment">//()：代表是函数； =&gt;：必须要的符号，指向哪一个代码块；&#123;&#125;：函数体</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;<span class="comment">//代表把一个函数赋值给fn</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/21/json%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA%E5%86%99%E6%B3%95%E5%92%8C%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/ES6%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E5%92%8C%E5%89%A9%E4%BD%99%E5%8F%82%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-      <meta itemprop="name" content="zyangg">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zyangg的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/20/ES6%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E5%92%8C%E5%89%A9%E4%BD%99%E5%8F%82%E6%95%B0/" class="post-title-link" itemprop="url">ES6解构赋值和剩余参数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-20 21:27:02" itemprop="dateCreated datePublished" datetime="2020-02-20T21:27:02+08:00">2020-02-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-16 21:59:05" itemprop="dateModified" datetime="2020-05-16T21:59:05+08:00">2020-05-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/02/20/ES6%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E5%92%8C%E5%89%A9%E4%BD%99%E5%8F%82%E6%95%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/20/ES6%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E5%92%8C%E5%89%A9%E4%BD%99%E5%8F%82%E6%95%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="解构赋值（★★★）"><a href="#解构赋值（★★★）" class="headerlink" title="解构赋值（★★★）"></a>解构赋值（★★★）</h3><p>ES6中允许从数组中提取值，按照对应位置，对变量赋值，对象也可以实现解构</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/20/ES6%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E5%92%8C%E5%89%A9%E4%BD%99%E5%8F%82%E6%95%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/ES6%E8%AF%AD%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
-      <meta itemprop="name" content="zyangg">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zyangg的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/20/ES6%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">ES6语法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-20 21:21:43" itemprop="dateCreated datePublished" datetime="2020-02-20T21:21:43+08:00">2020-02-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-16 21:59:35" itemprop="dateModified" datetime="2020-05-16T21:59:35+08:00">2020-05-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/02/20/ES6%E8%AF%AD%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/20/ES6%E8%AF%AD%E6%B3%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="ES6新增语法"><a href="#ES6新增语法" class="headerlink" title="ES6新增语法"></a>ES6新增语法</h2><h3 id="let（★★★）"><a href="#let（★★★）" class="headerlink" title="let（★★★）"></a>let（★★★）</h3><p>ES6中新增了用于声明变量的关键字</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/20/ES6%E8%AF%AD%E6%B3%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -853,10 +217,9 @@
       <meta itemprop="name" content="zyangg的个人博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/27/Flex%E5%B8%83%E5%B1%80/" class="post-title-link" itemprop="url">Flex布局</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Flex布局
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -885,6 +248,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -923,7 +293,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="一、Flex-布局是什么？"><a href="#一、Flex-布局是什么？" class="headerlink" title="一、Flex 布局是什么？"></a>一、Flex 布局是什么？</h2><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</p>
+        <h2 id="一、Flex-布局是什么？"><a href="#一、Flex-布局是什么？" class="headerlink" title="一、Flex 布局是什么？"></a>一、Flex 布局是什么？</h2><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</p>
 <p>任何一个容器都可以指定为 Flex 布局。</p>
 <blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1089,30 +459,40 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">max-width:</span> <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.HolyGrail-body</span> &#123;</span><br><span class="line">    <span class="attribute">flex-direction</span>: column;</span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.HolyGrail-nav</span>,</span><br><span class="line">  <span class="selector-class">.HolyGrail-ads</span>,</span><br><span class="line">  <span class="selector-class">.HolyGrail-content</span> &#123;</span><br><span class="line">    <span class="attribute">flex</span>: auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="参考《阮一峰的网络日志》"><a href="#参考《阮一峰的网络日志》" class="headerlink" title="参考《阮一峰的网络日志》"></a>参考《阮一峰的网络日志》</h3>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/Flex/" rel="tag"># Flex</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/20/ES6%E8%AF%AD%E6%B3%95/" rel="next" title="ES6语法">
+      ES6语法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
 
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -1159,6 +539,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Flex-布局是什么？"><span class="nav-number">1.</span> <span class="nav-text">一、Flex 布局是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、基本概念"><span class="nav-number">2.</span> <span class="nav-text">二、基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、容器的属性"><span class="nav-number">3.</span> <span class="nav-text">三、容器的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-flex-direction属性"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 flex-direction属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-flex-wrap属性"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 flex-wrap属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-flex-flow"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 flex-flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-justify-content属性"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 justify-content属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-align-items属性"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 align-items属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-align-content属性"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 align-content属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、项目的属性"><span class="nav-number">3.7.</span> <span class="nav-text">四、项目的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-order属性"><span class="nav-number">3.8.</span> <span class="nav-text">4.1 order属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-flex-grow属性"><span class="nav-number">3.9.</span> <span class="nav-text">4.2 flex-grow属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-flex-shrink属性"><span class="nav-number">3.10.</span> <span class="nav-text">4.3 flex-shrink属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-flex-basis属性"><span class="nav-number">3.11.</span> <span class="nav-text">4.4 flex-basis属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-flex属性"><span class="nav-number">3.12.</span> <span class="nav-text">4.5 flex属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-align-self属性"><span class="nav-number">3.13.</span> <span class="nav-text">4.6 align-self属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、圣杯布局"><span class="nav-number">3.14.</span> <span class="nav-text">五、圣杯布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考《阮一峰的网络日志》"><span class="nav-number">3.15.</span> <span class="nav-text">参考《阮一峰的网络日志》</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
