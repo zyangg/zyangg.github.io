@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="鼠标事件鼠标事件的种类鼠标事件指与鼠标相关的事件，继承了MouseEvent接口。具体的事件主要有以下一些。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS-鼠标事件">
+<meta property="og:url" content="http://yoursite.com/2020/02/04/JS-%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6/index.html">
+<meta property="og:site_name" content="zyangg的个人博客">
+<meta property="og:description" content="鼠标事件鼠标事件的种类鼠标事件指与鼠标相关的事件，继承了MouseEvent接口。具体的事件主要有以下一些。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-04T03:43:17.000Z">
+<meta property="article:modified_time" content="2020-05-30T03:48:56.444Z">
+<meta property="article:author" content="zyangg">
+<meta property="article:tag" content="event">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/04/JS-%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>JS-鼠标事件 | zyangg的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zyangg的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">你的🐏</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/04/JS-%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+      <meta itemprop="name" content="zyangg">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zyangg的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS-鼠标事件
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-04 11:43:17" itemprop="dateCreated datePublished" datetime="2020-02-04T11:43:17+08:00">2020-02-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 11:48:56" itemprop="dateModified" datetime="2020-05-30T11:48:56+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/02/04/JS-%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/04/JS-%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h1><h2 id="鼠标事件的种类"><a href="#鼠标事件的种类" class="headerlink" title="鼠标事件的种类"></a>鼠标事件的种类</h2><p>鼠标事件指与鼠标相关的事件，继承了<code>MouseEvent</code>接口。具体的事件主要有以下一些。</p>
+<a id="more"></a>
+
+<ul>
+<li><code>click</code>：按下鼠标（通常是按下主按钮）时触发。</li>
+<li><code>dblclick</code>：在同一个元素上双击鼠标时触发。</li>
+<li><code>mousedown</code>：按下鼠标键时触发。</li>
+<li><code>mouseup</code>：释放按下的鼠标键时触发。</li>
+<li><code>mousemove</code>：当鼠标在一个节点内部移动时触发。当鼠标持续移动时，该事件会连续触发。为了避免性能问题，建议对该事件的监听函数做一些限定，比如限定一段时间内只能运行一次。</li>
+<li><code>mouseenter</code>：鼠标进入一个节点时触发，进入子节点不会触发这个事件（详见后文）。</li>
+<li><code>mouseover</code>：鼠标进入一个节点时触发，进入子节点会再一次触发这个事件（详见后文）。</li>
+<li><code>mouseout</code>：鼠标离开一个节点时触发，离开父节点也会触发这个事件（详见后文）。</li>
+<li><code>mouseleave</code>：鼠标离开一个节点时触发，离开父节点不会触发这个事件（详见后文）。</li>
+<li><code>contextmenu</code>：按下鼠标右键时（上下文菜单出现前）触发，或者按下“上下文菜单键”时触发。</li>
+<li><code>wheel</code>：滚动鼠标的滚轮时触发，该事件继承的是<code>WheelEvent</code>接口。</li>
+</ul>
+<p><code>click</code>事件指的是，用户在同一个位置先完成<code>mousedown</code>动作，再完成<code>mouseup</code>动作。因此，触发顺序是，<code>mousedown</code>首先触发，<code>mouseup</code>接着触发，<code>click</code>最后触发。</p>
+<p><code>dblclick</code>事件则会在<code>mousedown</code>、<code>mouseup</code>、<code>click</code>之后触发。</p>
+<p><code>mouseover</code>事件和<code>mouseenter</code>事件，都是鼠标进入一个节点时触发。两者的区别是，<code>mouseenter</code>事件只触发一次，而只要鼠标在节点内部移动，<code>mouseover</code>事件会在子节点上触发多次。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* HTML 代码如下</span></span><br><span class="line"><span class="comment"> &lt;ul&gt;</span></span><br><span class="line"><span class="comment">   &lt;li&gt;item 1&lt;/li&gt;</span></span><br><span class="line"><span class="comment">   &lt;li&gt;item 2&lt;/li&gt;</span></span><br><span class="line"><span class="comment">  &lt;li&gt;item 3&lt;/li&gt;</span></span><br><span class="line"><span class="comment"> &lt;/ul&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 进入 ul 节点以后，mouseenter 事件只会触发一次</span></span><br><span class="line"><span class="comment">// 以后只要鼠标在节点内移动，都不会再触发这个事件</span></span><br><span class="line"><span class="comment">// event.target 是 ul 节点</span></span><br><span class="line">ul.addEventListener(<span class="string">'mouseenter'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event.target.style.color = <span class="string">'purple'</span>;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    event.target.style.color = <span class="string">''</span>;</span><br><span class="line">  &#125;, <span class="number">500</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 进入 ul 节点以后，只要在子节点上移动，mouseover 事件会触发多次</span></span><br><span class="line"><span class="comment">// event.target 是 li 节点</span></span><br><span class="line">ul.addEventListener(<span class="string">'mouseover'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event.target.style.color = <span class="string">'orange'</span>;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    event.target.style.color = <span class="string">''</span>;</span><br><span class="line">  &#125;, <span class="number">500</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，在父节点内部进入子节点，不会触发<code>mouseenter</code>事件，但是会触发<code>mouseover</code>事件。</p>
+<p><code>mouseout</code>事件和<code>mouseleave</code>事件，都是鼠标离开一个节点时触发。两者的区别是，在父元素内部离开一个子元素时，<code>mouseleave</code>事件不会触发，而<code>mouseout</code>事件会触发。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* HTML 代码如下</span></span><br><span class="line"><span class="comment"> &lt;ul&gt;</span></span><br><span class="line"><span class="comment">   &lt;li&gt;item 1&lt;/li&gt;</span></span><br><span class="line"><span class="comment">   &lt;li&gt;item 2&lt;/li&gt;</span></span><br><span class="line"><span class="comment">  &lt;li&gt;item 3&lt;/li&gt;</span></span><br><span class="line"><span class="comment"> &lt;/ul&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 先进入 ul 节点，然后在节点内部移动，不会触发 mouseleave 事件</span></span><br><span class="line"><span class="comment">// 只有离开 ul 节点时，触发一次 mouseleave</span></span><br><span class="line"><span class="comment">// event.target 是 ul 节点</span></span><br><span class="line">ul.addEventListener(<span class="string">'mouseleave'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event.target.style.color = <span class="string">'purple'</span>;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    event.target.style.color = <span class="string">''</span>;</span><br><span class="line">  &#125;, <span class="number">500</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 先进入 ul 节点，然后在节点内部移动，mouseout 事件会触发多次</span></span><br><span class="line"><span class="comment">// event.target 是 li 节点</span></span><br><span class="line">ul.addEventListener(<span class="string">'mouseout'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event.target.style.color = <span class="string">'orange'</span>;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    event.target.style.color = <span class="string">''</span>;</span><br><span class="line">  &#125;, <span class="number">500</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，在父节点内部离开子节点，不会触发<code>mouseleave</code>事件，但是会触发<code>mouseout</code>事件。</p>
+<h2 id="MouseEvent-接口概述"><a href="#MouseEvent-接口概述" class="headerlink" title="MouseEvent 接口概述"></a>MouseEvent 接口概述</h2><p><code>MouseEvent</code>接口代表了鼠标相关的事件，单击（click）、双击（dblclick）、松开鼠标键（mouseup）、按下鼠标键（mousedown）等动作，所产生的事件对象都是<code>MouseEvent</code>实例。此外，滚轮事件和拖拉事件也是<code>MouseEvent</code>实例。</p>
+<p><code>MouseEvent</code>接口继承了<code>Event</code>接口，所以拥有<code>Event</code>的所有属性和方法。它还有自己的属性和方法。</p>
+<p>浏览器原生提供一个<code>MouseEvent</code>构造函数，用于新建一个<code>MouseEvent</code>实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> MouseEvent(type, options);</span><br></pre></td></tr></table></figure>
+
+<p><code>MouseEvent</code>构造函数接受两个参数。第一个参数是字符串，表示事件名称；第二个参数是一个事件配置对象，该参数可选。除了<code>Event</code>接口的实例配置属性，该对象可以配置以下属性，所有属性都是可选的。</p>
+<ul>
+<li><code>screenX</code>：数值，鼠标相对于屏幕的水平位置（单位像素），默认值为0，设置该属性不会移动鼠标。</li>
+<li><code>screenY</code>：数值，鼠标相对于屏幕的垂直位置（单位像素），其他与<code>screenX</code>相同。</li>
+<li><code>clientX</code>：数值，鼠标相对于程序窗口的水平位置（单位像素），默认值为0，设置该属性不会移动鼠标。</li>
+<li><code>clientY</code>：数值，鼠标相对于程序窗口的垂直位置（单位像素），其他与<code>clientX</code>相同。</li>
+<li><code>ctrlKey</code>：布尔值，是否同时按下了 Ctrl 键，默认值为<code>false</code>。</li>
+<li><code>shiftKey</code>：布尔值，是否同时按下了 Shift 键，默认值为<code>false</code>。</li>
+<li><code>altKey</code>：布尔值，是否同时按下 Alt 键，默认值为<code>false</code>。</li>
+<li><code>metaKey</code>：布尔值，是否同时按下 Meta 键，默认值为<code>false</code>。</li>
+<li><code>button</code>：数值，表示按下了哪一个鼠标按键，默认值为<code>0</code>，表示按下主键（通常是鼠标的左键）或者当前事件没有定义这个属性；<code>1</code>表示按下辅助键（通常是鼠标的中间键），<code>2</code>表示按下次要键（通常是鼠标的右键）。</li>
+<li><code>buttons</code>：数值，表示按下了鼠标的哪些键，是一个三个比特位的二进制值，默认为<code>0</code>（没有按下任何键）。<code>1</code>（二进制<code>001</code>）表示按下主键（通常是左键），<code>2</code>（二进制<code>010</code>）表示按下次要键（通常是右键），<code>4</code>（二进制<code>100</code>）表示按下辅助键（通常是中间键）。因此，如果返回<code>3</code>（二进制<code>011</code>）就表示同时按下了左键和右键。</li>
+<li><code>relatedTarget</code>：节点对象，表示事件的相关节点，默认为<code>null</code>。<code>mouseenter</code>和<code>mouseover</code>事件时，表示鼠标刚刚离开的那个元素节点；<code>mouseout</code>和<code>mouseleave</code>事件时，表示鼠标正在进入的那个元素节点。</li>
+</ul>
+<p>下面是一个例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">simulateClick</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> event = <span class="keyword">new</span> MouseEvent(<span class="string">'click'</span>, &#123;</span><br><span class="line">    <span class="string">'bubbles'</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">'cancelable'</span>: <span class="literal">true</span></span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">var</span> cb = <span class="built_in">document</span>.getElementById(<span class="string">'checkbox'</span>);</span><br><span class="line">  cb.dispatchEvent(event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码生成一个鼠标点击事件，并触发该事件。</p>
+<h2 id="MouseEvent-接口的实例属性"><a href="#MouseEvent-接口的实例属性" class="headerlink" title="MouseEvent 接口的实例属性"></a>MouseEvent 接口的实例属性</h2><h3 id="MouseEvent-altKey，MouseEvent-ctrlKey，MouseEvent-metaKey，MouseEvent-shiftKey"><a href="#MouseEvent-altKey，MouseEvent-ctrlKey，MouseEvent-metaKey，MouseEvent-shiftKey" class="headerlink" title="MouseEvent.altKey，MouseEvent.ctrlKey，MouseEvent.metaKey，MouseEvent.shiftKey"></a>MouseEvent.altKey，MouseEvent.ctrlKey，MouseEvent.metaKey，MouseEvent.shiftKey</h3><p><code>MouseEvent.altKey</code>、<code>MouseEvent.ctrlKey</code>、<code>MouseEvent.metaKey</code>、<code>MouseEvent.shiftKey</code>这四个属性都返回一个布尔值，表示事件发生时，是否按下对应的键。它们都是只读属性。</p>
+<ul>
+<li><code>altKey</code>属性：Alt 键</li>
+<li><code>ctrlKey</code>属性：Ctrl 键</li>
+<li><code>metaKey</code>属性：Meta 键（Mac 键盘是一个四瓣的小花，Windows 键盘是 Windows 键）</li>
+<li><code>shiftKey</code>属性：Shift 键</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;body onclick="showKey(event)"&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showKey</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ALT key pressed: '</span> + e.altKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'CTRL key pressed: '</span> + e.ctrlKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'META key pressed: '</span> + e.metaKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'SHIFT key pressed: '</span> + e.shiftKey);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，点击网页会输出是否同时按下对应的键。</p>
+<h3 id="MouseEvent-button，MouseEvent-buttons"><a href="#MouseEvent-button，MouseEvent-buttons" class="headerlink" title="MouseEvent.button，MouseEvent.buttons"></a>MouseEvent.button，MouseEvent.buttons</h3><p><code>MouseEvent.button</code>属性返回一个数值，表示事件发生时按下了鼠标的哪个键。该属性只读。</p>
+<ul>
+<li>0：按下主键（通常是左键），或者该事件没有初始化这个属性（比如<code>mousemove</code>事件）。</li>
+<li>1：按下辅助键（通常是中键或者滚轮键）。</li>
+<li>2：按下次键（通常是右键）。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码为</span></span><br><span class="line"><span class="comment">// &lt;button onmouseup="whichButton(event)"&gt;点击&lt;/button&gt;</span></span><br><span class="line"><span class="keyword">var</span> whichButton = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (e.button) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Left button clicked.'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Middle button clicked.'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Right button clicked.'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Unexpected code: '</span> + e.button);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>MouseEvent.buttons</code>属性返回一个三个比特位的值，表示同时按下了哪些键。它用来处理同时按下多个鼠标键的情况。该属性只读。</p>
+<ul>
+<li>1：二进制为<code>001</code>（十进制的1），表示按下左键。</li>
+<li>2：二进制为<code>010</code>（十进制的2），表示按下右键。</li>
+<li>4：二进制为<code>100</code>（十进制的4），表示按下中键或滚轮键。</li>
+</ul>
+<p>同时按下多个键的时候，每个按下的键对应的比特位都会有值。比如，同时按下左键和右键，会返回3（二进制为011）。</p>
+<h3 id="MouseEvent-clientX，MouseEvent-clientY"><a href="#MouseEvent-clientX，MouseEvent-clientY" class="headerlink" title="MouseEvent.clientX，MouseEvent.clientY"></a>MouseEvent.clientX，MouseEvent.clientY</h3><p><code>MouseEvent.clientX</code>属性返回鼠标位置相对于浏览器窗口左上角的水平坐标（单位像素），<code>MouseEvent.clientY</code>属性返回垂直坐标。这两个属性都是只读属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码为</span></span><br><span class="line"><span class="comment">// &lt;body onmousedown="showCoords(event)"&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showCoords</span>(<span class="params">evt</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(</span><br><span class="line">    <span class="string">'clientX value: '</span> + evt.clientX + <span class="string">'\n'</span> +</span><br><span class="line">    <span class="string">'clientY value: '</span> + evt.clientY + <span class="string">'\n'</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这两个属性还分别有一个别名<code>MouseEvent.x</code>和<code>MouseEvent.y</code>。</p>
+<h3 id="MouseEvent-movementX，MouseEvent-movementY"><a href="#MouseEvent-movementX，MouseEvent-movementY" class="headerlink" title="MouseEvent.movementX，MouseEvent.movementY"></a>MouseEvent.movementX，MouseEvent.movementY</h3><p><code>MouseEvent.movementX</code>属性返回当前位置与上一个<code>mousemove</code>事件之间的水平距离（单位像素）。数值上，它等于下面的计算公式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">currentEvent.movementX = currentEvent.screenX - previousEvent.screenX</span><br></pre></td></tr></table></figure>
+
+<p><code>MouseEvent.movementY</code>属性返回当前位置与上一个<code>mousemove</code>事件之间的垂直距离（单位像素）。数值上，它等于下面的计算公式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">currentEvent.movementY = currentEvent.screenY - previousEvent.screenY。</span><br></pre></td></tr></table></figure>
+
+<p>这两个属性都是只读属性。</p>
+<h3 id="MouseEvent-screenX，MouseEvent-screenY"><a href="#MouseEvent-screenX，MouseEvent-screenY" class="headerlink" title="MouseEvent.screenX，MouseEvent.screenY"></a>MouseEvent.screenX，MouseEvent.screenY</h3><p><code>MouseEvent.screenX</code>属性返回鼠标位置相对于屏幕左上角的水平坐标（单位像素），<code>MouseEvent.screenY</code>属性返回垂直坐标。这两个属性都是只读属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;body onmousedown="showCoords(event)"&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showCoords</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(</span><br><span class="line">    <span class="string">'screenX value: '</span> + evt.screenX + <span class="string">'\n'</span>,</span><br><span class="line">    <span class="string">'screenY value: '</span> + evt.screenY + <span class="string">'\n'</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="MouseEvent-offsetX，MouseEvent-offsetY"><a href="#MouseEvent-offsetX，MouseEvent-offsetY" class="headerlink" title="MouseEvent.offsetX，MouseEvent.offsetY"></a>MouseEvent.offsetX，MouseEvent.offsetY</h3><p><code>MouseEvent.offsetX</code>属性返回鼠标位置与目标节点左侧的<code>padding</code>边缘的水平距离（单位像素），<code>MouseEvent.offsetY</code>属性返回与目标节点上方的<code>padding</code>边缘的垂直距离。这两个属性都是只读属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* HTML 代码如下</span></span><br><span class="line"><span class="comment">  &lt;style&gt;</span></span><br><span class="line"><span class="comment">    p &#123;</span></span><br><span class="line"><span class="comment">      width: 100px;</span></span><br><span class="line"><span class="comment">      height: 100px;</span></span><br><span class="line"><span class="comment">      padding: 100px;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">  &lt;/style&gt;</span></span><br><span class="line"><span class="comment">  &lt;p&gt;Hello&lt;/p&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.querySelector(<span class="string">'p'</span>);</span><br><span class="line">p.addEventListener(</span><br><span class="line">  <span class="string">'click'</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.offsetX);</span><br><span class="line">    <span class="built_in">console</span>.log(e.offsetY);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，鼠标如果在<code>p</code>元素的中心位置点击，会返回<code>150 150</code>。因此中心位置距离左侧和上方的<code>padding</code>边缘，等于<code>padding</code>的宽度（100像素）加上元素内容区域一半的宽度（50像素）。</p>
+<h3 id="MouseEvent-pageX，MouseEvent-pageY"><a href="#MouseEvent-pageX，MouseEvent-pageY" class="headerlink" title="MouseEvent.pageX，MouseEvent.pageY"></a>MouseEvent.pageX，MouseEvent.pageY</h3><p><code>MouseEvent.pageX</code>属性返回鼠标位置与文档左侧边缘的距离（单位像素），<code>MouseEvent.pageY</code>属性返回与文档上侧边缘的距离（单位像素）。它们的返回值都包括文档不可见的部分。这两个属性都是只读。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* HTML 代码如下</span></span><br><span class="line"><span class="comment">  &lt;style&gt;</span></span><br><span class="line"><span class="comment">    body &#123;</span></span><br><span class="line"><span class="comment">      height: 2000px;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">  &lt;/style&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(</span><br><span class="line">  <span class="string">'click'</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.pageX);</span><br><span class="line">    <span class="built_in">console</span>.log(e.pageY);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，页面高度为2000像素，会产生垂直滚动条。滚动到页面底部，点击鼠标输出的<code>pageY</code>值会接近2000。</p>
+<h3 id="MouseEvent-relatedTarget"><a href="#MouseEvent-relatedTarget" class="headerlink" title="MouseEvent.relatedTarget"></a>MouseEvent.relatedTarget</h3><p><code>MouseEvent.relatedTarget</code>属性返回事件的相关节点。对于那些没有相关节点的事件，该属性返回<code>null</code>。该属性只读。</p>
+<p>下表列出不同事件的<code>target</code>属性值和<code>relatedTarget</code>属性值义。</p>
+<table>
+<thead>
+<tr>
+<th>事件名称</th>
+<th>target 属性</th>
+<th>relatedTarget 属性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>focusin</td>
+<td>接受焦点的节点</td>
+<td>丧失焦点的节点</td>
+</tr>
+<tr>
+<td>focusout</td>
+<td>丧失焦点的节点</td>
+<td>接受焦点的节点</td>
+</tr>
+<tr>
+<td>mouseenter</td>
+<td>将要进入的节点</td>
+<td>将要离开的节点</td>
+</tr>
+<tr>
+<td>mouseleave</td>
+<td>将要离开的节点</td>
+<td>将要进入的节点</td>
+</tr>
+<tr>
+<td>mouseout</td>
+<td>将要离开的节点</td>
+<td>将要进入的节点</td>
+</tr>
+<tr>
+<td>mouseover</td>
+<td>将要进入的节点</td>
+<td>将要离开的节点</td>
+</tr>
+<tr>
+<td>dragenter</td>
+<td>将要进入的节点</td>
+<td>将要离开的节点</td>
+</tr>
+<tr>
+<td>dragexit</td>
+<td>将要离开的节点</td>
+<td>将要进入的节点</td>
+</tr>
+</tbody></table>
+<p>下面是一个例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  HTML 代码如下</span></span><br><span class="line"><span class="comment">  &lt;div id="outer" style="height:50px;width:50px;border-width:1px solid black;"&gt;</span></span><br><span class="line"><span class="comment">    &lt;div id="inner" style="height:25px;width:25px;border:1px solid black;"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment">  &lt;/div&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> inner = <span class="built_in">document</span>.getElementById(<span class="string">'inner'</span>);</span><br><span class="line">inner.addEventListener(<span class="string">'mouseover'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'进入'</span> + event.target.id + <span class="string">' 离开'</span> + event.relatedTarget.id);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line">inner.addEventListener(<span class="string">'mouseenter'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'进入'</span> + event.target.id + <span class="string">' 离开'</span> + event.relatedTarget.id);</span><br><span class="line">&#125;);</span><br><span class="line">inner.addEventListener(<span class="string">'mouseout'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'离开'</span> + event.target.id + <span class="string">' 进入'</span> + event.relatedTarget.id);</span><br><span class="line">&#125;);</span><br><span class="line">inner.addEventListener(<span class="string">"mouseleave"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'离开'</span> + event.target.id + <span class="string">' 进入'</span> + event.relatedTarget.id);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标从 outer 进入inner，输出</span></span><br><span class="line"><span class="comment">// 进入inner 离开outer</span></span><br><span class="line"><span class="comment">// 进入inner 离开outer</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标从 inner进入 outer，输出</span></span><br><span class="line"><span class="comment">// 离开inner 进入outer</span></span><br><span class="line"><span class="comment">// 离开inner 进入outer</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="MouseEvent-接口的实例方法"><a href="#MouseEvent-接口的实例方法" class="headerlink" title="MouseEvent 接口的实例方法"></a>MouseEvent 接口的实例方法</h2><h3 id="MouseEvent-getModifierState"><a href="#MouseEvent-getModifierState" class="headerlink" title="MouseEvent.getModifierState()"></a>MouseEvent.getModifierState()</h3><p><code>MouseEvent.getModifierState</code>方法返回一个布尔值，表示有没有按下特定的功能键。它的参数是一个表示<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/getModifierState#Modifier_keys_on_Gecko" target="_blank" rel="noopener">功能键</a>的字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.getModifierState(<span class="string">'CapsLock'</span>));</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码可以了解用户是否按下了大写键。</p>
+<h2 id="WheelEvent-接口"><a href="#WheelEvent-接口" class="headerlink" title="WheelEvent 接口"></a>WheelEvent 接口</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>WheelEvent 接口继承了 MouseEvent 实例，代表鼠标滚轮事件的实例对象。目前，鼠标滚轮相关的事件只有一个<code>wheel</code>事件，用户滚动鼠标的滚轮，就生成这个事件的实例。</p>
+<p>浏览器原生提供<code>WheelEvent()</code>构造函数，用来生成<code>WheelEvent</code>实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wheelEvent = <span class="keyword">new</span> WheelEvent(type, options);</span><br></pre></td></tr></table></figure>
+
+<p><code>WheelEvent()</code>构造函数可以接受两个参数，第一个是字符串，表示事件类型，对于滚轮事件来说，这个值目前只能是<code>wheel</code>。第二个参数是事件的配置对象。该对象的属性除了<code>Event</code>、<code>UIEvent</code>的配置属性以外，还可以接受以下几个属性，所有属性都是可选的。</p>
+<ul>
+<li><code>deltaX</code>：数值，表示滚轮的水平滚动量，默认值是 0.0。</li>
+<li><code>deltaY</code>：数值，表示滚轮的垂直滚动量，默认值是 0.0。</li>
+<li><code>deltaZ</code>：数值，表示滚轮的 Z 轴滚动量，默认值是 0.0。</li>
+<li><code>deltaMode</code>：数值，表示相关的滚动事件的单位，适用于上面三个属性。<code>0</code>表示滚动单位为像素，<code>1</code>表示单位为行，<code>2</code>表示单位为页，默认为<code>0</code>。</li>
+</ul>
+<h3 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h3><p><code>WheelEvent</code>事件实例除了具有<code>Event</code>和<code>MouseEvent</code>的实例属性和实例方法，还有一些自己的实例属性，但是没有自己的实例方法。</p>
+<p>下面的属性都是只读属性。</p>
+<ul>
+<li><code>WheelEvent.deltaX</code>：数值，表示滚轮的水平滚动量。</li>
+<li><code>WheelEvent.deltaY</code>：数值，表示滚轮的垂直滚动量。</li>
+<li><code>WheelEvent.deltaZ</code>：数值，表示滚轮的 Z 轴滚动量。</li>
+<li><code>WheelEvent.deltaMode</code>：数值，表示上面三个属性的单位，<code>0</code>是像素，<code>1</code>是行，<code>2</code>是页。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/event/" rel="tag"># event</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/03/JS-%E4%BA%8B%E4%BB%B6/" rel="prev" title="JS-事件">
+      <i class="fa fa-chevron-left"></i> JS-事件
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/05/JS-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/" rel="next" title="JS-键盘事件">
+      JS-键盘事件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#鼠标事件"><span class="nav-number">1.</span> <span class="nav-text">鼠标事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#鼠标事件的种类"><span class="nav-number">1.1.</span> <span class="nav-text">鼠标事件的种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MouseEvent-接口概述"><span class="nav-number">1.2.</span> <span class="nav-text">MouseEvent 接口概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MouseEvent-接口的实例属性"><span class="nav-number">1.3.</span> <span class="nav-text">MouseEvent 接口的实例属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MouseEvent-altKey，MouseEvent-ctrlKey，MouseEvent-metaKey，MouseEvent-shiftKey"><span class="nav-number">1.3.1.</span> <span class="nav-text">MouseEvent.altKey，MouseEvent.ctrlKey，MouseEvent.metaKey，MouseEvent.shiftKey</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MouseEvent-button，MouseEvent-buttons"><span class="nav-number">1.3.2.</span> <span class="nav-text">MouseEvent.button，MouseEvent.buttons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MouseEvent-clientX，MouseEvent-clientY"><span class="nav-number">1.3.3.</span> <span class="nav-text">MouseEvent.clientX，MouseEvent.clientY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MouseEvent-movementX，MouseEvent-movementY"><span class="nav-number">1.3.4.</span> <span class="nav-text">MouseEvent.movementX，MouseEvent.movementY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MouseEvent-screenX，MouseEvent-screenY"><span class="nav-number">1.3.5.</span> <span class="nav-text">MouseEvent.screenX，MouseEvent.screenY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MouseEvent-offsetX，MouseEvent-offsetY"><span class="nav-number">1.3.6.</span> <span class="nav-text">MouseEvent.offsetX，MouseEvent.offsetY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MouseEvent-pageX，MouseEvent-pageY"><span class="nav-number">1.3.7.</span> <span class="nav-text">MouseEvent.pageX，MouseEvent.pageY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MouseEvent-relatedTarget"><span class="nav-number">1.3.8.</span> <span class="nav-text">MouseEvent.relatedTarget</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MouseEvent-接口的实例方法"><span class="nav-number">1.4.</span> <span class="nav-text">MouseEvent 接口的实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MouseEvent-getModifierState"><span class="nav-number">1.4.1.</span> <span class="nav-text">MouseEvent.getModifierState()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WheelEvent-接口"><span class="nav-number">1.5.</span> <span class="nav-text">WheelEvent 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.5.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例属性"><span class="nav-number">1.5.2.</span> <span class="nav-text">实例属性</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zyangg"
+      src="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+  <p class="site-author-name" itemprop="name">zyangg</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zyangg" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zyangg" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://cn.vuejs.org/" title="https:&#x2F;&#x2F;cn.vuejs.org&#x2F;" rel="noopener" target="_blank">Vue</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://element.eleme.cn/#/zh-CN" title="https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN" rel="noopener" target="_blank">Element</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <!--<span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>-->
+  <span class="author" itemprop="copyrightHolder">zyangg</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">144k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:11</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '4rCRJXfw8gRVMig58URu4P0j-gzGzoHsz',
+      appKey     : 'Hn4FxrLx0cjirhX2cVuiNxMh',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

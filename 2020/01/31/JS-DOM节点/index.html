@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Node 接口所有 DOM 节点对象都继承了 Node 接口，拥有一些共同的属性和方法。这是 DOM 操作的基础。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS-DOM节点">
+<meta property="og:url" content="http://yoursite.com/2020/01/31/JS-DOM%E8%8A%82%E7%82%B9/index.html">
+<meta property="og:site_name" content="zyangg的个人博客">
+<meta property="og:description" content="Node 接口所有 DOM 节点对象都继承了 Node 接口，拥有一些共同的属性和方法。这是 DOM 操作的基础。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-31T03:21:06.000Z">
+<meta property="article:modified_time" content="2020-05-30T03:25:29.518Z">
+<meta property="article:author" content="zyangg">
+<meta property="article:tag" content="DOM">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/01/31/JS-DOM%E8%8A%82%E7%82%B9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>JS-DOM节点 | zyangg的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zyangg的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">你的🐏</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/31/JS-DOM%E8%8A%82%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+      <meta itemprop="name" content="zyangg">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zyangg的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS-DOM节点
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-31 11:21:06" itemprop="dateCreated datePublished" datetime="2020-01-31T11:21:06+08:00">2020-01-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 11:25:29" itemprop="dateModified" datetime="2020-05-30T11:25:29+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/31/JS-DOM%E8%8A%82%E7%82%B9/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/31/JS-DOM%E8%8A%82%E7%82%B9/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>14k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>12 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Node-接口"><a href="#Node-接口" class="headerlink" title="Node 接口"></a>Node 接口</h1><p>所有 DOM 节点对象都继承了 Node 接口，拥有一些共同的属性和方法。这是 DOM 操作的基础。</p>
+<a id="more"></a>
+
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="Node-prototype-nodeType"><a href="#Node-prototype-nodeType" class="headerlink" title="Node.prototype.nodeType"></a>Node.prototype.nodeType</h3><p><code>nodeType</code>属性返回一个整数值，表示节点的类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.nodeType <span class="comment">// 9</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，文档节点的类型值为9。</p>
+<p>Node 对象定义了几个常量，对应这些类型值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.nodeType === Node.DOCUMENT_NODE <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，文档节点的<code>nodeType</code>属性等于常量<code>Node.DOCUMENT_NODE</code>。</p>
+<p>不同节点的<code>nodeType</code>属性值和对应的常量如下。</p>
+<ul>
+<li>文档节点（document）：9，对应常量<code>Node.DOCUMENT_NODE</code></li>
+<li>元素节点（element）：1，对应常量<code>Node.ELEMENT_NODE</code></li>
+<li>属性节点（attr）：2，对应常量<code>Node.ATTRIBUTE_NODE</code></li>
+<li>文本节点（text）：3，对应常量<code>Node.TEXT_NODE</code></li>
+<li>文档片断节点（DocumentFragment）：11，对应常量<code>Node.DOCUMENT_FRAGMENT_NODE</code></li>
+<li>文档类型节点（DocumentType）：10，对应常量<code>Node.DOCUMENT_TYPE_NODE</code></li>
+<li>注释节点（Comment）：8，对应常量<code>Node.COMMENT_NODE</code></li>
+</ul>
+<p>确定节点类型时，使用<code>nodeType</code>属性是常用方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> node = <span class="built_in">document</span>.documentElement.firstChild;</span><br><span class="line"><span class="keyword">if</span> (node.nodeType === Node.ELEMENT_NODE) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'该节点是元素节点'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Node-prototype-nodeName"><a href="#Node-prototype-nodeName" class="headerlink" title="Node.prototype.nodeName"></a>Node.prototype.nodeName</h3><p><code>nodeName</code>属性返回节点的名称。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;div id="d1"&gt;hello world&lt;/div&gt;</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'d1'</span>);</span><br><span class="line">div.nodeName <span class="comment">// "DIV"</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，元素节点<code>&lt;div&gt;</code>的<code>nodeName</code>属性就是大写的标签名<code>DIV</code>。</p>
+<p>不同节点的<code>nodeName</code>属性值如下。</p>
+<ul>
+<li>文档节点（document）：<code>#document</code></li>
+<li>元素节点（element）：大写的标签名</li>
+<li>属性节点（attr）：属性的名称</li>
+<li>文本节点（text）：<code>#text</code></li>
+<li>文档片断节点（DocumentFragment）：<code>#document-fragment</code></li>
+<li>文档类型节点（DocumentType）：文档的类型</li>
+<li>注释节点（Comment）：<code>#comment</code></li>
+</ul>
+<h3 id="Node-prototype-nodeValue"><a href="#Node-prototype-nodeValue" class="headerlink" title="Node.prototype.nodeValue"></a>Node.prototype.nodeValue</h3><p><code>nodeValue</code>属性返回一个字符串，表示当前节点本身的文本值，该属性可读写。</p>
+<p>只有文本节点（text）、注释节点（comment）和属性节点（attr）有文本值，因此这三类节点的<code>nodeValue</code>可以返回结果，其他类型的节点一律返回<code>null</code>。同样的，也只有这三类节点可以设置<code>nodeValue</code>属性的值，其他类型的节点设置无效。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;div id="d1"&gt;hello world&lt;/div&gt;</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'d1'</span>);</span><br><span class="line">div.nodeValue <span class="comment">// null</span></span><br><span class="line">div.firstChild.nodeValue <span class="comment">// "hello world"</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>div</code>是元素节点，<code>nodeValue</code>属性返回<code>null</code>。<code>div.firstChild</code>是文本节点，所以可以返回文本值。</p>
+<h3 id="Node-prototype-textContent"><a href="#Node-prototype-textContent" class="headerlink" title="Node.prototype.textContent"></a>Node.prototype.textContent</h3><p><code>textContent</code>属性返回当前节点和它的所有后代节点的文本内容。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码为</span></span><br><span class="line"><span class="comment">// &lt;div id="divA"&gt;This is &lt;span&gt;some&lt;/span&gt; text&lt;/div&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'divA'</span>).textContent</span><br><span class="line"><span class="comment">// This is some text</span></span><br></pre></td></tr></table></figure>
+
+<p><code>textContent</code>属性自动忽略当前节点内部的 HTML 标签，返回所有文本内容。</p>
+<p>该属性是可读写的，设置该属性的值，会用一个新的文本节点，替换所有原来的子节点。它还有一个好处，就是自动对 HTML 标签转义。这很适合用于用户提供的内容。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'foo'</span>).textContent = <span class="string">'&lt;p&gt;GoodBye!&lt;/p&gt;'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码在插入文本时，会将<code>&lt;p&gt;</code>标签解释为文本，而不会当作标签处理。</p>
+<p>对于文本节点（text）、注释节点（comment）和属性节点（attr），<code>textContent</code>属性的值与<code>nodeValue</code>属性相同。对于其他类型的节点，该属性会将每个子节点（不包括注释节点）的内容连接在一起返回。如果一个节点没有子节点，则返回空字符串。</p>
+<p>文档节点（document）和文档类型节点（doctype）的<code>textContent</code>属性为<code>null</code>。如果要读取整个文档的内容，可以使用<code>document.documentElement.textContent</code>。</p>
+<h3 id="Node-prototype-baseURI"><a href="#Node-prototype-baseURI" class="headerlink" title="Node.prototype.baseURI"></a>Node.prototype.baseURI</h3><p><code>baseURI</code>属性返回一个字符串，表示当前网页的绝对路径。浏览器根据这个属性，计算网页上的相对路径的 URL。该属性为只读。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当前网页的网址为</span></span><br><span class="line"><span class="comment">// http://www.example.com/index.html</span></span><br><span class="line"><span class="built_in">document</span>.baseURI</span><br><span class="line"><span class="comment">// "http://www.example.com/index.html"</span></span><br></pre></td></tr></table></figure>
+
+<p>如果无法读到网页的 URL，<code>baseURI</code>属性返回<code>null</code>。</p>
+<p>该属性的值一般由当前网址的 URL（即<code>window.location</code>属性）决定，但是可以使用 HTML 的<code>&lt;base&gt;</code>标签，改变该属性的值。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">"http://www.example.com/page.html"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>设置了以后，<code>baseURI</code>属性就返回<code>&lt;base&gt;</code>标签设置的值。</p>
+<h3 id="Node-prototype-ownerDocument"><a href="#Node-prototype-ownerDocument" class="headerlink" title="Node.prototype.ownerDocument"></a>Node.prototype.ownerDocument</h3><p><code>Node.ownerDocument</code>属性返回当前节点所在的顶层文档对象，即<code>document</code>对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = p.ownerDocument;</span><br><span class="line">d === <span class="built_in">document</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><code>document</code>对象本身的<code>ownerDocument</code>属性，返回<code>null</code>。</p>
+<h3 id="Node-prototype-nextSibling"><a href="#Node-prototype-nextSibling" class="headerlink" title="Node.prototype.nextSibling"></a>Node.prototype.nextSibling</h3><p><code>Node.nextSibling</code>属性返回紧跟在当前节点后面的第一个同级节点。如果当前节点后面没有同级节点，则返回<code>null</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;div id="d1"&gt;hello&lt;/div&gt;&lt;div id="d2"&gt;world&lt;/div&gt;</span></span><br><span class="line"><span class="keyword">var</span> d1 = <span class="built_in">document</span>.getElementById(<span class="string">'d1'</span>);</span><br><span class="line"><span class="keyword">var</span> d2 = <span class="built_in">document</span>.getElementById(<span class="string">'d2'</span>);</span><br><span class="line"></span><br><span class="line">d1.nextSibling === d2 <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>d1.nextSibling</code>就是紧跟在<code>d1</code>后面的同级节点<code>d2</code>。</p>
+<p>注意，该属性还包括文本节点和注释节点（<code>&lt;!-- comment --&gt;</code>）。因此如果当前节点后面有空格，该属性会返回一个文本节点，内容为空格。</p>
+<p><code>nextSibling</code>属性可以用来遍历所有子节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'div1'</span>).firstChild;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (el !== <span class="literal">null</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(el.nodeName);</span><br><span class="line">  el = el.nextSibling;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码遍历<code>div1</code>节点的所有子节点。</p>
+<h3 id="Node-prototype-previousSibling"><a href="#Node-prototype-previousSibling" class="headerlink" title="Node.prototype.previousSibling"></a>Node.prototype.previousSibling</h3><p><code>previousSibling</code>属性返回当前节点前面的、距离最近的一个同级节点。如果当前节点前面没有同级节点，则返回<code>null</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;div id="d1"&gt;hello&lt;/div&gt;&lt;div id="d2"&gt;world&lt;/div&gt;</span></span><br><span class="line"><span class="keyword">var</span> d1 = <span class="built_in">document</span>.getElementById(<span class="string">'d1'</span>);</span><br><span class="line"><span class="keyword">var</span> d2 = <span class="built_in">document</span>.getElementById(<span class="string">'d2'</span>);</span><br><span class="line"></span><br><span class="line">d2.previousSibling === d1 <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>d2.previousSibling</code>就是<code>d2</code>前面的同级节点<code>d1</code>。</p>
+<p>注意，该属性还包括文本节点和注释节点。因此如果当前节点前面有空格，该属性会返回一个文本节点，内容为空格。</p>
+<h3 id="Node-prototype-parentNode"><a href="#Node-prototype-parentNode" class="headerlink" title="Node.prototype.parentNode"></a>Node.prototype.parentNode</h3><p><code>parentNode</code>属性返回当前节点的父节点。对于一个节点来说，它的父节点只可能是三种类型：元素节点（element）、文档节点（document）和文档片段节点（documentfragment）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (node.parentNode) &#123;</span><br><span class="line">  node.parentNode.removeChild(node);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，通过<code>node.parentNode</code>属性将<code>node</code>节点从文档里面移除。</p>
+<p>文档节点（document）和文档片段节点（documentfragment）的父节点都是<code>null</code>。另外，对于那些生成后还没插入 DOM 树的节点，父节点也是<code>null</code>。</p>
+<h3 id="Node-prototype-parentElement"><a href="#Node-prototype-parentElement" class="headerlink" title="Node.prototype.parentElement"></a>Node.prototype.parentElement</h3><p><code>parentElement</code>属性返回当前节点的父元素节点。如果当前节点没有父节点，或者父节点类型不是元素节点，则返回<code>null</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (node.parentElement) &#123;</span><br><span class="line">  node.parentElement.style.color = <span class="string">'red'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，父元素节点的样式设定了红色。</p>
+<p>由于父节点只可能是三种类型：元素节点、文档节点（document）和文档片段节点（documentfragment）。<code>parentElement</code>属性相当于把后两种父节点都排除了。</p>
+<h3 id="Node-prototype-firstChild，Node-prototype-lastChild"><a href="#Node-prototype-firstChild，Node-prototype-lastChild" class="headerlink" title="Node.prototype.firstChild，Node.prototype.lastChild"></a>Node.prototype.firstChild，Node.prototype.lastChild</h3><p><code>firstChild</code>属性返回当前节点的第一个子节点，如果当前节点没有子节点，则返回<code>null</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;p id="p1"&gt;&lt;span&gt;First span&lt;/span&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="built_in">document</span>.getElementById(<span class="string">'p1'</span>);</span><br><span class="line">p1.firstChild.nodeName <span class="comment">// "SPAN"</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>p</code>元素的第一个子节点是<code>span</code>元素。</p>
+<p>注意，<code>firstChild</code>返回的除了元素节点，还可能是文本节点或注释节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;p id="p1"&gt;</span></span><br><span class="line"><span class="comment">//   &lt;span&gt;First span&lt;/span&gt;</span></span><br><span class="line"><span class="comment">//  &lt;/p&gt;</span></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="built_in">document</span>.getElementById(<span class="string">'p1'</span>);</span><br><span class="line">p1.firstChild.nodeName <span class="comment">// "#text"</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>p</code>元素与<code>span</code>元素之间有空白字符，这导致<code>firstChild</code>返回的是文本节点。</p>
+<p><code>lastChild</code>属性返回当前节点的最后一个子节点，如果当前节点没有子节点，则返回<code>null</code>。用法与<code>firstChild</code>属性相同。</p>
+<h3 id="Node-prototype-childNodes"><a href="#Node-prototype-childNodes" class="headerlink" title="Node.prototype.childNodes"></a>Node.prototype.childNodes</h3><p><code>childNodes</code>属性返回一个类似数组的对象（<code>NodeList</code>集合），成员包括当前节点的所有子节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> children = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>).childNodes;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>children</code>就是<code>ul</code>元素的所有子节点。</p>
+<p>使用该属性，可以遍历某个节点的所有子节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'div1'</span>);</span><br><span class="line"><span class="keyword">var</span> children = div.childNodes;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; children.length; i++) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>文档节点（document）就有两个子节点：文档类型节点（docType）和 HTML 根元素节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> children = <span class="built_in">document</span>.childNodes;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; children.length; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(children[i].nodeType);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 10</span></span><br><span class="line"><span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，文档节点的第一个子节点的类型是10（即文档类型节点），第二个子节点的类型是1（即元素节点）。</p>
+<p>注意，除了元素节点，<code>childNodes</code>属性的返回值还包括文本节点和注释节点。如果当前节点不包括任何子节点，则返回一个空的<code>NodeList</code>集合。由于<code>NodeList</code>对象是一个动态集合，一旦子节点发生变化，立刻会反映在返回结果之中。</p>
+<h3 id="Node-prototype-isConnected"><a href="#Node-prototype-isConnected" class="headerlink" title="Node.prototype.isConnected"></a>Node.prototype.isConnected</h3><p><code>isConnected</code>属性返回一个布尔值，表示当前节点是否在文档之中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line">test.isConnected <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(test);</span><br><span class="line">test.isConnected <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>test</code>节点是脚本生成的节点，没有插入文档之前，<code>isConnected</code>属性返回<code>false</code>，插入之后返回<code>true</code>。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="Node-prototype-appendChild"><a href="#Node-prototype-appendChild" class="headerlink" title="Node.prototype.appendChild()"></a>Node.prototype.appendChild()</h3><p><code>appendChild()</code>方法接受一个节点对象作为参数，将其作为最后一个子节点，插入当前节点。该方法的返回值就是插入文档的子节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(p);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码新建一个<code>&lt;p&gt;</code>节点，将其插入<code>document.body</code>的尾部。</p>
+<p>如果参数节点是 DOM 已经存在的节点，<code>appendChild()</code>方法会将其从原来的位置，移动到新位置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'myDiv'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，插入的是一个已经存在的节点<code>myDiv</code>，结果就是该节点会从原来的位置，移动到<code>document.body</code>的尾部。</p>
+<p>如果<code>appendChild()</code>方法的参数是<code>DocumentFragment</code>节点，那么插入的是<code>DocumentFragment</code>的所有子节点，而不是<code>DocumentFragment</code>节点本身。返回值是一个空的<code>DocumentFragment</code>节点。</p>
+<h3 id="Node-prototype-hasChildNodes"><a href="#Node-prototype-hasChildNodes" class="headerlink" title="Node.prototype.hasChildNodes()"></a>Node.prototype.hasChildNodes()</h3><p><code>hasChildNodes</code>方法返回一个布尔值，表示当前节点是否有子节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="built_in">document</span>.getElementById(<span class="string">'foo'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (foo.hasChildNodes()) &#123;</span><br><span class="line">  foo.removeChild(foo.childNodes[<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示，如果<code>foo</code>节点有子节点，就移除第一个子节点。</p>
+<p>注意，子节点包括所有类型的节点，并不仅仅是元素节点。哪怕节点只包含一个空格，<code>hasChildNodes</code>方法也会返回<code>true</code>。</p>
+<p>判断一个节点有没有子节点，有许多种方法，下面是其中的三种。</p>
+<ul>
+<li><code>node.hasChildNodes()</code></li>
+<li><code>node.firstChild !== null</code></li>
+<li><code>node.childNodes &amp;&amp; node.childNodes.length &gt; 0</code></li>
+</ul>
+<p><code>hasChildNodes</code>方法结合<code>firstChild</code>属性和<code>nextSibling</code>属性，可以遍历当前节点的所有后代节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DOMComb</span>(<span class="params">parent, callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (parent.hasChildNodes()) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> node = parent.firstChild; node; node = node.nextSibling) &#123;</span><br><span class="line">      DOMComb(node, callback);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  callback(parent);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用法</span></span><br><span class="line">DOMComb(<span class="built_in">document</span>.body, <span class="built_in">console</span>.log)</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>DOMComb</code>函数的第一个参数是某个指定的节点，第二个参数是回调函数。这个回调函数会依次作用于指定节点，以及指定节点的所有后代节点。</p>
+<h3 id="Node-prototype-cloneNode"><a href="#Node-prototype-cloneNode" class="headerlink" title="Node.prototype.cloneNode()"></a>Node.prototype.cloneNode()</h3><p><code>cloneNode</code>方法用于克隆一个节点。它接受一个布尔值作为参数，表示是否同时克隆子节点。它的返回值是一个克隆出来的新节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cloneUL = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>).cloneNode(<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<p>该方法有一些使用注意点。</p>
+<p>（1）克隆一个节点，会拷贝该节点的所有属性，但是会丧失<code>addEventListener</code>方法和<code>on-</code>属性（即<code>node.onclick = fn</code>），添加在这个节点上的事件回调函数。</p>
+<p>（2）该方法返回的节点不在文档之中，即没有任何父节点，必须使用诸如<code>Node.appendChild</code>这样的方法添加到文档之中。</p>
+<p>（3）克隆一个节点之后，DOM 有可能出现两个有相同<code>id</code>属性（即<code>id=&quot;xxx&quot;</code>）的网页元素，这时应该修改其中一个元素的<code>id</code>属性。如果原节点有<code>name</code>属性，可能也需要修改。</p>
+<h3 id="Node-prototype-insertBefore"><a href="#Node-prototype-insertBefore" class="headerlink" title="Node.prototype.insertBefore()"></a>Node.prototype.insertBefore()</h3><p><code>insertBefore</code>方法用于将某个节点插入父节点内部的指定位置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> insertedNode = parentNode.insertBefore(newNode, referenceNode);</span><br></pre></td></tr></table></figure>
+
+<p><code>insertBefore</code>方法接受两个参数，第一个参数是所要插入的节点<code>newNode</code>，第二个参数是父节点<code>parentNode</code>内部的一个子节点<code>referenceNode</code>。<code>newNode</code>将插在<code>referenceNode</code>这个子节点的前面。返回值是插入的新节点<code>newNode</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.insertBefore(p, <span class="built_in">document</span>.body.firstChild);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，新建一个<code>&lt;p&gt;</code>节点，插在<code>document.body.firstChild</code>的前面，也就是成为<code>document.body</code>的第一个子节点。</p>
+<p>如果<code>insertBefore</code>方法的第二个参数为<code>null</code>，则新节点将插在当前节点内部的最后位置，即变成最后一个子节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.insertBefore(p, <span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>p</code>将成为<code>document.body</code>的最后一个子节点。这也说明<code>insertBefore</code>的第二个参数不能省略。</p>
+<p>注意，如果所要插入的节点是当前 DOM 现有的节点，则该节点将从原有的位置移除，插入新的位置。</p>
+<p>由于不存在<code>insertAfter</code>方法，如果新节点要插在父节点的某个子节点后面，可以用<code>insertBefore</code>方法结合<code>nextSibling</code>属性模拟。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parent.insertBefore(s1, s2.nextSibling);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>parent</code>是父节点，<code>s1</code>是一个全新的节点，<code>s2</code>是可以将<code>s1</code>节点，插在<code>s2</code>节点的后面。如果<code>s2</code>是当前节点的最后一个子节点，则<code>s2.nextSibling</code>返回<code>null</code>，这时<code>s1</code>节点会插在当前节点的最后，变成当前节点的最后一个子节点，等于紧跟在<code>s2</code>的后面。</p>
+<p>如果要插入的节点是<code>DocumentFragment</code>类型，那么插入的将是<code>DocumentFragment</code>的所有子节点，而不是<code>DocumentFragment</code>节点本身。返回值将是一个空的<code>DocumentFragment</code>节点。</p>
+<h3 id="Node-prototype-removeChild"><a href="#Node-prototype-removeChild" class="headerlink" title="Node.prototype.removeChild()"></a>Node.prototype.removeChild()</h3><p><code>removeChild</code>方法接受一个子节点作为参数，用于从当前节点移除该子节点。返回值是移除的子节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> divA = <span class="built_in">document</span>.getElementById(<span class="string">'A'</span>);</span><br><span class="line">divA.parentNode.removeChild(divA);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码移除了<code>divA</code>节点。注意，这个方法是在<code>divA</code>的父节点上调用的，不是在<code>divA</code>上调用的。</p>
+<p>下面是如何移除当前节点的所有子节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(<span class="string">'top'</span>);</span><br><span class="line"><span class="keyword">while</span> (element.firstChild) &#123;</span><br><span class="line">  element.removeChild(element.firstChild);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>被移除的节点依然存在于内存之中，但不再是 DOM 的一部分。所以，一个节点移除以后，依然可以使用它，比如插入到另一个节点下面。</p>
+<p>如果参数节点不是当前节点的子节点，<code>removeChild</code>方法将报错。</p>
+<h3 id="Node-prototype-replaceChild"><a href="#Node-prototype-replaceChild" class="headerlink" title="Node.prototype.replaceChild()"></a>Node.prototype.replaceChild()</h3><p><code>replaceChild</code>方法用于将一个新的节点，替换当前节点的某一个子节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> replacedNode = parentNode.replaceChild(newChild, oldChild);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>replaceChild</code>方法接受两个参数，第一个参数<code>newChild</code>是用来替换的新节点，第二个参数<code>oldChild</code>是将要替换走的子节点。返回值是替换走的那个节点<code>oldChild</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> divA = <span class="built_in">document</span>.getElementById(<span class="string">'divA'</span>);</span><br><span class="line"><span class="keyword">var</span> newSpan = <span class="built_in">document</span>.createElement(<span class="string">'span'</span>);</span><br><span class="line">newSpan.textContent = <span class="string">'Hello World!'</span>;</span><br><span class="line">divA.parentNode.replaceChild(newSpan, divA);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码是如何将指定节点<code>divA</code>替换走。</p>
+<h3 id="Node-prototype-contains"><a href="#Node-prototype-contains" class="headerlink" title="Node.prototype.contains()"></a>Node.prototype.contains()</h3><p><code>contains</code>方法返回一个布尔值，表示参数节点是否满足以下三个条件之一。</p>
+<ul>
+<li>参数节点为当前节点。</li>
+<li>参数节点为当前节点的子节点。</li>
+<li>参数节点为当前节点的后代节点。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.contains(node)</span><br></pre></td></tr></table></figure>
+
+<p>上面代码检查参数节点<code>node</code>，是否包含在当前文档之中。</p>
+<p>注意，当前节点传入<code>contains</code>方法，返回<code>true</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nodeA.contains(nodeA) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Node-prototype-compareDocumentPosition"><a href="#Node-prototype-compareDocumentPosition" class="headerlink" title="Node.prototype.compareDocumentPosition()"></a>Node.prototype.compareDocumentPosition()</h3><p><code>compareDocumentPosition</code>方法的用法，与<code>contains</code>方法完全一致，返回一个六个比特位的二进制值，表示参数节点与当前节点的关系。</p>
+<table>
+<thead>
+<tr>
+<th>二进制值</th>
+<th>十进制值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>000000</td>
+<td>0</td>
+<td>两个节点相同</td>
+</tr>
+<tr>
+<td>000001</td>
+<td>1</td>
+<td>两个节点不在同一个文档（即有一个节点不在当前文档）</td>
+</tr>
+<tr>
+<td>000010</td>
+<td>2</td>
+<td>参数节点在当前节点的前面</td>
+</tr>
+<tr>
+<td>000100</td>
+<td>4</td>
+<td>参数节点在当前节点的后面</td>
+</tr>
+<tr>
+<td>001000</td>
+<td>8</td>
+<td>参数节点包含当前节点</td>
+</tr>
+<tr>
+<td>010000</td>
+<td>16</td>
+<td>当前节点包含参数节点</td>
+</tr>
+<tr>
+<td>100000</td>
+<td>32</td>
+<td>浏览器内部使用</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;div id="mydiv"&gt;</span></span><br><span class="line"><span class="comment">//   &lt;form&gt;&lt;input id="test" /&gt;&lt;/form&gt;</span></span><br><span class="line"><span class="comment">// &lt;/div&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'mydiv'</span>);</span><br><span class="line"><span class="keyword">var</span> input = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</span><br><span class="line"></span><br><span class="line">div.compareDocumentPosition(input) <span class="comment">// 20</span></span><br><span class="line">input.compareDocumentPosition(div) <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，节点<code>div</code>包含节点<code>input</code>（二进制<code>010000</code>），而且节点<code>input</code>在节点<code>div</code>的后面（二进制<code>000100</code>），所以第一个<code>compareDocumentPosition</code>方法返回<code>20</code>（二进制<code>010100</code>，即<code>010000 + 000100</code>），第二个<code>compareDocumentPosition</code>方法返回<code>10</code>（二进制<code>001010</code>）。</p>
+<p>由于<code>compareDocumentPosition</code>返回值的含义，定义在每一个比特位上，所以如果要检查某一种特定的含义，就需要使用比特位运算符。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> head = <span class="built_in">document</span>.head;</span><br><span class="line"><span class="keyword">var</span> body = <span class="built_in">document</span>.body;</span><br><span class="line"><span class="keyword">if</span> (head.compareDocumentPosition(body) &amp; <span class="number">4</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'文档结构正确'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'&lt;body&gt; 不能在 &lt;head&gt; 前面'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>compareDocumentPosition</code>的返回值与<code>4</code>（又称掩码）进行与运算（<code>&amp;</code>），得到一个布尔值，表示<code>&lt;head&gt;</code>是否在<code>&lt;body&gt;</code>前面。</p>
+<h3 id="Node-prototype-isEqualNode-，Node-prototype-isSameNode"><a href="#Node-prototype-isEqualNode-，Node-prototype-isSameNode" class="headerlink" title="Node.prototype.isEqualNode()，Node.prototype.isSameNode()"></a>Node.prototype.isEqualNode()，Node.prototype.isSameNode()</h3><p><code>isEqualNode</code>方法返回一个布尔值，用于检查两个节点是否相等。所谓相等的节点，指的是两个节点的类型相同、属性相同、子节点相同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line"></span><br><span class="line">p1.isEqualNode(p2) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><code>isSameNode</code>方法返回一个布尔值，表示两个节点是否为同一个节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line"></span><br><span class="line">p1.isSameNode(p2) <span class="comment">// false</span></span><br><span class="line">p1.isSameNode(p1) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Node-prototype-normalize"><a href="#Node-prototype-normalize" class="headerlink" title="Node.prototype.normalize()"></a>Node.prototype.normalize()</h3><p><code>normalize</code>方法用于清理当前节点内部的所有文本节点（text）。它会去除空的文本节点，并且将毗邻的文本节点合并成一个，也就是说不存在空的文本节点，以及毗邻的文本节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wrapper = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line"></span><br><span class="line">wrapper.appendChild(<span class="built_in">document</span>.createTextNode(<span class="string">'Part 1 '</span>));</span><br><span class="line">wrapper.appendChild(<span class="built_in">document</span>.createTextNode(<span class="string">'Part 2 '</span>));</span><br><span class="line"></span><br><span class="line">wrapper.childNodes.length <span class="comment">// 2</span></span><br><span class="line">wrapper.normalize();</span><br><span class="line">wrapper.childNodes.length <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码使用<code>normalize</code>方法之前，<code>wrapper</code>节点有两个毗邻的文本子节点。使用<code>normalize</code>方法之后，两个文本子节点被合并成一个。</p>
+<p>该方法是<code>Text.splitText</code>的逆方法，可以查看《Text 节点对象》一章，了解更多内容。</p>
+<h3 id="Node-prototype-getRootNode"><a href="#Node-prototype-getRootNode" class="headerlink" title="Node.prototype.getRootNode()"></a>Node.prototype.getRootNode()</h3><p><code>getRootNode()</code>方法返回当前节点所在文档的根节点<code>document</code>，与<code>ownerDocument</code>属性的作用相同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.firstChild.getRootNode() === <span class="built_in">document</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="built_in">document</span>.body.firstChild.getRootNode() === <span class="built_in">document</span>.body.firstChild.ownerDocument</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>该方法可用于<code>document</code>节点自身，这一点与<code>document.ownerDocument</code>不同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getRootNode() <span class="comment">// document</span></span><br><span class="line"><span class="built_in">document</span>.ownerDocument <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="ParentNode-接口，ChildNode-接口"><a href="#ParentNode-接口，ChildNode-接口" class="headerlink" title="ParentNode 接口，ChildNode 接口"></a>ParentNode 接口，ChildNode 接口</h1><p>节点对象除了继承 Node 接口以外，还拥有其他接口。<code>ParentNode</code>接口表示当前节点是一个父节点，提供一些处理子节点的方法。<code>ChildNode</code>接口表示当前节点是一个子节点，提供一些相关方法。</p>
+<h2 id="ParentNode-接口"><a href="#ParentNode-接口" class="headerlink" title="ParentNode 接口"></a>ParentNode 接口</h2><p>如果当前节点是父节点，就会混入了（mixin）<code>ParentNode</code>接口。由于只有元素节点（element）、文档节点（document）和文档片段节点（documentFragment）拥有子节点，因此只有这三类节点会拥有<code>ParentNode</code>接口。</p>
+<h3 id="ParentNode-children"><a href="#ParentNode-children" class="headerlink" title="ParentNode.children"></a>ParentNode.children</h3><p><code>children</code>属性返回一个<code>HTMLCollection</code>实例，成员是当前节点的所有元素子节点。该属性只读。</p>
+<p>下面是遍历某个节点的所有元素子节点的示例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; el.children.length; i++) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，<code>children</code>属性只包括元素子节点，不包括其他类型的子节点（比如文本子节点）。如果没有元素类型的子节点，返回值<code>HTMLCollection</code>实例的<code>length</code>属性为<code>0</code>。</p>
+<p>另外，<code>HTMLCollection</code>是动态集合，会实时反映 DOM 的任何变化。</p>
+<h3 id="ParentNode-firstElementChild"><a href="#ParentNode-firstElementChild" class="headerlink" title="ParentNode.firstElementChild"></a>ParentNode.firstElementChild</h3><p><code>firstElementChild</code>属性返回当前节点的第一个元素子节点。如果没有任何元素子节点，则返回<code>null</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.firstElementChild.nodeName</span><br><span class="line"><span class="comment">// "HTML"</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>document</code>节点的第一个元素子节点是<code>&lt;HTML&gt;</code>。</p>
+<h3 id="ParentNode-lastElementChild"><a href="#ParentNode-lastElementChild" class="headerlink" title="ParentNode.lastElementChild"></a>ParentNode.lastElementChild</h3><p><code>lastElementChild</code>属性返回当前节点的最后一个元素子节点，如果不存在任何元素子节点，则返回<code>null</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.lastElementChild.nodeName</span><br><span class="line"><span class="comment">// "HTML"</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>document</code>节点的最后一个元素子节点是<code>&lt;HTML&gt;</code>（因为<code>document</code>只包含这一个元素子节点）。</p>
+<h3 id="ParentNode-childElementCount"><a href="#ParentNode-childElementCount" class="headerlink" title="ParentNode.childElementCount"></a>ParentNode.childElementCount</h3><p><code>childElementCount</code>属性返回一个整数，表示当前节点的所有元素子节点的数目。如果不包含任何元素子节点，则返回<code>0</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.childElementCount <span class="comment">// 13</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ParentNode-append-，ParentNode-prepend"><a href="#ParentNode-append-，ParentNode-prepend" class="headerlink" title="ParentNode.append()，ParentNode.prepend()"></a>ParentNode.append()，ParentNode.prepend()</h3><p><code>append</code>方法为当前节点追加一个或多个子节点，位置是最后一个元素子节点的后面。</p>
+<p>该方法不仅可以添加元素子节点，还可以添加文本子节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> parent = <span class="built_in">document</span>.body;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加元素子节点</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line">parent.append(p);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加文本子节点</span></span><br><span class="line">parent.append(<span class="string">'Hello'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加多个元素子节点</span></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line">parent.append(p1, p2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加元素子节点和文本子节点</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line">parent.append(<span class="string">'Hello'</span>, p);</span><br></pre></td></tr></table></figure>
+
+<p>注意，该方法没有返回值。</p>
+<p><code>prepend</code>方法为当前节点追加一个或多个子节点，位置是第一个元素子节点的前面。它的用法与<code>append</code>方法完全一致，也是没有返回值。</p>
+<h2 id="ChildNode-接口"><a href="#ChildNode-接口" class="headerlink" title="ChildNode 接口"></a>ChildNode 接口</h2><p>如果一个节点有父节点，那么该节点就拥有了<code>ChildNode</code>接口。</p>
+<h3 id="ChildNode-remove"><a href="#ChildNode-remove" class="headerlink" title="ChildNode.remove()"></a>ChildNode.remove()</h3><p><code>remove</code>方法用于从父节点移除当前节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">el.remove()</span><br></pre></td></tr></table></figure>
+
+<p>上面代码在 DOM 里面移除了<code>el</code>节点。</p>
+<h3 id="ChildNode-before-，ChildNode-after"><a href="#ChildNode-before-，ChildNode-after" class="headerlink" title="ChildNode.before()，ChildNode.after()"></a>ChildNode.before()，ChildNode.after()</h3><p><code>before</code>方法用于在当前节点的前面，插入一个或多个同级节点。两者拥有相同的父节点。</p>
+<p>注意，该方法不仅可以插入元素节点，还可以插入文本节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line"><span class="keyword">var</span> p1 = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入元素节点</span></span><br><span class="line">el.before(p);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入文本节点</span></span><br><span class="line">el.before(<span class="string">'Hello'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入多个元素节点</span></span><br><span class="line">el.before(p, p1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入元素节点和文本节点</span></span><br><span class="line">el.before(p, <span class="string">'Hello'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>after</code>方法用于在当前节点的后面，插入一个或多个同级节点，两者拥有相同的父节点。用法与<code>before</code>方法完全相同。</p>
+<h3 id="ChildNode-replaceWith"><a href="#ChildNode-replaceWith" class="headerlink" title="ChildNode.replaceWith()"></a>ChildNode.replaceWith()</h3><p><code>replaceWith</code>方法使用参数节点，替换当前节点。参数可以是元素节点，也可以是文本节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> span = <span class="built_in">document</span>.createElement(<span class="string">'span'</span>);</span><br><span class="line">el.replaceWith(span);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>el</code>节点将被<code>span</code>节点替换。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DOM/" rel="tag"># DOM</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/30/JS-DOM/" rel="prev" title="JS-DOM">
+      <i class="fa fa-chevron-left"></i> JS-DOM
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/03/JS-%E4%BA%8B%E4%BB%B6/" rel="next" title="JS-事件">
+      JS-事件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-接口"><span class="nav-number">1.</span> <span class="nav-text">Node 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">1.1.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-nodeType"><span class="nav-number">1.1.1.</span> <span class="nav-text">Node.prototype.nodeType</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-nodeName"><span class="nav-number">1.1.2.</span> <span class="nav-text">Node.prototype.nodeName</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-nodeValue"><span class="nav-number">1.1.3.</span> <span class="nav-text">Node.prototype.nodeValue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-textContent"><span class="nav-number">1.1.4.</span> <span class="nav-text">Node.prototype.textContent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-baseURI"><span class="nav-number">1.1.5.</span> <span class="nav-text">Node.prototype.baseURI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-ownerDocument"><span class="nav-number">1.1.6.</span> <span class="nav-text">Node.prototype.ownerDocument</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-nextSibling"><span class="nav-number">1.1.7.</span> <span class="nav-text">Node.prototype.nextSibling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-previousSibling"><span class="nav-number">1.1.8.</span> <span class="nav-text">Node.prototype.previousSibling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-parentNode"><span class="nav-number">1.1.9.</span> <span class="nav-text">Node.prototype.parentNode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-parentElement"><span class="nav-number">1.1.10.</span> <span class="nav-text">Node.prototype.parentElement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-firstChild，Node-prototype-lastChild"><span class="nav-number">1.1.11.</span> <span class="nav-text">Node.prototype.firstChild，Node.prototype.lastChild</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-childNodes"><span class="nav-number">1.1.12.</span> <span class="nav-text">Node.prototype.childNodes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-isConnected"><span class="nav-number">1.1.13.</span> <span class="nav-text">Node.prototype.isConnected</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.2.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-appendChild"><span class="nav-number">1.2.1.</span> <span class="nav-text">Node.prototype.appendChild()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-hasChildNodes"><span class="nav-number">1.2.2.</span> <span class="nav-text">Node.prototype.hasChildNodes()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-cloneNode"><span class="nav-number">1.2.3.</span> <span class="nav-text">Node.prototype.cloneNode()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-insertBefore"><span class="nav-number">1.2.4.</span> <span class="nav-text">Node.prototype.insertBefore()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-removeChild"><span class="nav-number">1.2.5.</span> <span class="nav-text">Node.prototype.removeChild()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-replaceChild"><span class="nav-number">1.2.6.</span> <span class="nav-text">Node.prototype.replaceChild()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-contains"><span class="nav-number">1.2.7.</span> <span class="nav-text">Node.prototype.contains()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-compareDocumentPosition"><span class="nav-number">1.2.8.</span> <span class="nav-text">Node.prototype.compareDocumentPosition()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-isEqualNode-，Node-prototype-isSameNode"><span class="nav-number">1.2.9.</span> <span class="nav-text">Node.prototype.isEqualNode()，Node.prototype.isSameNode()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-normalize"><span class="nav-number">1.2.10.</span> <span class="nav-text">Node.prototype.normalize()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-prototype-getRootNode"><span class="nav-number">1.2.11.</span> <span class="nav-text">Node.prototype.getRootNode()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ParentNode-接口，ChildNode-接口"><span class="nav-number">2.</span> <span class="nav-text">ParentNode 接口，ChildNode 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ParentNode-接口"><span class="nav-number">2.1.</span> <span class="nav-text">ParentNode 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ParentNode-children"><span class="nav-number">2.1.1.</span> <span class="nav-text">ParentNode.children</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ParentNode-firstElementChild"><span class="nav-number">2.1.2.</span> <span class="nav-text">ParentNode.firstElementChild</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ParentNode-lastElementChild"><span class="nav-number">2.1.3.</span> <span class="nav-text">ParentNode.lastElementChild</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ParentNode-childElementCount"><span class="nav-number">2.1.4.</span> <span class="nav-text">ParentNode.childElementCount</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ParentNode-append-，ParentNode-prepend"><span class="nav-number">2.1.5.</span> <span class="nav-text">ParentNode.append()，ParentNode.prepend()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ChildNode-接口"><span class="nav-number">2.2.</span> <span class="nav-text">ChildNode 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ChildNode-remove"><span class="nav-number">2.2.1.</span> <span class="nav-text">ChildNode.remove()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ChildNode-before-，ChildNode-after"><span class="nav-number">2.2.2.</span> <span class="nav-text">ChildNode.before()，ChildNode.after()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ChildNode-replaceWith"><span class="nav-number">2.2.3.</span> <span class="nav-text">ChildNode.replaceWith()</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zyangg"
+      src="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+  <p class="site-author-name" itemprop="name">zyangg</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zyangg" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zyangg" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://cn.vuejs.org/" title="https:&#x2F;&#x2F;cn.vuejs.org&#x2F;" rel="noopener" target="_blank">Vue</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://element.eleme.cn/#/zh-CN" title="https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN" rel="noopener" target="_blank">Element</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <!--<span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>-->
+  <span class="author" itemprop="copyrightHolder">zyangg</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">144k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:11</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '4rCRJXfw8gRVMig58URu4P0j-gzGzoHsz',
+      appKey     : 'Hn4FxrLx0cjirhX2cVuiNxMh',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
