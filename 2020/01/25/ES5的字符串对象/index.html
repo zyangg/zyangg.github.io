@@ -20,17 +20,17 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="String 对象概述String对象是 JavaScript 原生提供的三个包装对象之一，用来生成字符串对象。">
+  <meta name="description" content="String 对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES5的字符串对象">
 <meta property="og:url" content="http://yoursite.com/2020/01/25/ES5%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="zyangg的个人博客">
-<meta property="og:description" content="String 对象概述String对象是 JavaScript 原生提供的三个包装对象之一，用来生成字符串对象。">
+<meta property="og:description" content="String 对象">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-25T02:39:46.000Z">
-<meta property="article:modified_time" content="2020-05-30T02:42:02.118Z">
+<meta property="article:modified_time" content="2020-06-06T04:07:14.146Z">
 <meta property="article:author" content="zyangg">
-<meta property="article:tag" content="ES5">
+<meta property="article:tag" content="JS标准库">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/01/25/ES5%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1/">
@@ -220,7 +220,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-30 10:42:02" itemprop="dateModified" datetime="2020-05-30T10:42:02+08:00">2020-05-30</time>
+                <time title="修改时间：2020-06-06 12:07:14" itemprop="dateModified" datetime="2020-06-06T12:07:14+08:00">2020-06-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -259,14 +259,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.6k</span>
+              <span>5.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -278,32 +278,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="String-对象"><a href="#String-对象" class="headerlink" title="String 对象"></a>String 对象</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>String</code>对象是 JavaScript 原生提供的三个包装对象之一，用来生成字符串对象。</p>
-<a id="more"></a>
+        <h1 id="String-对象"><a href="#String-对象" class="headerlink" title="String 对象"></a>String 对象</h1><a id="more"></a>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="string">'abc'</span>;</span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abc'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> s1 <span class="comment">// "string"</span></span><br><span class="line"><span class="keyword">typeof</span> s2 <span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line">s2.valueOf() <span class="comment">// "abc"</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，变量<code>s1</code>是字符串，<code>s2</code>是对象。由于<code>s2</code>是字符串对象，<code>s2.valueOf</code>方法返回的就是它所对应的原始字符串。</p>
-<p>字符串对象是一个类似数组的对象（很像数组，但不是数组）。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abc'</span>)</span><br><span class="line"><span class="comment">// String &#123;0: "a", 1: "b", 2: "c", length: 3&#125;</span></span><br><span class="line"></span><br><span class="line">(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abc'</span>))[<span class="number">1</span>] <span class="comment">// "b"</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，字符串<code>abc</code>对应的字符串对象，有数值键（<code>0</code>、<code>1</code>、<code>2</code>）和<code>length</code>属性，所以可以像数组那样取值。</p>
-<p>除了用作构造函数，<code>String</code>对象还可以当作工具方法使用，将任意类型的值转为字符串。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>(<span class="literal">true</span>) <span class="comment">// "true"</span></span><br><span class="line"><span class="built_in">String</span>(<span class="number">5</span>) <span class="comment">// "5"</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码将布尔值<code>true</code>和数值<code>5</code>，分别转换为字符串。</p>
-<h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><h3 id="String-fromCharCode"><a href="#String-fromCharCode" class="headerlink" title="String.fromCharCode()"></a>String.fromCharCode()</h3><p><code>String</code>对象提供的静态方法（即定义在对象本身，而不是定义在对象实例的方法），主要是<code>String.fromCharCode()</code>。该方法的参数是一个或多个数值，代表 Unicode 码点，返回值是这些码点组成的字符串。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.fromCharCode() <span class="comment">// ""</span></span><br><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">97</span>) <span class="comment">// "a"</span></span><br><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">104</span>, <span class="number">101</span>, <span class="number">108</span>, <span class="number">108</span>, <span class="number">111</span>)</span><br><span class="line"><span class="comment">// "hello"</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>String.fromCharCode</code>方法的参数为空，就返回空字符串；否则，返回参数对应的 Unicode 字符串。</p>
-<p>注意，该方法不支持 Unicode 码点大于<code>0xFFFF</code>的字符，即传入的参数不能大于<code>0xFFFF</code>（即十进制的 65535）。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">0x20BB7</span>)</span><br><span class="line"><span class="comment">// "ஷ"</span></span><br><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">0x20BB7</span>) === <span class="built_in">String</span>.fromCharCode(<span class="number">0x0BB7</span>)</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>String.fromCharCode</code>参数<code>0x20BB7</code>大于<code>0xFFFF</code>，导致返回结果出错。<code>0x20BB7</code>对应的字符是汉字<code>𠮷</code>，但是返回结果却是另一个字符（码点<code>0x0BB7</code>）。这是因为<code>String.fromCharCode</code>发现参数值大于<code>0xFFFF</code>，就会忽略多出的位（即忽略<code>0x20BB7</code>里面的<code>2</code>）。</p>
-<p>这种现象的根本原因在于，码点大于<code>0xFFFF</code>的字符占用四个字节，而 JavaScript 默认支持两个字节的字符。这种情况下，必须把<code>0x20BB7</code>拆成两个字符表示。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">0xD842</span>, <span class="number">0xDFB7</span>)</span><br><span class="line"><span class="comment">// "𠮷"</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>0x20BB7</code>拆成两个字符<code>0xD842</code>和<code>0xDFB7</code>（即两个两字节字符，合成一个四字节字符），就能得到正确的结果。码点大于<code>0xFFFF</code>的字符的四字节表示法，由 UTF-16 编码方法决定。</p>
 <h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><h3 id="String-prototype-length"><a href="#String-prototype-length" class="headerlink" title="String.prototype.length"></a>String.prototype.length</h3><p>字符串实例的<code>length</code>属性返回字符串的长度。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'abc'</span>.length <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
 
@@ -430,7 +406,6 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a|b|c'</span>.split(<span class="string">'|'</span>, <span class="number">0</span>) <span class="comment">// []</span></span><br><span class="line"><span class="string">'a|b|c'</span>.split(<span class="string">'|'</span>, <span class="number">1</span>) <span class="comment">// ["a"]</span></span><br><span class="line"><span class="string">'a|b|c'</span>.split(<span class="string">'|'</span>, <span class="number">2</span>) <span class="comment">// ["a", "b"]</span></span><br><span class="line"><span class="string">'a|b|c'</span>.split(<span class="string">'|'</span>, <span class="number">3</span>) <span class="comment">// ["a", "b", "c"]</span></span><br><span class="line"><span class="string">'a|b|c'</span>.split(<span class="string">'|'</span>, <span class="number">4</span>) <span class="comment">// ["a", "b", "c"]</span></span><br></pre></td></tr></table></figure>
 
 <p>上面代码中，<code>split</code>方法的第二个参数，决定了返回数组的成员数。</p>
-<p><code>split</code>方法还可以使用正则表达式作为参数，详见《正则表达式》一节。</p>
 <h3 id="String-prototype-localeCompare"><a href="#String-prototype-localeCompare" class="headerlink" title="String.prototype.localeCompare()"></a>String.prototype.localeCompare()</h3><p><code>localeCompare</code>方法用于比较两个字符串。它返回一个整数，如果小于0，表示第一个字符串小于第二个字符串；如果等于0，表示两者相等；如果大于0，表示第一个字符串大于第二个字符串。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'apple'</span>.localeCompare(<span class="string">'banana'</span>) <span class="comment">// -1</span></span><br><span class="line"><span class="string">'apple'</span>.localeCompare(<span class="string">'apple'</span>) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
 
@@ -455,7 +430,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/ES5/" rel="tag"># ES5</a>
+              <a href="/tags/JS%E6%A0%87%E5%87%86%E5%BA%93/" rel="tag"># JS标准库</a>
           </div>
 
         
@@ -468,8 +443,8 @@
       <i class="fa fa-chevron-left"></i> ES5的日期对象
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/01/28/ES5%E5%AE%9A%E6%97%B6%E5%99%A8/" rel="next" title="ES5定时器">
-      ES5定时器 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/01/26/ES5%E7%9A%84%E6%95%B0%E5%AD%A6%E5%AF%B9%E8%B1%A1/" rel="next" title="ES5的数学对象">
+      ES5的数学对象 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -530,7 +505,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String-对象"><span class="nav-number">1.</span> <span class="nav-text">String 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态方法"><span class="nav-number">1.2.</span> <span class="nav-text">静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-fromCharCode"><span class="nav-number">1.2.1.</span> <span class="nav-text">String.fromCharCode()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例属性"><span class="nav-number">1.3.</span> <span class="nav-text">实例属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-length"><span class="nav-number">1.3.1.</span> <span class="nav-text">String.prototype.length</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例方法"><span class="nav-number">1.4.</span> <span class="nav-text">实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-charAt"><span class="nav-number">1.4.1.</span> <span class="nav-text">String.prototype.charAt()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-charCodeAt"><span class="nav-number">1.4.2.</span> <span class="nav-text">String.prototype.charCodeAt()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-concat"><span class="nav-number">1.4.3.</span> <span class="nav-text">String.prototype.concat()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-slice"><span class="nav-number">1.4.4.</span> <span class="nav-text">String.prototype.slice()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-substring"><span class="nav-number">1.4.5.</span> <span class="nav-text">String.prototype.substring()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-substr"><span class="nav-number">1.4.6.</span> <span class="nav-text">String.prototype.substr()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-indexOf-，String-prototype-lastIndexOf"><span class="nav-number">1.4.7.</span> <span class="nav-text">String.prototype.indexOf()，String.prototype.lastIndexOf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-trim"><span class="nav-number">1.4.8.</span> <span class="nav-text">String.prototype.trim()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-toLowerCase-，String-prototype-toUpperCase"><span class="nav-number">1.4.9.</span> <span class="nav-text">String.prototype.toLowerCase()，String.prototype.toUpperCase()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-match"><span class="nav-number">1.4.10.</span> <span class="nav-text">String.prototype.match()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-search-，String-prototype-replace"><span class="nav-number">1.4.11.</span> <span class="nav-text">String.prototype.search()，String.prototype.replace()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-split"><span class="nav-number">1.4.12.</span> <span class="nav-text">String.prototype.split()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-localeCompare"><span class="nav-number">1.4.13.</span> <span class="nav-text">String.prototype.localeCompare()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考《阮一峰js标准教程》"><span class="nav-number">1.4.14.</span> <span class="nav-text">参考《阮一峰js标准教程》</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String-对象"><span class="nav-number">1.</span> <span class="nav-text">String 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实例属性"><span class="nav-number">1.1.</span> <span class="nav-text">实例属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-length"><span class="nav-number">1.1.1.</span> <span class="nav-text">String.prototype.length</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例方法"><span class="nav-number">1.2.</span> <span class="nav-text">实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-charAt"><span class="nav-number">1.2.1.</span> <span class="nav-text">String.prototype.charAt()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-charCodeAt"><span class="nav-number">1.2.2.</span> <span class="nav-text">String.prototype.charCodeAt()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-concat"><span class="nav-number">1.2.3.</span> <span class="nav-text">String.prototype.concat()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-slice"><span class="nav-number">1.2.4.</span> <span class="nav-text">String.prototype.slice()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-substring"><span class="nav-number">1.2.5.</span> <span class="nav-text">String.prototype.substring()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-substr"><span class="nav-number">1.2.6.</span> <span class="nav-text">String.prototype.substr()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-indexOf-，String-prototype-lastIndexOf"><span class="nav-number">1.2.7.</span> <span class="nav-text">String.prototype.indexOf()，String.prototype.lastIndexOf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-trim"><span class="nav-number">1.2.8.</span> <span class="nav-text">String.prototype.trim()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-toLowerCase-，String-prototype-toUpperCase"><span class="nav-number">1.2.9.</span> <span class="nav-text">String.prototype.toLowerCase()，String.prototype.toUpperCase()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-match"><span class="nav-number">1.2.10.</span> <span class="nav-text">String.prototype.match()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-search-，String-prototype-replace"><span class="nav-number">1.2.11.</span> <span class="nav-text">String.prototype.search()，String.prototype.replace()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-split"><span class="nav-number">1.2.12.</span> <span class="nav-text">String.prototype.split()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-localeCompare"><span class="nav-number">1.2.13.</span> <span class="nav-text">String.prototype.localeCompare()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考《阮一峰js标准教程》"><span class="nav-number">1.2.14.</span> <span class="nav-text">参考《阮一峰js标准教程》</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -546,7 +521,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -559,7 +534,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -613,12 +588,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">207k</span>
+    <span title="站点总字数">208k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:08</span>
+    <span title="站点阅读时长">3:09</span>
 </div>
 
 <!--
