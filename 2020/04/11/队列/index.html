@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="队列结构 队列(Queue)，它是一种运算受限的线性表,先进先出(FIFO First In First Out)  队列是一种受限的线性结构  受限之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="队列">
+<meta property="og:url" content="http://yoursite.com/2020/04/11/%E9%98%9F%E5%88%97/index.html">
+<meta property="og:site_name" content="zyangg的个人博客">
+<meta property="og:description" content="队列结构 队列(Queue)，它是一种运算受限的线性表,先进先出(FIFO First In First Out)  队列是一种受限的线性结构  受限之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200606110300506.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020060611175779.png">
+<meta property="article:published_time" content="2020-04-11T02:59:54.000Z">
+<meta property="article:modified_time" content="2020-06-06T03:18:49.992Z">
+<meta property="article:author" content="zyangg">
+<meta property="article:tag" content="JS数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200606110300506.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/11/%E9%98%9F%E5%88%97/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>队列 | zyangg的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zyangg的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">你的🐏</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/11/%E9%98%9F%E5%88%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+      <meta itemprop="name" content="zyangg">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zyangg的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          队列
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-11 10:59:54" itemprop="dateCreated datePublished" datetime="2020-04-11T10:59:54+08:00">2020-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-06 11:18:49" itemprop="dateModified" datetime="2020-06-06T11:18:49+08:00">2020-06-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构和算法</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/04/11/%E9%98%9F%E5%88%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/11/%E9%98%9F%E5%88%97/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="队列结构"><a href="#队列结构" class="headerlink" title="队列结构"></a>队列结构</h4><ul>
+<li><p>队列(Queue)，它是一种运算受限的线性表,先进先出(FIFO First In First Out)</p>
+<ul>
+<li><p>队列是一种受限的线性结构</p>
+</li>
+<li><p>受限之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作</p>
+<a id="more"></a>
+
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200606110300506.png" alt="在这里插入图片描述"> </p>
+</li>
+</ul>
+<h4 id="队列的创建"><a href="#队列的创建" class="headerlink" title="队列的创建"></a>队列的创建</h4><ul>
+<li>我们需要创建自己的类, 来表示一个队列</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义队列</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> items = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 队列操作的方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="队列的操作"><a href="#队列的操作" class="headerlink" title="队列的操作"></a>队列的操作</h4><ul>
+<li>队列有哪些常见的操作呢?<ul>
+<li><code>enqueue(element)</code>：向队列尾部添加一个（或多个）新的项。</li>
+<li><code>dequeue()</code>：移除队列的第一（即排在队列最前面的）项，并返回被移除的元素。</li>
+<li><code>front()</code>：返回队列中第一个元素——最先被添加，也将是最先被移除的元素。队列不做任何变动（不移除元素，只返回元素信息——与<code>Stack</code>类的<code>peek</code>方法非常类似）。</li>
+<li><code>isEmpty()</code>：如果队列中不包含任何元素，返回<code>true</code>，否则返回<code>false</code>。</li>
+<li><code>size()</code>：返回队列包含的元素个数，与数组的<code>length</code>属性类似。</li>
+</ul>
+</li>
+</ul>
+<p>enqueue方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// enter queue方法</span></span><br><span class="line"><span class="keyword">this</span>.enqueue = <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</span><br><span class="line">    items.push(element)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>dequeue方法</p>
+<ul>
+<li>注意: 从队列中删除元素不可以删除最后一个元素了.</li>
+<li>因为, 先进入队列中的元素, 先从队列中取出. 因此, 应该删除第一个元素</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// delete queue方法</span></span><br><span class="line"><span class="keyword">this</span>.dequeue = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.shift()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>front()方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查看前端的元素</span></span><br><span class="line"><span class="keyword">this</span>.front = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items[<span class="number">0</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>isEmpty方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查看队列是否为空</span></span><br><span class="line"><span class="keyword">this</span>.isEmpty = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length == <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>size方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查看队列中元素的个数</span></span><br><span class="line"><span class="keyword">this</span>.size = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="完整的代码"><a href="#完整的代码" class="headerlink" title="完整的代码"></a>完整的代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义队列</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> items = []</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 队列操作的方法</span></span><br><span class="line">    <span class="comment">// enter queue方法</span></span><br><span class="line">    <span class="keyword">this</span>.enqueue = <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</span><br><span class="line">        items.push(element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// delete queue方法</span></span><br><span class="line">    <span class="keyword">this</span>.dequeue = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items.shift()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查看前端的元素</span></span><br><span class="line">    <span class="keyword">this</span>.front = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items[<span class="number">0</span>]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查看队列是否为空</span></span><br><span class="line">    <span class="keyword">this</span>.isEmpty = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items.length == <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查看队列中元素的个数</span></span><br><span class="line">    <span class="keyword">this</span>.size = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items.length</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="队列的使用"><a href="#队列的使用" class="headerlink" title="队列的使用"></a>队列的使用</h4><ul>
+<li>我们来简单使用一下我们封装的Queue</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建队列对象</span></span><br><span class="line"><span class="keyword">var</span> queue = <span class="keyword">new</span> Queue()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在队列中添加元素</span></span><br><span class="line">queue.enqueue(<span class="string">"abc"</span>)</span><br><span class="line">queue.enqueue(<span class="string">"cba"</span>)</span><br><span class="line">queue.enqueue(<span class="string">"nba"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看一下队列前端元素</span></span><br><span class="line">alert(queue.front())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看队列是否为空和元素个数</span></span><br><span class="line">alert(queue.isEmpty())</span><br><span class="line">alert(queue.size())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从队列中删除元素</span></span><br><span class="line">alert(queue.dequeue())</span><br><span class="line">alert(queue.dequeue())</span><br><span class="line">alert(queue.dequeue())</span><br></pre></td></tr></table></figure>
+
+<h4 id="优先级队列的实现"><a href="#优先级队列的实现" class="headerlink" title="优先级队列的实现"></a>优先级队列的实现</h4><ul>
+<li><p>实现优先级队列相对队列主要有两方面需要考虑:</p>
+<ul>
+<li><ol>
+<li>封装元素和优先级放在一起(可以封装一个新的构造函数)</li>
+</ol>
+</li>
+<li><ol>
+<li>添加元素时, 将当前的优先级和队列中已经存在的元素优先级进行比较, 以获得自己正确的位置.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>优先级队列代码实现:</p>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 封装优先级队列</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PriorityQueue</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> items = []</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 封装一个新的构造函数, 用于保存元素和元素的优先级</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">QueueElement</span>(<span class="params">element, priority</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.element = element</span><br><span class="line">        <span class="keyword">this</span>.priority = priority</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加元素的方法</span></span><br><span class="line">    <span class="keyword">this</span>.enqueue = <span class="function"><span class="keyword">function</span> (<span class="params">element, priority</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 1.根据传入的元素, 创建新的QueueElement</span></span><br><span class="line">        <span class="keyword">var</span> queueElement = <span class="keyword">new</span> QueueElement(element, priority)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2.获取传入元素应该在正确的位置</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.isEmpty()) &#123;</span><br><span class="line">            items.push(queueElement)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> added = <span class="literal">false</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; items.length; i++) &#123;</span><br><span class="line">                <span class="comment">// 注意: 我们这里是数字越小, 优先级越高</span></span><br><span class="line">                <span class="keyword">if</span> (queueElement.priority &lt; items[i].priority) &#123;</span><br><span class="line">                    items.splice(i, <span class="number">0</span>, queueElement)</span><br><span class="line">                    added = <span class="literal">true</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 遍历完所有的元素, 优先级都大于新插入的元素时, 就插入到最后</span></span><br><span class="line">            <span class="keyword">if</span> (!added) &#123;</span><br><span class="line">                items.push(queueElement)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 删除元素的方法</span></span><br><span class="line">    <span class="keyword">this</span>.dequeue = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items.shift()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取前端的元素</span></span><br><span class="line">    <span class="keyword">this</span>.front = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items[<span class="number">0</span>]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查看元素是否为空</span></span><br><span class="line">    <span class="keyword">this</span>.isEmpty = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items.length == <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取元素的个数</span></span><br><span class="line">    <span class="keyword">this</span>.size = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items.length</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>代码解析:</p>
+<ul>
+<li>封装了一个QueueElement, 将element和priority封装在一起.</li>
+<li>在插入新的元素时, 有如下情况下考虑: <ul>
+<li>根据新的元素先创建一个新的QueueElement对象.</li>
+<li>如果元素是第一个被加进来的, 那么不需要考虑太多, 直接加入数组中即可.</li>
+<li>如果是后面加进来的元素, 需要和前面加进来的元素依次对比优先级.</li>
+<li>一旦优先级, 大于某个元素, 就将该元素插入到元素这个元素的位置. 其他元素会依次向后移动.</li>
+<li>如果遍历了所有的元素, 没有找到某个元素被这个新元素的优先级低, 直接放在最后即可.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="优先级队列的使用"><a href="#优先级队列的使用" class="headerlink" title="优先级队列的使用"></a>优先级队列的使用</h4><ul>
+<li>我们来简单使用一下我们的优先级队列.</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建优先级队列对象</span></span><br><span class="line"><span class="keyword">var</span> pQueue = <span class="keyword">new</span> PriorityQueue()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加元素</span></span><br><span class="line">pQueue.enqueue(<span class="string">"abc"</span>, <span class="number">10</span>)</span><br><span class="line">pQueue.enqueue(<span class="string">"cba"</span>, <span class="number">5</span>)</span><br><span class="line">pQueue.enqueue(<span class="string">"nba"</span>, <span class="number">12</span>)</span><br><span class="line">pQueue.enqueue(<span class="string">"mba"</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历所有的元素</span></span><br><span class="line"><span class="keyword">var</span> size = pQueue.size()</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> item = pQueue.dequeue()</span><br><span class="line">    alert(item.element + <span class="string">"-"</span> + item.priority)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="击鼓传花的规则"><a href="#击鼓传花的规则" class="headerlink" title="击鼓传花的规则"></a>击鼓传花的规则</h4><ul>
+<li>原游戏规则: <ul>
+<li>班级中玩一个游戏, 所有学生围成一圈, 从某位同学手里开始向旁边的同学传一束花.</li>
+<li>这个时候某个人(比如班长), 在击鼓, 鼓声停下的一颗, 花落在谁手里, 谁就出来表演节目.</li>
+</ul>
+</li>
+<li>修改游戏规则: <ul>
+<li>我们来修改一下这个游戏规则.</li>
+<li>几个朋友一起玩一个游戏, 围成一圈, 开始数数, 数到某个数字的人自动淘汰.</li>
+<li>最后剩下的这个人会获得胜利, 请问最后剩下的是原来在哪一个位置上的人?</li>
+</ul>
+</li>
+</ul>
+<h4 id="击鼓传花的实现"><a href="#击鼓传花的实现" class="headerlink" title="击鼓传花的实现"></a>击鼓传花的实现</h4><ul>
+<li><p>我们使用队列可以非常方便的实现这个代码.</p>
+</li>
+<li><p>封装函数</p>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现击鼓传花的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">passGame</span>(<span class="params">nameList, num</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.创建一个队列, 并且将所有的人放在队列中</span></span><br><span class="line">    <span class="comment">// 1.1.创建队列</span></span><br><span class="line">    <span class="keyword">var</span> queue = <span class="keyword">new</span> Queue()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.2.通过for循环, 将nameList中的人放在队列中</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nameList.length; i++) &#123;</span><br><span class="line">        queue.enqueue(nameList[i])</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.寻找最后剩下的人</span></span><br><span class="line">    <span class="keyword">while</span> (queue.size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">// 将前num-1中的人, 都从队列的前端取出放在队列的后端</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">            queue.enqueue(queue.dequeue())</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将第num个人, 从队列中移除</span></span><br><span class="line">        queue.dequeue()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.获取剩下的一个人</span></span><br><span class="line">    alert(queue.size())</span><br><span class="line">    <span class="keyword">var</span> endName = queue.dequeue()</span><br><span class="line">    alert(<span class="string">"最终留下来的人:"</span> + endName)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4.获取该人在队列中的位置</span></span><br><span class="line">    <span class="keyword">return</span> nameList.indexOf(endName)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>代码验证:</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 验证结果</span></span><br><span class="line"><span class="keyword">var</span> names = [<span class="string">'John'</span>,<span class="string">'Jack'</span>,<span class="string">'Camila'</span>,<span class="string">'Ingrid'</span>,<span class="string">'Carl'</span>];</span><br><span class="line"><span class="keyword">var</span> index = passGame(names, <span class="number">7</span>) <span class="comment">// 数到8的人淘汰</span></span><br><span class="line">alert(<span class="string">"最终位置:"</span> + index)</span><br></pre></td></tr></table></figure>
+
+<p> 画图解析上面淘汰的过程 </p>
+<p> <img src="https://img-blog.csdnimg.cn/2020060611175779.png" alt="在这里插入图片描述"> </p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># JS数据结构</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/10/%E6%A0%88/" rel="prev" title="栈">
+      <i class="fa fa-chevron-left"></i> 栈
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#队列结构"><span class="nav-number">1.</span> <span class="nav-text">队列结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#队列的创建"><span class="nav-number">2.</span> <span class="nav-text">队列的创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#队列的操作"><span class="nav-number">3.</span> <span class="nav-text">队列的操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完整的代码"><span class="nav-number">4.</span> <span class="nav-text">完整的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#队列的使用"><span class="nav-number">5.</span> <span class="nav-text">队列的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优先级队列的实现"><span class="nav-number">6.</span> <span class="nav-text">优先级队列的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优先级队列的使用"><span class="nav-number">7.</span> <span class="nav-text">优先级队列的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#击鼓传花的规则"><span class="nav-number">8.</span> <span class="nav-text">击鼓传花的规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#击鼓传花的实现"><span class="nav-number">9.</span> <span class="nav-text">击鼓传花的实现</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zyangg"
+      src="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+  <p class="site-author-name" itemprop="name">zyangg</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zyangg" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zyangg" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://cn.vuejs.org/" title="https:&#x2F;&#x2F;cn.vuejs.org&#x2F;" rel="noopener" target="_blank">Vue</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://element.eleme.cn/#/zh-CN" title="https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN" rel="noopener" target="_blank">Element</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <!--<span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>-->
+  <span class="author" itemprop="copyrightHolder">zyangg</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">207k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:08</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '4rCRJXfw8gRVMig58URu4P0j-gzGzoHsz',
+      appKey     : 'Hn4FxrLx0cjirhX2cVuiNxMh',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

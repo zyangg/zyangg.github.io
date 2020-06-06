@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="栈结构 数组  我们知道数组是一种线性结构, 并且可以在数组的任意位置插入和删除数据.  但是有时候, 我们为了实现某些功能, 必须对这种任意性加以限制.  而栈就是比较常见的受限的线性结构.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈">
+<meta property="og:url" content="http://yoursite.com/2020/04/10/%E6%A0%88/index.html">
+<meta property="og:site_name" content="zyangg的个人博客">
+<meta property="og:description" content="栈结构 数组  我们知道数组是一种线性结构, 并且可以在数组的任意位置插入和删除数据.  但是有时候, 我们为了实现某些功能, 必须对这种任意性加以限制.  而栈就是比较常见的受限的线性结构.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200606105336703.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200606105801925.png">
+<meta property="article:published_time" content="2020-04-10T02:45:49.000Z">
+<meta property="article:modified_time" content="2020-06-06T03:01:17.478Z">
+<meta property="article:author" content="zyangg">
+<meta property="article:tag" content="JS数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200606105336703.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/10/%E6%A0%88/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>栈 | zyangg的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zyangg的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">你的🐏</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/10/%E6%A0%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+      <meta itemprop="name" content="zyangg">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zyangg的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          栈
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-10 10:45:49" itemprop="dateCreated datePublished" datetime="2020-04-10T10:45:49+08:00">2020-04-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-06 11:01:17" itemprop="dateModified" datetime="2020-06-06T11:01:17+08:00">2020-06-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构和算法</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/04/10/%E6%A0%88/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/10/%E6%A0%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="栈结构"><a href="#栈结构" class="headerlink" title="栈结构"></a>栈结构</h2><ul>
+<li><p>数组</p>
+<ul>
+<li><p>我们知道数组是一种线性结构, 并且可以在数组的任意位置插入和删除数据.</p>
+</li>
+<li><p>但是有时候, 我们为了实现某些功能, 必须对这种任意性加以限制.</p>
+</li>
+<li><p>而栈就是比较常见的受限的线性结构.</p>
+<a id="more"></a>
+</li>
+</ul>
+</li>
+<li><p>栈（stack），它是一种运算受限的线性表,后进先出(LIFO)</p>
+<ul>
+<li>LIFO(last in first out)表示就是后进入的元素, 第一个弹出栈空间. 类似于自动餐托盘, 最后放上的托盘, 往往先把拿出去使用.</li>
+<li>其限制是仅允许在表的一端进行插入和删除运算。这一端被称为栈顶，相对地，把另一端称为栈底。</li>
+<li>向一个栈插入新元素又称作进栈、入栈或压栈，它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；</li>
+<li>从一个栈删除元素又称作出栈或退栈，它是把栈顶元素删除掉，使其相邻的元素成为新的栈顶元素。</li>
+</ul>
+</li>
+</ul>
+<h3 id="栈结构的图解"><a href="#栈结构的图解" class="headerlink" title="栈结构的图解"></a>栈结构的图解</h3><p> <img src="https://img-blog.csdnimg.cn/20200606105336703.png" alt="在这里插入图片描述"> </p>
+<p>程序中什么是使用栈实现的呢?</p>
+<ul>
+<li>学了这么久的编程, 是否听说过, 函数调用栈呢?</li>
+<li>我们知道函数之间和相互调用: A调用B, B中又调用C, C中又调用D.</li>
+<li>那样在执行的过程中, 会先将A压入栈, A没有执行完, 所有不会弹出栈.</li>
+<li>在A执行的过程中调用了B, 会将B压入到栈, 这个时候B在栈顶, A在栈底.</li>
+<li>如果这个时候B可以执行完, 那么B会弹出栈. 但是B有执行完吗? 没有, 它调用了C.</li>
+<li>所以C会压栈, 并且在栈顶. 而C调用了D, D会压入到栈顶.</li>
+<li>所以当前的栈顺序是: 栈顶A-&gt;B-&gt;C-&gt;D栈顶</li>
+<li>D执行完, 弹出栈. C/B/A依次弹出栈.</li>
+<li>所以我们有函数调用栈的称呼, 就来自于它们内部的实现机制. (通过栈来实现的)</li>
+</ul>
+<h4 id="栈的创建"><a href="#栈的创建" class="headerlink" title="栈的创建"></a>栈的创建</h4><ul>
+<li>我们先来创建一个栈的类, 用于封装栈相关的操作</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 栈类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 栈中的属性</span></span><br><span class="line">    <span class="keyword">var</span> items = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 栈相关的方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="栈的操作"><a href="#栈的操作" class="headerlink" title="栈的操作"></a>栈的操作</h4><ul>
+<li><p>栈常见有哪些操作呢?</p>
+<ul>
+<li><code>push(element)</code>:  添加一个新元素到栈顶位置.</li>
+<li><code>pop()</code>：移除栈顶的元素，同时返回被移除的元素。</li>
+<li><code>peek()</code>：返回栈顶的元素，不对栈做任何修改（这个方法不会移除栈顶的元素，仅仅返回它）。</li>
+<li><code>isEmpty()</code>：如果栈里没有任何元素就返回<code>true</code>，否则返回<code>false</code>。</li>
+<li><code>clear()</code>：移除栈里的所有元素。</li>
+<li><code>size()</code>：返回栈里的元素个数。这个方法和数组的<code>length</code>属性很类似。</li>
+</ul>
+</li>
+<li><p>现在我们来实现这些方法:</p>
+</li>
+<li><p>push方法</p>
+<ul>
+<li>注意: 我们的实现是将最新的元素放在了数组的末尾, 那么数组末尾的元素就是我们的栈顶元素</li>
+</ul>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 压栈操作</span></span><br><span class="line"><span class="keyword">this</span>.push = <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</span><br><span class="line">    items.push(element)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>pop方法</p>
+<ul>
+<li>注意: 出栈操作应该是将栈顶的元素删除, 并且返回.</li>
+<li>因此, 我们这里直接从数组中删除最后一个元素, 并且将该元素返回就可以了</li>
+</ul>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 出栈操作</span></span><br><span class="line"><span class="keyword">this</span>.pop = <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.pop()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>peek方法</p>
+<ul>
+<li>peek方法是一个比较常见的方法, 主要目的是看一眼栈顶的元素.</li>
+<li>注意: 和pop不同, peek仅仅的瞥一眼栈顶的元素, 并不需要将这个元素从栈顶弹出.</li>
+</ul>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// peek操作</span></span><br><span class="line"><span class="keyword">this</span>.peek = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items[items.length - <span class="number">1</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>isEmpty方法</p>
+<ul>
+<li>isEmpty方法用户判断栈中是否有元素.</li>
+<li>实现起来非常简单, 直接判断数组中的元素个数是为0, 为0返回true, 否则返回false</li>
+</ul>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断栈中的元素是否为空</span></span><br><span class="line"><span class="keyword">this</span>.isEmpty = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length == <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>size方法</p>
+<ul>
+<li>size方法是获取栈中元素的个数.</li>
+<li>因为我们使用的是数组来作为栈的底层实现的, 所以直接获取数组的长度即可.(也可以使用链表作为栈的顶层实现)</li>
+</ul>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取栈中元素的个数</span></span><br><span class="line"><span class="keyword">this</span>.size = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h4><pre><code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 栈类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 栈中的属性</span></span><br><span class="line">    <span class="keyword">var</span> items = []</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 栈相关的方法</span></span><br><span class="line">    <span class="comment">// 压栈操作</span></span><br><span class="line">    <span class="keyword">this</span>.push = <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</span><br><span class="line">        items.push(element)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 出栈操作</span></span><br><span class="line">    <span class="keyword">this</span>.pop = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items.pop()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// peek操作</span></span><br><span class="line">    <span class="keyword">this</span>.peek = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items[items.length - <span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断栈中的元素是否为空</span></span><br><span class="line">    <span class="keyword">this</span>.isEmpty = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items.length == <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取栈中元素的个数</span></span><br><span class="line">    <span class="keyword">this</span>.size = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items.length</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h4 id="十进制转二进制"><a href="#十进制转二进制" class="headerlink" title="十进制转二进制"></a>十进制转二进制</h4><ul>
+<li><p>为什么需要十进制转二进制?</p>
+<ul>
+<li>现实生活中，我们主要使用十进制。</li>
+<li>但在计算科学中，二进制非常重要，因为计算机里的所有内容都是用二进制数字表示的（0和1）。</li>
+<li>没有十进制和二进制相互转化的能力，与计算机交流就很困难。</li>
+</ul>
+</li>
+<li><p>如何实现十进制转二进制?</p>
+<ul>
+<li>要把十进制转化成二进制，我们可以将该十进制数字和2整除（二进制是满二进一），直到结果是0为止。</li>
+<li>举个例子，把十进制的数字10转化成二进制的数字，过程大概是这样：</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200606105801925.png" alt="在这里插入图片描述"> </p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 封装十进制转二进制的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dec2bin</span>(<span class="params">decNumer</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 定义变量</span></span><br><span class="line">    <span class="keyword">var</span> stack = <span class="keyword">new</span> Stack()</span><br><span class="line">    <span class="keyword">var</span> remainder;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 循环除法</span></span><br><span class="line">    <span class="keyword">while</span> (decNumer &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        remainder = decNumer % <span class="number">2</span></span><br><span class="line">        decNumer = <span class="built_in">Math</span>.floor(decNumer / <span class="number">2</span>)</span><br><span class="line">        stack.push(remainder)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将数据取出</span></span><br><span class="line">    <span class="keyword">var</span> binayriStrng = <span class="string">""</span></span><br><span class="line">    <span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">        binayriStrng += stack.pop()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> binayriStrng</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># JS数据结构</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/06/H5C3-3/" rel="prev" title="H5C3-3">
+      <i class="fa fa-chevron-left"></i> H5C3-3
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/11/%E9%98%9F%E5%88%97/" rel="next" title="队列">
+      队列 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#栈结构"><span class="nav-number">1.</span> <span class="nav-text">栈结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈结构的图解"><span class="nav-number">1.1.</span> <span class="nav-text">栈结构的图解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#栈的创建"><span class="nav-number">1.1.1.</span> <span class="nav-text">栈的创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#栈的操作"><span class="nav-number">1.1.2.</span> <span class="nav-text">栈的操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完整代码"><span class="nav-number">1.1.3.</span> <span class="nav-text">完整代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十进制转二进制"><span class="nav-number">1.1.4.</span> <span class="nav-text">十进制转二进制</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zyangg"
+      src="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+  <p class="site-author-name" itemprop="name">zyangg</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zyangg" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zyangg" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://cn.vuejs.org/" title="https:&#x2F;&#x2F;cn.vuejs.org&#x2F;" rel="noopener" target="_blank">Vue</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://element.eleme.cn/#/zh-CN" title="https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN" rel="noopener" target="_blank">Element</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <!--<span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>-->
+  <span class="author" itemprop="copyrightHolder">zyangg</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">207k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:08</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '4rCRJXfw8gRVMig58URu4P0j-gzGzoHsz',
+      appKey     : 'Hn4FxrLx0cjirhX2cVuiNxMh',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
