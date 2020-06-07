@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="RegExp 对象 正则表达式（regular expression）是一种表达文本模式（即字符串结构）的方法，有点像字符串的模板，常常用来按照“给定模式”匹配文本。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RegExp对象">
+<meta property="og:url" content="http://yoursite.com/2020/01/27/RegExp%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="zyangg的个人博客">
+<meta property="og:description" content="RegExp 对象 正则表达式（regular expression）是一种表达文本模式（即字符串结构）的方法，有点像字符串的模板，常常用来按照“给定模式”匹配文本。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-27T02:00:16.000Z">
+<meta property="article:modified_time" content="2020-06-07T02:23:28.782Z">
+<meta property="article:author" content="zyangg">
+<meta property="article:tag" content="JS内置对象">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/01/27/RegExp%E5%AF%B9%E8%B1%A1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>RegExp对象 | zyangg的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zyangg的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">你的🐏</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/27/RegExp%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+      <meta itemprop="name" content="zyangg">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zyangg的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RegExp对象
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-27 10:00:16" itemprop="dateCreated datePublished" datetime="2020-01-27T10:00:16+08:00">2020-01-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-07 10:23:28" itemprop="dateModified" datetime="2020-06-07T10:23:28+08:00">2020-06-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/27/RegExp%E5%AF%B9%E8%B1%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/27/RegExp%E5%AF%B9%E8%B1%A1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="RegExp-对象"><a href="#RegExp-对象" class="headerlink" title="RegExp 对象"></a>RegExp 对象</h1><p> 正则表达式（regular expression）是一种表达文本模式（即字符串结构）的方法，有点像字符串的模板，常常用来按照“给定模式”匹配文本。 </p>
+<a id="more"></a>
+
+<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><ul>
+<li><code>RegExp.prototype.ignoreCase</code>：返回一个布尔值，表示是否设置了<code>i</code>修饰符。</li>
+<li><code>RegExp.prototype.global</code>：返回一个布尔值，表示是否设置了<code>g</code>修饰符。</li>
+<li><code>RegExp.prototype.multiline</code>：返回一个布尔值，表示是否设置了<code>m</code>修饰符。</li>
+<li><code>RegExp.prototype.flags</code>：返回一个字符串，包含了已经设置的所有修饰符，按字母排序。</li>
+</ul>
+<p>上面四个属性都是只读的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var r &#x3D; &#x2F;abc&#x2F;igm;</span><br><span class="line"></span><br><span class="line">r.ignoreCase &#x2F;&#x2F; true</span><br><span class="line">r.global &#x2F;&#x2F; true</span><br><span class="line">r.multiline &#x2F;&#x2F; true</span><br><span class="line">r.flags &#x2F;&#x2F; &#39;gim&#39;</span><br></pre></td></tr></table></figure>
+
+<p>另一类是与修饰符无关的属性，主要是下面两个。</p>
+<ul>
+<li><code>RegExp.prototype.lastIndex</code>：返回一个整数，表示下一次开始搜索的位置。该属性可读写，但是只在进行连续搜索时有意义，详细介绍请看后文。</li>
+<li><code>RegExp.prototype.source</code>：返回正则表达式的字符串形式（不包括反斜杠），该属性只读。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var r &#x3D; &#x2F;abc&#x2F;igm;</span><br><span class="line"></span><br><span class="line">r.lastIndex &#x2F;&#x2F; 0</span><br><span class="line">r.source &#x2F;&#x2F; &quot;abc&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><h3 id="RegExp-prototype-test"><a href="#RegExp-prototype-test" class="headerlink" title="RegExp.prototype.test()"></a>RegExp.prototype.test()</h3><p>正则实例对象的<code>test</code>方法返回一个布尔值，表示当前模式是否能匹配参数字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;cat&#x2F;.test(&#39;cats and dogs&#39;) &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
+
+<p>上面代码验证参数字符串之中是否包含<code>cat</code>，结果返回<code>true</code>。</p>
+<p>如果正则表达式带有<code>g</code>修饰符，则每一次<code>test</code>方法都从上一次结束的位置开始向后匹配。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var r &#x3D; &#x2F;x&#x2F;g;</span><br><span class="line">var s &#x3D; &#39;_x_x&#39;;</span><br><span class="line"></span><br><span class="line">r.lastIndex &#x2F;&#x2F; 0</span><br><span class="line">r.test(s) &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">r.lastIndex &#x2F;&#x2F; 2</span><br><span class="line">r.test(s) &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">r.lastIndex &#x2F;&#x2F; 4</span><br><span class="line">r.test(s) &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的正则表达式使用了<code>g</code>修饰符，表示是全局搜索，会有多个结果。接着，三次使用<code>test</code>方法，每一次开始搜索的位置都是上一次匹配的后一个位置。</p>
+<h3 id="RegExp-prototype-exec"><a href="#RegExp-prototype-exec" class="headerlink" title="RegExp.prototype.exec()"></a>RegExp.prototype.exec()</h3><p>正则实例对象的<code>exec()</code>方法，用来返回匹配结果。如果发现匹配，就返回一个数组，成员是匹配成功的子字符串，否则返回<code>null</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var s &#x3D; &#39;_x_x&#39;;</span><br><span class="line">var r1 &#x3D; &#x2F;x&#x2F;;</span><br><span class="line">var r2 &#x3D; &#x2F;y&#x2F;;</span><br><span class="line"></span><br><span class="line">r1.exec(s) &#x2F;&#x2F; [&quot;x&quot;]</span><br><span class="line">r2.exec(s) &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，正则对象<code>r1</code>匹配成功，返回一个数组，成员是匹配结果；正则对象<code>r2</code>匹配失败，返回<code>null</code>。</p>
+<p>如果正则表示式包含圆括号（即含有“组匹配”），则返回的数组会包括多个成员。第一个成员是整个匹配成功的结果，后面的成员就是圆括号对应的匹配成功的组。也就是说，第二个成员对应第一个括号，第三个成员对应第二个括号，以此类推。整个数组的<code>length</code>属性等于组匹配的数量再加1。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var s &#x3D; &#39;_x_x&#39;;</span><br><span class="line">var r &#x3D; &#x2F;_(x)&#x2F;;</span><br><span class="line"></span><br><span class="line">r.exec(s) &#x2F;&#x2F; [&quot;_x&quot;, &quot;x&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的<code>exec()</code>方法，返回一个数组。第一个成员是整个匹配的结果，第二个成员是圆括号匹配的结果。</p>
+<p><code>exec()</code>方法的返回数组还包含以下两个属性：</p>
+<ul>
+<li><code>input</code>：整个原字符串。</li>
+<li><code>index</code>：模式匹配成功的开始位置（从0开始计数）。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var r &#x3D; &#x2F;a(b+)a&#x2F;;</span><br><span class="line">var arr &#x3D; r.exec(&#39;_abbba_aba_&#39;);</span><br><span class="line"></span><br><span class="line">arr &#x2F;&#x2F; [&quot;abbba&quot;, &quot;bbb&quot;]</span><br><span class="line"></span><br><span class="line">arr.index &#x2F;&#x2F; 1</span><br><span class="line">arr.input &#x2F;&#x2F; &quot;_abbba_aba_&quot;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中的<code>index</code>属性等于1，是因为从原字符串的第二个位置开始匹配成功。</p>
+<h2 id="字符串的实例方法"><a href="#字符串的实例方法" class="headerlink" title="字符串的实例方法"></a>字符串的实例方法</h2><p>字符串的实例方法之中，有4种与正则表达式有关。</p>
+<ul>
+<li><code>String.prototype.match()</code>：返回一个数组，成员是所有匹配的子字符串。</li>
+<li><code>String.prototype.search()</code>：按照给定的正则表达式进行搜索，返回一个整数，表示匹配开始的位置。</li>
+<li><code>String.prototype.replace()</code>：按照给定的正则表达式进行替换，返回替换后的字符串。</li>
+<li><code>String.prototype.split()</code>：按照给定规则进行字符串分割，返回一个数组，包含分割后的各个成员。</li>
+</ul>
+<h3 id="String-prototype-match"><a href="#String-prototype-match" class="headerlink" title="String.prototype.match()"></a>String.prototype.match()</h3><p>字符串实例对象的<code>match</code>方法对字符串进行正则匹配，返回匹配结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var s &#x3D; &#39;_x_x&#39;;</span><br><span class="line">var r1 &#x3D; &#x2F;x&#x2F;;</span><br><span class="line">var r2 &#x3D; &#x2F;y&#x2F;;</span><br><span class="line"></span><br><span class="line">s.match(r1) &#x2F;&#x2F; [&quot;x&quot;]</span><br><span class="line">s.match(r2) &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
+
+<p>从上面代码可以看到，字符串的<code>match</code>方法与正则对象的<code>exec</code>方法非常类似：匹配成功返回一个数组，匹配失败返回<code>null</code>。</p>
+<p>如果正则表达式带有<code>g</code>修饰符，则该方法与正则对象的<code>exec</code>方法行为不同，会一次性返回所有匹配成功的结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var s &#x3D; &#39;abba&#39;;</span><br><span class="line">var r &#x3D; &#x2F;a&#x2F;g;</span><br><span class="line"></span><br><span class="line">s.match(r) &#x2F;&#x2F; [&quot;a&quot;, &quot;a&quot;]</span><br><span class="line">r.exec(s) &#x2F;&#x2F; [&quot;a&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>设置正则表达式的<code>lastIndex</code>属性，对<code>match</code>方法无效，匹配总是从字符串的第一个字符开始。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var r &#x3D; &#x2F;a|b&#x2F;g;</span><br><span class="line">r.lastIndex &#x3D; 7;</span><br><span class="line">&#39;xaxb&#39;.match(r) &#x2F;&#x2F; [&#39;a&#39;, &#39;b&#39;]</span><br><span class="line">r.lastIndex &#x2F;&#x2F; 0</span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示，设置正则对象的<code>lastIndex</code>属性是无效的。</p>
+<h3 id="String-prototype-search"><a href="#String-prototype-search" class="headerlink" title="String.prototype.search()"></a>String.prototype.search()</h3><p>字符串对象的<code>search</code>方法，返回第一个满足条件的匹配结果在整个字符串中的位置。如果没有任何匹配，则返回<code>-1</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#39;_x_x&#39;.search(&#x2F;x&#x2F;)</span><br><span class="line">&#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，第一个匹配结果出现在字符串的<code>1</code>号位置。</p>
+<h3 id="String-prototype-replace"><a href="#String-prototype-replace" class="headerlink" title="String.prototype.replace()"></a>String.prototype.replace()</h3><p>字符串对象的<code>replace</code>方法可以替换匹配的值。它接受两个参数，第一个是正则表达式，表示搜索模式，第二个是替换的内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.replace(search, replacement)</span><br></pre></td></tr></table></figure>
+
+<p>正则表达式如果不加<code>g</code>修饰符，就替换第一个匹配成功的值，否则替换所有匹配成功的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#39;aaa&#39;.replace(&#39;a&#39;, &#39;b&#39;) &#x2F;&#x2F; &quot;baa&quot;</span><br><span class="line">&#39;aaa&#39;.replace(&#x2F;a&#x2F;, &#39;b&#39;) &#x2F;&#x2F; &quot;baa&quot;</span><br><span class="line">&#39;aaa&#39;.replace(&#x2F;a&#x2F;g, &#39;b&#39;) &#x2F;&#x2F; &quot;bbb&quot;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，最后一个正则表达式使用了<code>g</code>修饰符，导致所有的<code>a</code>都被替换掉了。</p>
+<p><code>replace</code>方法的一个应用，就是消除字符串首尾两端的空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var str &#x3D; &#39;  #id div.class  &#39;;</span><br><span class="line"></span><br><span class="line">str.replace(&#x2F;^\s+|\s+$&#x2F;g, &#39;&#39;)</span><br><span class="line">&#x2F;&#x2F; &quot;#id div.class&quot;</span><br></pre></td></tr></table></figure>
+
+<p><code>replace</code>方法的第二个参数可以使用美元符号<code>$</code>，用来指代所替换的内容。</p>
+<ul>
+<li><code>$&amp;</code>：匹配的子字符串。</li>
+<li>`$``：匹配结果前面的文本。</li>
+<li><code>$&#39;</code>：匹配结果后面的文本。</li>
+<li><code>$n</code>：匹配成功的第<code>n</code>组内容，<code>n</code>是从1开始的自然数。</li>
+<li><code>$$</code>：指代美元符号<code>$</code>。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#39;hello world&#39;.replace(&#x2F;(\w+)\s(\w+)&#x2F;, &#39;$2 $1&#39;)</span><br><span class="line">&#x2F;&#x2F; &quot;world hello&quot;</span><br><span class="line"></span><br><span class="line">&#39;abc&#39;.replace(&#39;b&#39;, &#39;[$&#96;-$&amp;-$\&#39;]&#39;)</span><br><span class="line">&#x2F;&#x2F; &quot;a[a-b-c]c&quot;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，第一个例子是将匹配的组互换位置，第二个例子是改写匹配的值。</p>
+<h3 id="String-prototype-split"><a href="#String-prototype-split" class="headerlink" title="String.prototype.split()"></a>String.prototype.split()</h3><p>字符串对象的<code>split</code>方法按照正则规则分割字符串，返回一个由分割后的各个部分组成的数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.split(separator, [limit])</span><br></pre></td></tr></table></figure>
+
+<p>该方法接受两个参数，第一个参数是正则表达式，表示分隔规则，第二个参数是返回数组的最大成员数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 非正则分隔</span><br><span class="line">&#39;a,  b,c, d&#39;.split(&#39;,&#39;)</span><br><span class="line">&#x2F;&#x2F; [ &#39;a&#39;, &#39;  b&#39;, &#39;c&#39;, &#39; d&#39; ]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 正则分隔，去除多余的空格</span><br><span class="line">&#39;a,  b,c, d&#39;.split(&#x2F;, *&#x2F;)</span><br><span class="line">&#x2F;&#x2F; [ &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39; ]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 指定返回数组的最大成员</span><br><span class="line">&#39;a,  b,c, d&#39;.split(&#x2F;, *&#x2F;, 2)</span><br><span class="line">[ &#39;a&#39;, &#39;b&#39; ]</span><br></pre></td></tr></table></figure>
+
+<p>上面代码使用正则表达式，去除了子字符串的逗号后面的空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 例一</span><br><span class="line">&#39;aaa*a*&#39;.split(&#x2F;a*&#x2F;)</span><br><span class="line">&#x2F;&#x2F; [ &#39;&#39;, &#39;*&#39;, &#39;*&#39; ]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 例二</span><br><span class="line">&#39;aaa**a*&#39;.split(&#x2F;a*&#x2F;)</span><br><span class="line">&#x2F;&#x2F; [&quot;&quot;, &quot;*&quot;, &quot;*&quot;, &quot;*&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的分割规则是0次或多次的<code>a</code>，由于正则默认是贪婪匹配，所以例一的第一个分隔符是<code>aaa</code>，第二个分割符是<code>a</code>，将字符串分成三个部分，包含开始处的空字符串。例二的第一个分隔符是<code>aaa</code>，第二个分隔符是0个<code>a</code>（即空字符），第三个分隔符是<code>a</code>，所以将字符串分成四个部分。</p>
+<p>如果正则表达式带有括号，则括号匹配的部分也会作为数组成员返回。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#39;aaa*a*&#39;.split(&#x2F;(a*)&#x2F;)</span><br><span class="line">&#x2F;&#x2F; [ &#39;&#39;, &#39;aaa&#39;, &#39;*&#39;, &#39;a&#39;, &#39;*&#39; ]</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的正则表达式使用了括号，第一个组匹配是<code>aaa</code>，第二个组匹配是<code>a</code>，它们都作为数组成员返回。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JS%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" rel="tag"># JS内置对象</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/26/Math%E5%AF%B9%E8%B1%A1/" rel="prev" title="Math对象">
+      <i class="fa fa-chevron-left"></i> Math对象
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/30/JS-DOM/" rel="next" title="JS-DOM">
+      JS-DOM <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RegExp-对象"><span class="nav-number">1.</span> <span class="nav-text">RegExp 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实例属性"><span class="nav-number">1.1.</span> <span class="nav-text">实例属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例方法"><span class="nav-number">1.2.</span> <span class="nav-text">实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-prototype-test"><span class="nav-number">1.2.1.</span> <span class="nav-text">RegExp.prototype.test()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-prototype-exec"><span class="nav-number">1.2.2.</span> <span class="nav-text">RegExp.prototype.exec()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的实例方法"><span class="nav-number">1.3.</span> <span class="nav-text">字符串的实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-match"><span class="nav-number">1.3.1.</span> <span class="nav-text">String.prototype.match()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-search"><span class="nav-number">1.3.2.</span> <span class="nav-text">String.prototype.search()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-replace"><span class="nav-number">1.3.3.</span> <span class="nav-text">String.prototype.replace()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-split"><span class="nav-number">1.3.4.</span> <span class="nav-text">String.prototype.split()</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zyangg"
+      src="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+  <p class="site-author-name" itemprop="name">zyangg</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zyangg" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zyangg" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://cn.vuejs.org/" title="https:&#x2F;&#x2F;cn.vuejs.org&#x2F;" rel="noopener" target="_blank">Vue</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://element.eleme.cn/#/zh-CN" title="https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN" rel="noopener" target="_blank">Element</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <!--<span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>-->
+  <span class="author" itemprop="copyrightHolder">zyangg</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">205k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:06</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '4rCRJXfw8gRVMig58URu4P0j-gzGzoHsz',
+      appKey     : 'Hn4FxrLx0cjirhX2cVuiNxMh',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
