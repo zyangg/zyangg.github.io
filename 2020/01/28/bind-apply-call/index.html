@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Function.prototype.call()函数实例的call方法，可以指定函数内部this的指向（即函数执行时所在的作用域），然后在所指定的作用域中，调用该函数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bind apply call">
+<meta property="og:url" content="http://yoursite.com/2020/01/28/bind-apply-call/index.html">
+<meta property="og:site_name" content="zyangg的个人博客">
+<meta property="og:description" content="Function.prototype.call()函数实例的call方法，可以指定函数内部this的指向（即函数执行时所在的作用域），然后在所指定的作用域中，调用该函数。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-28T09:51:21.000Z">
+<meta property="article:modified_time" content="2020-06-07T12:58:10.592Z">
+<meta property="article:author" content="zyangg">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/01/28/bind-apply-call/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>bind apply call | zyangg的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zyangg的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">你的🐏</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/bind-apply-call/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+      <meta itemprop="name" content="zyangg">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zyangg的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          bind apply call
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-28 17:51:21" itemprop="dateCreated datePublished" datetime="2020-01-28T17:51:21+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-07 20:58:10" itemprop="dateModified" datetime="2020-06-07T20:58:10+08:00">2020-06-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/28/bind-apply-call/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/28/bind-apply-call/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="Function-prototype-call"><a href="#Function-prototype-call" class="headerlink" title="Function.prototype.call()"></a>Function.prototype.call()</h3><p>函数实例的<code>call</code>方法，可以指定函数内部<code>this</code>的指向（即函数执行时所在的作用域），然后在所指定的作用域中，调用该函数。</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">var f &#x3D; function () &#123;</span><br><span class="line">  return this;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">f() &#x3D;&#x3D;&#x3D; window &#x2F;&#x2F; true</span><br><span class="line">f.call(obj) &#x3D;&#x3D;&#x3D; obj &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，全局环境运行函数<code>f</code>时，<code>this</code>指向全局环境（浏览器为<code>window</code>对象）；<code>call</code>方法可以改变<code>this</code>的指向，指定<code>this</code>指向对象<code>obj</code>，然后在对象<code>obj</code>的作用域中运行函数<code>f</code>。</p>
+<p><code>call</code>方法的参数，应该是一个对象。如果参数为空、<code>null</code>和<code>undefined</code>，则默认传入全局对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var n &#x3D; 123;</span><br><span class="line">var obj &#x3D; &#123; n: 456 &#125;;</span><br><span class="line"></span><br><span class="line">function a() &#123;</span><br><span class="line">  console.log(this.n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a.call() &#x2F;&#x2F; 123</span><br><span class="line">a.call(null) &#x2F;&#x2F; 123</span><br><span class="line">a.call(undefined) &#x2F;&#x2F; 123</span><br><span class="line">a.call(window) &#x2F;&#x2F; 123</span><br><span class="line">a.call(obj) &#x2F;&#x2F; 456</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>a</code>函数中的<code>this</code>关键字，如果指向全局对象，返回结果为<code>123</code>。如果使用<code>call</code>方法将<code>this</code>关键字指向<code>obj</code>对象，返回结果为<code>456</code>。可以看到，如果<code>call</code>方法没有参数，或者参数为<code>null</code>或<code>undefined</code>，则等同于指向全局对象。</p>
+<p>如果<code>call</code>方法的参数是一个原始值，那么这个原始值会自动转成对应的包装对象，然后传入<code>call</code>方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var f &#x3D; function () &#123;</span><br><span class="line">  return this;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">f.call(5)</span><br><span class="line">&#x2F;&#x2F; Number &#123;[[PrimitiveValue]]: 5&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>call</code>的参数为<code>5</code>，不是对象，会被自动转成包装对象（<code>Number</code>的实例），绑定<code>f</code>内部的<code>this</code>。</p>
+<p><code>call</code>方法还可以接受多个参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func.call(thisValue, arg1, arg2, ...)</span><br></pre></td></tr></table></figure>
+
+<p><code>call</code>的第一个参数就是<code>this</code>所要指向的那个对象，后面的参数则是函数调用时所需的参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function add(a, b) &#123;</span><br><span class="line">  return a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add.call(this, 1, 2) &#x2F;&#x2F; 3</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>call</code>方法指定函数<code>add</code>内部的<code>this</code>绑定当前环境（对象），并且参数为<code>1</code>和<code>2</code>，因此函数<code>add</code>运行后得到<code>3</code>。</p>
+<p><code>call</code>方法的一个应用是调用对象的原生方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;&#125;;</span><br><span class="line">obj.hasOwnProperty(&#39;toString&#39;) &#x2F;&#x2F; false</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 覆盖掉继承的 hasOwnProperty 方法</span><br><span class="line">obj.hasOwnProperty &#x3D; function () &#123;</span><br><span class="line">  return true;</span><br><span class="line">&#125;;</span><br><span class="line">obj.hasOwnProperty(&#39;toString&#39;) &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">Object.prototype.hasOwnProperty.call(obj, &#39;toString&#39;) &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>hasOwnProperty</code>是<code>obj</code>对象继承的方法，如果这个方法一旦被覆盖，就不会得到正确结果。<code>call</code>方法可以解决这个问题，它将<code>hasOwnProperty</code>方法的原始定义放到<code>obj</code>对象上执行，这样无论<code>obj</code>上有没有同名方法，都不会影响结果。</p>
+<h3 id="Function-prototype-apply"><a href="#Function-prototype-apply" class="headerlink" title="Function.prototype.apply()"></a>Function.prototype.apply()</h3><p><code>apply</code>方法的作用与<code>call</code>方法类似，也是改变<code>this</code>指向，然后再调用该函数。唯一的区别就是，它接收一个数组作为函数执行时的参数，使用格式如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func.apply(thisValue, [arg1, arg2, ...])</span><br></pre></td></tr></table></figure>
+
+<p><code>apply</code>方法的第一个参数也是<code>this</code>所要指向的那个对象，如果设为<code>null</code>或<code>undefined</code>，则等同于指定全局对象。第二个参数则是一个数组，该数组的所有成员依次作为参数，传入原函数。原函数的参数，在<code>call</code>方法中必须一个个添加，但是在<code>apply</code>方法中，必须以数组形式添加。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function f(x, y)&#123;</span><br><span class="line">  console.log(x + y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f.call(null, 1, 1) &#x2F;&#x2F; 2</span><br><span class="line">f.apply(null, [1, 1]) &#x2F;&#x2F; 2</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>f</code>函数本来接受两个参数，使用<code>apply</code>方法以后，就变成可以接受一个数组作为参数。</p>
+<p>利用这一点，可以做一些有趣的应用。</p>
+<p><strong>（1）找出数组最大元素</strong></p>
+<p>JavaScript 不提供找出数组最大元素的函数。结合使用<code>apply</code>方法和<code>Math.max</code>方法，就可以返回数组的最大元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [10, 2, 4, 15, 9];</span><br><span class="line">Math.max.apply(null, a) &#x2F;&#x2F; 15</span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）将数组的空元素变为<code>undefined</code></strong></p>
+<p>通过<code>apply</code>方法，利用<code>Array</code>构造函数将数组的空元素变成<code>undefined</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Array.apply(null, [&#39;a&#39;, ,&#39;b&#39;])</span><br><span class="line">&#x2F;&#x2F; [ &#39;a&#39;, undefined, &#39;b&#39; ]</span><br></pre></td></tr></table></figure>
+
+<p>空元素与<code>undefined</code>的差别在于，数组的<code>forEach</code>方法会跳过空元素，但是不会跳过<code>undefined</code>。因此，遍历内部元素的时候，会得到不同的结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&#39;a&#39;, , &#39;b&#39;];</span><br><span class="line"></span><br><span class="line">function print(i) &#123;</span><br><span class="line">  console.log(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a.forEach(print)</span><br><span class="line">&#x2F;&#x2F; a</span><br><span class="line">&#x2F;&#x2F; b</span><br><span class="line"></span><br><span class="line">Array.apply(null, a).forEach(print)</span><br><span class="line">&#x2F;&#x2F; a</span><br><span class="line">&#x2F;&#x2F; undefined</span><br><span class="line">&#x2F;&#x2F; b</span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）转换类似数组的对象</strong></p>
+<p>另外，利用数组对象的<code>slice</code>方法，可以将一个类似数组的对象（比如<code>arguments</code>对象）转为真正的数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Array.prototype.slice.apply(&#123;0: 1, length: 1&#125;) &#x2F;&#x2F; [1]</span><br><span class="line">Array.prototype.slice.apply(&#123;0: 1&#125;) &#x2F;&#x2F; []</span><br><span class="line">Array.prototype.slice.apply(&#123;0: 1, length: 2&#125;) &#x2F;&#x2F; [1, undefined]</span><br><span class="line">Array.prototype.slice.apply(&#123;length: 1&#125;) &#x2F;&#x2F; [undefined]</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的<code>apply</code>方法的参数都是对象，但是返回结果都是数组，这就起到了将对象转成数组的目的。从上面代码可以看到，这个方法起作用的前提是，被处理的对象必须有<code>length</code>属性，以及相对应的数字键。</p>
+<p><strong>（4）绑定回调函数的对象</strong></p>
+<p>前面的按钮点击事件的例子，可以改写如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var o &#x3D; new Object();</span><br><span class="line"></span><br><span class="line">o.f &#x3D; function () &#123;</span><br><span class="line">  console.log(this &#x3D;&#x3D;&#x3D; o);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var f &#x3D; function ()&#123;</span><br><span class="line">  o.f.apply(o);</span><br><span class="line">  &#x2F;&#x2F; 或者 o.f.call(o);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; jQuery 的写法</span><br><span class="line">$(&#39;#button&#39;).on(&#39;click&#39;, f);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，点击按钮以后，控制台将会显示<code>true</code>。由于<code>apply()</code>方法（或者<code>call()</code>方法）不仅绑定函数执行时所在的对象，还会立即执行函数，因此不得不把绑定语句写在一个函数体内。更简洁的写法是采用下面介绍的<code>bind()</code>方法。</p>
+<h3 id="Function-prototype-bind"><a href="#Function-prototype-bind" class="headerlink" title="Function.prototype.bind()"></a>Function.prototype.bind()</h3><p><code>bind()</code>方法用于将函数体内的<code>this</code>绑定到某个对象，然后返回一个新函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var d &#x3D; new Date();</span><br><span class="line">d.getTime() &#x2F;&#x2F; 1481869925657</span><br><span class="line"></span><br><span class="line">var print &#x3D; d.getTime;</span><br><span class="line">print() &#x2F;&#x2F; Uncaught TypeError: this is not a Date object.</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，我们将<code>d.getTime()</code>方法赋给变量<code>print</code>，然后调用<code>print()</code>就报错了。这是因为<code>getTime()</code>方法内部的<code>this</code>，绑定<code>Date</code>对象的实例，赋给变量<code>print</code>以后，内部的<code>this</code>已经不指向<code>Date</code>对象的实例了。</p>
+<p><code>bind()</code>方法可以解决这个问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var print &#x3D; d.getTime.bind(d);</span><br><span class="line">print() &#x2F;&#x2F; 1481869925657</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>bind()</code>方法将<code>getTime()</code>方法内部的<code>this</code>绑定到<code>d</code>对象，这时就可以安全地将这个方法赋值给其他变量了。</p>
+<p><code>bind</code>方法的参数就是所要绑定<code>this</code>的对象，下面是一个更清晰的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var counter &#x3D; &#123;</span><br><span class="line">  count: 0,</span><br><span class="line">  inc: function () &#123;</span><br><span class="line">    this.count++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var func &#x3D; counter.inc.bind(counter);</span><br><span class="line">func();</span><br><span class="line">counter.count &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>counter.inc()</code>方法被赋值给变量<code>func</code>。这时必须用<code>bind()</code>方法将<code>inc()</code>内部的<code>this</code>，绑定到<code>counter</code>，否则就会出错。</p>
+<p><code>this</code>绑定到其他对象也是可以的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var counter &#x3D; &#123;</span><br><span class="line">  count: 0,</span><br><span class="line">  inc: function () &#123;</span><br><span class="line">    this.count++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var obj &#x3D; &#123;</span><br><span class="line">  count: 100</span><br><span class="line">&#125;;</span><br><span class="line">var func &#x3D; counter.inc.bind(obj);</span><br><span class="line">func();</span><br><span class="line">obj.count &#x2F;&#x2F; 101</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>bind()</code>方法将<code>inc()</code>方法内部的<code>this</code>，绑定到<code>obj</code>对象。结果调用<code>func</code>函数以后，递增的就是<code>obj</code>内部的<code>count</code>属性。</p>
+<p><code>bind()</code>还可以接受更多的参数，将这些参数绑定原函数的参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var add &#x3D; function (x, y) &#123;</span><br><span class="line">  return x * this.m + y * this.n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj &#x3D; &#123;</span><br><span class="line">  m: 2,</span><br><span class="line">  n: 2</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var newAdd &#x3D; add.bind(obj, 5);</span><br><span class="line">newAdd(5) &#x2F;&#x2F; 20</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>bind()</code>方法除了绑定<code>this</code>对象，还将<code>add()</code>函数的第一个参数<code>x</code>绑定成<code>5</code>，然后返回一个新函数<code>newAdd()</code>，这个函数只要再接受一个参数<code>y</code>就能运行了。</p>
+<p>如果<code>bind()</code>方法的第一个参数是<code>null</code>或<code>undefined</code>，等于将<code>this</code>绑定到全局对象，函数运行时<code>this</code>指向顶层对象（浏览器为<code>window</code>）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function add(x, y) &#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var plus5 &#x3D; add.bind(null, 5);</span><br><span class="line">plus5(10) &#x2F;&#x2F; 15</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，函数<code>add()</code>内部并没有<code>this</code>，使用<code>bind()</code>方法的主要目的是绑定参数<code>x</code>，以后每次运行新函数<code>plus5()</code>，就只需要提供另一个参数<code>y</code>就够了。而且因为<code>add()</code>内部没有<code>this</code>，所以<code>bind()</code>的第一个参数是<code>null</code>，不过这里如果是其他对象，也没有影响。</p>
+<p><code>bind()</code>方法有一些使用注意点。</p>
+<p><strong>（1）每一次返回一个新函数</strong></p>
+<p><code>bind()</code>方法每运行一次，就返回一个新函数，这会产生一些问题。比如，监听事件的时候，不能写成下面这样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(&#39;click&#39;, o.m.bind(o));</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>click</code>事件绑定<code>bind()</code>方法生成的一个匿名函数。这样会导致无法取消绑定，所以下面的代码是无效的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.removeEventListener(&#39;click&#39;, o.m.bind(o));</span><br></pre></td></tr></table></figure>
+
+<p>正确的方法是写成下面这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var listener &#x3D; o.m.bind(o);</span><br><span class="line">element.addEventListener(&#39;click&#39;, listener);</span><br><span class="line">&#x2F;&#x2F;  ...</span><br><span class="line">element.removeEventListener(&#39;click&#39;, listener);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）结合回调函数使用</strong></p>
+<p>回调函数是 JavaScript 最常用的模式之一，但是一个常见的错误是，将包含<code>this</code>的方法直接当作回调函数。解决方法就是使用<code>bind()</code>方法，将<code>counter.inc()</code>绑定<code>counter</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var counter &#x3D; &#123;</span><br><span class="line">  count: 0,</span><br><span class="line">  inc: function () &#123;</span><br><span class="line">    &#39;use strict&#39;;</span><br><span class="line">    this.count++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function callIt(callback) &#123;</span><br><span class="line">  callback();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">callIt(counter.inc.bind(counter));</span><br><span class="line">counter.count &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>callIt()</code>方法会调用回调函数。这时如果直接把<code>counter.inc</code>传入，调用时<code>counter.inc()</code>内部的<code>this</code>就会指向全局对象。使用<code>bind()</code>方法将<code>counter.inc</code>绑定<code>counter</code>以后，就不会有这个问题，<code>this</code>总是指向<code>counter</code>。</p>
+<p>还有一种情况比较隐蔽，就是某些数组方法可以接受一个函数当作参数。这些函数内部的<code>this</code>指向，很可能也会出错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;</span><br><span class="line">  name: &#39;张三&#39;,</span><br><span class="line">  times: [1, 2, 3],</span><br><span class="line">  print: function () &#123;</span><br><span class="line">    this.times.forEach(function (n) &#123;</span><br><span class="line">      console.log(this.name);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.print()</span><br><span class="line">&#x2F;&#x2F; 没有任何输出</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>obj.print</code>内部<code>this.times</code>的<code>this</code>是指向<code>obj</code>的，这个没有问题。但是，<code>forEach()</code>方法的回调函数内部的<code>this.name</code>却是指向全局对象，导致没有办法取到值。稍微改动一下，就可以看得更清楚。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">obj.print &#x3D; function () &#123;</span><br><span class="line">  this.times.forEach(function (n) &#123;</span><br><span class="line">    console.log(this &#x3D;&#x3D;&#x3D; window);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.print()</span><br><span class="line">&#x2F;&#x2F; true</span><br><span class="line">&#x2F;&#x2F; true</span><br><span class="line">&#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
+
+<p>解决这个问题，也是通过<code>bind()</code>方法绑定<code>this</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">obj.print &#x3D; function () &#123;</span><br><span class="line">  this.times.forEach(function (n) &#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">  &#125;.bind(this));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.print()</span><br><span class="line">&#x2F;&#x2F; 张三</span><br><span class="line">&#x2F;&#x2F; 张三</span><br><span class="line">&#x2F;&#x2F; 张三</span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）结合<code>call()</code>方法使用</strong></p>
+<p>利用<code>bind()</code>方法，可以改写一些 JavaScript 原生方法的使用形式，以数组的<code>slice()</code>方法为例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3].slice(0, 1) &#x2F;&#x2F; [1]</span><br><span class="line">&#x2F;&#x2F; 等同于</span><br><span class="line">Array.prototype.slice.call([1, 2, 3], 0, 1) &#x2F;&#x2F; [1]</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码中，数组的<code>slice</code>方法从<code>[1, 2, 3]</code>里面，按照指定的开始位置和结束位置，切分出另一个数组。这样做的本质是在<code>[1, 2, 3]</code>上面调用<code>Array.prototype.slice()</code>方法，因此可以用<code>call</code>方法表达这个过程，得到同样的结果。</p>
+<p><code>call()</code>方法实质上是调用<code>Function.prototype.call()</code>方法，因此上面的表达式可以用<code>bind()</code>方法改写。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var slice &#x3D; Function.prototype.call.bind(Array.prototype.slice);</span><br><span class="line">slice([1, 2, 3], 0, 1) &#x2F;&#x2F; [1]</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的含义就是，将<code>Array.prototype.slice</code>变成<code>Function.prototype.call</code>方法所在的对象，调用时就变成了<code>Array.prototype.slice.call</code>。类似的写法还可以用于其他数组方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var push &#x3D; Function.prototype.call.bind(Array.prototype.push);</span><br><span class="line">var pop &#x3D; Function.prototype.call.bind(Array.prototype.pop);</span><br><span class="line"></span><br><span class="line">var a &#x3D; [1 ,2 ,3];</span><br><span class="line">push(a, 4)</span><br><span class="line">a &#x2F;&#x2F; [1, 2, 3, 4]</span><br><span class="line"></span><br><span class="line">pop(a)</span><br><span class="line">a &#x2F;&#x2F; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+
+<p>如果再进一步，将<code>Function.prototype.call</code>方法绑定到<code>Function.prototype.bind</code>对象，就意味着<code>bind</code>的调用形式也可以被改写。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function f() &#123;</span><br><span class="line">  console.log(this.v);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var o &#x3D; &#123; v: 123 &#125;;</span><br><span class="line">var bind &#x3D; Function.prototype.call.bind(Function.prototype.bind);</span><br><span class="line">bind(f, o)() &#x2F;&#x2F; 123</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的含义就是，将<code>Function.prototype.bind</code>方法绑定在<code>Function.prototype.call</code>上面，所以<code>bind</code>方法就可以直接使用，不需要在函数实例上使用。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/27/RegExp%E5%AF%B9%E8%B1%A1/" rel="prev" title="RegExp对象">
+      <i class="fa fa-chevron-left"></i> RegExp对象
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/30/JS-DOM/" rel="next" title="JS-DOM">
+      JS-DOM <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-prototype-call"><span class="nav-number">1.</span> <span class="nav-text">Function.prototype.call()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-prototype-apply"><span class="nav-number">2.</span> <span class="nav-text">Function.prototype.apply()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-prototype-bind"><span class="nav-number">3.</span> <span class="nav-text">Function.prototype.bind()</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zyangg"
+      src="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+  <p class="site-author-name" itemprop="name">zyangg</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zyangg" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zyangg" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://cn.vuejs.org/" title="https:&#x2F;&#x2F;cn.vuejs.org&#x2F;" rel="noopener" target="_blank">Vue</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://element.eleme.cn/#/zh-CN" title="https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN" rel="noopener" target="_blank">Element</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <!--<span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>-->
+  <span class="author" itemprop="copyrightHolder">zyangg</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">222k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:22</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '4rCRJXfw8gRVMig58URu4P0j-gzGzoHsz',
+      appKey     : 'Hn4FxrLx0cjirhX2cVuiNxMh',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
