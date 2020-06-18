@@ -214,6 +214,90 @@
       </tags>
   </entry>
   <entry>
+    <title>CSS定位</title>
+    <url>/2020/01/16/CSS%E5%AE%9A%E4%BD%8D/</url>
+    <content><![CDATA[<h2 id="一、position-属性的作用"><a href="#一、position-属性的作用" class="headerlink" title="一、position 属性的作用"></a>一、position 属性的作用</h2><p><code>position</code>属性用来指定一个元素在网页上的位置，一共有5种定位方式，即<code>position</code>属性主要有五个值。</p>
+<a id="more"></a>
+
+<blockquote>
+<ul>
+<li><code>static</code></li>
+<li><code>relative</code></li>
+<li><code>fixed</code></li>
+<li><code>absolute</code></li>
+<li><code>sticky</code></li>
+</ul>
+</blockquote>
+<h2 id="二、static-属性值"><a href="#二、static-属性值" class="headerlink" title="二、static 属性值"></a>二、static 属性值</h2><p><code>static</code>是<code>position</code>属性的默认值。如果省略<code>position</code>属性，浏览器就认为该元素是<code>static</code>定位。</p>
+<p>这时，浏览器会按照源码的顺序，决定每个元素的位置，这称为”正常的页面流”（normal flow）。每个块级元素占据自己的区块（block），元素与元素之间不产生重叠，这个位置就是元素的默认位置。</p>
+<p>注意，<code>static</code>定位所导致的元素位置，是浏览器自主决定的，所以这时<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性无效。</p>
+<h2 id="三、relative，absolute，fixed"><a href="#三、relative，absolute，fixed" class="headerlink" title="三、relative，absolute，fixed"></a>三、relative，absolute，fixed</h2><p><code>relative</code>、<code>absolute</code>、<code>fixed</code>这三个属性值有一个共同点，都是相对于某个基点的定位，不同之处仅仅在于基点不同。所以，只要理解了它们的基点是什么，就很容易掌握这三个属性值。</p>
+<p>这三种定位都不会对其他元素的位置产生影响，因此元素之间可能产生重叠。</p>
+<h3 id="3-1-relative-属性值"><a href="#3-1-relative-属性值" class="headerlink" title="3.1 relative 属性值"></a>3.1 relative 属性值</h3><p><code>relative</code>表示，相对于默认位置（即<code>static</code>时的位置）进行偏移，即定位基点是元素的默认位置。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111721.jpg" alt="img"></p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111722.jpg" alt="img"></p>
+<p>它必须搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用，用来指定偏移的方向和距离。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111723.jpg" alt="img"></p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码中，<code>div</code>元素从默认位置向下偏移<code>20px</code>（即距离顶部<code>20px</code>）。</p>
+<h3 id="3-2-absolute-属性值"><a href="#3-2-absolute-属性值" class="headerlink" title="3.2 absolute 属性值"></a>3.2 absolute 属性值</h3><p><code>absolute</code>表示，相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。</p>
+<p>它有一个重要的限制条件：定位基点（一般是父元素）不能是<code>static</code>定位，否则定位基点就会变成整个网页的根元素<code>html</code>。另外，<code>absolute</code>定位也必须搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111801.jpg" alt="img"></p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  HTML 代码如下</span></span><br><span class="line"><span class="comment">  &lt;div id="father"&gt;</span></span><br><span class="line"><span class="comment">    &lt;div id="son"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment">  &lt;/div&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-id">#father</span> &#123;</span><br><span class="line">  <span class="attribute">positon</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#son</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码中，父元素是<code>relative</code>定位，子元素是<code>absolute</code>定位，所以子元素的定位基点是父元素，相对于父元素的顶部向下偏移<code>20px</code>。如果父元素是<code>static</code>定位，上例的子元素就是距离网页的顶部向下偏移<code>20px</code>。</p>
+<p>注意，<code>absolute</code>定位的元素会被”正常页面流”忽略，即在”正常页面流”中，该元素所占空间为零，周边元素不受影响。</p>
+<h3 id="3-3-fixed-属性值"><a href="#3-3-fixed-属性值" class="headerlink" title="3.3 fixed 属性值"></a>3.3 fixed 属性值</h3><p><code>fixed</code>表示，相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111802.jpg" alt="img"></p>
+<p>它如果搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用，表示元素的初始位置是基于视口计算的，否则初始位置就是元素的默认位置。</p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码中，<code>div</code>元素始终在视口顶部，不随网页滚动而变化。</p>
+<h2 id="四、sticky-属性值"><a href="#四、sticky-属性值" class="headerlink" title="四、sticky 属性值"></a>四、sticky 属性值</h2><p><code>sticky</code>跟前面四个属性值都不一样，它会产生动态效果，很像<code>relative</code>和<code>fixed</code>的结合：一些时候是<code>relative</code>定位（定位基点是自身默认位置），另一些时候自动变成<code>fixed</code>定位（定位基点是视口）。</p>
+<p>因此，它能够形成”动态固定”的效果。比如，网页的搜索工具栏，初始加载时在自己的默认位置（<code>relative</code>定位）。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111604.jpg" alt="img"></p>
+<p>页面向下滚动时，工具栏变成固定位置，始终停留在页面头部（<code>fixed</code>定位）。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111605.jpg" alt="img"></p>
+<p>等到页面重新向上滚动回到原位，工具栏也会回到默认位置。</p>
+<p><code>sticky</code>生效的前提是，必须搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用，不能省略，否则等同于<code>relative</code>定位，不产生”动态固定”的效果。原因是这四个属性用来定义”偏移距离”，浏览器把它当作<code>sticky</code>的生效门槛。</p>
+<p>它的具体规则是，当页面滚动，父元素开始脱离视口时（即部分不可见），只要与<code>sticky</code>元素的距离达到生效门槛，<code>relative</code>定位自动切换为<code>fixed</code>定位；等到父元素完全脱离视口时（即完全不可见），<code>fixed</code>定位自动切换回<code>relative</code>定位。</p>
+<p>请看下面的示例代码。（注意，除了已被淘汰的 IE 以外，其他浏览器目前都支持<code>sticky</code>。但是，Safari 浏览器需要加上浏览器前缀<code>-webkit-</code>。）</p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#toolbar</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: -webkit-sticky; <span class="comment">/* safari 浏览器 */</span></span><br><span class="line">  <span class="attribute">position</span>: sticky; <span class="comment">/* 其他浏览器 */</span></span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码中，页面向下滚动时，<code>#toolbar</code>的父元素开始脱离视口，一旦视口的顶部与<code>#toolbar</code>的距离小于<code>20px</code>（门槛值），<code>#toolbar</code>就自动变为<code>fixed</code>定位，保持与视口顶部<code>20px</code>的距离。页面继续向下滚动，父元素彻底离开视口（即整个父元素完全不可见），<code>#toolbar</code>恢复成<code>relative</code>定位。</p>
+<h2 id="五、-sticky-的应用"><a href="#五、-sticky-的应用" class="headerlink" title="五、 sticky 的应用"></a>五、 sticky 的应用</h2><p><code>sticky</code>定位可以实现一些很有用的效果。除了上面提到”动态固定”效果，这里再介绍两个。</p>
+<h2 id="5-1-堆叠效果"><a href="#5-1-堆叠效果" class="headerlink" title="5.1 堆叠效果"></a>5.1 堆叠效果</h2><p>堆叠效果（stacking）指的是页面滚动时，下方的元素覆盖上方的元素。下面是一个图片堆叠的例子，下方的图片会随着页面滚动，覆盖上方的图片（查看 <a href="https://jsbin.com/fegiqoquki/edit?html,css,output" target="_blank" rel="noopener">demo</a>）。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111609.jpg" alt="img"></p>
+<p>HTML 代码就是几张图片。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;&lt;img src&#x3D;&quot;pic1.jpg&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div&gt;&lt;img src&#x3D;&quot;pic2.jpg&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div&gt;&lt;img src&#x3D;&quot;pic3.jpg&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>CSS 代码极其简单，只要两行。</p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: sticky;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>它的原理是页面向下滚动时，每张图片都会变成<code>fixed</code>定位，导致后一张图片重叠在前一张图片上面。详细解释可以看<a href="https://dev.to/vinceumo/slide-stacking-effect-using-position-sticky-91f" target="_blank" rel="noopener">这里</a>。</p>
+<h3 id="5-2-表格的表头锁定"><a href="#5-2-表格的表头锁定" class="headerlink" title="5.2 表格的表头锁定"></a>5.2 表格的表头锁定</h3><p>大型表格滚动的时候，表头始终固定，也可以用<code>sticky</code>实现（查看 <a href="https://jsbin.com/decemanohe/edit?html,css,output" target="_blank" rel="noopener">demo</a>）。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111610.jpg" alt="img"></p>
+<p>CSS 代码也很简单。</p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">th</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: sticky;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>需要注意的是，<code>sticky</code>必须设在<code>元素上面，不能设在和元素，因为这两个元素没有</code>relative<code>定位，也就无法产生</code>sticky`效果。详细解释可以看<a href="https://css-tricks.com/position-sticky-and-table-headers/" target="_blank" rel="noopener">这里</a>。</p>
+<h3 id="参考《阮一峰的网络日志》"><a href="#参考《阮一峰的网络日志》" class="headerlink" title="参考《阮一峰的网络日志》"></a>参考《阮一峰的网络日志》</h3>]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSS动画</title>
     <url>/2020/01/20/CSS%E5%8A%A8%E7%94%BB/</url>
     <content><![CDATA[<h2 id="第一部分：CSS-Transition"><a href="#第一部分：CSS-Transition" class="headerlink" title="第一部分：CSS Transition"></a>第一部分：CSS Transition</h2><h3 id="1-1-基本用法"><a href="#1-1-基本用法" class="headerlink" title="1.1 基本用法"></a>1.1 基本用法</h3><p>在CSS 3引入Transition（过渡）这个概念之前，CSS是没有时间轴的。也就是说，所有的状态变化，都是即时完成。</p>
@@ -357,90 +441,6 @@
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-animation</span>: <span class="number">1s</span> rainbow;</span><br><span class="line">  <span class="attribute">animation</span>: <span class="number">1s</span> rainbow;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@-webkit-keyframes</span> rainbow &#123;</span><br><span class="line">  0% &#123; <span class="attribute">background</span>: <span class="number">#c00</span>; &#125;</span><br><span class="line">  50% &#123; <span class="attribute">background</span>: orange; &#125;</span><br><span class="line">  100% &#123; <span class="attribute">background</span>: yellowgreen; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@keyframes</span> rainbow &#123;</span><br><span class="line">  0% &#123; <span class="attribute">background</span>: <span class="number">#c00</span>; &#125;</span><br><span class="line">  50% &#123; <span class="attribute">background</span>: orange; &#125;</span><br><span class="line">  100% &#123; <span class="attribute">background</span>: yellowgreen; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="参考《阮一峰网络日志》"><a href="#参考《阮一峰网络日志》" class="headerlink" title="参考《阮一峰网络日志》"></a>参考《阮一峰网络日志》</h3>]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-      <tags>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSS定位</title>
-    <url>/2020/01/16/CSS%E5%AE%9A%E4%BD%8D/</url>
-    <content><![CDATA[<h2 id="一、position-属性的作用"><a href="#一、position-属性的作用" class="headerlink" title="一、position 属性的作用"></a>一、position 属性的作用</h2><p><code>position</code>属性用来指定一个元素在网页上的位置，一共有5种定位方式，即<code>position</code>属性主要有五个值。</p>
-<a id="more"></a>
-
-<blockquote>
-<ul>
-<li><code>static</code></li>
-<li><code>relative</code></li>
-<li><code>fixed</code></li>
-<li><code>absolute</code></li>
-<li><code>sticky</code></li>
-</ul>
-</blockquote>
-<h2 id="二、static-属性值"><a href="#二、static-属性值" class="headerlink" title="二、static 属性值"></a>二、static 属性值</h2><p><code>static</code>是<code>position</code>属性的默认值。如果省略<code>position</code>属性，浏览器就认为该元素是<code>static</code>定位。</p>
-<p>这时，浏览器会按照源码的顺序，决定每个元素的位置，这称为”正常的页面流”（normal flow）。每个块级元素占据自己的区块（block），元素与元素之间不产生重叠，这个位置就是元素的默认位置。</p>
-<p>注意，<code>static</code>定位所导致的元素位置，是浏览器自主决定的，所以这时<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性无效。</p>
-<h2 id="三、relative，absolute，fixed"><a href="#三、relative，absolute，fixed" class="headerlink" title="三、relative，absolute，fixed"></a>三、relative，absolute，fixed</h2><p><code>relative</code>、<code>absolute</code>、<code>fixed</code>这三个属性值有一个共同点，都是相对于某个基点的定位，不同之处仅仅在于基点不同。所以，只要理解了它们的基点是什么，就很容易掌握这三个属性值。</p>
-<p>这三种定位都不会对其他元素的位置产生影响，因此元素之间可能产生重叠。</p>
-<h3 id="3-1-relative-属性值"><a href="#3-1-relative-属性值" class="headerlink" title="3.1 relative 属性值"></a>3.1 relative 属性值</h3><p><code>relative</code>表示，相对于默认位置（即<code>static</code>时的位置）进行偏移，即定位基点是元素的默认位置。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111721.jpg" alt="img"></p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111722.jpg" alt="img"></p>
-<p>它必须搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用，用来指定偏移的方向和距离。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111723.jpg" alt="img"></p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>上面代码中，<code>div</code>元素从默认位置向下偏移<code>20px</code>（即距离顶部<code>20px</code>）。</p>
-<h3 id="3-2-absolute-属性值"><a href="#3-2-absolute-属性值" class="headerlink" title="3.2 absolute 属性值"></a>3.2 absolute 属性值</h3><p><code>absolute</code>表示，相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。</p>
-<p>它有一个重要的限制条件：定位基点（一般是父元素）不能是<code>static</code>定位，否则定位基点就会变成整个网页的根元素<code>html</code>。另外，<code>absolute</code>定位也必须搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111801.jpg" alt="img"></p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  HTML 代码如下</span></span><br><span class="line"><span class="comment">  &lt;div id="father"&gt;</span></span><br><span class="line"><span class="comment">    &lt;div id="son"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment">  &lt;/div&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-id">#father</span> &#123;</span><br><span class="line">  <span class="attribute">positon</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#son</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>上面代码中，父元素是<code>relative</code>定位，子元素是<code>absolute</code>定位，所以子元素的定位基点是父元素，相对于父元素的顶部向下偏移<code>20px</code>。如果父元素是<code>static</code>定位，上例的子元素就是距离网页的顶部向下偏移<code>20px</code>。</p>
-<p>注意，<code>absolute</code>定位的元素会被”正常页面流”忽略，即在”正常页面流”中，该元素所占空间为零，周边元素不受影响。</p>
-<h3 id="3-3-fixed-属性值"><a href="#3-3-fixed-属性值" class="headerlink" title="3.3 fixed 属性值"></a>3.3 fixed 属性值</h3><p><code>fixed</code>表示，相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111802.jpg" alt="img"></p>
-<p>它如果搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用，表示元素的初始位置是基于视口计算的，否则初始位置就是元素的默认位置。</p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>上面代码中，<code>div</code>元素始终在视口顶部，不随网页滚动而变化。</p>
-<h2 id="四、sticky-属性值"><a href="#四、sticky-属性值" class="headerlink" title="四、sticky 属性值"></a>四、sticky 属性值</h2><p><code>sticky</code>跟前面四个属性值都不一样，它会产生动态效果，很像<code>relative</code>和<code>fixed</code>的结合：一些时候是<code>relative</code>定位（定位基点是自身默认位置），另一些时候自动变成<code>fixed</code>定位（定位基点是视口）。</p>
-<p>因此，它能够形成”动态固定”的效果。比如，网页的搜索工具栏，初始加载时在自己的默认位置（<code>relative</code>定位）。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111604.jpg" alt="img"></p>
-<p>页面向下滚动时，工具栏变成固定位置，始终停留在页面头部（<code>fixed</code>定位）。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111605.jpg" alt="img"></p>
-<p>等到页面重新向上滚动回到原位，工具栏也会回到默认位置。</p>
-<p><code>sticky</code>生效的前提是，必须搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用，不能省略，否则等同于<code>relative</code>定位，不产生”动态固定”的效果。原因是这四个属性用来定义”偏移距离”，浏览器把它当作<code>sticky</code>的生效门槛。</p>
-<p>它的具体规则是，当页面滚动，父元素开始脱离视口时（即部分不可见），只要与<code>sticky</code>元素的距离达到生效门槛，<code>relative</code>定位自动切换为<code>fixed</code>定位；等到父元素完全脱离视口时（即完全不可见），<code>fixed</code>定位自动切换回<code>relative</code>定位。</p>
-<p>请看下面的示例代码。（注意，除了已被淘汰的 IE 以外，其他浏览器目前都支持<code>sticky</code>。但是，Safari 浏览器需要加上浏览器前缀<code>-webkit-</code>。）</p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#toolbar</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: -webkit-sticky; <span class="comment">/* safari 浏览器 */</span></span><br><span class="line">  <span class="attribute">position</span>: sticky; <span class="comment">/* 其他浏览器 */</span></span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>上面代码中，页面向下滚动时，<code>#toolbar</code>的父元素开始脱离视口，一旦视口的顶部与<code>#toolbar</code>的距离小于<code>20px</code>（门槛值），<code>#toolbar</code>就自动变为<code>fixed</code>定位，保持与视口顶部<code>20px</code>的距离。页面继续向下滚动，父元素彻底离开视口（即整个父元素完全不可见），<code>#toolbar</code>恢复成<code>relative</code>定位。</p>
-<h2 id="五、-sticky-的应用"><a href="#五、-sticky-的应用" class="headerlink" title="五、 sticky 的应用"></a>五、 sticky 的应用</h2><p><code>sticky</code>定位可以实现一些很有用的效果。除了上面提到”动态固定”效果，这里再介绍两个。</p>
-<h2 id="5-1-堆叠效果"><a href="#5-1-堆叠效果" class="headerlink" title="5.1 堆叠效果"></a>5.1 堆叠效果</h2><p>堆叠效果（stacking）指的是页面滚动时，下方的元素覆盖上方的元素。下面是一个图片堆叠的例子，下方的图片会随着页面滚动，覆盖上方的图片（查看 <a href="https://jsbin.com/fegiqoquki/edit?html,css,output" target="_blank" rel="noopener">demo</a>）。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111609.jpg" alt="img"></p>
-<p>HTML 代码就是几张图片。</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;&lt;img src&#x3D;&quot;pic1.jpg&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div&gt;&lt;img src&#x3D;&quot;pic2.jpg&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div&gt;&lt;img src&#x3D;&quot;pic3.jpg&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>CSS 代码极其简单，只要两行。</p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: sticky;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>它的原理是页面向下滚动时，每张图片都会变成<code>fixed</code>定位，导致后一张图片重叠在前一张图片上面。详细解释可以看<a href="https://dev.to/vinceumo/slide-stacking-effect-using-position-sticky-91f" target="_blank" rel="noopener">这里</a>。</p>
-<h3 id="5-2-表格的表头锁定"><a href="#5-2-表格的表头锁定" class="headerlink" title="5.2 表格的表头锁定"></a>5.2 表格的表头锁定</h3><p>大型表格滚动的时候，表头始终固定，也可以用<code>sticky</code>实现（查看 <a href="https://jsbin.com/decemanohe/edit?html,css,output" target="_blank" rel="noopener">demo</a>）。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111610.jpg" alt="img"></p>
-<p>CSS 代码也很简单。</p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">th</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: sticky;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>需要注意的是，<code>sticky</code>必须设在<code>元素上面，不能设在和元素，因为这两个元素没有</code>relative<code>定位，也就无法产生</code>sticky`效果。详细解释可以看<a href="https://css-tricks.com/position-sticky-and-table-headers/" target="_blank" rel="noopener">这里</a>。</p>
-<h3 id="参考《阮一峰的网络日志》"><a href="#参考《阮一峰的网络日志》" class="headerlink" title="参考《阮一峰的网络日志》"></a>参考《阮一峰的网络日志》</h3>]]></content>
       <categories>
         <category>CSS</category>
       </categories>
@@ -1081,6 +1081,93 @@
       </tags>
   </entry>
   <entry>
+    <title>Git</title>
+    <url>/2020/03/22/Git/</url>
+    <content><![CDATA[<h3 id="Git-的使用"><a href="#Git-的使用" class="headerlink" title="Git 的使用"></a>Git 的使用</h3><h4 id="Git-使用前配置"><a href="#Git-使用前配置" class="headerlink" title="Git 使用前配置"></a>Git 使用前配置</h4><p>在使用 git 前，需要告诉 git 你是谁，在向 git 仓库中提交时需要用到。</p>
+<a id="more"></a>
+
+<ol>
+<li>配置提交人姓名：<code>git config --global user.name 提交人姓名</code></li>
+<li>配置提交人姓名：<code>git config --global user.email 提交人邮箱</code> </li>
+<li>查看git配置信息：<code>git config --list</code>   </li>
+</ol>
+<p><strong>注意</strong></p>
+<ol>
+<li><p>如果要对配置信息进行修改，重复上述命令即可。</p>
+</li>
+<li><p>配置只需要执行一次。</p>
+</li>
+</ol>
+<h4 id="提交步骤"><a href="#提交步骤" class="headerlink" title="提交步骤"></a>提交步骤</h4><ol>
+<li><code>git init</code> 初始化git仓库</li>
+<li><code>git status</code> 查看文件状态</li>
+<li><code>git add 文件列表</code> 追踪文件</li>
+<li><code>git commit -m 提交信息</code>  向仓库中提交代码</li>
+<li><code>git log</code> 查看提交记录</li>
+</ol>
+<h4 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h4><ul>
+<li><p>用暂存区中的文件覆盖工作目录中的文件： <code>git checkout 文件</code></p>
+</li>
+<li><p>将文件从暂存区中删除： <code>git rm --cached 文件</code></p>
+</li>
+<li><p>将 git 仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录：<code>git rest --hard commitID</code> </p>
+</li>
+</ul>
+<h2 id="Git进阶"><a href="#Git进阶" class="headerlink" title="Git进阶"></a>Git进阶</h2><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>为了便于理解，可以认为分支就是当前工作目录中代码的一份副本。</p>
+<p>使用分支，可以让我们从开发主线上分离出来，以免影响开发主线。</p>
+<h4 id="分支细分"><a href="#分支细分" class="headerlink" title="分支细分"></a>分支细分</h4><ol>
+<li><p>主分支（master）：第一次向 git 仓库中提交更新记录时自动产生的一个分支。</p>
+</li>
+<li><p>开发分支（develop）：作为开发的分支，基于 master 分支创建。</p>
+</li>
+<li><p>功能分支（feature）：作为开发具体功能的分支，基于开发分支创建</p>
+</li>
+</ol>
+<p><strong>功能分支 -&gt; 开发分支 -&gt; 主分支</strong></p>
+<h4 id="分支命令"><a href="#分支命令" class="headerlink" title="分支命令"></a>分支命令</h4><ul>
+<li><p><code>git branch</code> 查看分支</p>
+</li>
+<li><p><code>git branch 分支名称</code> 创建分支</p>
+</li>
+<li><p><code>git checkout 分支名称</code> 切换分支</p>
+</li>
+<li><p><code>git merge 来源分支</code> 合并分支</p>
+</li>
+<li><p><code>git branch -d 分支名称</code> 删除分支（分支被合并后才允许删除）（-D 强制删除）</p>
+</li>
+</ul>
+<h3 id="暂时保存更改"><a href="#暂时保存更改" class="headerlink" title="暂时保存更改"></a>暂时保存更改</h3><p>在git中，可以暂时提取分支上所有的改动并存储，让开发人员得到一个干净的工作副本，临时转向其他工作。</p>
+<p>使用场景：分支临时切换</p>
+<ul>
+<li>存储临时改动：git add . 但是不提交到本地git仓库<code>git stash</code></li>
+<li>恢复改动：<code>git stash pop</code></li>
+</ul>
+<h3 id="将本地仓库推送到远程仓库"><a href="#将本地仓库推送到远程仓库" class="headerlink" title="将本地仓库推送到远程仓库"></a>将本地仓库推送到远程仓库</h3><p> <img src="https://img-blog.csdnimg.cn/20200531152401666.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<ol>
+<li><p>git push 远程仓库地址 分支名称</p>
+</li>
+<li><p>git push 远程仓库地址别名 分支名称</p>
+</li>
+<li><p>git push -u 远程仓库地址别名 分支名称</p>
+<p>-u 记住推送地址及分支，下次推送只需要输入git push即可</p>
+</li>
+<li><p>git remote add 远程仓库地址别名 远程仓库地址</p>
+</li>
+</ol>
+<h4 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h4><p>克隆远端数据仓库到本地：<code>git clone 仓库地址</code></p>
+<h4 id="拉取远程仓库中最新的版本"><a href="#拉取远程仓库中最新的版本" class="headerlink" title="拉取远程仓库中最新的版本"></a>拉取远程仓库中最新的版本</h4><p>拉取远程仓库中最新的版本：<code>git pull 远程仓库地址 分支名称</code></p>
+<h3 id="GIT忽略清单"><a href="#GIT忽略清单" class="headerlink" title="GIT忽略清单"></a>GIT忽略清单</h3><p>将不需要被git管理的文件名字添加到此文件中，在执行git命令的时候，git就会忽略这些文件。</p>
+<p>git忽略清单文件名称：<strong>.gitignore</strong></p>
+<p>将工作目录中的文件全部添加到暂存区：<code>git add .</code></p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flex布局</title>
     <url>/2020/01/18/Flex%E5%B8%83%E5%B1%80/</url>
     <content><![CDATA[<h2 id="一、Flex-布局是什么？"><a href="#一、Flex-布局是什么？" class="headerlink" title="一、Flex 布局是什么？"></a>一、Flex 布局是什么？</h2><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</p>
@@ -1259,93 +1346,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git</title>
-    <url>/2020/03/22/Git/</url>
-    <content><![CDATA[<h3 id="Git-的使用"><a href="#Git-的使用" class="headerlink" title="Git 的使用"></a>Git 的使用</h3><h4 id="Git-使用前配置"><a href="#Git-使用前配置" class="headerlink" title="Git 使用前配置"></a>Git 使用前配置</h4><p>在使用 git 前，需要告诉 git 你是谁，在向 git 仓库中提交时需要用到。</p>
-<a id="more"></a>
-
-<ol>
-<li>配置提交人姓名：<code>git config --global user.name 提交人姓名</code></li>
-<li>配置提交人姓名：<code>git config --global user.email 提交人邮箱</code> </li>
-<li>查看git配置信息：<code>git config --list</code>   </li>
-</ol>
-<p><strong>注意</strong></p>
-<ol>
-<li><p>如果要对配置信息进行修改，重复上述命令即可。</p>
-</li>
-<li><p>配置只需要执行一次。</p>
-</li>
-</ol>
-<h4 id="提交步骤"><a href="#提交步骤" class="headerlink" title="提交步骤"></a>提交步骤</h4><ol>
-<li><code>git init</code> 初始化git仓库</li>
-<li><code>git status</code> 查看文件状态</li>
-<li><code>git add 文件列表</code> 追踪文件</li>
-<li><code>git commit -m 提交信息</code>  向仓库中提交代码</li>
-<li><code>git log</code> 查看提交记录</li>
-</ol>
-<h4 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h4><ul>
-<li><p>用暂存区中的文件覆盖工作目录中的文件： <code>git checkout 文件</code></p>
-</li>
-<li><p>将文件从暂存区中删除： <code>git rm --cached 文件</code></p>
-</li>
-<li><p>将 git 仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录：<code>git rest --hard commitID</code> </p>
-</li>
-</ul>
-<h2 id="Git进阶"><a href="#Git进阶" class="headerlink" title="Git进阶"></a>Git进阶</h2><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>为了便于理解，可以认为分支就是当前工作目录中代码的一份副本。</p>
-<p>使用分支，可以让我们从开发主线上分离出来，以免影响开发主线。</p>
-<h4 id="分支细分"><a href="#分支细分" class="headerlink" title="分支细分"></a>分支细分</h4><ol>
-<li><p>主分支（master）：第一次向 git 仓库中提交更新记录时自动产生的一个分支。</p>
-</li>
-<li><p>开发分支（develop）：作为开发的分支，基于 master 分支创建。</p>
-</li>
-<li><p>功能分支（feature）：作为开发具体功能的分支，基于开发分支创建</p>
-</li>
-</ol>
-<p><strong>功能分支 -&gt; 开发分支 -&gt; 主分支</strong></p>
-<h4 id="分支命令"><a href="#分支命令" class="headerlink" title="分支命令"></a>分支命令</h4><ul>
-<li><p><code>git branch</code> 查看分支</p>
-</li>
-<li><p><code>git branch 分支名称</code> 创建分支</p>
-</li>
-<li><p><code>git checkout 分支名称</code> 切换分支</p>
-</li>
-<li><p><code>git merge 来源分支</code> 合并分支</p>
-</li>
-<li><p><code>git branch -d 分支名称</code> 删除分支（分支被合并后才允许删除）（-D 强制删除）</p>
-</li>
-</ul>
-<h3 id="暂时保存更改"><a href="#暂时保存更改" class="headerlink" title="暂时保存更改"></a>暂时保存更改</h3><p>在git中，可以暂时提取分支上所有的改动并存储，让开发人员得到一个干净的工作副本，临时转向其他工作。</p>
-<p>使用场景：分支临时切换</p>
-<ul>
-<li>存储临时改动：git add . 但是不提交到本地git仓库<code>git stash</code></li>
-<li>恢复改动：<code>git stash pop</code></li>
-</ul>
-<h3 id="将本地仓库推送到远程仓库"><a href="#将本地仓库推送到远程仓库" class="headerlink" title="将本地仓库推送到远程仓库"></a>将本地仓库推送到远程仓库</h3><p> <img src="https://img-blog.csdnimg.cn/20200531152401666.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="img"> </p>
-<ol>
-<li><p>git push 远程仓库地址 分支名称</p>
-</li>
-<li><p>git push 远程仓库地址别名 分支名称</p>
-</li>
-<li><p>git push -u 远程仓库地址别名 分支名称</p>
-<p>-u 记住推送地址及分支，下次推送只需要输入git push即可</p>
-</li>
-<li><p>git remote add 远程仓库地址别名 远程仓库地址</p>
-</li>
-</ol>
-<h4 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h4><p>克隆远端数据仓库到本地：<code>git clone 仓库地址</code></p>
-<h4 id="拉取远程仓库中最新的版本"><a href="#拉取远程仓库中最新的版本" class="headerlink" title="拉取远程仓库中最新的版本"></a>拉取远程仓库中最新的版本</h4><p>拉取远程仓库中最新的版本：<code>git pull 远程仓库地址 分支名称</code></p>
-<h3 id="GIT忽略清单"><a href="#GIT忽略清单" class="headerlink" title="GIT忽略清单"></a>GIT忽略清单</h3><p>将不需要被git管理的文件名字添加到此文件中，在执行git命令的时候，git就会忽略这些文件。</p>
-<p>git忽略清单文件名称：<strong>.gitignore</strong></p>
-<p>将工作目录中的文件全部添加到暂存区：<code>git add .</code></p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git命令清单</title>
     <url>/2020/03/23/Git%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/</url>
     <content><![CDATA[<h1 id="常用-Git-命令清单"><a href="#常用-Git-命令清单" class="headerlink" title="常用 Git 命令清单"></a>常用 Git 命令清单</h1><p>我每天使用 Git ，但是很多命令记不住。</p>
@@ -1398,6 +1398,265 @@
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>H5C3-1</title>
+    <url>/2020/04/04/H5C3-1/</url>
+    <content><![CDATA[<h2 id="HTML5-的概念与定义"><a href="#HTML5-的概念与定义" class="headerlink" title="HTML5 的概念与定义"></a><code>HTML5</code> 的概念与定义</h2><ul>
+<li><p>定义：<code>HTML5</code> 定义了 <code>HTML</code> 标准的最新版本，是对 <code>HTML</code> 的第五次重大修改，号称下一代的 <code>HTML</code> </p>
+</li>
+<li><p>两个概念：</p>
+<ul>
+<li><p>是一个新版本的 <code>HTML</code> 语言，定义了新的标签、特性和属性</p>
+</li>
+<li><p>拥有一个强大的技术集，这些技术集是指： <code>HTML5</code> 、<code>CSS3</code> 、<code>javascript</code>, 这也是广义上的 <code>HTML5</code></p>
+<a id="more"></a>
+
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="新增了那些语义化标签"><a href="#新增了那些语义化标签" class="headerlink" title="新增了那些语义化标签"></a>新增了那些语义化标签</h4><ul>
+<li><code>header</code>   —  头部标签</li>
+<li><code>nav</code>        —  导航标签</li>
+<li><code>article</code> —   内容标签</li>
+<li><code>section</code> —   块级标签</li>
+<li><code>aside</code>     —   侧边栏标签</li>
+<li><code>footer</code>   —   尾部标签</li>
+</ul>
+<h4 id="多媒体音频标签"><a href="#多媒体音频标签" class="headerlink" title="多媒体音频标签"></a>多媒体音频标签</h4><ol>
+<li><p>多媒体标签有两个，分别是</p>
+<ul>
+<li>音频  – <code>audio</code></li>
+<li>视频  – <code>video</code></li>
+</ul>
+</li>
+<li><p><code>audio</code> 标签说明</p>
+<ul>
+<li>可以在不使用标签的情况下，也能够原生的支持音频格式文件的播放，</li>
+<li>但是：播放格式是有限的</li>
+</ul>
+</li>
+<li><p>audio 支持的音频格式</p>
+<ul>
+<li><p>audio 目前支持三种格式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Ogg Vorbis MP3 Wav</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>audio 的参数</p>
+<p> <img src="https://img-blog.csdnimg.cn/2020060519543078.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+</li>
+</ol>
+<p>5、audio 代码演示</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">body</span>&gt;</span><br><span class="line">  &lt;!<span class="selector-tag">--</span> 注意：在 <span class="selector-tag">chrome</span> 浏览器中已经禁用了 <span class="selector-tag">autoplay</span> 属性 <span class="selector-tag">--</span>&gt;</span><br><span class="line">  &lt;!-- &lt;audio src="./media/snow.mp3" controls autoplay&gt;&lt;/audio&gt; --&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!<span class="selector-tag">--</span> </span><br><span class="line">    因为不同浏览器支持不同的格式，所以我们采取的方案是这个音频准备多个文件</span><br><span class="line">   <span class="selector-tag">--</span>&gt;</span><br><span class="line">  &lt;<span class="selector-tag">audio</span> <span class="selector-tag">controls</span>&gt;</span><br><span class="line">    &lt;source src="./media/snow.mp3" type="audio/mpeg" /&gt;</span><br><span class="line">  &lt;/audio&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="多媒体视频标签"><a href="#多媒体视频标签" class="headerlink" title="多媒体视频标签"></a>多媒体视频标签</h4><ol>
+<li><p>video 视频标签</p>
+<ul>
+<li>目前支持三种格式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Ogg MPEG4 WebM</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>语法格式</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">"./media/video.mp4"</span> <span class="attr">controls</span>=<span class="string">"controls"</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>video 参数</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200605195430172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+</li>
+<li><p>video 代码演示</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- &lt;video src="./media/video.mp4" controls="controls"&gt;&lt;/video&gt; --&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 谷歌浏览器禁用了自动播放功能，如果想自动播放，需要添加 muted 属性 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span>=<span class="string">"controls"</span> <span class="attr">autoplay</span> <span class="attr">muted</span> <span class="attr">loop</span> <span class="attr">poster</span>=<span class="string">"./media/pig.jpg"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"./media/video.mp4"</span> <span class="attr">type</span>=<span class="string">"video/mp4"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"./media/video.ogg"</span> <span class="attr">type</span>=<span class="string">"video/ogg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多媒体标签总结</p>
+<ul>
+<li>音频标签与视频标签使用基本一致</li>
+<li>多媒体标签在不同浏览器下情况不同，存在兼容性问题</li>
+<li>谷歌浏览器把音频和视频标签的自动播放都禁止了</li>
+<li>谷歌浏览器中视频添加 muted 标签可以自己播放</li>
+<li>注意：重点记住使用方法以及自动播放即可，其他属性可以在使用时查找对应的手册</li>
+</ul>
+</li>
+</ol>
+<h6 id="新增-input-标签"><a href="#新增-input-标签" class="headerlink" title="新增 input 标签"></a>新增 input 标签</h6><p> <img src="https://img-blog.csdnimg.cn/20200605195430106.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<h6 id="六、新增表单属性"><a href="#六、新增表单属性" class="headerlink" title="六、新增表单属性"></a>六、新增表单属性</h6><p> <img src="https://img-blog.csdnimg.cn/20200605195430146.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<h6 id="七、CSS3-属性选择器-上"><a href="#七、CSS3-属性选择器-上" class="headerlink" title="七、CSS3 属性选择器(上)"></a>七、<code>CSS3</code> 属性选择器(上)</h6><ol>
+<li><p>什么是 <code>CSS3</code></p>
+<ul>
+<li>在 <code>CSS2</code> 的基础上拓展、新增的样式</li>
+</ul>
+</li>
+<li><p><code>CSS3</code> 发展现状</p>
+<ul>
+<li>移动端支持优于 <code>PC</code> 端</li>
+<li><code>CSS3</code> 目前还草案，在不断改进中</li>
+<li><code>CSS3</code> 相对 <code>H5</code>，应用非常广泛</li>
+</ul>
+</li>
+<li><p>属性选择器列表</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200605195810301.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+</li>
+</ol>
+<ol start="4">
+<li><p>属性选择器代码演示</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">button</span><span class="selector-attr">[disabled]</span> &#123;</span><br><span class="line">  <span class="attribute">cursor</span>: default</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h6 id="八、CSS3-属性选择器-下"><a href="#八、CSS3-属性选择器-下" class="headerlink" title="八、CSS3 属性选择器(下)"></a>八、<code>CSS3</code> 属性选择器(下)</h6><ol>
+<li><p>代码演示</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=search]</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: skyblue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">span</span><span class="selector-attr">[class^=black]</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: lightgreen;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">span</span><span class="selector-attr">[class$=black]</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: lightsalmon;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">span</span><span class="selector-attr">[class*=black]</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: lightseagreen;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h6 id="九、结构伪类选择器"><a href="#九、结构伪类选择器" class="headerlink" title="九、结构伪类选择器"></a>九、结构伪类选择器</h6><ol>
+<li><p>属性列表</p>
+<p> <img src="https://img-blog.csdnimg.cn/2020060519543079.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+</li>
+</ol>
+<ol start="2">
+<li><p>代码演示</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: lightseagreen;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: lightcoral;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(3)</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: aqua;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h6 id="十、nth-child-参数详解"><a href="#十、nth-child-参数详解" class="headerlink" title="十、nth-child 参数详解"></a>十、<code>nth-child</code> 参数详解</h6><ol>
+<li><p>nth-child 详解</p>
+<ul>
+<li><p>注意：本质上就是选中第几个子元素</p>
+</li>
+<li><p>n 可以是数字、关键字、公式</p>
+</li>
+<li><p>n 如果是数字，就是选中第几个</p>
+</li>
+<li><p>常见的关键字有 <code>even</code> 偶数、<code>odd</code> 奇数</p>
+</li>
+<li><p>常见的公式如下(如果 n 是公式，则从 0 开始计算)</p>
+</li>
+<li><p>但是第 0 个元素或者超出了元素的个数会被忽略</p>
+<p> <img src="https://img-blog.csdnimg.cn/2020060519543044.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>代码演示</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">  <span class="comment">/* 偶数 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(even)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: aquamarine;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 奇数 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(odd)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: blueviolet;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*n 是公式，从 0 开始计算 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(n)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightcoral;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 偶数 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2n)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightskyblue;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 奇数 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2n</span> + 1) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightsalmon;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 选择第 0 5 10 15, 应该怎么选 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(5n)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: orangered;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* n + 5 就是从第5个开始往后选择 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(n</span> + 5) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: peru;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* -n + 5 前五个 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(-n</span> + 5) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: tan;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h6 id="十一、nth-child-和-nt-of-type-的区别"><a href="#十一、nth-child-和-nt-of-type-的区别" class="headerlink" title="十一、nth-child 和  nt-of-type 的区别"></a>十一、<code>nth-child</code> 和  <code>nt-of-type</code> 的区别</h6><ol>
+<li><p>代码演示</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">  <span class="selector-tag">div</span> <span class="selector-pseudo">:nth-child(1)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">div</span> <span class="selector-pseudo">:nth-child(2)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightpink;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">div</span> <span class="selector-tag">span</span><span class="selector-pseudo">:nth-of-type(2)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightseagreen;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">div</span> <span class="selector-tag">span</span><span class="selector-pseudo">:nth-of-type(3)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>区别</p>
+<ul>
+<li><code>nth-child</code>  选择父元素里面的第几个子元素，不管是第几个类型</li>
+<li><code>nt-of-type</code>  选择指定类型的元素</li>
+</ul>
+</li>
+</ol>
+<h6 id="十二、伪元素选择器"><a href="#十二、伪元素选择器" class="headerlink" title="十二、伪元素选择器"></a>十二、伪元素选择器</h6><ol>
+<li><p>伪类选择器</p>
+<p> <img src="https://img-blog.csdnimg.cn/2020060519543043.png" alt="在这里插入图片描述"> </p>
+</li>
+</ol>
+<ol start="2">
+<li><p>伪类选择器注意事项</p>
+<ul>
+<li><code>before</code> 和 <code>after</code> 必须有 <code>content</code> 属性</li>
+<li><code>before</code> 在内容前面，after 在内容后面</li>
+<li><code>before</code> 和 <code>after</code> 创建的是一个元素，但是属于行内元素</li>
+<li>创建出来的元素在 <code>Dom</code> 中查找不到，所以称为伪元素</li>
+<li>伪元素和标签选择器一样，权重为 1</li>
+</ul>
+</li>
+<li><p>代码演示</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">    <span class="selector-tag">div</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">border</span>: <span class="number">1px</span> solid lightcoral;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-pseudo">::after</span>,</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">20px</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">      <span class="attribute">text-align</span>: center;</span><br><span class="line">      <span class="attribute">display</span>: inline-block;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">      <span class="attribute">content</span>: <span class="string">'德'</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: lightskyblue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">      <span class="attribute">content</span>: <span class="string">'道'</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: mediumaquamarine;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h6 id="十三、伪元素的案例"><a href="#十三、伪元素的案例" class="headerlink" title="十三、伪元素的案例"></a>十三、伪元素的案例</h6><ol>
+<li><p>添加字体图标</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">220px</span>;</span><br><span class="line">   <span class="attribute">height</span>: <span class="number">22px</span>;</span><br><span class="line">   <span class="attribute">border</span>: <span class="number">1px</span> solid lightseagreen;</span><br><span class="line">   <span class="attribute">margin</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">'\ea50'</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'icomoon'</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h6 id="十四、2D-转换之-translate"><a href="#十四、2D-转换之-translate" class="headerlink" title="十四、2D 转换之 translate"></a>十四、<code>2D</code> 转换之 <code>translate</code></h6><ol>
+<li><p><code>2D</code> 转换</p>
+<ul>
+<li><p><code>2D</code> 转换是改变标签在二维平面上的位置和形状</p>
+</li>
+<li><p>移动： <code>translate</code></p>
+</li>
+<li><p>旋转： <code>rotate</code></p>
+</li>
+<li><p>缩放： <code>scale</code></p>
+</li>
+</ul>
+</li>
+<li><p><code>translate</code> 语法</p>
+<ul>
+<li>x 就是 x 轴上水平移动</li>
+<li>y 就是 y 轴上水平移动</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translate</span>(<span class="selector-tag">x</span>,<span class="selector-tag">y</span>)</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateX</span>(<span class="selector-tag">n</span>)</span><br><span class="line"><span class="selector-tag">transfrom</span>: <span class="selector-tag">translateY</span>(<span class="selector-tag">n</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重点知识点</p>
+<ul>
+<li><code>2D</code> 的移动主要是指 水平、垂直方向上的移动</li>
+<li><code>translate</code> 最大的优点就是不影响其他元素的位置</li>
+<li><code>translate</code> 中的100%单位，是相对于本身的宽度和高度来进行计算的</li>
+<li>行内标签没有效果</li>
+</ul>
+</li>
+<li><p>代码演示</p>
+</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: lightseagreen;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="comment">/* 平移 */</span></span><br><span class="line">  <span class="comment">/* 水平垂直移动 100px */</span></span><br><span class="line">  <span class="comment">/* transform: translate(100px, 100px); */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 水平移动 100px */</span></span><br><span class="line">  <span class="comment">/* transform: translate(100px, 0) */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 垂直移动 100px */</span></span><br><span class="line">  <span class="comment">/* transform: translate(0, 100px) */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 水平移动 100px */</span></span><br><span class="line">  <span class="comment">/* transform: translateX(100px); */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 垂直移动 100px */</span></span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">100px</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="十五、让一个盒子水平垂直居中"><a href="#十五、让一个盒子水平垂直居中" class="headerlink" title="十五、让一个盒子水平垂直居中"></a>十五、让一个盒子水平垂直居中</h6><ul>
+<li>看代码</li>
+</ul>
+<h6 id="十六、2D-转换-rotate"><a href="#十六、2D-转换-rotate" class="headerlink" title="十六、2D 转换 rotate"></a>十六、<code>2D 转换 rotate</code></h6><ol>
+<li><p>rotate 旋转</p>
+<ul>
+<li><code>2D</code> 旋转指的是让元素在二维平面内顺时针或者逆时针旋转</li>
+</ul>
+</li>
+<li><p><code>rotate</code> 语法</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 单位是：deg */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotate</span>(度数)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重点知识点</p>
+<ul>
+<li><code>rotate</code> 里面跟度数，单位是 <code>deg</code></li>
+<li>角度为正时，顺时针，角度为负时，逆时针</li>
+<li>默认旋转的中心点是元素的中心点</li>
+</ul>
+</li>
+<li><p>代码演示</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">360deg</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>H5C3</category>
+      </categories>
+      <tags>
+        <tag>H5C3</tag>
       </tags>
   </entry>
   <entry>
@@ -1746,265 +2005,6 @@
 </ul>
 </li>
 </ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>H5C3</category>
-      </categories>
-      <tags>
-        <tag>H5C3</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>H5C3-1</title>
-    <url>/2020/04/04/H5C3-1/</url>
-    <content><![CDATA[<h2 id="HTML5-的概念与定义"><a href="#HTML5-的概念与定义" class="headerlink" title="HTML5 的概念与定义"></a><code>HTML5</code> 的概念与定义</h2><ul>
-<li><p>定义：<code>HTML5</code> 定义了 <code>HTML</code> 标准的最新版本，是对 <code>HTML</code> 的第五次重大修改，号称下一代的 <code>HTML</code> </p>
-</li>
-<li><p>两个概念：</p>
-<ul>
-<li><p>是一个新版本的 <code>HTML</code> 语言，定义了新的标签、特性和属性</p>
-</li>
-<li><p>拥有一个强大的技术集，这些技术集是指： <code>HTML5</code> 、<code>CSS3</code> 、<code>javascript</code>, 这也是广义上的 <code>HTML5</code></p>
-<a id="more"></a>
-
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="新增了那些语义化标签"><a href="#新增了那些语义化标签" class="headerlink" title="新增了那些语义化标签"></a>新增了那些语义化标签</h4><ul>
-<li><code>header</code>   —  头部标签</li>
-<li><code>nav</code>        —  导航标签</li>
-<li><code>article</code> —   内容标签</li>
-<li><code>section</code> —   块级标签</li>
-<li><code>aside</code>     —   侧边栏标签</li>
-<li><code>footer</code>   —   尾部标签</li>
-</ul>
-<h4 id="多媒体音频标签"><a href="#多媒体音频标签" class="headerlink" title="多媒体音频标签"></a>多媒体音频标签</h4><ol>
-<li><p>多媒体标签有两个，分别是</p>
-<ul>
-<li>音频  – <code>audio</code></li>
-<li>视频  – <code>video</code></li>
-</ul>
-</li>
-<li><p><code>audio</code> 标签说明</p>
-<ul>
-<li>可以在不使用标签的情况下，也能够原生的支持音频格式文件的播放，</li>
-<li>但是：播放格式是有限的</li>
-</ul>
-</li>
-<li><p>audio 支持的音频格式</p>
-<ul>
-<li><p>audio 目前支持三种格式</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Ogg Vorbis MP3 Wav</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>audio 的参数</p>
-<p> <img src="https://img-blog.csdnimg.cn/2020060519543078.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-</li>
-</ol>
-<p>5、audio 代码演示</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">body</span>&gt;</span><br><span class="line">  &lt;!<span class="selector-tag">--</span> 注意：在 <span class="selector-tag">chrome</span> 浏览器中已经禁用了 <span class="selector-tag">autoplay</span> 属性 <span class="selector-tag">--</span>&gt;</span><br><span class="line">  &lt;!-- &lt;audio src="./media/snow.mp3" controls autoplay&gt;&lt;/audio&gt; --&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!<span class="selector-tag">--</span> </span><br><span class="line">    因为不同浏览器支持不同的格式，所以我们采取的方案是这个音频准备多个文件</span><br><span class="line">   <span class="selector-tag">--</span>&gt;</span><br><span class="line">  &lt;<span class="selector-tag">audio</span> <span class="selector-tag">controls</span>&gt;</span><br><span class="line">    &lt;source src="./media/snow.mp3" type="audio/mpeg" /&gt;</span><br><span class="line">  &lt;/audio&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="多媒体视频标签"><a href="#多媒体视频标签" class="headerlink" title="多媒体视频标签"></a>多媒体视频标签</h4><ol>
-<li><p>video 视频标签</p>
-<ul>
-<li>目前支持三种格式</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Ogg MPEG4 WebM</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="2">
-<li><p>语法格式</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">"./media/video.mp4"</span> <span class="attr">controls</span>=<span class="string">"controls"</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>video 参数</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200605195430172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-</li>
-<li><p>video 代码演示</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- &lt;video src="./media/video.mp4" controls="controls"&gt;&lt;/video&gt; --&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 谷歌浏览器禁用了自动播放功能，如果想自动播放，需要添加 muted 属性 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span>=<span class="string">"controls"</span> <span class="attr">autoplay</span> <span class="attr">muted</span> <span class="attr">loop</span> <span class="attr">poster</span>=<span class="string">"./media/pig.jpg"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"./media/video.mp4"</span> <span class="attr">type</span>=<span class="string">"video/mp4"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"./media/video.ogg"</span> <span class="attr">type</span>=<span class="string">"video/ogg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>多媒体标签总结</p>
-<ul>
-<li>音频标签与视频标签使用基本一致</li>
-<li>多媒体标签在不同浏览器下情况不同，存在兼容性问题</li>
-<li>谷歌浏览器把音频和视频标签的自动播放都禁止了</li>
-<li>谷歌浏览器中视频添加 muted 标签可以自己播放</li>
-<li>注意：重点记住使用方法以及自动播放即可，其他属性可以在使用时查找对应的手册</li>
-</ul>
-</li>
-</ol>
-<h6 id="新增-input-标签"><a href="#新增-input-标签" class="headerlink" title="新增 input 标签"></a>新增 input 标签</h6><p> <img src="https://img-blog.csdnimg.cn/20200605195430106.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<h6 id="六、新增表单属性"><a href="#六、新增表单属性" class="headerlink" title="六、新增表单属性"></a>六、新增表单属性</h6><p> <img src="https://img-blog.csdnimg.cn/20200605195430146.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<h6 id="七、CSS3-属性选择器-上"><a href="#七、CSS3-属性选择器-上" class="headerlink" title="七、CSS3 属性选择器(上)"></a>七、<code>CSS3</code> 属性选择器(上)</h6><ol>
-<li><p>什么是 <code>CSS3</code></p>
-<ul>
-<li>在 <code>CSS2</code> 的基础上拓展、新增的样式</li>
-</ul>
-</li>
-<li><p><code>CSS3</code> 发展现状</p>
-<ul>
-<li>移动端支持优于 <code>PC</code> 端</li>
-<li><code>CSS3</code> 目前还草案，在不断改进中</li>
-<li><code>CSS3</code> 相对 <code>H5</code>，应用非常广泛</li>
-</ul>
-</li>
-<li><p>属性选择器列表</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200605195810301.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-</li>
-</ol>
-<ol start="4">
-<li><p>属性选择器代码演示</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">button</span><span class="selector-attr">[disabled]</span> &#123;</span><br><span class="line">  <span class="attribute">cursor</span>: default</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h6 id="八、CSS3-属性选择器-下"><a href="#八、CSS3-属性选择器-下" class="headerlink" title="八、CSS3 属性选择器(下)"></a>八、<code>CSS3</code> 属性选择器(下)</h6><ol>
-<li><p>代码演示</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=search]</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: skyblue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">span</span><span class="selector-attr">[class^=black]</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: lightgreen;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">span</span><span class="selector-attr">[class$=black]</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: lightsalmon;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">span</span><span class="selector-attr">[class*=black]</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: lightseagreen;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<h6 id="九、结构伪类选择器"><a href="#九、结构伪类选择器" class="headerlink" title="九、结构伪类选择器"></a>九、结构伪类选择器</h6><ol>
-<li><p>属性列表</p>
-<p> <img src="https://img-blog.csdnimg.cn/2020060519543079.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-</li>
-</ol>
-<ol start="2">
-<li><p>代码演示</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: lightseagreen;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: lightcoral;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(3)</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: aqua;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h6 id="十、nth-child-参数详解"><a href="#十、nth-child-参数详解" class="headerlink" title="十、nth-child 参数详解"></a>十、<code>nth-child</code> 参数详解</h6><ol>
-<li><p>nth-child 详解</p>
-<ul>
-<li><p>注意：本质上就是选中第几个子元素</p>
-</li>
-<li><p>n 可以是数字、关键字、公式</p>
-</li>
-<li><p>n 如果是数字，就是选中第几个</p>
-</li>
-<li><p>常见的关键字有 <code>even</code> 偶数、<code>odd</code> 奇数</p>
-</li>
-<li><p>常见的公式如下(如果 n 是公式，则从 0 开始计算)</p>
-</li>
-<li><p>但是第 0 个元素或者超出了元素的个数会被忽略</p>
-<p> <img src="https://img-blog.csdnimg.cn/2020060519543044.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-</li>
-</ul>
-</li>
-</ol>
-<ol start="2">
-<li><p>代码演示</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">  <span class="comment">/* 偶数 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(even)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: aquamarine;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 奇数 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(odd)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: blueviolet;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*n 是公式，从 0 开始计算 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(n)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightcoral;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 偶数 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2n)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightskyblue;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 奇数 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2n</span> + 1) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightsalmon;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 选择第 0 5 10 15, 应该怎么选 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(5n)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: orangered;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* n + 5 就是从第5个开始往后选择 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(n</span> + 5) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: peru;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* -n + 5 前五个 */</span></span><br><span class="line">  <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(-n</span> + 5) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: tan;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h6 id="十一、nth-child-和-nt-of-type-的区别"><a href="#十一、nth-child-和-nt-of-type-的区别" class="headerlink" title="十一、nth-child 和  nt-of-type 的区别"></a>十一、<code>nth-child</code> 和  <code>nt-of-type</code> 的区别</h6><ol>
-<li><p>代码演示</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">  <span class="selector-tag">div</span> <span class="selector-pseudo">:nth-child(1)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">div</span> <span class="selector-pseudo">:nth-child(2)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightpink;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">div</span> <span class="selector-tag">span</span><span class="selector-pseudo">:nth-of-type(2)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightseagreen;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">div</span> <span class="selector-tag">span</span><span class="selector-pseudo">:nth-of-type(3)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="2">
-<li><p>区别</p>
-<ul>
-<li><code>nth-child</code>  选择父元素里面的第几个子元素，不管是第几个类型</li>
-<li><code>nt-of-type</code>  选择指定类型的元素</li>
-</ul>
-</li>
-</ol>
-<h6 id="十二、伪元素选择器"><a href="#十二、伪元素选择器" class="headerlink" title="十二、伪元素选择器"></a>十二、伪元素选择器</h6><ol>
-<li><p>伪类选择器</p>
-<p> <img src="https://img-blog.csdnimg.cn/2020060519543043.png" alt="在这里插入图片描述"> </p>
-</li>
-</ol>
-<ol start="2">
-<li><p>伪类选择器注意事项</p>
-<ul>
-<li><code>before</code> 和 <code>after</code> 必须有 <code>content</code> 属性</li>
-<li><code>before</code> 在内容前面，after 在内容后面</li>
-<li><code>before</code> 和 <code>after</code> 创建的是一个元素，但是属于行内元素</li>
-<li>创建出来的元素在 <code>Dom</code> 中查找不到，所以称为伪元素</li>
-<li>伪元素和标签选择器一样，权重为 1</li>
-</ul>
-</li>
-<li><p>代码演示</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">    <span class="selector-tag">div</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">border</span>: <span class="number">1px</span> solid lightcoral;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-pseudo">::after</span>,</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">20px</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">      <span class="attribute">text-align</span>: center;</span><br><span class="line">      <span class="attribute">display</span>: inline-block;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">      <span class="attribute">content</span>: <span class="string">'德'</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: lightskyblue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">      <span class="attribute">content</span>: <span class="string">'道'</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: mediumaquamarine;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h6 id="十三、伪元素的案例"><a href="#十三、伪元素的案例" class="headerlink" title="十三、伪元素的案例"></a>十三、伪元素的案例</h6><ol>
-<li><p>添加字体图标</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">220px</span>;</span><br><span class="line">   <span class="attribute">height</span>: <span class="number">22px</span>;</span><br><span class="line">   <span class="attribute">border</span>: <span class="number">1px</span> solid lightseagreen;</span><br><span class="line">   <span class="attribute">margin</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">'\ea50'</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'icomoon'</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h6 id="十四、2D-转换之-translate"><a href="#十四、2D-转换之-translate" class="headerlink" title="十四、2D 转换之 translate"></a>十四、<code>2D</code> 转换之 <code>translate</code></h6><ol>
-<li><p><code>2D</code> 转换</p>
-<ul>
-<li><p><code>2D</code> 转换是改变标签在二维平面上的位置和形状</p>
-</li>
-<li><p>移动： <code>translate</code></p>
-</li>
-<li><p>旋转： <code>rotate</code></p>
-</li>
-<li><p>缩放： <code>scale</code></p>
-</li>
-</ul>
-</li>
-<li><p><code>translate</code> 语法</p>
-<ul>
-<li>x 就是 x 轴上水平移动</li>
-<li>y 就是 y 轴上水平移动</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translate</span>(<span class="selector-tag">x</span>,<span class="selector-tag">y</span>)</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateX</span>(<span class="selector-tag">n</span>)</span><br><span class="line"><span class="selector-tag">transfrom</span>: <span class="selector-tag">translateY</span>(<span class="selector-tag">n</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重点知识点</p>
-<ul>
-<li><code>2D</code> 的移动主要是指 水平、垂直方向上的移动</li>
-<li><code>translate</code> 最大的优点就是不影响其他元素的位置</li>
-<li><code>translate</code> 中的100%单位，是相对于本身的宽度和高度来进行计算的</li>
-<li>行内标签没有效果</li>
-</ul>
-</li>
-<li><p>代码演示</p>
-</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: lightseagreen;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="comment">/* 平移 */</span></span><br><span class="line">  <span class="comment">/* 水平垂直移动 100px */</span></span><br><span class="line">  <span class="comment">/* transform: translate(100px, 100px); */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 水平移动 100px */</span></span><br><span class="line">  <span class="comment">/* transform: translate(100px, 0) */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 垂直移动 100px */</span></span><br><span class="line">  <span class="comment">/* transform: translate(0, 100px) */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 水平移动 100px */</span></span><br><span class="line">  <span class="comment">/* transform: translateX(100px); */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 垂直移动 100px */</span></span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">100px</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="十五、让一个盒子水平垂直居中"><a href="#十五、让一个盒子水平垂直居中" class="headerlink" title="十五、让一个盒子水平垂直居中"></a>十五、让一个盒子水平垂直居中</h6><ul>
-<li>看代码</li>
-</ul>
-<h6 id="十六、2D-转换-rotate"><a href="#十六、2D-转换-rotate" class="headerlink" title="十六、2D 转换 rotate"></a>十六、<code>2D 转换 rotate</code></h6><ol>
-<li><p>rotate 旋转</p>
-<ul>
-<li><code>2D</code> 旋转指的是让元素在二维平面内顺时针或者逆时针旋转</li>
-</ul>
-</li>
-<li><p><code>rotate</code> 语法</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 单位是：deg */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotate</span>(度数)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重点知识点</p>
-<ul>
-<li><code>rotate</code> 里面跟度数，单位是 <code>deg</code></li>
-<li>角度为正时，顺时针，角度为负时，逆时针</li>
-<li>默认旋转的中心点是元素的中心点</li>
-</ul>
-</li>
-<li><p>代码演示</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">360deg</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 ]]></content>
@@ -2522,6 +2522,95 @@
       </tags>
   </entry>
   <entry>
+    <title>JS-键盘事件</title>
+    <url>/2020/02/05/JS-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h1><h2 id="键盘事件的种类"><a href="#键盘事件的种类" class="headerlink" title="键盘事件的种类"></a>键盘事件的种类</h2><p>键盘事件由用户击打键盘触发，主要有<code>keydown</code>、<code>keypress</code>、<code>keyup</code>三个事件，它们都继承了<code>KeyboardEvent</code>接口。</p>
+<a id="more"></a>
+
+<ul>
+<li><code>keydown</code>：按下键盘时触发。</li>
+<li><code>keypress</code>：按下有值的键时触发，即按下 Ctrl、Alt、Shift、Meta 这样无值的键，这个事件不会触发。对于有值的键，按下时先触发<code>keydown</code>事件，再触发这个事件。</li>
+<li><code>keyup</code>：松开键盘时触发该事件。</li>
+</ul>
+<p>如果用户一直按键不松开，就会连续触发键盘事件，触发的顺序如下。</p>
+<ol>
+<li>keydown</li>
+<li>keypress</li>
+<li>keydown</li>
+<li>keypress</li>
+<li>…（重复以上过程）</li>
+<li>keyup</li>
+</ol>
+<h2 id="KeyboardEvent-接口概述"><a href="#KeyboardEvent-接口概述" class="headerlink" title="KeyboardEvent 接口概述"></a>KeyboardEvent 接口概述</h2><p><code>KeyboardEvent</code>接口用来描述用户与键盘的互动。这个接口继承了<code>Event</code>接口，并且定义了自己的实例属性和实例方法。</p>
+<p>浏览器原生提供<code>KeyboardEvent</code>构造函数，用来新建键盘事件的实例。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> KeyboardEvent(type, options)</span><br></pre></td></tr></table></figure>
+
+<p><code>KeyboardEvent</code>构造函数接受两个参数。第一个参数是字符串，表示事件类型；第二个参数是一个事件配置对象，该参数可选。除了<code>Event</code>接口提供的属性，还可以配置以下字段，它们都是可选。</p>
+<ul>
+<li><code>key</code>：字符串，当前按下的键，默认为空字符串。</li>
+<li><code>code</code>：字符串，表示当前按下的键的字符串形式，默认为空字符串。</li>
+<li><code>location</code>：整数，当前按下的键的位置，默认为<code>0</code>。</li>
+<li><code>ctrlKey</code>：布尔值，是否按下 Ctrl 键，默认为<code>false</code>。</li>
+<li><code>shiftKey</code>：布尔值，是否按下 Shift 键，默认为<code>false</code>。</li>
+<li><code>altKey</code>：布尔值，是否按下 Alt 键，默认为<code>false</code>。</li>
+<li><code>metaKey</code>：布尔值，是否按下 Meta 键，默认为<code>false</code>。</li>
+<li><code>repeat</code>：布尔值，是否重复按键，默认为<code>false</code>。</li>
+</ul>
+<h2 id="KeyboardEvent-的实例属性"><a href="#KeyboardEvent-的实例属性" class="headerlink" title="KeyboardEvent 的实例属性"></a>KeyboardEvent 的实例属性</h2><h3 id="KeyboardEvent-altKey，KeyboardEvent-ctrlKey，KeyboardEvent-metaKey，KeyboardEvent-shiftKey"><a href="#KeyboardEvent-altKey，KeyboardEvent-ctrlKey，KeyboardEvent-metaKey，KeyboardEvent-shiftKey" class="headerlink" title="KeyboardEvent.altKey，KeyboardEvent.ctrlKey，KeyboardEvent.metaKey，KeyboardEvent.shiftKey"></a>KeyboardEvent.altKey，KeyboardEvent.ctrlKey，KeyboardEvent.metaKey，KeyboardEvent.shiftKey</h3><p>以下属性都是只读属性，返回一个布尔值，表示是否按下对应的键。</p>
+<ul>
+<li><code>KeyboardEvent.altKey</code>：是否按下 Alt 键</li>
+<li><code>KeyboardEvent.ctrlKey</code>：是否按下 Ctrl 键</li>
+<li><code>KeyboardEvent.metaKey</code>：是否按下 meta 键（Mac 系统是一个四瓣的小花，Windows 系统是 windows 键）</li>
+<li><code>KeyboardEvent.shiftKey</code>：是否按下 Shift 键</li>
+</ul>
+<p>下面是一个示例。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showChar</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ALT: '</span> + e.altKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'CTRL: '</span> + e.ctrlKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Meta: '</span> + e.metaKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Shift: '</span> + e.shiftKey);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'keydown'</span>, showChar, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="KeyboardEvent-code"><a href="#KeyboardEvent-code" class="headerlink" title="KeyboardEvent.code"></a>KeyboardEvent.code</h3><p><code>KeyboardEvent.code</code>属性返回一个字符串，表示当前按下的键的字符串形式。该属性只读。</p>
+<p>下面是一些常用键的字符串形式，其他键请查<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code#Code_values" target="_blank" rel="noopener">文档</a>。</p>
+<ul>
+<li>数字键0 - 9：返回<code>digital0</code> - <code>digital9</code></li>
+<li>字母键A - z：返回<code>KeyA</code> - <code>KeyZ</code></li>
+<li>功能键F1 - F12：返回 <code>F1</code> - <code>F12</code></li>
+<li>方向键：返回<code>ArrowDown</code>、<code>ArrowUp</code>、<code>ArrowLeft</code>、<code>ArrowRight</code></li>
+<li>Alt 键：返回<code>AltLeft</code>或<code>AltRight</code></li>
+<li>Shift 键：返回<code>ShiftLeft</code>或<code>ShiftRight</code></li>
+<li>Ctrl 键：返回<code>ControlLeft</code>或<code>ControlRight</code></li>
+</ul>
+<h3 id="KeyboardEvent-key"><a href="#KeyboardEvent-key" class="headerlink" title="KeyboardEvent.key"></a>KeyboardEvent.key</h3><p><code>KeyboardEvent.key</code>属性返回一个字符串，表示按下的键名。该属性只读。</p>
+<p>如果按下的键代表可打印字符，则返回这个字符，比如数字、字母。</p>
+<p>如果按下的键代表不可打印的特殊字符，则返回预定义的键值，比如 Backspace，Tab，Enter，Shift，Control，Alt，CapsLock，Esc，Spacebar，PageUp，PageDown，End，Home，Left，Right，Up，Down，PrintScreen，Insert，Del，Win，F1～F12，NumLock，Scroll 等。</p>
+<p>如果同时按下一个控制键和一个符号键，则返回符号键的键名。比如，按下 Ctrl + a，则返回<code>a</code>；按下 Shift + a，则返回大写的<code>A</code>。</p>
+<p>如果无法识别键名，返回字符串<code>Unidentified</code>。</p>
+<h3 id="KeyboardEvent-location"><a href="#KeyboardEvent-location" class="headerlink" title="KeyboardEvent.location"></a>KeyboardEvent.location</h3><p><code>KeyboardEvent.location</code>属性返回一个整数，表示按下的键处在键盘的哪一个区域。它可能取以下值。</p>
+<ul>
+<li>0：处在键盘的主区域，或者无法判断处于哪一个区域。</li>
+<li>1：处在键盘的左侧，只适用那些有两个位置的键（比如 Ctrl 和 Shift 键）。</li>
+<li>2：处在键盘的右侧，只适用那些有两个位置的键（比如 Ctrl 和 Shift 键）。</li>
+<li>3：处在数字小键盘。</li>
+</ul>
+<h3 id="KeyboardEvent-repeat"><a href="#KeyboardEvent-repeat" class="headerlink" title="KeyboardEvent.repeat"></a>KeyboardEvent.repeat</h3><p><code>KeyboardEvent.repeat</code>返回一个布尔值，代表该键是否被按着不放，以便判断是否重复这个键，即浏览器会持续触发<code>keydown</code>和<code>keypress</code>事件，直到用户松开手为止。</p>
+<h2 id="KeyboardEvent-的实例方法"><a href="#KeyboardEvent-的实例方法" class="headerlink" title="KeyboardEvent 的实例方法"></a>KeyboardEvent 的实例方法</h2><h3 id="KeyboardEvent-getModifierState"><a href="#KeyboardEvent-getModifierState" class="headerlink" title="KeyboardEvent.getModifierState()"></a>KeyboardEvent.getModifierState()</h3><p><code>KeyboardEvent.getModifierState()</code>方法返回一个布尔值，表示是否按下或激活指定的功能键。它的常用参数如下。</p>
+<ul>
+<li><code>Alt</code>：Alt 键</li>
+<li><code>CapsLock</code>：大写锁定键</li>
+<li><code>Control</code>：Ctrl 键</li>
+<li><code>Meta</code>：Meta 键</li>
+<li><code>NumLock</code>：数字键盘开关键</li>
+<li><code>Shift</code>：Shift 键</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (</span><br><span class="line">  event.getModifierState(<span class="string">'Control'</span>) +</span><br><span class="line">  event.getModifierState(<span class="string">'Alt'</span>) +</span><br><span class="line">  event.getModifierState(<span class="string">'Meta'</span>) &gt; <span class="number">1</span></span><br><span class="line">) &#123;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示，只要<code>Control</code>、<code>Alt</code>、<code>Meta</code>里面，同时按下任意两个或两个以上的键就返回。</p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JS事件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JS-触摸事件</title>
     <url>/2020/02/06/JS-%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="触摸事件"><a href="#触摸事件" class="headerlink" title="触摸事件"></a>触摸事件</h1><h2 id="触摸操作概述"><a href="#触摸操作概述" class="headerlink" title="触摸操作概述"></a>触摸操作概述</h2><p>浏览器的触摸 API 由三个部分组成。</p>
@@ -2633,95 +2722,6 @@
 <li><code>touchcancel</code>：触摸点取消时触发，比如在触摸区域跳出一个模态窗口（modal window）、触摸点离开了文档区域（进入浏览器菜单栏）、用户的触摸点太多，超过了支持的上限（自动取消早先的触摸点）。</li>
 </ul>
 <p>下面是一个例子。</p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JS事件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS-键盘事件</title>
-    <url>/2020/02/05/JS-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h1><h2 id="键盘事件的种类"><a href="#键盘事件的种类" class="headerlink" title="键盘事件的种类"></a>键盘事件的种类</h2><p>键盘事件由用户击打键盘触发，主要有<code>keydown</code>、<code>keypress</code>、<code>keyup</code>三个事件，它们都继承了<code>KeyboardEvent</code>接口。</p>
-<a id="more"></a>
-
-<ul>
-<li><code>keydown</code>：按下键盘时触发。</li>
-<li><code>keypress</code>：按下有值的键时触发，即按下 Ctrl、Alt、Shift、Meta 这样无值的键，这个事件不会触发。对于有值的键，按下时先触发<code>keydown</code>事件，再触发这个事件。</li>
-<li><code>keyup</code>：松开键盘时触发该事件。</li>
-</ul>
-<p>如果用户一直按键不松开，就会连续触发键盘事件，触发的顺序如下。</p>
-<ol>
-<li>keydown</li>
-<li>keypress</li>
-<li>keydown</li>
-<li>keypress</li>
-<li>…（重复以上过程）</li>
-<li>keyup</li>
-</ol>
-<h2 id="KeyboardEvent-接口概述"><a href="#KeyboardEvent-接口概述" class="headerlink" title="KeyboardEvent 接口概述"></a>KeyboardEvent 接口概述</h2><p><code>KeyboardEvent</code>接口用来描述用户与键盘的互动。这个接口继承了<code>Event</code>接口，并且定义了自己的实例属性和实例方法。</p>
-<p>浏览器原生提供<code>KeyboardEvent</code>构造函数，用来新建键盘事件的实例。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> KeyboardEvent(type, options)</span><br></pre></td></tr></table></figure>
-
-<p><code>KeyboardEvent</code>构造函数接受两个参数。第一个参数是字符串，表示事件类型；第二个参数是一个事件配置对象，该参数可选。除了<code>Event</code>接口提供的属性，还可以配置以下字段，它们都是可选。</p>
-<ul>
-<li><code>key</code>：字符串，当前按下的键，默认为空字符串。</li>
-<li><code>code</code>：字符串，表示当前按下的键的字符串形式，默认为空字符串。</li>
-<li><code>location</code>：整数，当前按下的键的位置，默认为<code>0</code>。</li>
-<li><code>ctrlKey</code>：布尔值，是否按下 Ctrl 键，默认为<code>false</code>。</li>
-<li><code>shiftKey</code>：布尔值，是否按下 Shift 键，默认为<code>false</code>。</li>
-<li><code>altKey</code>：布尔值，是否按下 Alt 键，默认为<code>false</code>。</li>
-<li><code>metaKey</code>：布尔值，是否按下 Meta 键，默认为<code>false</code>。</li>
-<li><code>repeat</code>：布尔值，是否重复按键，默认为<code>false</code>。</li>
-</ul>
-<h2 id="KeyboardEvent-的实例属性"><a href="#KeyboardEvent-的实例属性" class="headerlink" title="KeyboardEvent 的实例属性"></a>KeyboardEvent 的实例属性</h2><h3 id="KeyboardEvent-altKey，KeyboardEvent-ctrlKey，KeyboardEvent-metaKey，KeyboardEvent-shiftKey"><a href="#KeyboardEvent-altKey，KeyboardEvent-ctrlKey，KeyboardEvent-metaKey，KeyboardEvent-shiftKey" class="headerlink" title="KeyboardEvent.altKey，KeyboardEvent.ctrlKey，KeyboardEvent.metaKey，KeyboardEvent.shiftKey"></a>KeyboardEvent.altKey，KeyboardEvent.ctrlKey，KeyboardEvent.metaKey，KeyboardEvent.shiftKey</h3><p>以下属性都是只读属性，返回一个布尔值，表示是否按下对应的键。</p>
-<ul>
-<li><code>KeyboardEvent.altKey</code>：是否按下 Alt 键</li>
-<li><code>KeyboardEvent.ctrlKey</code>：是否按下 Ctrl 键</li>
-<li><code>KeyboardEvent.metaKey</code>：是否按下 meta 键（Mac 系统是一个四瓣的小花，Windows 系统是 windows 键）</li>
-<li><code>KeyboardEvent.shiftKey</code>：是否按下 Shift 键</li>
-</ul>
-<p>下面是一个示例。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showChar</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ALT: '</span> + e.altKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'CTRL: '</span> + e.ctrlKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Meta: '</span> + e.metaKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Shift: '</span> + e.shiftKey);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'keydown'</span>, showChar, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="KeyboardEvent-code"><a href="#KeyboardEvent-code" class="headerlink" title="KeyboardEvent.code"></a>KeyboardEvent.code</h3><p><code>KeyboardEvent.code</code>属性返回一个字符串，表示当前按下的键的字符串形式。该属性只读。</p>
-<p>下面是一些常用键的字符串形式，其他键请查<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code#Code_values" target="_blank" rel="noopener">文档</a>。</p>
-<ul>
-<li>数字键0 - 9：返回<code>digital0</code> - <code>digital9</code></li>
-<li>字母键A - z：返回<code>KeyA</code> - <code>KeyZ</code></li>
-<li>功能键F1 - F12：返回 <code>F1</code> - <code>F12</code></li>
-<li>方向键：返回<code>ArrowDown</code>、<code>ArrowUp</code>、<code>ArrowLeft</code>、<code>ArrowRight</code></li>
-<li>Alt 键：返回<code>AltLeft</code>或<code>AltRight</code></li>
-<li>Shift 键：返回<code>ShiftLeft</code>或<code>ShiftRight</code></li>
-<li>Ctrl 键：返回<code>ControlLeft</code>或<code>ControlRight</code></li>
-</ul>
-<h3 id="KeyboardEvent-key"><a href="#KeyboardEvent-key" class="headerlink" title="KeyboardEvent.key"></a>KeyboardEvent.key</h3><p><code>KeyboardEvent.key</code>属性返回一个字符串，表示按下的键名。该属性只读。</p>
-<p>如果按下的键代表可打印字符，则返回这个字符，比如数字、字母。</p>
-<p>如果按下的键代表不可打印的特殊字符，则返回预定义的键值，比如 Backspace，Tab，Enter，Shift，Control，Alt，CapsLock，Esc，Spacebar，PageUp，PageDown，End，Home，Left，Right，Up，Down，PrintScreen，Insert，Del，Win，F1～F12，NumLock，Scroll 等。</p>
-<p>如果同时按下一个控制键和一个符号键，则返回符号键的键名。比如，按下 Ctrl + a，则返回<code>a</code>；按下 Shift + a，则返回大写的<code>A</code>。</p>
-<p>如果无法识别键名，返回字符串<code>Unidentified</code>。</p>
-<h3 id="KeyboardEvent-location"><a href="#KeyboardEvent-location" class="headerlink" title="KeyboardEvent.location"></a>KeyboardEvent.location</h3><p><code>KeyboardEvent.location</code>属性返回一个整数，表示按下的键处在键盘的哪一个区域。它可能取以下值。</p>
-<ul>
-<li>0：处在键盘的主区域，或者无法判断处于哪一个区域。</li>
-<li>1：处在键盘的左侧，只适用那些有两个位置的键（比如 Ctrl 和 Shift 键）。</li>
-<li>2：处在键盘的右侧，只适用那些有两个位置的键（比如 Ctrl 和 Shift 键）。</li>
-<li>3：处在数字小键盘。</li>
-</ul>
-<h3 id="KeyboardEvent-repeat"><a href="#KeyboardEvent-repeat" class="headerlink" title="KeyboardEvent.repeat"></a>KeyboardEvent.repeat</h3><p><code>KeyboardEvent.repeat</code>返回一个布尔值，代表该键是否被按着不放，以便判断是否重复这个键，即浏览器会持续触发<code>keydown</code>和<code>keypress</code>事件，直到用户松开手为止。</p>
-<h2 id="KeyboardEvent-的实例方法"><a href="#KeyboardEvent-的实例方法" class="headerlink" title="KeyboardEvent 的实例方法"></a>KeyboardEvent 的实例方法</h2><h3 id="KeyboardEvent-getModifierState"><a href="#KeyboardEvent-getModifierState" class="headerlink" title="KeyboardEvent.getModifierState()"></a>KeyboardEvent.getModifierState()</h3><p><code>KeyboardEvent.getModifierState()</code>方法返回一个布尔值，表示是否按下或激活指定的功能键。它的常用参数如下。</p>
-<ul>
-<li><code>Alt</code>：Alt 键</li>
-<li><code>CapsLock</code>：大写锁定键</li>
-<li><code>Control</code>：Ctrl 键</li>
-<li><code>Meta</code>：Meta 键</li>
-<li><code>NumLock</code>：数字键盘开关键</li>
-<li><code>Shift</code>：Shift 键</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (</span><br><span class="line">  event.getModifierState(<span class="string">'Control'</span>) +</span><br><span class="line">  event.getModifierState(<span class="string">'Alt'</span>) +</span><br><span class="line">  event.getModifierState(<span class="string">'Meta'</span>) &gt; <span class="number">1</span></span><br><span class="line">) &#123;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面代码表示，只要<code>Control</code>、<code>Alt</code>、<code>Meta</code>里面，同时按下任意两个或两个以上的键就返回。</p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -4033,6 +4033,68 @@
       </tags>
   </entry>
   <entry>
+    <title>axios</title>
+    <url>/2020/03/20/axios/</url>
+    <content><![CDATA[<h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><ul>
+<li><p>基于promise用于浏览器和node.js的http客户端</p>
+</li>
+<li><p>支持浏览器和node.js</p>
+</li>
+<li><p>支持promise</p>
+</li>
+<li><p>能拦截请求和响应</p>
+</li>
+<li><p>自动转换JSON数据</p>
+</li>
+<li><p>能转换请求和响应数据</p>
+<a id="more"></a>
+
+</li>
+</ul>
+<h4 id="axios基础用法"><a href="#axios基础用法" class="headerlink" title="axios基础用法"></a>axios基础用法</h4><ul>
+<li>get和 delete请求传递参数<ul>
+<li>通过传统的url  以 ? 的形式传递参数</li>
+<li>restful 形式传递参数 </li>
+<li>通过params  形式传递参数 </li>
+</ul>
+</li>
+<li>post  和 put  请求传递参数<ul>
+<li>通过选项传递参数</li>
+<li>通过 URLSearchParams  传递参数 </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">   # 1. 发送get 请求 </span><br><span class="line">axios.get(<span class="string">'http://localhost:3000/adata'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123; </span><br><span class="line">     #  拿到 ret 是一个对象      所有的对象都存在 ret 的data 属性里面</span><br><span class="line">     <span class="comment">// 注意data属性是固定的用法，用于获取后台的实际数据</span></span><br><span class="line">     <span class="comment">// console.log(ret.data)</span></span><br><span class="line">     <span class="built_in">console</span>.log(ret)</span><br><span class="line">   &#125;)</span><br><span class="line"># 2.  get 请求传递参数</span><br><span class="line">   # 2.1  通过传统的url  以 ? 的形式传递参数</span><br><span class="line">axios.get(<span class="string">'http://localhost:3000/axios?id=123'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br><span class="line">   # 2.2  restful 形式传递参数 </span><br><span class="line">   axios.get(<span class="string">'http://localhost:3000/axios/123'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br><span class="line"># 2.3  通过params  形式传递参数 </span><br><span class="line">   axios.get(<span class="string">'http://localhost:3000/axios'</span>, &#123;</span><br><span class="line">     params: &#123;</span><br><span class="line">       id: <span class="number">789</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br><span class="line">#3 axios delete 请求传参     传参的形式和 get 请求一样</span><br><span class="line">   axios.delete(<span class="string">'http://localhost:3000/axios'</span>, &#123;</span><br><span class="line">     params: &#123;</span><br><span class="line">       id: <span class="number">111</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br><span class="line"></span><br><span class="line"># 4  axios 的 post 请求</span><br><span class="line">   # 4.1  通过选项传递参数</span><br><span class="line">   axios.post(<span class="string">'http://localhost:3000/axios'</span>, &#123;</span><br><span class="line">     uname: <span class="string">'lisi'</span>,</span><br><span class="line">     pwd: <span class="number">123</span></span><br><span class="line">   &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br><span class="line"># 4.2  通过 URLSearchParams  传递参数 </span><br><span class="line">   <span class="keyword">var</span> params = <span class="keyword">new</span> URLSearchParams();</span><br><span class="line">   params.append(<span class="string">'uname'</span>, <span class="string">'zhangsan'</span>);</span><br><span class="line">   params.append(<span class="string">'pwd'</span>, <span class="string">'111'</span>);</span><br><span class="line">   axios.post(<span class="string">'http://localhost:3000/axios'</span>, params).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br><span class="line"></span><br><span class="line">	#5  axios put 请求传参   和 post 请求一样 </span><br><span class="line">   axios.put(<span class="string">'http://localhost:3000/axios/123'</span>, &#123;</span><br><span class="line">     uname: <span class="string">'lisi'</span>,</span><br><span class="line">     pwd: <span class="number">123</span></span><br><span class="line">   &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="axios-全局配置"><a href="#axios-全局配置" class="headerlink" title="axios 全局配置"></a>axios 全局配置</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">#  配置公共的请求头 </span><br><span class="line">axios.defaults.baseURL = <span class="string">'https://api.example.com'</span>;</span><br><span class="line">#  配置 超时时间</span><br><span class="line">axios.defaults.timeout = <span class="number">2500</span>;</span><br><span class="line">#  配置公共的请求头</span><br><span class="line">axios.defaults.headers.common[<span class="string">'Authorization'</span>] = AUTH_TOKEN;</span><br><span class="line"># 配置公共的 post 的 Content-Type</span><br><span class="line">axios.defaults.headers.post[<span class="string">'Content-Type'</span>] = <span class="string">'application/x-www-form-urlencoded'</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="axios-拦截器"><a href="#axios-拦截器" class="headerlink" title="axios 拦截器"></a>axios 拦截器</h4><ul>
+<li>请求拦截器<ul>
+<li>请求拦截器的作用是在请求发送前进行一些操作<ul>
+<li>例如在每个请求体里加上token，统一做了处理如果以后要改也非常容易</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>响应拦截器<ul>
+<li>响应拦截器的作用是在接收到响应后进行一些操作<ul>
+<li>例如在服务器返回登录状态失效，需要重新登录的时候，跳转到登录页</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"># 1. 请求拦截器 </span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="keyword">function</span>(<span class="params">config</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(config.url)</span><br><span class="line">     # 1.1  任何请求都会经过这一步   在发送请求之前做些什么   </span><br><span class="line">     config.headers.mytoken = <span class="string">'nihao'</span>;</span><br><span class="line">     # 1.2  这里一定要return   否则配置不成功  </span><br><span class="line">     <span class="keyword">return</span> config;</span><br><span class="line">   &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">      #1.3 对请求错误做点什么    </span><br><span class="line">     <span class="built_in">console</span>.log(err)</span><br><span class="line">   &#125;)</span><br><span class="line">#2. 响应拦截器 </span><br><span class="line">   axios.interceptors.response.use(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">     #2.1  在接收响应做些什么  </span><br><span class="line">     <span class="keyword">var</span> data = res.data;</span><br><span class="line">     <span class="keyword">return</span> data;</span><br><span class="line">   &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">     #2.2 对响应错误做点什么  </span><br><span class="line">     <span class="built_in">console</span>.log(err)</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>axios</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>async和await</title>
     <url>/2020/03/20/async%E5%92%8Cawait/</url>
     <content><![CDATA[<blockquote>
@@ -4126,65 +4188,40 @@
       </tags>
   </entry>
   <entry>
-    <title>axios</title>
-    <url>/2020/03/20/axios/</url>
-    <content><![CDATA[<h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><ul>
-<li><p>基于promise用于浏览器和node.js的http客户端</p>
-</li>
-<li><p>支持浏览器和node.js</p>
-</li>
-<li><p>支持promise</p>
-</li>
-<li><p>能拦截请求和响应</p>
-</li>
-<li><p>自动转换JSON数据</p>
-</li>
-<li><p>能转换请求和响应数据</p>
+    <title>hash和history模式的区别</title>
+    <url>/2020/03/12/hash%E5%92%8Chistory%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h2 id="hash和history两种模式的区别"><a href="#hash和history两种模式的区别" class="headerlink" title="hash和history两种模式的区别"></a>hash和history两种模式的区别</h2><blockquote>
+<p>众所周知，vue-router有两种模式，hash模式和history模式，这里来谈谈两者的区别。</p>
 <a id="more"></a>
+</blockquote>
+<h2 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h2><p>hash模式背后的原理是<code>onhashchange</code>事件,可以在window对象上监听这个事件:</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(event.oldURL, event.newURL);</span><br><span class="line">     <span class="keyword">let</span> hash = location.hash.slice(<span class="number">1</span>); </span><br><span class="line">     <span class="built_in">document</span>.body.style.color = hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<h4 id="axios基础用法"><a href="#axios基础用法" class="headerlink" title="axios基础用法"></a>axios基础用法</h4><ul>
-<li>get和 delete请求传递参数<ul>
-<li>通过传统的url  以 ? 的形式传递参数</li>
-<li>restful 形式传递参数 </li>
-<li>通过params  形式传递参数 </li>
-</ul>
-</li>
-<li>post  和 put  请求传递参数<ul>
-<li>通过选项传递参数</li>
-<li>通过 URLSearchParams  传递参数 </li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">   # 1. 发送get 请求 </span><br><span class="line">axios.get(<span class="string">'http://localhost:3000/adata'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123; </span><br><span class="line">     #  拿到 ret 是一个对象      所有的对象都存在 ret 的data 属性里面</span><br><span class="line">     <span class="comment">// 注意data属性是固定的用法，用于获取后台的实际数据</span></span><br><span class="line">     <span class="comment">// console.log(ret.data)</span></span><br><span class="line">     <span class="built_in">console</span>.log(ret)</span><br><span class="line">   &#125;)</span><br><span class="line"># 2.  get 请求传递参数</span><br><span class="line">   # 2.1  通过传统的url  以 ? 的形式传递参数</span><br><span class="line">axios.get(<span class="string">'http://localhost:3000/axios?id=123'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br><span class="line">   # 2.2  restful 形式传递参数 </span><br><span class="line">   axios.get(<span class="string">'http://localhost:3000/axios/123'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br><span class="line"># 2.3  通过params  形式传递参数 </span><br><span class="line">   axios.get(<span class="string">'http://localhost:3000/axios'</span>, &#123;</span><br><span class="line">     params: &#123;</span><br><span class="line">       id: <span class="number">789</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br><span class="line">#3 axios delete 请求传参     传参的形式和 get 请求一样</span><br><span class="line">   axios.delete(<span class="string">'http://localhost:3000/axios'</span>, &#123;</span><br><span class="line">     params: &#123;</span><br><span class="line">       id: <span class="number">111</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br><span class="line"></span><br><span class="line"># 4  axios 的 post 请求</span><br><span class="line">   # 4.1  通过选项传递参数</span><br><span class="line">   axios.post(<span class="string">'http://localhost:3000/axios'</span>, &#123;</span><br><span class="line">     uname: <span class="string">'lisi'</span>,</span><br><span class="line">     pwd: <span class="number">123</span></span><br><span class="line">   &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br><span class="line"># 4.2  通过 URLSearchParams  传递参数 </span><br><span class="line">   <span class="keyword">var</span> params = <span class="keyword">new</span> URLSearchParams();</span><br><span class="line">   params.append(<span class="string">'uname'</span>, <span class="string">'zhangsan'</span>);</span><br><span class="line">   params.append(<span class="string">'pwd'</span>, <span class="string">'111'</span>);</span><br><span class="line">   axios.post(<span class="string">'http://localhost:3000/axios'</span>, params).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br><span class="line"></span><br><span class="line">	#5  axios put 请求传参   和 post 请求一样 </span><br><span class="line">   axios.put(<span class="string">'http://localhost:3000/axios/123'</span>, &#123;</span><br><span class="line">     uname: <span class="string">'lisi'</span>,</span><br><span class="line">     pwd: <span class="number">123</span></span><br><span class="line">   &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+<p>上面的代码可以通过改变hash来改变页面字体颜色，虽然没什么用，但是一定程度上说明了原理。 更关键的一点是，因为hash发生变化的url都会被浏览器记录下来，从而你会发现浏览器的前进后退都可以用了，同时点击后退时，页面字体颜色也会发生变化。这样一来，尽管浏览器没有请求服务器，但是页面状态和url一一关联起来，后来人们给它起了一个霸气的名字叫前端路由，成为了单页应用标配。</p>
+<h2 id="history路由-放在服务器环境下测试"><a href="#history路由-放在服务器环境下测试" class="headerlink" title="history路由(放在服务器环境下测试)"></a>history路由(放在服务器环境下测试)</h2><p>随着history api的到来，前端路由开始进化了,前面的hashchange，你只能改变#后面的url片段，而history api则给了前端完全的自由</p>
+<p>history api可以分为两大部分，切换和修改，参考MDN，切换历史状态包括<code>back</code>、<code>forward</code>、<code>go</code> 三个方法，对应浏览器的前进，后退，跳转操作，有同学说了，(谷歌)浏览器只有前进和后退，没有跳转，嗯，在前进后退上长按鼠标，会出来所有当前窗口的历史记录，从而可以跳转(也许叫跳更合适)：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">history.<span class="keyword">go</span>(<span class="number">-2</span>);<span class="comment">//后退两次</span></span><br><span class="line">history.<span class="keyword">go</span>(<span class="number">2</span>);<span class="comment">//前进两次</span></span><br><span class="line">history.back(); <span class="comment">//后退</span></span><br><span class="line">hsitory.forward(); <span class="comment">//前进</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="axios-全局配置"><a href="#axios-全局配置" class="headerlink" title="axios 全局配置"></a>axios 全局配置</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">#  配置公共的请求头 </span><br><span class="line">axios.defaults.baseURL = <span class="string">'https://api.example.com'</span>;</span><br><span class="line">#  配置 超时时间</span><br><span class="line">axios.defaults.timeout = <span class="number">2500</span>;</span><br><span class="line">#  配置公共的请求头</span><br><span class="line">axios.defaults.headers.common[<span class="string">'Authorization'</span>] = AUTH_TOKEN;</span><br><span class="line"># 配置公共的 post 的 Content-Type</span><br><span class="line">axios.defaults.headers.post[<span class="string">'Content-Type'</span>] = <span class="string">'application/x-www-form-urlencoded'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="修改历史状态包括了pushState-replaceState"><a href="#修改历史状态包括了pushState-replaceState" class="headerlink" title="修改历史状态包括了pushState,replaceState"></a>修改历史状态包括了<code>pushState</code>,<code>replaceState</code></h3><p>两个方法,这两个方法接收三个参数:<code>stateObj</code>,<code>title</code>,<code>url</code></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">history.pushState(&#123;<span class="attr">color</span>:<span class="string">'red'</span>&#125;, <span class="string">'red'</span>, <span class="string">'red'</span>)</span><br><span class="line">history.back();</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     history.forward();</span><br><span class="line"> &#125;,<span class="number">0</span>)</span><br><span class="line"><span class="built_in">window</span>.onpopstate = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(event.state)</span><br><span class="line">     <span class="keyword">if</span>(event.state &amp;&amp; event.state.color === <span class="string">'red'</span>)&#123;</span><br><span class="line">           <span class="built_in">document</span>.body.style.color = <span class="string">'red'</span>;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="axios-拦截器"><a href="#axios-拦截器" class="headerlink" title="axios 拦截器"></a>axios 拦截器</h4><ul>
-<li>请求拦截器<ul>
-<li>请求拦截器的作用是在请求发送前进行一些操作<ul>
-<li>例如在每个请求体里加上token，统一做了处理如果以后要改也非常容易</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>响应拦截器<ul>
-<li>响应拦截器的作用是在接收到响应后进行一些操作<ul>
-<li>例如在服务器返回登录状态失效，需要重新登录的时候，跳转到登录页</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"># 1. 请求拦截器 </span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="keyword">function</span>(<span class="params">config</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(config.url)</span><br><span class="line">     # 1.1  任何请求都会经过这一步   在发送请求之前做些什么   </span><br><span class="line">     config.headers.mytoken = <span class="string">'nihao'</span>;</span><br><span class="line">     # 1.2  这里一定要return   否则配置不成功  </span><br><span class="line">     <span class="keyword">return</span> config;</span><br><span class="line">   &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">      #1.3 对请求错误做点什么    </span><br><span class="line">     <span class="built_in">console</span>.log(err)</span><br><span class="line">   &#125;)</span><br><span class="line">#2. 响应拦截器 </span><br><span class="line">   axios.interceptors.response.use(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">     #2.1  在接收响应做些什么  </span><br><span class="line">     <span class="keyword">var</span> data = res.data;</span><br><span class="line">     <span class="keyword">return</span> data;</span><br><span class="line">   &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">     #2.2 对响应错误做点什么  </span><br><span class="line">     <span class="built_in">console</span>.log(err)</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
-
+<p>通过<code>pushstate</code>把页面的状态保存在state对象中，当页面的url再变回这个url时，可以通过<code>event.state</code>取到这个<code>state</code>对象，从而可以对页面状态进行还原，这里的页面状态就是页面字体颜色，其实滚动条的位置，阅读进度，组件的开关的这些页面状态都可以存储到state的里面。</p>
+<h3 id="history模式的问题"><a href="#history模式的问题" class="headerlink" title="history模式的问题"></a>history模式的问题</h3><p>通过history api，我们丢掉了丑陋的#，但是它也有个问题：不怕前进，不怕后退，就怕<strong>刷新</strong>，<strong>f5</strong>，（如果后端没有准备的话）,因为刷新是实实在在地去请求服务器的,不玩虚的。 在hash模式下，前端路由修改的是#中的信息，而浏览器请求时是不带它玩的，所以没有问题.但是在history下，你可以自由的修改path，当刷新时，如果服务器中没有相应的响应或者资源，会分分钟刷出一个404来。</p>
+<h4 id="如何实现修改URL而不刷新页面"><a href="#如何实现修改URL而不刷新页面" class="headerlink" title="如何实现修改URL而不刷新页面"></a>如何实现修改URL而不刷新页面</h4><p><strong>① 修改URL的hash</strong><br> 在控制台中输入命令： location.hash=”xxx”<br>  如果页面的URL发生改变，就会向服务器发送请求，请求的资源我们可以在Network查看。所以演示的步骤如下：在控制台输入  location.hash=”aaa” –&gt;观察浏览器的地址栏是否改变 –&gt; 查看Network 是否有新资源。<br>  <img src="https://img-blog.csdnimg.cn/2020051516195330.png" alt="在这里插入图片描述"> </p>
+<p>在控制台输入  location.hash=”aaa”</p>
+<p> <img src="https://img-blog.csdnimg.cn/2020051516195333.png" alt="在这里插入图片描述"> </p>
+<p><strong>② html5 的pushState</strong></p>
+<p>这是第二种修改URL而不刷新页面的方法，用法如下： history.pushState({…},’xxx’,’URL’)  。第一个参数是对象，第二个参数是title，第三个参数是URL</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200515162111161.png" alt="在这里插入图片描述"> </p>
+<p> <img src="https://img-blog.csdnimg.cn/2020051516195332.png" alt="在这里插入图片描述"> </p>
+<p>  history.pushState指令的原理和栈结构相似。先进后出，当在控制台输入多个history.pushState指令时，URL只会显示最后一条指令的URL。</p>
+<p><strong>③ html5 的replaceState</strong><br> 同样的，和pushState工作的基本原理相似，但是也有不同：<br>  pushState是一个类似栈的结构，会<strong>保存历史记录</strong>，所以可以返回上一次访问过的页面；<br>  而replaceState 是直接用当前的URL替代了上一个URL，所以<strong>不能够返回上一次访问过的页面</strong>。</p>
 ]]></content>
       <categories>
         <category>Vue</category>
       </categories>
       <tags>
-        <tag>axios</tag>
+        <tag>Router</tag>
       </tags>
   </entry>
   <entry>
@@ -4312,43 +4349,6 @@
       <categories>
         <category>JavaScript</category>
       </categories>
-  </entry>
-  <entry>
-    <title>hash和history模式的区别</title>
-    <url>/2020/03/12/hash%E5%92%8Chistory%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<h2 id="hash和history两种模式的区别"><a href="#hash和history两种模式的区别" class="headerlink" title="hash和history两种模式的区别"></a>hash和history两种模式的区别</h2><blockquote>
-<p>众所周知，vue-router有两种模式，hash模式和history模式，这里来谈谈两者的区别。</p>
-<a id="more"></a>
-</blockquote>
-<h2 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h2><p>hash模式背后的原理是<code>onhashchange</code>事件,可以在window对象上监听这个事件:</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(event.oldURL, event.newURL);</span><br><span class="line">     <span class="keyword">let</span> hash = location.hash.slice(<span class="number">1</span>); </span><br><span class="line">     <span class="built_in">document</span>.body.style.color = hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面的代码可以通过改变hash来改变页面字体颜色，虽然没什么用，但是一定程度上说明了原理。 更关键的一点是，因为hash发生变化的url都会被浏览器记录下来，从而你会发现浏览器的前进后退都可以用了，同时点击后退时，页面字体颜色也会发生变化。这样一来，尽管浏览器没有请求服务器，但是页面状态和url一一关联起来，后来人们给它起了一个霸气的名字叫前端路由，成为了单页应用标配。</p>
-<h2 id="history路由-放在服务器环境下测试"><a href="#history路由-放在服务器环境下测试" class="headerlink" title="history路由(放在服务器环境下测试)"></a>history路由(放在服务器环境下测试)</h2><p>随着history api的到来，前端路由开始进化了,前面的hashchange，你只能改变#后面的url片段，而history api则给了前端完全的自由</p>
-<p>history api可以分为两大部分，切换和修改，参考MDN，切换历史状态包括<code>back</code>、<code>forward</code>、<code>go</code> 三个方法，对应浏览器的前进，后退，跳转操作，有同学说了，(谷歌)浏览器只有前进和后退，没有跳转，嗯，在前进后退上长按鼠标，会出来所有当前窗口的历史记录，从而可以跳转(也许叫跳更合适)：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">history.<span class="keyword">go</span>(<span class="number">-2</span>);<span class="comment">//后退两次</span></span><br><span class="line">history.<span class="keyword">go</span>(<span class="number">2</span>);<span class="comment">//前进两次</span></span><br><span class="line">history.back(); <span class="comment">//后退</span></span><br><span class="line">hsitory.forward(); <span class="comment">//前进</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="修改历史状态包括了pushState-replaceState"><a href="#修改历史状态包括了pushState-replaceState" class="headerlink" title="修改历史状态包括了pushState,replaceState"></a>修改历史状态包括了<code>pushState</code>,<code>replaceState</code></h3><p>两个方法,这两个方法接收三个参数:<code>stateObj</code>,<code>title</code>,<code>url</code></p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">history.pushState(&#123;<span class="attr">color</span>:<span class="string">'red'</span>&#125;, <span class="string">'red'</span>, <span class="string">'red'</span>)</span><br><span class="line">history.back();</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     history.forward();</span><br><span class="line"> &#125;,<span class="number">0</span>)</span><br><span class="line"><span class="built_in">window</span>.onpopstate = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(event.state)</span><br><span class="line">     <span class="keyword">if</span>(event.state &amp;&amp; event.state.color === <span class="string">'red'</span>)&#123;</span><br><span class="line">           <span class="built_in">document</span>.body.style.color = <span class="string">'red'</span>;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过<code>pushstate</code>把页面的状态保存在state对象中，当页面的url再变回这个url时，可以通过<code>event.state</code>取到这个<code>state</code>对象，从而可以对页面状态进行还原，这里的页面状态就是页面字体颜色，其实滚动条的位置，阅读进度，组件的开关的这些页面状态都可以存储到state的里面。</p>
-<h3 id="history模式的问题"><a href="#history模式的问题" class="headerlink" title="history模式的问题"></a>history模式的问题</h3><p>通过history api，我们丢掉了丑陋的#，但是它也有个问题：不怕前进，不怕后退，就怕<strong>刷新</strong>，<strong>f5</strong>，（如果后端没有准备的话）,因为刷新是实实在在地去请求服务器的,不玩虚的。 在hash模式下，前端路由修改的是#中的信息，而浏览器请求时是不带它玩的，所以没有问题.但是在history下，你可以自由的修改path，当刷新时，如果服务器中没有相应的响应或者资源，会分分钟刷出一个404来。</p>
-<h4 id="如何实现修改URL而不刷新页面"><a href="#如何实现修改URL而不刷新页面" class="headerlink" title="如何实现修改URL而不刷新页面"></a>如何实现修改URL而不刷新页面</h4><p><strong>① 修改URL的hash</strong><br> 在控制台中输入命令： location.hash=”xxx”<br>  如果页面的URL发生改变，就会向服务器发送请求，请求的资源我们可以在Network查看。所以演示的步骤如下：在控制台输入  location.hash=”aaa” –&gt;观察浏览器的地址栏是否改变 –&gt; 查看Network 是否有新资源。<br>  <img src="https://img-blog.csdnimg.cn/2020051516195330.png" alt="在这里插入图片描述"> </p>
-<p>在控制台输入  location.hash=”aaa”</p>
-<p> <img src="https://img-blog.csdnimg.cn/2020051516195333.png" alt="在这里插入图片描述"> </p>
-<p><strong>② html5 的pushState</strong></p>
-<p>这是第二种修改URL而不刷新页面的方法，用法如下： history.pushState({…},’xxx’,’URL’)  。第一个参数是对象，第二个参数是title，第三个参数是URL</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200515162111161.png" alt="在这里插入图片描述"> </p>
-<p> <img src="https://img-blog.csdnimg.cn/2020051516195332.png" alt="在这里插入图片描述"> </p>
-<p>  history.pushState指令的原理和栈结构相似。先进后出，当在控制台输入多个history.pushState指令时，URL只会显示最后一条指令的URL。</p>
-<p><strong>③ html5 的replaceState</strong><br> 同样的，和pushState工作的基本原理相似，但是也有不同：<br>  pushState是一个类似栈的结构，会<strong>保存历史记录</strong>，所以可以返回上一次访问过的页面；<br>  而replaceState 是直接用当前的URL替代了上一个URL，所以<strong>不能够返回上一次访问过的页面</strong>。</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Router</tag>
-      </tags>
   </entry>
   <entry>
     <title>let和const命令</title>
@@ -5027,6 +5027,74 @@
       </categories>
   </entry>
   <entry>
+    <title>字符串的扩展</title>
+    <url>/2020/02/22/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95/</url>
+    <content><![CDATA[<h2 id="实例方法：includes-startsWith-endsWith"><a href="#实例方法：includes-startsWith-endsWith" class="headerlink" title="实例方法：includes(), startsWith(), endsWith()"></a>实例方法：includes(), startsWith(), endsWith()</h2><p>传统上，JavaScript 只有<code>indexOf</code>方法，可以用来确定一个字符串是否包含在另一个字符串中。ES6 又提供了三种新方法。</p>
+<a id="more"></a>
+
+<ul>
+<li><strong>includes()</strong>：返回布尔值，表示是否找到了参数字符串。</li>
+<li><strong>startsWith()</strong>：返回布尔值，表示参数字符串是否在原字符串的头部。</li>
+<li><strong>endsWith()</strong>：返回布尔值，表示参数字符串是否在原字符串的尾部。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="string">'Hello world!'</span>;</span><br><span class="line"></span><br><span class="line">s.startsWith(<span class="string">'Hello'</span>) <span class="comment">// true</span></span><br><span class="line">s.endsWith(<span class="string">'!'</span>) <span class="comment">// true</span></span><br><span class="line">s.includes(<span class="string">'o'</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>这三个方法都支持第二个参数，表示开始搜索的位置。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="string">'Hello world!'</span>;</span><br><span class="line"></span><br><span class="line">s.startsWith(<span class="string">'world'</span>, <span class="number">6</span>) <span class="comment">// true</span></span><br><span class="line">s.endsWith(<span class="string">'Hello'</span>, <span class="number">5</span>) <span class="comment">// true</span></span><br><span class="line">s.includes(<span class="string">'Hello'</span>, <span class="number">6</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示，使用第二个参数<code>n</code>时，<code>endsWith</code>的行为与其他两个方法有所不同。它针对前<code>n</code>个字符，而其他两个方法针对从第<code>n</code>个位置直到字符串结束。</p>
+<h2 id="实例方法：repeat"><a href="#实例方法：repeat" class="headerlink" title="实例方法：repeat()"></a>实例方法：repeat()</h2><p><code>repeat</code>方法返回一个新字符串，表示将原字符串重复<code>n</code>次。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'x'</span>.repeat(<span class="number">3</span>) <span class="comment">// "xxx"</span></span><br><span class="line"><span class="string">'hello'</span>.repeat(<span class="number">2</span>) <span class="comment">// "hellohello"</span></span><br><span class="line"><span class="string">'na'</span>.repeat(<span class="number">0</span>) <span class="comment">// ""</span></span><br></pre></td></tr></table></figure>
+
+<p>参数如果是小数，会被取整。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'na'</span>.repeat(<span class="number">2.9</span>) <span class="comment">// "nana"</span></span><br></pre></td></tr></table></figure>
+
+<p>如果<code>repeat</code>的参数是负数或者<code>Infinity</code>，会报错。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'na'</span>.repeat(<span class="literal">Infinity</span>)</span><br><span class="line"><span class="comment">// RangeError</span></span><br><span class="line"><span class="string">'na'</span>.repeat(<span class="number">-1</span>)</span><br><span class="line"><span class="comment">// RangeError</span></span><br></pre></td></tr></table></figure>
+
+<p>但是，如果参数是 0 到-1 之间的小数，则等同于 0，这是因为会先进行取整运算。0 到-1 之间的小数，取整以后等于<code>-0</code>，<code>repeat</code>视同为 0。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'na'</span>.repeat(<span class="number">-0.9</span>) <span class="comment">// ""</span></span><br></pre></td></tr></table></figure>
+
+<p>参数<code>NaN</code>等同于 0。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'na'</span>.repeat(<span class="literal">NaN</span>) <span class="comment">// ""</span></span><br></pre></td></tr></table></figure>
+
+<p>如果<code>repeat</code>的参数是字符串，则会先转换成数字。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'na'</span>.repeat(<span class="string">'na'</span>) <span class="comment">// ""</span></span><br><span class="line"><span class="string">'na'</span>.repeat(<span class="string">'3'</span>) <span class="comment">// "nanana"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="实例方法：padStart-，padEnd"><a href="#实例方法：padStart-，padEnd" class="headerlink" title="实例方法：padStart()，padEnd()"></a>实例方法：padStart()，padEnd()</h2><p>ES2017 引入了字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。<code>padStart()</code>用于头部补全，<code>padEnd()</code>用于尾部补全。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'x'</span>.padStart(<span class="number">5</span>, <span class="string">'ab'</span>) <span class="comment">// 'ababx'</span></span><br><span class="line"><span class="string">'x'</span>.padStart(<span class="number">4</span>, <span class="string">'ab'</span>) <span class="comment">// 'abax'</span></span><br><span class="line"></span><br><span class="line"><span class="string">'x'</span>.padEnd(<span class="number">5</span>, <span class="string">'ab'</span>) <span class="comment">// 'xabab'</span></span><br><span class="line"><span class="string">'x'</span>.padEnd(<span class="number">4</span>, <span class="string">'ab'</span>) <span class="comment">// 'xaba'</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>padStart()</code>和<code>padEnd()</code>一共接受两个参数，第一个参数是字符串补全生效的最大长度，第二个参数是用来补全的字符串。</p>
+<p>如果原字符串的长度，等于或大于最大长度，则字符串补全不生效，返回原字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'xxx'</span>.padStart(<span class="number">2</span>, <span class="string">'ab'</span>) <span class="comment">// 'xxx'</span></span><br><span class="line"><span class="string">'xxx'</span>.padEnd(<span class="number">2</span>, <span class="string">'ab'</span>) <span class="comment">// 'xxx'</span></span><br></pre></td></tr></table></figure>
+
+<p>如果用来补全的字符串与原字符串，两者的长度之和超过了最大长度，则会截去超出位数的补全字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'abc'</span>.padStart(<span class="number">10</span>, <span class="string">'0123456789'</span>)</span><br><span class="line"><span class="comment">// '0123456abc'</span></span><br></pre></td></tr></table></figure>
+
+<p>如果省略第二个参数，默认使用空格补全长度。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'x'</span>.padStart(<span class="number">4</span>) <span class="comment">// '   x'</span></span><br><span class="line"><span class="string">'x'</span>.padEnd(<span class="number">4</span>) <span class="comment">// 'x   '</span></span><br></pre></td></tr></table></figure>
+
+<p><code>padStart()</code>的常见用途是为数值补全指定位数。下面代码生成 10 位的数值字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'1'</span>.padStart(<span class="number">10</span>, <span class="string">'0'</span>) <span class="comment">// "0000000001"</span></span><br><span class="line"><span class="string">'12'</span>.padStart(<span class="number">10</span>, <span class="string">'0'</span>) <span class="comment">// "0000000012"</span></span><br><span class="line"><span class="string">'123456'</span>.padStart(<span class="number">10</span>, <span class="string">'0'</span>) <span class="comment">// "0000123456"</span></span><br></pre></td></tr></table></figure>
+
+<p>另一个用途是提示字符串格式。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'12'</span>.padStart(<span class="number">10</span>, <span class="string">'YYYY-MM-DD'</span>) <span class="comment">// "YYYY-MM-12"</span></span><br><span class="line"><span class="string">'09-12'</span>.padStart(<span class="number">10</span>, <span class="string">'YYYY-MM-DD'</span>) <span class="comment">// "YYYY-09-12"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="实例方法：trimStart-，trimEnd"><a href="#实例方法：trimStart-，trimEnd" class="headerlink" title="实例方法：trimStart()，trimEnd()"></a>实例方法：trimStart()，trimEnd()</h2><p><a href="https://github.com/tc39/proposal-string-left-right-trim" target="_blank" rel="noopener">ES2019</a> 对字符串实例新增了<code>trimStart()</code>和<code>trimEnd()</code>这两个方法。它们的行为与<code>trim()</code>一致，<code>trimStart()</code>消除字符串头部的空格，<code>trimEnd()</code>消除尾部的空格。它们返回的都是新字符串，不会修改原始字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="string">'  abc  '</span>;</span><br><span class="line"></span><br><span class="line">s.trim() <span class="comment">// "abc"</span></span><br><span class="line">s.trimStart() <span class="comment">// "abc  "</span></span><br><span class="line">s.trimEnd() <span class="comment">// "  abc"</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>trimStart()</code>只消除头部的空格，保留尾部的空格。<code>trimEnd()</code>也是类似行为。</p>
+<p>除了空格键，这两个方法对字符串头部（或尾部）的 tab 键、换行符等不可见的空白符号也有效。</p>
+<p>浏览器还部署了额外的两个方法，<code>trimLeft()</code>是<code>trimStart()</code>的别名，<code>trimRight()</code>是<code>trimEnd()</code>的别名。</p>
+<h3 id="参考《阮一峰ES6入门》"><a href="#参考《阮一峰ES6入门》" class="headerlink" title="参考《阮一峰ES6入门》"></a>参考《阮一峰ES6入门》</h3>]]></content>
+      <categories>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>es6</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>变量解构赋值</title>
     <url>/2020/02/21/%E5%8F%98%E9%87%8F%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/</url>
     <content><![CDATA[<h2 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。</p>
@@ -5177,74 +5245,6 @@
 <p><code>undefined</code>就会触发函数参数的默认值。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="literal">undefined</span>, <span class="number">3</span>].map(<span class="function">(<span class="params">x = <span class="string">'yes'</span></span>) =&gt;</span> x);</span><br><span class="line"><span class="comment">// [ 1, 'yes', 3 ]</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="参考《阮一峰ES6入门》"><a href="#参考《阮一峰ES6入门》" class="headerlink" title="参考《阮一峰ES6入门》"></a>参考《阮一峰ES6入门》</h3>]]></content>
-      <categories>
-        <category>ES6</category>
-      </categories>
-      <tags>
-        <tag>es6</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>字符串的扩展</title>
-    <url>/2020/02/22/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95/</url>
-    <content><![CDATA[<h2 id="实例方法：includes-startsWith-endsWith"><a href="#实例方法：includes-startsWith-endsWith" class="headerlink" title="实例方法：includes(), startsWith(), endsWith()"></a>实例方法：includes(), startsWith(), endsWith()</h2><p>传统上，JavaScript 只有<code>indexOf</code>方法，可以用来确定一个字符串是否包含在另一个字符串中。ES6 又提供了三种新方法。</p>
-<a id="more"></a>
-
-<ul>
-<li><strong>includes()</strong>：返回布尔值，表示是否找到了参数字符串。</li>
-<li><strong>startsWith()</strong>：返回布尔值，表示参数字符串是否在原字符串的头部。</li>
-<li><strong>endsWith()</strong>：返回布尔值，表示参数字符串是否在原字符串的尾部。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="string">'Hello world!'</span>;</span><br><span class="line"></span><br><span class="line">s.startsWith(<span class="string">'Hello'</span>) <span class="comment">// true</span></span><br><span class="line">s.endsWith(<span class="string">'!'</span>) <span class="comment">// true</span></span><br><span class="line">s.includes(<span class="string">'o'</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p>这三个方法都支持第二个参数，表示开始搜索的位置。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="string">'Hello world!'</span>;</span><br><span class="line"></span><br><span class="line">s.startsWith(<span class="string">'world'</span>, <span class="number">6</span>) <span class="comment">// true</span></span><br><span class="line">s.endsWith(<span class="string">'Hello'</span>, <span class="number">5</span>) <span class="comment">// true</span></span><br><span class="line">s.includes(<span class="string">'Hello'</span>, <span class="number">6</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码表示，使用第二个参数<code>n</code>时，<code>endsWith</code>的行为与其他两个方法有所不同。它针对前<code>n</code>个字符，而其他两个方法针对从第<code>n</code>个位置直到字符串结束。</p>
-<h2 id="实例方法：repeat"><a href="#实例方法：repeat" class="headerlink" title="实例方法：repeat()"></a>实例方法：repeat()</h2><p><code>repeat</code>方法返回一个新字符串，表示将原字符串重复<code>n</code>次。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'x'</span>.repeat(<span class="number">3</span>) <span class="comment">// "xxx"</span></span><br><span class="line"><span class="string">'hello'</span>.repeat(<span class="number">2</span>) <span class="comment">// "hellohello"</span></span><br><span class="line"><span class="string">'na'</span>.repeat(<span class="number">0</span>) <span class="comment">// ""</span></span><br></pre></td></tr></table></figure>
-
-<p>参数如果是小数，会被取整。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'na'</span>.repeat(<span class="number">2.9</span>) <span class="comment">// "nana"</span></span><br></pre></td></tr></table></figure>
-
-<p>如果<code>repeat</code>的参数是负数或者<code>Infinity</code>，会报错。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'na'</span>.repeat(<span class="literal">Infinity</span>)</span><br><span class="line"><span class="comment">// RangeError</span></span><br><span class="line"><span class="string">'na'</span>.repeat(<span class="number">-1</span>)</span><br><span class="line"><span class="comment">// RangeError</span></span><br></pre></td></tr></table></figure>
-
-<p>但是，如果参数是 0 到-1 之间的小数，则等同于 0，这是因为会先进行取整运算。0 到-1 之间的小数，取整以后等于<code>-0</code>，<code>repeat</code>视同为 0。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'na'</span>.repeat(<span class="number">-0.9</span>) <span class="comment">// ""</span></span><br></pre></td></tr></table></figure>
-
-<p>参数<code>NaN</code>等同于 0。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'na'</span>.repeat(<span class="literal">NaN</span>) <span class="comment">// ""</span></span><br></pre></td></tr></table></figure>
-
-<p>如果<code>repeat</code>的参数是字符串，则会先转换成数字。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'na'</span>.repeat(<span class="string">'na'</span>) <span class="comment">// ""</span></span><br><span class="line"><span class="string">'na'</span>.repeat(<span class="string">'3'</span>) <span class="comment">// "nanana"</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="实例方法：padStart-，padEnd"><a href="#实例方法：padStart-，padEnd" class="headerlink" title="实例方法：padStart()，padEnd()"></a>实例方法：padStart()，padEnd()</h2><p>ES2017 引入了字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。<code>padStart()</code>用于头部补全，<code>padEnd()</code>用于尾部补全。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'x'</span>.padStart(<span class="number">5</span>, <span class="string">'ab'</span>) <span class="comment">// 'ababx'</span></span><br><span class="line"><span class="string">'x'</span>.padStart(<span class="number">4</span>, <span class="string">'ab'</span>) <span class="comment">// 'abax'</span></span><br><span class="line"></span><br><span class="line"><span class="string">'x'</span>.padEnd(<span class="number">5</span>, <span class="string">'ab'</span>) <span class="comment">// 'xabab'</span></span><br><span class="line"><span class="string">'x'</span>.padEnd(<span class="number">4</span>, <span class="string">'ab'</span>) <span class="comment">// 'xaba'</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>padStart()</code>和<code>padEnd()</code>一共接受两个参数，第一个参数是字符串补全生效的最大长度，第二个参数是用来补全的字符串。</p>
-<p>如果原字符串的长度，等于或大于最大长度，则字符串补全不生效，返回原字符串。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'xxx'</span>.padStart(<span class="number">2</span>, <span class="string">'ab'</span>) <span class="comment">// 'xxx'</span></span><br><span class="line"><span class="string">'xxx'</span>.padEnd(<span class="number">2</span>, <span class="string">'ab'</span>) <span class="comment">// 'xxx'</span></span><br></pre></td></tr></table></figure>
-
-<p>如果用来补全的字符串与原字符串，两者的长度之和超过了最大长度，则会截去超出位数的补全字符串。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'abc'</span>.padStart(<span class="number">10</span>, <span class="string">'0123456789'</span>)</span><br><span class="line"><span class="comment">// '0123456abc'</span></span><br></pre></td></tr></table></figure>
-
-<p>如果省略第二个参数，默认使用空格补全长度。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'x'</span>.padStart(<span class="number">4</span>) <span class="comment">// '   x'</span></span><br><span class="line"><span class="string">'x'</span>.padEnd(<span class="number">4</span>) <span class="comment">// 'x   '</span></span><br></pre></td></tr></table></figure>
-
-<p><code>padStart()</code>的常见用途是为数值补全指定位数。下面代码生成 10 位的数值字符串。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'1'</span>.padStart(<span class="number">10</span>, <span class="string">'0'</span>) <span class="comment">// "0000000001"</span></span><br><span class="line"><span class="string">'12'</span>.padStart(<span class="number">10</span>, <span class="string">'0'</span>) <span class="comment">// "0000000012"</span></span><br><span class="line"><span class="string">'123456'</span>.padStart(<span class="number">10</span>, <span class="string">'0'</span>) <span class="comment">// "0000123456"</span></span><br></pre></td></tr></table></figure>
-
-<p>另一个用途是提示字符串格式。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">'12'</span>.padStart(<span class="number">10</span>, <span class="string">'YYYY-MM-DD'</span>) <span class="comment">// "YYYY-MM-12"</span></span><br><span class="line"><span class="string">'09-12'</span>.padStart(<span class="number">10</span>, <span class="string">'YYYY-MM-DD'</span>) <span class="comment">// "YYYY-09-12"</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="实例方法：trimStart-，trimEnd"><a href="#实例方法：trimStart-，trimEnd" class="headerlink" title="实例方法：trimStart()，trimEnd()"></a>实例方法：trimStart()，trimEnd()</h2><p><a href="https://github.com/tc39/proposal-string-left-right-trim" target="_blank" rel="noopener">ES2019</a> 对字符串实例新增了<code>trimStart()</code>和<code>trimEnd()</code>这两个方法。它们的行为与<code>trim()</code>一致，<code>trimStart()</code>消除字符串头部的空格，<code>trimEnd()</code>消除尾部的空格。它们返回的都是新字符串，不会修改原始字符串。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="string">'  abc  '</span>;</span><br><span class="line"></span><br><span class="line">s.trim() <span class="comment">// "abc"</span></span><br><span class="line">s.trimStart() <span class="comment">// "abc  "</span></span><br><span class="line">s.trimEnd() <span class="comment">// "  abc"</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>trimStart()</code>只消除头部的空格，保留尾部的空格。<code>trimEnd()</code>也是类似行为。</p>
-<p>除了空格键，这两个方法对字符串头部（或尾部）的 tab 键、换行符等不可见的空白符号也有效。</p>
-<p>浏览器还部署了额外的两个方法，<code>trimLeft()</code>是<code>trimStart()</code>的别名，<code>trimRight()</code>是<code>trimEnd()</code>的别名。</p>
 <h3 id="参考《阮一峰ES6入门》"><a href="#参考《阮一峰ES6入门》" class="headerlink" title="参考《阮一峰ES6入门》"></a>参考《阮一峰ES6入门》</h3>]]></content>
       <categories>
         <category>ES6</category>
@@ -5732,6 +5732,123 @@
 ]]></content>
       <categories>
         <category>数据结构和算法</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>表单</title>
+    <url>/2020/01/03/%E8%A1%A8%E5%8D%95/</url>
+    <content><![CDATA[<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><p>表单目的是为了收集用户信息。</p>
+<p>在我们网页中， 我们也需要跟用户进行交互，收集用户资料，此时也需要表单。</p>
+<p>在HTML中，一个完整的表单通常由表单控件（也称为表单元素）、提示信息和表单域3个部分构成。</p>
+<a id="more"></a>
+
+<p>  *<em>表单控件： *</em></p>
+<p>​       包含了具体的表单功能项，如单行文本输入框、密码输入框、复选框、提交按钮、重置按钮等。</p>
+<p>  <strong>提示信息：</strong></p>
+<p>​        一个表单中通常还需要包含一些说明性的文字，提示用户进行填写和操作。</p>
+<p>  <strong>表单域：</strong>  </p>
+<p>​      他相当于一个容器，用来容纳所有的表单控件和提示信息，可以通过他定义处理表单数据所用程序的url地址，以及数据提交到服务器的方法。如果不定义表单域，表单中的数据就无法传送到后台服务器</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200618203440155.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<h4 id="input-属性小结"><a href="#input-属性小结" class="headerlink" title="input 属性小结"></a>input 属性小结</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th align="left">说明</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td align="left">表单类型</td>
+<td>用来指定不同的控件类型</td>
+</tr>
+<tr>
+<td>value</td>
+<td align="left">表单值</td>
+<td>表单里面默认显示的文本</td>
+</tr>
+<tr>
+<td>name</td>
+<td align="left">表单名字</td>
+<td>页面中的表单很多，name主要作用就是用于区别不同的表单。</td>
+</tr>
+<tr>
+<td>checked</td>
+<td align="left">默认选中</td>
+<td>表示那个单选或者复选按钮一开始就被选中了</td>
+</tr>
+</tbody></table>
+<h2 id="label标签"><a href="#label标签" class="headerlink" title="label标签"></a>label标签</h2><p><strong>目标：</strong></p>
+<p>label标签主要目的是为了提高用户体验。 为用户提高最优秀的服务。</p>
+<p><strong>概念：</strong></p>
+<p>label 标签为 input 元素定义标注（标签）。</p>
+<p><strong>作用：</strong> </p>
+<p> 用于绑定一个表单元素, 当点击label标签的时候, 被绑定的表单元素就会获得输入焦点。</p>
+<p><strong>如何绑定元素呢？</strong></p>
+<ol>
+<li>第一种用法就是用label直接包括input表单。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span> 用户名： <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"usename"</span> <span class="attr">value</span>=<span class="string">"请输入用户名"</span>&gt;</span>   <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>   适合单个表单选择</p>
+<ol start="2">
+<li>第二种用法 for 属性规定 label 与哪个表单元素绑定。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"sex"</span>&gt;</span>男<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span>  <span class="attr">id</span>=<span class="string">"sex"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><ul>
+<li>语法：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> &gt;</span></span><br><span class="line">  文本内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>作用：</p>
+<p>通过textarea控件可以轻松地创建多行文本输入框.</p>
+<p>cols=”每行中的字符数” rows=”显示的行数”  我们实际开发不用</p>
+</li>
+</ul>
+<h3 id="select下拉列表"><a href="#select下拉列表" class="headerlink" title="select下拉列表"></a>select下拉列表</h3><p><strong>语法：</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意：</li>
+</ul>
+<ol>
+<li>&lt;select&gt;  中至少包含一对 option </li>
+<li>在option 中定义selected =” selected “时，当前项即为默认选中项。</li>
+</ol>
+<h3 id="form表单域"><a href="#form表单域" class="headerlink" title="form表单域"></a>form表单域</h3><p>*<em>语法: *</em></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"url地址"</span> <span class="attr">method</span>=<span class="string">"提交方式"</span> <span class="attr">name</span>=<span class="string">"表单名称"</span>&gt;</span></span><br><span class="line">  各种表单控件</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>常用属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th align="left">属性值</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>action</td>
+<td align="left">url地址</td>
+<td>用于指定接收并处理表单数据的服务器程序的url地址。</td>
+</tr>
+<tr>
+<td>method</td>
+<td align="left">get/post</td>
+<td>用于设置表单数据的提交方式，其取值为get或post。</td>
+</tr>
+<tr>
+<td>name</td>
+<td align="left">名称</td>
+<td>用于指定表单的名称，以区分同一个页面中的多个表单。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>html</category>
       </categories>
   </entry>
   <entry>
