@@ -214,6 +214,87 @@
       </tags>
   </entry>
   <entry>
+    <title>CSS定位</title>
+    <url>/2020/01/12/CSS%E5%AE%9A%E4%BD%8D/</url>
+    <content><![CDATA[<h2 id="一、position-属性的作用"><a href="#一、position-属性的作用" class="headerlink" title="一、position 属性的作用"></a>一、position 属性的作用</h2><p><code>position</code>属性用来指定一个元素在网页上的位置，一共有5种定位方式，即<code>position</code>属性主要有五个值。</p>
+<a id="more"></a>
+
+<blockquote>
+<ul>
+<li><code>static</code></li>
+<li><code>relative</code></li>
+<li><code>fixed</code></li>
+<li><code>absolute</code></li>
+<li><code>sticky</code></li>
+</ul>
+</blockquote>
+<h2 id="二、static-属性值"><a href="#二、static-属性值" class="headerlink" title="二、static 属性值"></a>二、static 属性值</h2><p><code>static</code>是<code>position</code>属性的默认值。如果省略<code>position</code>属性，浏览器就认为该元素是<code>static</code>定位。</p>
+<p>这时，浏览器会按照源码的顺序，决定每个元素的位置，这称为”正常的页面流”（normal flow）。每个块级元素占据自己的区块（block），元素与元素之间不产生重叠，这个位置就是元素的默认位置。</p>
+<p>注意，<code>static</code>定位所导致的元素位置，是浏览器自主决定的，所以这时<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性无效。</p>
+<h2 id="三、relative，absolute，fixed"><a href="#三、relative，absolute，fixed" class="headerlink" title="三、relative，absolute，fixed"></a>三、relative，absolute，fixed</h2><p><code>relative</code>、<code>absolute</code>、<code>fixed</code>这三个属性值有一个共同点，都是相对于某个基点的定位，不同之处仅仅在于基点不同。所以，只要理解了它们的基点是什么，就很容易掌握这三个属性值。</p>
+<p>这三种定位都不会对其他元素的位置产生影响，因此元素之间可能产生重叠。</p>
+<h3 id="3-1-relative-属性值"><a href="#3-1-relative-属性值" class="headerlink" title="3.1 relative 属性值"></a>3.1 relative 属性值</h3><p><code>relative</code>表示，相对于默认位置（即<code>static</code>时的位置）进行偏移，即定位基点是元素的默认位置。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111721.jpg" alt="img"></p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111722.jpg" alt="img"></p>
+<p>它必须搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用，用来指定偏移的方向和距离。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111723.jpg" alt="img"></p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码中，<code>div</code>元素从默认位置向下偏移<code>20px</code>（即距离顶部<code>20px</code>）。</p>
+<h3 id="3-2-absolute-属性值"><a href="#3-2-absolute-属性值" class="headerlink" title="3.2 absolute 属性值"></a>3.2 absolute 属性值</h3><p><code>absolute</code>表示，相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。</p>
+<p>它有一个重要的限制条件：定位基点（一般是父元素）不能是<code>static</code>定位，否则定位基点就会变成整个网页的根元素<code>html</code>。另外，<code>absolute</code>定位也必须搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111801.jpg" alt="img"></p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  HTML 代码如下</span></span><br><span class="line"><span class="comment">  &lt;div id="father"&gt;</span></span><br><span class="line"><span class="comment">    &lt;div id="son"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment">  &lt;/div&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-id">#father</span> &#123;</span><br><span class="line">  <span class="attribute">positon</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#son</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码中，父元素是<code>relative</code>定位，子元素是<code>absolute</code>定位，所以子元素的定位基点是父元素，相对于父元素的顶部向下偏移<code>20px</code>。如果父元素是<code>static</code>定位，上例的子元素就是距离网页的顶部向下偏移<code>20px</code>。</p>
+<p>注意，<code>absolute</code>定位的元素会被”正常页面流”忽略，即在”正常页面流”中，该元素所占空间为零，周边元素不受影响。</p>
+<h3 id="3-3-fixed-属性值"><a href="#3-3-fixed-属性值" class="headerlink" title="3.3 fixed 属性值"></a>3.3 fixed 属性值</h3><p><code>fixed</code>表示，相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111802.jpg" alt="img"></p>
+<p>它如果搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用，表示元素的初始位置是基于视口计算的，否则初始位置就是元素的默认位置。</p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码中，<code>div</code>元素始终在视口顶部，不随网页滚动而变化。</p>
+<h2 id="四、sticky-属性值"><a href="#四、sticky-属性值" class="headerlink" title="四、sticky 属性值"></a>四、sticky 属性值</h2><p><code>sticky</code>跟前面四个属性值都不一样，它会产生动态效果，很像<code>relative</code>和<code>fixed</code>的结合：一些时候是<code>relative</code>定位（定位基点是自身默认位置），另一些时候自动变成<code>fixed</code>定位（定位基点是视口）。</p>
+<p>因此，它能够形成”动态固定”的效果。比如，网页的搜索工具栏，初始加载时在自己的默认位置（<code>relative</code>定位）。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111604.jpg" alt="img"></p>
+<p>页面向下滚动时，工具栏变成固定位置，始终停留在页面头部（<code>fixed</code>定位）。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111605.jpg" alt="img"></p>
+<p>等到页面重新向上滚动回到原位，工具栏也会回到默认位置。</p>
+<p><code>sticky</code>生效的前提是，必须搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用，不能省略，否则等同于<code>relative</code>定位，不产生”动态固定”的效果。原因是这四个属性用来定义”偏移距离”，浏览器把它当作<code>sticky</code>的生效门槛。</p>
+<p>它的具体规则是，当页面滚动，父元素开始脱离视口时（即部分不可见），只要与<code>sticky</code>元素的距离达到生效门槛，<code>relative</code>定位自动切换为<code>fixed</code>定位；等到父元素完全脱离视口时（即完全不可见），<code>fixed</code>定位自动切换回<code>relative</code>定位。</p>
+<p>请看下面的示例代码。（注意，除了已被淘汰的 IE 以外，其他浏览器目前都支持<code>sticky</code>。但是，Safari 浏览器需要加上浏览器前缀<code>-webkit-</code>。）</p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#toolbar</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: -webkit-sticky; <span class="comment">/* safari 浏览器 */</span></span><br><span class="line">  <span class="attribute">position</span>: sticky; <span class="comment">/* 其他浏览器 */</span></span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码中，页面向下滚动时，<code>#toolbar</code>的父元素开始脱离视口，一旦视口的顶部与<code>#toolbar</code>的距离小于<code>20px</code>（门槛值），<code>#toolbar</code>就自动变为<code>fixed</code>定位，保持与视口顶部<code>20px</code>的距离。页面继续向下滚动，父元素彻底离开视口（即整个父元素完全不可见），<code>#toolbar</code>恢复成<code>relative</code>定位。</p>
+<h2 id="五、-sticky-的应用"><a href="#五、-sticky-的应用" class="headerlink" title="五、 sticky 的应用"></a>五、 sticky 的应用</h2><p><code>sticky</code>定位可以实现一些很有用的效果。除了上面提到”动态固定”效果，这里再介绍两个。</p>
+<h2 id="5-1-堆叠效果"><a href="#5-1-堆叠效果" class="headerlink" title="5.1 堆叠效果"></a>5.1 堆叠效果</h2><p>堆叠效果（stacking）指的是页面滚动时，下方的元素覆盖上方的元素。下面是一个图片堆叠的例子，下方的图片会随着页面滚动，覆盖上方的图片（查看 <a href="https://jsbin.com/fegiqoquki/edit?html,css,output" target="_blank" rel="noopener">demo</a>）。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111609.jpg" alt="img"></p>
+<p>HTML 代码就是几张图片。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;&lt;img src&#x3D;&quot;pic1.jpg&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div&gt;&lt;img src&#x3D;&quot;pic2.jpg&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div&gt;&lt;img src&#x3D;&quot;pic3.jpg&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>CSS 代码极其简单，只要两行。</p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: sticky;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>它的原理是页面向下滚动时，每张图片都会变成<code>fixed</code>定位，导致后一张图片重叠在前一张图片上面。详细解释可以看<a href="https://dev.to/vinceumo/slide-stacking-effect-using-position-sticky-91f" target="_blank" rel="noopener">这里</a>。</p>
+<h3 id="5-2-表格的表头锁定"><a href="#5-2-表格的表头锁定" class="headerlink" title="5.2 表格的表头锁定"></a>5.2 表格的表头锁定</h3><p>大型表格滚动的时候，表头始终固定，也可以用<code>sticky</code>实现（查看 <a href="https://jsbin.com/decemanohe/edit?html,css,output" target="_blank" rel="noopener">demo</a>）。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111610.jpg" alt="img"></p>
+<p>CSS 代码也很简单。</p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">th</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: sticky;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>需要注意的是，<code>sticky</code>必须设在<code>元素上面，不能设在和元素，因为这两个元素没有</code>relative<code>定位，也就无法产生</code>sticky`效果。详细解释可以看<a href="https://css-tricks.com/position-sticky-and-table-headers/" target="_blank" rel="noopener">这里</a>。</p>
+<h3 id="参考《阮一峰的网络日志》"><a href="#参考《阮一峰的网络日志》" class="headerlink" title="参考《阮一峰的网络日志》"></a>参考《阮一峰的网络日志》</h3>]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+  </entry>
+  <entry>
     <title>CSS动画</title>
     <url>/2020/01/20/CSS%E5%8A%A8%E7%94%BB/</url>
     <content><![CDATA[<h2 id="第一部分：CSS-Transition"><a href="#第一部分：CSS-Transition" class="headerlink" title="第一部分：CSS Transition"></a>第一部分：CSS Transition</h2><h3 id="1-1-基本用法"><a href="#1-1-基本用法" class="headerlink" title="1.1 基本用法"></a>1.1 基本用法</h3><p>在CSS 3引入Transition（过渡）这个概念之前，CSS是没有时间轴的。也就是说，所有的状态变化，都是即时完成。</p>
@@ -363,87 +444,6 @@
       <tags>
         <tag>CSS</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>CSS定位</title>
-    <url>/2020/01/12/CSS%E5%AE%9A%E4%BD%8D/</url>
-    <content><![CDATA[<h2 id="一、position-属性的作用"><a href="#一、position-属性的作用" class="headerlink" title="一、position 属性的作用"></a>一、position 属性的作用</h2><p><code>position</code>属性用来指定一个元素在网页上的位置，一共有5种定位方式，即<code>position</code>属性主要有五个值。</p>
-<a id="more"></a>
-
-<blockquote>
-<ul>
-<li><code>static</code></li>
-<li><code>relative</code></li>
-<li><code>fixed</code></li>
-<li><code>absolute</code></li>
-<li><code>sticky</code></li>
-</ul>
-</blockquote>
-<h2 id="二、static-属性值"><a href="#二、static-属性值" class="headerlink" title="二、static 属性值"></a>二、static 属性值</h2><p><code>static</code>是<code>position</code>属性的默认值。如果省略<code>position</code>属性，浏览器就认为该元素是<code>static</code>定位。</p>
-<p>这时，浏览器会按照源码的顺序，决定每个元素的位置，这称为”正常的页面流”（normal flow）。每个块级元素占据自己的区块（block），元素与元素之间不产生重叠，这个位置就是元素的默认位置。</p>
-<p>注意，<code>static</code>定位所导致的元素位置，是浏览器自主决定的，所以这时<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性无效。</p>
-<h2 id="三、relative，absolute，fixed"><a href="#三、relative，absolute，fixed" class="headerlink" title="三、relative，absolute，fixed"></a>三、relative，absolute，fixed</h2><p><code>relative</code>、<code>absolute</code>、<code>fixed</code>这三个属性值有一个共同点，都是相对于某个基点的定位，不同之处仅仅在于基点不同。所以，只要理解了它们的基点是什么，就很容易掌握这三个属性值。</p>
-<p>这三种定位都不会对其他元素的位置产生影响，因此元素之间可能产生重叠。</p>
-<h3 id="3-1-relative-属性值"><a href="#3-1-relative-属性值" class="headerlink" title="3.1 relative 属性值"></a>3.1 relative 属性值</h3><p><code>relative</code>表示，相对于默认位置（即<code>static</code>时的位置）进行偏移，即定位基点是元素的默认位置。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111721.jpg" alt="img"></p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111722.jpg" alt="img"></p>
-<p>它必须搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用，用来指定偏移的方向和距离。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111723.jpg" alt="img"></p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>上面代码中，<code>div</code>元素从默认位置向下偏移<code>20px</code>（即距离顶部<code>20px</code>）。</p>
-<h3 id="3-2-absolute-属性值"><a href="#3-2-absolute-属性值" class="headerlink" title="3.2 absolute 属性值"></a>3.2 absolute 属性值</h3><p><code>absolute</code>表示，相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。</p>
-<p>它有一个重要的限制条件：定位基点（一般是父元素）不能是<code>static</code>定位，否则定位基点就会变成整个网页的根元素<code>html</code>。另外，<code>absolute</code>定位也必须搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111801.jpg" alt="img"></p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  HTML 代码如下</span></span><br><span class="line"><span class="comment">  &lt;div id="father"&gt;</span></span><br><span class="line"><span class="comment">    &lt;div id="son"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment">  &lt;/div&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-id">#father</span> &#123;</span><br><span class="line">  <span class="attribute">positon</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#son</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>上面代码中，父元素是<code>relative</code>定位，子元素是<code>absolute</code>定位，所以子元素的定位基点是父元素，相对于父元素的顶部向下偏移<code>20px</code>。如果父元素是<code>static</code>定位，上例的子元素就是距离网页的顶部向下偏移<code>20px</code>。</p>
-<p>注意，<code>absolute</code>定位的元素会被”正常页面流”忽略，即在”正常页面流”中，该元素所占空间为零，周边元素不受影响。</p>
-<h3 id="3-3-fixed-属性值"><a href="#3-3-fixed-属性值" class="headerlink" title="3.3 fixed 属性值"></a>3.3 fixed 属性值</h3><p><code>fixed</code>表示，相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111802.jpg" alt="img"></p>
-<p>它如果搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用，表示元素的初始位置是基于视口计算的，否则初始位置就是元素的默认位置。</p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>上面代码中，<code>div</code>元素始终在视口顶部，不随网页滚动而变化。</p>
-<h2 id="四、sticky-属性值"><a href="#四、sticky-属性值" class="headerlink" title="四、sticky 属性值"></a>四、sticky 属性值</h2><p><code>sticky</code>跟前面四个属性值都不一样，它会产生动态效果，很像<code>relative</code>和<code>fixed</code>的结合：一些时候是<code>relative</code>定位（定位基点是自身默认位置），另一些时候自动变成<code>fixed</code>定位（定位基点是视口）。</p>
-<p>因此，它能够形成”动态固定”的效果。比如，网页的搜索工具栏，初始加载时在自己的默认位置（<code>relative</code>定位）。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111604.jpg" alt="img"></p>
-<p>页面向下滚动时，工具栏变成固定位置，始终停留在页面头部（<code>fixed</code>定位）。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111605.jpg" alt="img"></p>
-<p>等到页面重新向上滚动回到原位，工具栏也会回到默认位置。</p>
-<p><code>sticky</code>生效的前提是，必须搭配<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这四个属性一起使用，不能省略，否则等同于<code>relative</code>定位，不产生”动态固定”的效果。原因是这四个属性用来定义”偏移距离”，浏览器把它当作<code>sticky</code>的生效门槛。</p>
-<p>它的具体规则是，当页面滚动，父元素开始脱离视口时（即部分不可见），只要与<code>sticky</code>元素的距离达到生效门槛，<code>relative</code>定位自动切换为<code>fixed</code>定位；等到父元素完全脱离视口时（即完全不可见），<code>fixed</code>定位自动切换回<code>relative</code>定位。</p>
-<p>请看下面的示例代码。（注意，除了已被淘汰的 IE 以外，其他浏览器目前都支持<code>sticky</code>。但是，Safari 浏览器需要加上浏览器前缀<code>-webkit-</code>。）</p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#toolbar</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: -webkit-sticky; <span class="comment">/* safari 浏览器 */</span></span><br><span class="line">  <span class="attribute">position</span>: sticky; <span class="comment">/* 其他浏览器 */</span></span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>上面代码中，页面向下滚动时，<code>#toolbar</code>的父元素开始脱离视口，一旦视口的顶部与<code>#toolbar</code>的距离小于<code>20px</code>（门槛值），<code>#toolbar</code>就自动变为<code>fixed</code>定位，保持与视口顶部<code>20px</code>的距离。页面继续向下滚动，父元素彻底离开视口（即整个父元素完全不可见），<code>#toolbar</code>恢复成<code>relative</code>定位。</p>
-<h2 id="五、-sticky-的应用"><a href="#五、-sticky-的应用" class="headerlink" title="五、 sticky 的应用"></a>五、 sticky 的应用</h2><p><code>sticky</code>定位可以实现一些很有用的效果。除了上面提到”动态固定”效果，这里再介绍两个。</p>
-<h2 id="5-1-堆叠效果"><a href="#5-1-堆叠效果" class="headerlink" title="5.1 堆叠效果"></a>5.1 堆叠效果</h2><p>堆叠效果（stacking）指的是页面滚动时，下方的元素覆盖上方的元素。下面是一个图片堆叠的例子，下方的图片会随着页面滚动，覆盖上方的图片（查看 <a href="https://jsbin.com/fegiqoquki/edit?html,css,output" target="_blank" rel="noopener">demo</a>）。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111609.jpg" alt="img"></p>
-<p>HTML 代码就是几张图片。</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;&lt;img src&#x3D;&quot;pic1.jpg&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div&gt;&lt;img src&#x3D;&quot;pic2.jpg&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div&gt;&lt;img src&#x3D;&quot;pic3.jpg&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>CSS 代码极其简单，只要两行。</p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: sticky;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>它的原理是页面向下滚动时，每张图片都会变成<code>fixed</code>定位，导致后一张图片重叠在前一张图片上面。详细解释可以看<a href="https://dev.to/vinceumo/slide-stacking-effect-using-position-sticky-91f" target="_blank" rel="noopener">这里</a>。</p>
-<h3 id="5-2-表格的表头锁定"><a href="#5-2-表格的表头锁定" class="headerlink" title="5.2 表格的表头锁定"></a>5.2 表格的表头锁定</h3><p>大型表格滚动的时候，表头始终固定，也可以用<code>sticky</code>实现（查看 <a href="https://jsbin.com/decemanohe/edit?html,css,output" target="_blank" rel="noopener">demo</a>）。</p>
-<p><img src="https://www.wangbase.com/blogimg/asset/201911/bg2019111610.jpg" alt="img"></p>
-<p>CSS 代码也很简单。</p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">th</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: sticky;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>需要注意的是，<code>sticky</code>必须设在<code>元素上面，不能设在和元素，因为这两个元素没有</code>relative<code>定位，也就无法产生</code>sticky`效果。详细解释可以看<a href="https://css-tricks.com/position-sticky-and-table-headers/" target="_blank" rel="noopener">这里</a>。</p>
-<h3 id="参考《阮一峰的网络日志》"><a href="#参考《阮一峰的网络日志》" class="headerlink" title="参考《阮一峰的网络日志》"></a>参考《阮一峰的网络日志》</h3>]]></content>
-      <categories>
-        <category>css</category>
-      </categories>
   </entry>
   <entry>
     <title>CSS选择器</title>
@@ -2519,95 +2519,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JS-键盘事件</title>
-    <url>/2020/02/05/JS-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h1><h2 id="键盘事件的种类"><a href="#键盘事件的种类" class="headerlink" title="键盘事件的种类"></a>键盘事件的种类</h2><p>键盘事件由用户击打键盘触发，主要有<code>keydown</code>、<code>keypress</code>、<code>keyup</code>三个事件，它们都继承了<code>KeyboardEvent</code>接口。</p>
-<a id="more"></a>
-
-<ul>
-<li><code>keydown</code>：按下键盘时触发。</li>
-<li><code>keypress</code>：按下有值的键时触发，即按下 Ctrl、Alt、Shift、Meta 这样无值的键，这个事件不会触发。对于有值的键，按下时先触发<code>keydown</code>事件，再触发这个事件。</li>
-<li><code>keyup</code>：松开键盘时触发该事件。</li>
-</ul>
-<p>如果用户一直按键不松开，就会连续触发键盘事件，触发的顺序如下。</p>
-<ol>
-<li>keydown</li>
-<li>keypress</li>
-<li>keydown</li>
-<li>keypress</li>
-<li>…（重复以上过程）</li>
-<li>keyup</li>
-</ol>
-<h2 id="KeyboardEvent-接口概述"><a href="#KeyboardEvent-接口概述" class="headerlink" title="KeyboardEvent 接口概述"></a>KeyboardEvent 接口概述</h2><p><code>KeyboardEvent</code>接口用来描述用户与键盘的互动。这个接口继承了<code>Event</code>接口，并且定义了自己的实例属性和实例方法。</p>
-<p>浏览器原生提供<code>KeyboardEvent</code>构造函数，用来新建键盘事件的实例。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> KeyboardEvent(type, options)</span><br></pre></td></tr></table></figure>
-
-<p><code>KeyboardEvent</code>构造函数接受两个参数。第一个参数是字符串，表示事件类型；第二个参数是一个事件配置对象，该参数可选。除了<code>Event</code>接口提供的属性，还可以配置以下字段，它们都是可选。</p>
-<ul>
-<li><code>key</code>：字符串，当前按下的键，默认为空字符串。</li>
-<li><code>code</code>：字符串，表示当前按下的键的字符串形式，默认为空字符串。</li>
-<li><code>location</code>：整数，当前按下的键的位置，默认为<code>0</code>。</li>
-<li><code>ctrlKey</code>：布尔值，是否按下 Ctrl 键，默认为<code>false</code>。</li>
-<li><code>shiftKey</code>：布尔值，是否按下 Shift 键，默认为<code>false</code>。</li>
-<li><code>altKey</code>：布尔值，是否按下 Alt 键，默认为<code>false</code>。</li>
-<li><code>metaKey</code>：布尔值，是否按下 Meta 键，默认为<code>false</code>。</li>
-<li><code>repeat</code>：布尔值，是否重复按键，默认为<code>false</code>。</li>
-</ul>
-<h2 id="KeyboardEvent-的实例属性"><a href="#KeyboardEvent-的实例属性" class="headerlink" title="KeyboardEvent 的实例属性"></a>KeyboardEvent 的实例属性</h2><h3 id="KeyboardEvent-altKey，KeyboardEvent-ctrlKey，KeyboardEvent-metaKey，KeyboardEvent-shiftKey"><a href="#KeyboardEvent-altKey，KeyboardEvent-ctrlKey，KeyboardEvent-metaKey，KeyboardEvent-shiftKey" class="headerlink" title="KeyboardEvent.altKey，KeyboardEvent.ctrlKey，KeyboardEvent.metaKey，KeyboardEvent.shiftKey"></a>KeyboardEvent.altKey，KeyboardEvent.ctrlKey，KeyboardEvent.metaKey，KeyboardEvent.shiftKey</h3><p>以下属性都是只读属性，返回一个布尔值，表示是否按下对应的键。</p>
-<ul>
-<li><code>KeyboardEvent.altKey</code>：是否按下 Alt 键</li>
-<li><code>KeyboardEvent.ctrlKey</code>：是否按下 Ctrl 键</li>
-<li><code>KeyboardEvent.metaKey</code>：是否按下 meta 键（Mac 系统是一个四瓣的小花，Windows 系统是 windows 键）</li>
-<li><code>KeyboardEvent.shiftKey</code>：是否按下 Shift 键</li>
-</ul>
-<p>下面是一个示例。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showChar</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ALT: '</span> + e.altKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'CTRL: '</span> + e.ctrlKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Meta: '</span> + e.metaKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Shift: '</span> + e.shiftKey);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'keydown'</span>, showChar, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="KeyboardEvent-code"><a href="#KeyboardEvent-code" class="headerlink" title="KeyboardEvent.code"></a>KeyboardEvent.code</h3><p><code>KeyboardEvent.code</code>属性返回一个字符串，表示当前按下的键的字符串形式。该属性只读。</p>
-<p>下面是一些常用键的字符串形式，其他键请查<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code#Code_values" target="_blank" rel="noopener">文档</a>。</p>
-<ul>
-<li>数字键0 - 9：返回<code>digital0</code> - <code>digital9</code></li>
-<li>字母键A - z：返回<code>KeyA</code> - <code>KeyZ</code></li>
-<li>功能键F1 - F12：返回 <code>F1</code> - <code>F12</code></li>
-<li>方向键：返回<code>ArrowDown</code>、<code>ArrowUp</code>、<code>ArrowLeft</code>、<code>ArrowRight</code></li>
-<li>Alt 键：返回<code>AltLeft</code>或<code>AltRight</code></li>
-<li>Shift 键：返回<code>ShiftLeft</code>或<code>ShiftRight</code></li>
-<li>Ctrl 键：返回<code>ControlLeft</code>或<code>ControlRight</code></li>
-</ul>
-<h3 id="KeyboardEvent-key"><a href="#KeyboardEvent-key" class="headerlink" title="KeyboardEvent.key"></a>KeyboardEvent.key</h3><p><code>KeyboardEvent.key</code>属性返回一个字符串，表示按下的键名。该属性只读。</p>
-<p>如果按下的键代表可打印字符，则返回这个字符，比如数字、字母。</p>
-<p>如果按下的键代表不可打印的特殊字符，则返回预定义的键值，比如 Backspace，Tab，Enter，Shift，Control，Alt，CapsLock，Esc，Spacebar，PageUp，PageDown，End，Home，Left，Right，Up，Down，PrintScreen，Insert，Del，Win，F1～F12，NumLock，Scroll 等。</p>
-<p>如果同时按下一个控制键和一个符号键，则返回符号键的键名。比如，按下 Ctrl + a，则返回<code>a</code>；按下 Shift + a，则返回大写的<code>A</code>。</p>
-<p>如果无法识别键名，返回字符串<code>Unidentified</code>。</p>
-<h3 id="KeyboardEvent-location"><a href="#KeyboardEvent-location" class="headerlink" title="KeyboardEvent.location"></a>KeyboardEvent.location</h3><p><code>KeyboardEvent.location</code>属性返回一个整数，表示按下的键处在键盘的哪一个区域。它可能取以下值。</p>
-<ul>
-<li>0：处在键盘的主区域，或者无法判断处于哪一个区域。</li>
-<li>1：处在键盘的左侧，只适用那些有两个位置的键（比如 Ctrl 和 Shift 键）。</li>
-<li>2：处在键盘的右侧，只适用那些有两个位置的键（比如 Ctrl 和 Shift 键）。</li>
-<li>3：处在数字小键盘。</li>
-</ul>
-<h3 id="KeyboardEvent-repeat"><a href="#KeyboardEvent-repeat" class="headerlink" title="KeyboardEvent.repeat"></a>KeyboardEvent.repeat</h3><p><code>KeyboardEvent.repeat</code>返回一个布尔值，代表该键是否被按着不放，以便判断是否重复这个键，即浏览器会持续触发<code>keydown</code>和<code>keypress</code>事件，直到用户松开手为止。</p>
-<h2 id="KeyboardEvent-的实例方法"><a href="#KeyboardEvent-的实例方法" class="headerlink" title="KeyboardEvent 的实例方法"></a>KeyboardEvent 的实例方法</h2><h3 id="KeyboardEvent-getModifierState"><a href="#KeyboardEvent-getModifierState" class="headerlink" title="KeyboardEvent.getModifierState()"></a>KeyboardEvent.getModifierState()</h3><p><code>KeyboardEvent.getModifierState()</code>方法返回一个布尔值，表示是否按下或激活指定的功能键。它的常用参数如下。</p>
-<ul>
-<li><code>Alt</code>：Alt 键</li>
-<li><code>CapsLock</code>：大写锁定键</li>
-<li><code>Control</code>：Ctrl 键</li>
-<li><code>Meta</code>：Meta 键</li>
-<li><code>NumLock</code>：数字键盘开关键</li>
-<li><code>Shift</code>：Shift 键</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (</span><br><span class="line">  event.getModifierState(<span class="string">'Control'</span>) +</span><br><span class="line">  event.getModifierState(<span class="string">'Alt'</span>) +</span><br><span class="line">  event.getModifierState(<span class="string">'Meta'</span>) &gt; <span class="number">1</span></span><br><span class="line">) &#123;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面代码表示，只要<code>Control</code>、<code>Alt</code>、<code>Meta</code>里面，同时按下任意两个或两个以上的键就返回。</p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JS事件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS-触摸事件</title>
     <url>/2020/02/06/JS-%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="触摸事件"><a href="#触摸事件" class="headerlink" title="触摸事件"></a>触摸事件</h1><h2 id="触摸操作概述"><a href="#触摸操作概述" class="headerlink" title="触摸操作概述"></a>触摸操作概述</h2><p>浏览器的触摸 API 由三个部分组成。</p>
@@ -2726,6 +2637,197 @@
       <tags>
         <tag>JS事件</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>JS-键盘事件</title>
+    <url>/2020/02/05/JS-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h1><h2 id="键盘事件的种类"><a href="#键盘事件的种类" class="headerlink" title="键盘事件的种类"></a>键盘事件的种类</h2><p>键盘事件由用户击打键盘触发，主要有<code>keydown</code>、<code>keypress</code>、<code>keyup</code>三个事件，它们都继承了<code>KeyboardEvent</code>接口。</p>
+<a id="more"></a>
+
+<ul>
+<li><code>keydown</code>：按下键盘时触发。</li>
+<li><code>keypress</code>：按下有值的键时触发，即按下 Ctrl、Alt、Shift、Meta 这样无值的键，这个事件不会触发。对于有值的键，按下时先触发<code>keydown</code>事件，再触发这个事件。</li>
+<li><code>keyup</code>：松开键盘时触发该事件。</li>
+</ul>
+<p>如果用户一直按键不松开，就会连续触发键盘事件，触发的顺序如下。</p>
+<ol>
+<li>keydown</li>
+<li>keypress</li>
+<li>keydown</li>
+<li>keypress</li>
+<li>…（重复以上过程）</li>
+<li>keyup</li>
+</ol>
+<h2 id="KeyboardEvent-接口概述"><a href="#KeyboardEvent-接口概述" class="headerlink" title="KeyboardEvent 接口概述"></a>KeyboardEvent 接口概述</h2><p><code>KeyboardEvent</code>接口用来描述用户与键盘的互动。这个接口继承了<code>Event</code>接口，并且定义了自己的实例属性和实例方法。</p>
+<p>浏览器原生提供<code>KeyboardEvent</code>构造函数，用来新建键盘事件的实例。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> KeyboardEvent(type, options)</span><br></pre></td></tr></table></figure>
+
+<p><code>KeyboardEvent</code>构造函数接受两个参数。第一个参数是字符串，表示事件类型；第二个参数是一个事件配置对象，该参数可选。除了<code>Event</code>接口提供的属性，还可以配置以下字段，它们都是可选。</p>
+<ul>
+<li><code>key</code>：字符串，当前按下的键，默认为空字符串。</li>
+<li><code>code</code>：字符串，表示当前按下的键的字符串形式，默认为空字符串。</li>
+<li><code>location</code>：整数，当前按下的键的位置，默认为<code>0</code>。</li>
+<li><code>ctrlKey</code>：布尔值，是否按下 Ctrl 键，默认为<code>false</code>。</li>
+<li><code>shiftKey</code>：布尔值，是否按下 Shift 键，默认为<code>false</code>。</li>
+<li><code>altKey</code>：布尔值，是否按下 Alt 键，默认为<code>false</code>。</li>
+<li><code>metaKey</code>：布尔值，是否按下 Meta 键，默认为<code>false</code>。</li>
+<li><code>repeat</code>：布尔值，是否重复按键，默认为<code>false</code>。</li>
+</ul>
+<h2 id="KeyboardEvent-的实例属性"><a href="#KeyboardEvent-的实例属性" class="headerlink" title="KeyboardEvent 的实例属性"></a>KeyboardEvent 的实例属性</h2><h3 id="KeyboardEvent-altKey，KeyboardEvent-ctrlKey，KeyboardEvent-metaKey，KeyboardEvent-shiftKey"><a href="#KeyboardEvent-altKey，KeyboardEvent-ctrlKey，KeyboardEvent-metaKey，KeyboardEvent-shiftKey" class="headerlink" title="KeyboardEvent.altKey，KeyboardEvent.ctrlKey，KeyboardEvent.metaKey，KeyboardEvent.shiftKey"></a>KeyboardEvent.altKey，KeyboardEvent.ctrlKey，KeyboardEvent.metaKey，KeyboardEvent.shiftKey</h3><p>以下属性都是只读属性，返回一个布尔值，表示是否按下对应的键。</p>
+<ul>
+<li><code>KeyboardEvent.altKey</code>：是否按下 Alt 键</li>
+<li><code>KeyboardEvent.ctrlKey</code>：是否按下 Ctrl 键</li>
+<li><code>KeyboardEvent.metaKey</code>：是否按下 meta 键（Mac 系统是一个四瓣的小花，Windows 系统是 windows 键）</li>
+<li><code>KeyboardEvent.shiftKey</code>：是否按下 Shift 键</li>
+</ul>
+<p>下面是一个示例。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showChar</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ALT: '</span> + e.altKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'CTRL: '</span> + e.ctrlKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Meta: '</span> + e.metaKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Shift: '</span> + e.shiftKey);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'keydown'</span>, showChar, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="KeyboardEvent-code"><a href="#KeyboardEvent-code" class="headerlink" title="KeyboardEvent.code"></a>KeyboardEvent.code</h3><p><code>KeyboardEvent.code</code>属性返回一个字符串，表示当前按下的键的字符串形式。该属性只读。</p>
+<p>下面是一些常用键的字符串形式，其他键请查<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code#Code_values" target="_blank" rel="noopener">文档</a>。</p>
+<ul>
+<li>数字键0 - 9：返回<code>digital0</code> - <code>digital9</code></li>
+<li>字母键A - z：返回<code>KeyA</code> - <code>KeyZ</code></li>
+<li>功能键F1 - F12：返回 <code>F1</code> - <code>F12</code></li>
+<li>方向键：返回<code>ArrowDown</code>、<code>ArrowUp</code>、<code>ArrowLeft</code>、<code>ArrowRight</code></li>
+<li>Alt 键：返回<code>AltLeft</code>或<code>AltRight</code></li>
+<li>Shift 键：返回<code>ShiftLeft</code>或<code>ShiftRight</code></li>
+<li>Ctrl 键：返回<code>ControlLeft</code>或<code>ControlRight</code></li>
+</ul>
+<h3 id="KeyboardEvent-key"><a href="#KeyboardEvent-key" class="headerlink" title="KeyboardEvent.key"></a>KeyboardEvent.key</h3><p><code>KeyboardEvent.key</code>属性返回一个字符串，表示按下的键名。该属性只读。</p>
+<p>如果按下的键代表可打印字符，则返回这个字符，比如数字、字母。</p>
+<p>如果按下的键代表不可打印的特殊字符，则返回预定义的键值，比如 Backspace，Tab，Enter，Shift，Control，Alt，CapsLock，Esc，Spacebar，PageUp，PageDown，End，Home，Left，Right，Up，Down，PrintScreen，Insert，Del，Win，F1～F12，NumLock，Scroll 等。</p>
+<p>如果同时按下一个控制键和一个符号键，则返回符号键的键名。比如，按下 Ctrl + a，则返回<code>a</code>；按下 Shift + a，则返回大写的<code>A</code>。</p>
+<p>如果无法识别键名，返回字符串<code>Unidentified</code>。</p>
+<h3 id="KeyboardEvent-location"><a href="#KeyboardEvent-location" class="headerlink" title="KeyboardEvent.location"></a>KeyboardEvent.location</h3><p><code>KeyboardEvent.location</code>属性返回一个整数，表示按下的键处在键盘的哪一个区域。它可能取以下值。</p>
+<ul>
+<li>0：处在键盘的主区域，或者无法判断处于哪一个区域。</li>
+<li>1：处在键盘的左侧，只适用那些有两个位置的键（比如 Ctrl 和 Shift 键）。</li>
+<li>2：处在键盘的右侧，只适用那些有两个位置的键（比如 Ctrl 和 Shift 键）。</li>
+<li>3：处在数字小键盘。</li>
+</ul>
+<h3 id="KeyboardEvent-repeat"><a href="#KeyboardEvent-repeat" class="headerlink" title="KeyboardEvent.repeat"></a>KeyboardEvent.repeat</h3><p><code>KeyboardEvent.repeat</code>返回一个布尔值，代表该键是否被按着不放，以便判断是否重复这个键，即浏览器会持续触发<code>keydown</code>和<code>keypress</code>事件，直到用户松开手为止。</p>
+<h2 id="KeyboardEvent-的实例方法"><a href="#KeyboardEvent-的实例方法" class="headerlink" title="KeyboardEvent 的实例方法"></a>KeyboardEvent 的实例方法</h2><h3 id="KeyboardEvent-getModifierState"><a href="#KeyboardEvent-getModifierState" class="headerlink" title="KeyboardEvent.getModifierState()"></a>KeyboardEvent.getModifierState()</h3><p><code>KeyboardEvent.getModifierState()</code>方法返回一个布尔值，表示是否按下或激活指定的功能键。它的常用参数如下。</p>
+<ul>
+<li><code>Alt</code>：Alt 键</li>
+<li><code>CapsLock</code>：大写锁定键</li>
+<li><code>Control</code>：Ctrl 键</li>
+<li><code>Meta</code>：Meta 键</li>
+<li><code>NumLock</code>：数字键盘开关键</li>
+<li><code>Shift</code>：Shift 键</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (</span><br><span class="line">  event.getModifierState(<span class="string">'Control'</span>) +</span><br><span class="line">  event.getModifierState(<span class="string">'Alt'</span>) +</span><br><span class="line">  event.getModifierState(<span class="string">'Meta'</span>) &gt; <span class="number">1</span></span><br><span class="line">) &#123;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示，只要<code>Control</code>、<code>Alt</code>、<code>Meta</code>里面，同时按下任意两个或两个以上的键就返回。</p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JS事件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Map数据结构</title>
+    <url>/2020/06/06/Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h3 id="含义和基本用法"><a href="#含义和基本用法" class="headerlink" title="含义和基本用法"></a>含义和基本用法</h3><p>JavaScript 的对象（Object），本质上是键值对的集合（Hash 结构），但是传统上只能用字符串当作键。这给它的使用带来了很大的限制。</p>
+<a id="more"></a>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"><span class="keyword">const</span> o = &#123;<span class="attr">p</span>: <span class="string">'Hello World'</span>&#125;;</span><br><span class="line"></span><br><span class="line">m.set(o, <span class="string">'content'</span>)</span><br><span class="line">m.get(o) <span class="comment">// "content"</span></span><br><span class="line"></span><br><span class="line">m.has(o) <span class="comment">// true</span></span><br><span class="line">m.delete(o) <span class="comment">// true</span></span><br><span class="line">m.has(o) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码使用 Map 结构的<code>set</code>方法，将对象<code>o</code>当作<code>m</code>的一个键，然后又使用<code>get</code>方法读取这个键，接着使用<code>delete</code>方法删除了这个键。</p>
+<p>上面的例子展示了如何向 Map 添加成员。作为构造函数，Map 也可以接受一个数组作为参数。该数组的成员是一个个表示键值对的数组。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">  [<span class="string">'name'</span>, <span class="string">'张三'</span>],</span><br><span class="line">  [<span class="string">'title'</span>, <span class="string">'Author'</span>]</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">map.size <span class="comment">// 2</span></span><br><span class="line">map.has(<span class="string">'name'</span>) <span class="comment">// true</span></span><br><span class="line">map.get(<span class="string">'name'</span>) <span class="comment">// "张三"</span></span><br><span class="line">map.has(<span class="string">'title'</span>) <span class="comment">// true</span></span><br><span class="line">map.get(<span class="string">'title'</span>) <span class="comment">// "Author"</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码在新建 Map 实例时，就指定了两个键<code>name</code>和<code>title</code>。</p>
+<p><code>Map</code>构造函数接受数组作为参数，实际上执行的是下面的算法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> items = [</span><br><span class="line">  [<span class="string">'name'</span>, <span class="string">'张三'</span>],</span><br><span class="line">  [<span class="string">'title'</span>, <span class="string">'Author'</span>]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">items.forEach(</span><br><span class="line">  ([key, value]) =&gt; map.set(key, value)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">map</span><br><span class="line">.set(<span class="number">1</span>, <span class="string">'aaa'</span>)</span><br><span class="line">.set(<span class="number">1</span>, <span class="string">'bbb'</span>);</span><br><span class="line"></span><br><span class="line">map.get(<span class="number">1</span>) <span class="comment">// "bbb"</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码对键<code>1</code>连续赋值两次，后一次的值覆盖前一次的值。</p>
+<p>如果读取一个未知的键，则返回<code>undefined</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Map</span>().get(<span class="string">'asfddfsasadf'</span>)</span><br><span class="line"><span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>注意，只有对同一个对象的引用，Map 结构才将其视为同一个键。这一点要非常小心。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">map.set([<span class="string">'a'</span>], <span class="number">555</span>);</span><br><span class="line">map.get([<span class="string">'a'</span>]) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码的<code>set</code>和<code>get</code>方法，表面是针对同一个键，但实际上这是两个不同的数组实例，内存地址是不一样的，因此<code>get</code>方法无法读取该键，返回<code>undefined</code>。</p>
+<p>同理，同样的值的两个实例，在 Map 结构中被视为两个键。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> k1 = [<span class="string">'a'</span>];</span><br><span class="line"><span class="keyword">const</span> k2 = [<span class="string">'a'</span>];</span><br><span class="line"></span><br><span class="line">map</span><br><span class="line">.set(k1, <span class="number">111</span>)</span><br><span class="line">.set(k2, <span class="number">222</span>);</span><br><span class="line"></span><br><span class="line">map.get(k1) <span class="comment">// 111</span></span><br><span class="line">map.get(k2) <span class="comment">// 222</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，变量<code>k1</code>和<code>k2</code>的值是一样的，但是它们在 Map 结构中被视为两个键。</p>
+<p>由上可知，Map 的键实际上是跟内存地址绑定的，只要内存地址不一样，就视为两个键。这就解决了同名属性碰撞（clash）的问题，我们扩展别人的库的时候，如果使用对象作为键名，就不用担心自己的属性与原作者的属性同名。</p>
+<p>如果 Map 的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map 将其视为一个键，比如<code>0</code>和<code>-0</code>就是一个键，布尔值<code>true</code>和字符串<code>true</code>则是两个不同的键。另外，<code>undefined</code>和<code>null</code>也是两个不同的键。虽然<code>NaN</code>不严格相等于自身，但 Map 将其视为同一个键。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">map.set(<span class="number">-0</span>, <span class="number">123</span>);</span><br><span class="line">map.get(+<span class="number">0</span>) <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line">map.set(<span class="literal">true</span>, <span class="number">1</span>);</span><br><span class="line">map.set(<span class="string">'true'</span>, <span class="number">2</span>);</span><br><span class="line">map.get(<span class="literal">true</span>) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">map.set(<span class="literal">undefined</span>, <span class="number">3</span>);</span><br><span class="line">map.set(<span class="literal">null</span>, <span class="number">4</span>);</span><br><span class="line">map.get(<span class="literal">undefined</span>) <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">map.set(<span class="literal">NaN</span>, <span class="number">123</span>);</span><br><span class="line">map.get(<span class="literal">NaN</span>) <span class="comment">// 123</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="实例的属性和操作方法"><a href="#实例的属性和操作方法" class="headerlink" title="实例的属性和操作方法"></a>实例的属性和操作方法</h3><p>Map 结构的实例有以下属性和操作方法。</p>
+<p><strong>（1）size 属性</strong></p>
+<p><code>size</code>属性返回 Map 结构的成员总数。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">map.set(<span class="string">'foo'</span>, <span class="literal">true</span>);</span><br><span class="line">map.set(<span class="string">'bar'</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">map.size <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）Map.prototype.set(key, value)</strong></p>
+<p><code>set</code>方法设置键名<code>key</code>对应的键值为<code>value</code>，然后返回整个 Map 结构。如果<code>key</code>已经有值，则键值会被更新，否则就新生成该键。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">m.set(<span class="string">'edition'</span>, <span class="number">6</span>)        <span class="comment">// 键是字符串</span></span><br><span class="line">m.set(<span class="number">262</span>, <span class="string">'standard'</span>)     <span class="comment">// 键是数值</span></span><br><span class="line">m.set(<span class="literal">undefined</span>, <span class="string">'nah'</span>)    <span class="comment">// 键是 undefined</span></span><br></pre></td></tr></table></figure>
+
+<p><code>set</code>方法返回的是当前的<code>Map</code>对象，因此可以采用链式写法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">  .set(<span class="number">1</span>, <span class="string">'a'</span>)</span><br><span class="line">  .set(<span class="number">2</span>, <span class="string">'b'</span>)</span><br><span class="line">  .set(<span class="number">3</span>, <span class="string">'c'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）Map.prototype.get(key)</strong></p>
+<p><code>get</code>方法读取<code>key</code>对应的键值，如果找不到<code>key</code>，返回<code>undefined</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> hello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">'hello'</span>);&#125;;</span><br><span class="line">m.set(hello, <span class="string">'Hello ES6!'</span>) <span class="comment">// 键是函数</span></span><br><span class="line"></span><br><span class="line">m.get(hello)  <span class="comment">// Hello ES6!</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>（4）Map.prototype.has(key)</strong></p>
+<p><code>has</code>方法返回一个布尔值，表示某个键是否在当前 Map 对象之中。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">m.set(<span class="string">'edition'</span>, <span class="number">6</span>);</span><br><span class="line">m.set(<span class="number">262</span>, <span class="string">'standard'</span>);</span><br><span class="line">m.set(<span class="literal">undefined</span>, <span class="string">'nah'</span>);</span><br><span class="line"></span><br><span class="line">m.has(<span class="string">'edition'</span>)     <span class="comment">// true</span></span><br><span class="line">m.has(<span class="string">'years'</span>)       <span class="comment">// false</span></span><br><span class="line">m.has(<span class="number">262</span>)           <span class="comment">// true</span></span><br><span class="line">m.has(<span class="literal">undefined</span>)     <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>（5）Map.prototype.delete(key)</strong></p>
+<p><code>delete</code>方法删除某个键，返回<code>true</code>。如果删除失败，返回<code>false</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">m.set(<span class="literal">undefined</span>, <span class="string">'nah'</span>);</span><br><span class="line">m.has(<span class="literal">undefined</span>)     <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">m.delete(<span class="literal">undefined</span>)</span><br><span class="line">m.has(<span class="literal">undefined</span>)       <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>（6）Map.prototype.clear()</strong></p>
+<p><code>clear</code>方法清除所有成员，没有返回值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">map.set(<span class="string">'foo'</span>, <span class="literal">true</span>);</span><br><span class="line">map.set(<span class="string">'bar'</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">map.size <span class="comment">// 2</span></span><br><span class="line">map.clear()</span><br><span class="line">map.size <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历方法"><a href="#遍历方法" class="headerlink" title="遍历方法"></a>遍历方法</h3><p>Map 结构原生提供三个遍历器生成函数和一个遍历方法。</p>
+<ul>
+<li><code>Map.prototype.keys()</code>：返回键名的遍历器。</li>
+<li><code>Map.prototype.values()</code>：返回键值的遍历器。</li>
+<li><code>Map.prototype.entries()</code>：返回所有成员的遍历器。</li>
+<li><code>Map.prototype.forEach()</code>：遍历 Map 的所有成员。</li>
+</ul>
+<p>需要特别注意的是，Map 的遍历顺序就是插入顺序。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">  [<span class="string">'F'</span>, <span class="string">'no'</span>],</span><br><span class="line">  [<span class="string">'T'</span>,  <span class="string">'yes'</span>],</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> map.keys()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "F"</span></span><br><span class="line"><span class="comment">// "T"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> map.values()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "no"</span></span><br><span class="line"><span class="comment">// "yes"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> map.entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item[<span class="number">0</span>], item[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "F" "no"</span></span><br><span class="line"><span class="comment">// "T" "yes"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> map.entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "F" "no"</span></span><br><span class="line"><span class="comment">// "T" "yes"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于使用map.entries()</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> map) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "F" "no"</span></span><br><span class="line"><span class="comment">// "T" "yes"</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>Map 结构转为数组结构，比较快速的方法是使用扩展运算符（<code>...</code>）。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">  [<span class="number">1</span>, <span class="string">'one'</span>],</span><br><span class="line">  [<span class="number">2</span>, <span class="string">'two'</span>],</span><br><span class="line">  [<span class="number">3</span>, <span class="string">'three'</span>],</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">[...map.keys()]</span><br><span class="line"><span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line">[...map.values()]</span><br><span class="line"><span class="comment">// ['one', 'two', 'three']</span></span><br><span class="line"></span><br><span class="line">[...map.entries()]</span><br><span class="line"><span class="comment">// [[1,'one'], [2, 'two'], [3, 'three']]</span></span><br><span class="line"></span><br><span class="line">[...map]</span><br><span class="line"><span class="comment">// [[1,'one'], [2, 'two'], [3, 'three']]</span></span><br></pre></td></tr></table></figure>
+
+<p>结合数组的<code>map</code>方法、<code>filter</code>方法，可以实现 Map 的遍历和过滤（Map 本身没有<code>map</code>和<code>filter</code>方法）。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map0 = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">  .set(<span class="number">1</span>, <span class="string">'a'</span>)</span><br><span class="line">  .set(<span class="number">2</span>, <span class="string">'b'</span>)</span><br><span class="line">  .set(<span class="number">3</span>, <span class="string">'c'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> map1 = <span class="keyword">new</span> <span class="built_in">Map</span>(</span><br><span class="line">  [...map0].filter(<span class="function">(<span class="params">[k, v]</span>) =&gt;</span> k &lt; <span class="number">3</span>)</span><br><span class="line">);</span><br><span class="line"><span class="comment">// 产生 Map 结构 &#123;1 =&gt; 'a', 2 =&gt; 'b'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> map2 = <span class="keyword">new</span> <span class="built_in">Map</span>(</span><br><span class="line">  [...map0].map(<span class="function">(<span class="params">[k, v]</span>) =&gt;</span> [k * <span class="number">2</span>, <span class="string">'_'</span> + v])</span><br><span class="line">    );</span><br><span class="line"><span class="comment">// 产生 Map 结构 &#123;2 =&gt; '_a', 4 =&gt; '_b', 6 =&gt; '_c'&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>此外，Map 还有一个<code>forEach</code>方法，与数组的<code>forEach</code>方法类似，也可以实现遍历。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">map.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value, key, map</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Key: %s, Value: %s"</span>, key, value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>forEach</code>方法还可以接受第二个参数，用来绑定<code>this</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> reporter = &#123;</span><br><span class="line">  report: <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Key: %s, Value: %s"</span>, key, value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">map.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value, key, map</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.report(key, value);</span><br><span class="line">&#125;, reporter);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>forEach</code>方法的回调函数的<code>this</code>，就指向<code>reporter</code>。</p>
+<h3 id="与其他数据结构的互相转换"><a href="#与其他数据结构的互相转换" class="headerlink" title="与其他数据结构的互相转换"></a>与其他数据结构的互相转换</h3><p><strong>（1）Map 转为数组</strong></p>
+<p>前面已经提过，Map 转为数组最方便的方法，就是使用扩展运算符（<code>...</code>）。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myMap = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">  .set(<span class="literal">true</span>, <span class="number">7</span>)</span><br><span class="line">  .set(&#123;<span class="attr">foo</span>: <span class="number">3</span>&#125;, [<span class="string">'abc'</span>]);</span><br><span class="line">[...myMap]</span><br><span class="line"><span class="comment">// [ [ true, 7 ], [ &#123; foo: 3 &#125;, [ 'abc' ] ] ]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）数组 转为 Map</strong></p>
+<p>将数组传入 Map 构造函数，就可以转为 Map。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">  [<span class="literal">true</span>, <span class="number">7</span>],</span><br><span class="line">  [&#123;<span class="attr">foo</span>: <span class="number">3</span>&#125;, [<span class="string">'abc'</span>]]</span><br><span class="line">])</span><br><span class="line"><span class="comment">// Map &#123;</span></span><br><span class="line"><span class="comment">//   true =&gt; 7,</span></span><br><span class="line"><span class="comment">//   Object &#123;foo: 3&#125; =&gt; ['abc']</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>数据结构和算法</category>
+      </categories>
   </entry>
   <entry>
     <title>JS-鼠标事件</title>
@@ -2912,175 +3014,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Map数据结构</title>
-    <url>/2020/06/06/Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h3 id="含义和基本用法"><a href="#含义和基本用法" class="headerlink" title="含义和基本用法"></a>含义和基本用法</h3><p>JavaScript 的对象（Object），本质上是键值对的集合（Hash 结构），但是传统上只能用字符串当作键。这给它的使用带来了很大的限制。</p>
-<a id="more"></a>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"><span class="keyword">const</span> o = &#123;<span class="attr">p</span>: <span class="string">'Hello World'</span>&#125;;</span><br><span class="line"></span><br><span class="line">m.set(o, <span class="string">'content'</span>)</span><br><span class="line">m.get(o) <span class="comment">// "content"</span></span><br><span class="line"></span><br><span class="line">m.has(o) <span class="comment">// true</span></span><br><span class="line">m.delete(o) <span class="comment">// true</span></span><br><span class="line">m.has(o) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码使用 Map 结构的<code>set</code>方法，将对象<code>o</code>当作<code>m</code>的一个键，然后又使用<code>get</code>方法读取这个键，接着使用<code>delete</code>方法删除了这个键。</p>
-<p>上面的例子展示了如何向 Map 添加成员。作为构造函数，Map 也可以接受一个数组作为参数。该数组的成员是一个个表示键值对的数组。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">  [<span class="string">'name'</span>, <span class="string">'张三'</span>],</span><br><span class="line">  [<span class="string">'title'</span>, <span class="string">'Author'</span>]</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">map.size <span class="comment">// 2</span></span><br><span class="line">map.has(<span class="string">'name'</span>) <span class="comment">// true</span></span><br><span class="line">map.get(<span class="string">'name'</span>) <span class="comment">// "张三"</span></span><br><span class="line">map.has(<span class="string">'title'</span>) <span class="comment">// true</span></span><br><span class="line">map.get(<span class="string">'title'</span>) <span class="comment">// "Author"</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码在新建 Map 实例时，就指定了两个键<code>name</code>和<code>title</code>。</p>
-<p><code>Map</code>构造函数接受数组作为参数，实际上执行的是下面的算法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> items = [</span><br><span class="line">  [<span class="string">'name'</span>, <span class="string">'张三'</span>],</span><br><span class="line">  [<span class="string">'title'</span>, <span class="string">'Author'</span>]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">items.forEach(</span><br><span class="line">  ([key, value]) =&gt; map.set(key, value)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">map</span><br><span class="line">.set(<span class="number">1</span>, <span class="string">'aaa'</span>)</span><br><span class="line">.set(<span class="number">1</span>, <span class="string">'bbb'</span>);</span><br><span class="line"></span><br><span class="line">map.get(<span class="number">1</span>) <span class="comment">// "bbb"</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码对键<code>1</code>连续赋值两次，后一次的值覆盖前一次的值。</p>
-<p>如果读取一个未知的键，则返回<code>undefined</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Map</span>().get(<span class="string">'asfddfsasadf'</span>)</span><br><span class="line"><span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-<p>注意，只有对同一个对象的引用，Map 结构才将其视为同一个键。这一点要非常小心。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">map.set([<span class="string">'a'</span>], <span class="number">555</span>);</span><br><span class="line">map.get([<span class="string">'a'</span>]) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码的<code>set</code>和<code>get</code>方法，表面是针对同一个键，但实际上这是两个不同的数组实例，内存地址是不一样的，因此<code>get</code>方法无法读取该键，返回<code>undefined</code>。</p>
-<p>同理，同样的值的两个实例，在 Map 结构中被视为两个键。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> k1 = [<span class="string">'a'</span>];</span><br><span class="line"><span class="keyword">const</span> k2 = [<span class="string">'a'</span>];</span><br><span class="line"></span><br><span class="line">map</span><br><span class="line">.set(k1, <span class="number">111</span>)</span><br><span class="line">.set(k2, <span class="number">222</span>);</span><br><span class="line"></span><br><span class="line">map.get(k1) <span class="comment">// 111</span></span><br><span class="line">map.get(k2) <span class="comment">// 222</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，变量<code>k1</code>和<code>k2</code>的值是一样的，但是它们在 Map 结构中被视为两个键。</p>
-<p>由上可知，Map 的键实际上是跟内存地址绑定的，只要内存地址不一样，就视为两个键。这就解决了同名属性碰撞（clash）的问题，我们扩展别人的库的时候，如果使用对象作为键名，就不用担心自己的属性与原作者的属性同名。</p>
-<p>如果 Map 的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map 将其视为一个键，比如<code>0</code>和<code>-0</code>就是一个键，布尔值<code>true</code>和字符串<code>true</code>则是两个不同的键。另外，<code>undefined</code>和<code>null</code>也是两个不同的键。虽然<code>NaN</code>不严格相等于自身，但 Map 将其视为同一个键。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">map.set(<span class="number">-0</span>, <span class="number">123</span>);</span><br><span class="line">map.get(+<span class="number">0</span>) <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line">map.set(<span class="literal">true</span>, <span class="number">1</span>);</span><br><span class="line">map.set(<span class="string">'true'</span>, <span class="number">2</span>);</span><br><span class="line">map.get(<span class="literal">true</span>) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">map.set(<span class="literal">undefined</span>, <span class="number">3</span>);</span><br><span class="line">map.set(<span class="literal">null</span>, <span class="number">4</span>);</span><br><span class="line">map.get(<span class="literal">undefined</span>) <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">map.set(<span class="literal">NaN</span>, <span class="number">123</span>);</span><br><span class="line">map.get(<span class="literal">NaN</span>) <span class="comment">// 123</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="实例的属性和操作方法"><a href="#实例的属性和操作方法" class="headerlink" title="实例的属性和操作方法"></a>实例的属性和操作方法</h3><p>Map 结构的实例有以下属性和操作方法。</p>
-<p><strong>（1）size 属性</strong></p>
-<p><code>size</code>属性返回 Map 结构的成员总数。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">map.set(<span class="string">'foo'</span>, <span class="literal">true</span>);</span><br><span class="line">map.set(<span class="string">'bar'</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">map.size <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>（2）Map.prototype.set(key, value)</strong></p>
-<p><code>set</code>方法设置键名<code>key</code>对应的键值为<code>value</code>，然后返回整个 Map 结构。如果<code>key</code>已经有值，则键值会被更新，否则就新生成该键。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">m.set(<span class="string">'edition'</span>, <span class="number">6</span>)        <span class="comment">// 键是字符串</span></span><br><span class="line">m.set(<span class="number">262</span>, <span class="string">'standard'</span>)     <span class="comment">// 键是数值</span></span><br><span class="line">m.set(<span class="literal">undefined</span>, <span class="string">'nah'</span>)    <span class="comment">// 键是 undefined</span></span><br></pre></td></tr></table></figure>
-
-<p><code>set</code>方法返回的是当前的<code>Map</code>对象，因此可以采用链式写法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">  .set(<span class="number">1</span>, <span class="string">'a'</span>)</span><br><span class="line">  .set(<span class="number">2</span>, <span class="string">'b'</span>)</span><br><span class="line">  .set(<span class="number">3</span>, <span class="string">'c'</span>);</span><br></pre></td></tr></table></figure>
-
-<p><strong>（3）Map.prototype.get(key)</strong></p>
-<p><code>get</code>方法读取<code>key</code>对应的键值，如果找不到<code>key</code>，返回<code>undefined</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> hello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">'hello'</span>);&#125;;</span><br><span class="line">m.set(hello, <span class="string">'Hello ES6!'</span>) <span class="comment">// 键是函数</span></span><br><span class="line"></span><br><span class="line">m.get(hello)  <span class="comment">// Hello ES6!</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>（4）Map.prototype.has(key)</strong></p>
-<p><code>has</code>方法返回一个布尔值，表示某个键是否在当前 Map 对象之中。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">m.set(<span class="string">'edition'</span>, <span class="number">6</span>);</span><br><span class="line">m.set(<span class="number">262</span>, <span class="string">'standard'</span>);</span><br><span class="line">m.set(<span class="literal">undefined</span>, <span class="string">'nah'</span>);</span><br><span class="line"></span><br><span class="line">m.has(<span class="string">'edition'</span>)     <span class="comment">// true</span></span><br><span class="line">m.has(<span class="string">'years'</span>)       <span class="comment">// false</span></span><br><span class="line">m.has(<span class="number">262</span>)           <span class="comment">// true</span></span><br><span class="line">m.has(<span class="literal">undefined</span>)     <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>（5）Map.prototype.delete(key)</strong></p>
-<p><code>delete</code>方法删除某个键，返回<code>true</code>。如果删除失败，返回<code>false</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">m.set(<span class="literal">undefined</span>, <span class="string">'nah'</span>);</span><br><span class="line">m.has(<span class="literal">undefined</span>)     <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">m.delete(<span class="literal">undefined</span>)</span><br><span class="line">m.has(<span class="literal">undefined</span>)       <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>（6）Map.prototype.clear()</strong></p>
-<p><code>clear</code>方法清除所有成员，没有返回值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">map.set(<span class="string">'foo'</span>, <span class="literal">true</span>);</span><br><span class="line">map.set(<span class="string">'bar'</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">map.size <span class="comment">// 2</span></span><br><span class="line">map.clear()</span><br><span class="line">map.size <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="遍历方法"><a href="#遍历方法" class="headerlink" title="遍历方法"></a>遍历方法</h3><p>Map 结构原生提供三个遍历器生成函数和一个遍历方法。</p>
-<ul>
-<li><code>Map.prototype.keys()</code>：返回键名的遍历器。</li>
-<li><code>Map.prototype.values()</code>：返回键值的遍历器。</li>
-<li><code>Map.prototype.entries()</code>：返回所有成员的遍历器。</li>
-<li><code>Map.prototype.forEach()</code>：遍历 Map 的所有成员。</li>
-</ul>
-<p>需要特别注意的是，Map 的遍历顺序就是插入顺序。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">  [<span class="string">'F'</span>, <span class="string">'no'</span>],</span><br><span class="line">  [<span class="string">'T'</span>,  <span class="string">'yes'</span>],</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> map.keys()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "F"</span></span><br><span class="line"><span class="comment">// "T"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> map.values()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "no"</span></span><br><span class="line"><span class="comment">// "yes"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> map.entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item[<span class="number">0</span>], item[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "F" "no"</span></span><br><span class="line"><span class="comment">// "T" "yes"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> map.entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "F" "no"</span></span><br><span class="line"><span class="comment">// "T" "yes"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于使用map.entries()</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> map) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "F" "no"</span></span><br><span class="line"><span class="comment">// "T" "yes"</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>Map 结构转为数组结构，比较快速的方法是使用扩展运算符（<code>...</code>）。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">  [<span class="number">1</span>, <span class="string">'one'</span>],</span><br><span class="line">  [<span class="number">2</span>, <span class="string">'two'</span>],</span><br><span class="line">  [<span class="number">3</span>, <span class="string">'three'</span>],</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">[...map.keys()]</span><br><span class="line"><span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line">[...map.values()]</span><br><span class="line"><span class="comment">// ['one', 'two', 'three']</span></span><br><span class="line"></span><br><span class="line">[...map.entries()]</span><br><span class="line"><span class="comment">// [[1,'one'], [2, 'two'], [3, 'three']]</span></span><br><span class="line"></span><br><span class="line">[...map]</span><br><span class="line"><span class="comment">// [[1,'one'], [2, 'two'], [3, 'three']]</span></span><br></pre></td></tr></table></figure>
-
-<p>结合数组的<code>map</code>方法、<code>filter</code>方法，可以实现 Map 的遍历和过滤（Map 本身没有<code>map</code>和<code>filter</code>方法）。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map0 = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">  .set(<span class="number">1</span>, <span class="string">'a'</span>)</span><br><span class="line">  .set(<span class="number">2</span>, <span class="string">'b'</span>)</span><br><span class="line">  .set(<span class="number">3</span>, <span class="string">'c'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> map1 = <span class="keyword">new</span> <span class="built_in">Map</span>(</span><br><span class="line">  [...map0].filter(<span class="function">(<span class="params">[k, v]</span>) =&gt;</span> k &lt; <span class="number">3</span>)</span><br><span class="line">);</span><br><span class="line"><span class="comment">// 产生 Map 结构 &#123;1 =&gt; 'a', 2 =&gt; 'b'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> map2 = <span class="keyword">new</span> <span class="built_in">Map</span>(</span><br><span class="line">  [...map0].map(<span class="function">(<span class="params">[k, v]</span>) =&gt;</span> [k * <span class="number">2</span>, <span class="string">'_'</span> + v])</span><br><span class="line">    );</span><br><span class="line"><span class="comment">// 产生 Map 结构 &#123;2 =&gt; '_a', 4 =&gt; '_b', 6 =&gt; '_c'&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>此外，Map 还有一个<code>forEach</code>方法，与数组的<code>forEach</code>方法类似，也可以实现遍历。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">map.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value, key, map</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Key: %s, Value: %s"</span>, key, value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><code>forEach</code>方法还可以接受第二个参数，用来绑定<code>this</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> reporter = &#123;</span><br><span class="line">  report: <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Key: %s, Value: %s"</span>, key, value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">map.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value, key, map</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.report(key, value);</span><br><span class="line">&#125;, reporter);</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>forEach</code>方法的回调函数的<code>this</code>，就指向<code>reporter</code>。</p>
-<h3 id="与其他数据结构的互相转换"><a href="#与其他数据结构的互相转换" class="headerlink" title="与其他数据结构的互相转换"></a>与其他数据结构的互相转换</h3><p><strong>（1）Map 转为数组</strong></p>
-<p>前面已经提过，Map 转为数组最方便的方法，就是使用扩展运算符（<code>...</code>）。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myMap = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">  .set(<span class="literal">true</span>, <span class="number">7</span>)</span><br><span class="line">  .set(&#123;<span class="attr">foo</span>: <span class="number">3</span>&#125;, [<span class="string">'abc'</span>]);</span><br><span class="line">[...myMap]</span><br><span class="line"><span class="comment">// [ [ true, 7 ], [ &#123; foo: 3 &#125;, [ 'abc' ] ] ]</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>（2）数组 转为 Map</strong></p>
-<p>将数组传入 Map 构造函数，就可以转为 Map。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">  [<span class="literal">true</span>, <span class="number">7</span>],</span><br><span class="line">  [&#123;<span class="attr">foo</span>: <span class="number">3</span>&#125;, [<span class="string">'abc'</span>]]</span><br><span class="line">])</span><br><span class="line"><span class="comment">// Map &#123;</span></span><br><span class="line"><span class="comment">//   true =&gt; 7,</span></span><br><span class="line"><span class="comment">//   Object &#123;foo: 3&#125; =&gt; ['abc']</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>数据结构和算法</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Promise</title>
-    <url>/2020/02/27/Promise/</url>
-    <content><![CDATA[<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>ES6 规定，<code>Promise</code>对象是一个构造函数，用来生成<code>Promise</code>实例。</p>
-<p>下面代码创造了一个<code>Promise</code>实例。</p>
-<a id="more"></a>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ... some code</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="comment">/* 异步操作成功 */</span>)&#123;</span><br><span class="line">    resolve(value);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><code>Promise</code>构造函数接受一个函数作为参数，该函数的两个参数分别是<code>resolve</code>和<code>reject</code>。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。</p>
-<p><code>resolve</code>函数的作用是，将<code>Promise</code>对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；<code>reject</code>函数的作用是，将<code>Promise</code>对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
-<p><code>Promise</code>实例生成以后，可以用<code>then</code>方法分别指定<code>resolved</code>状态和<code>rejected</code>状态的回调函数。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// success</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// failure</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><code>then</code>方法可以接受两个回调函数作为参数。第一个回调函数是<code>Promise</code>对象的状态变为<code>resolved</code>时调用，第二个回调函数是<code>Promise</code>对象的状态变为<code>rejected</code>时调用。其中，第二个函数是可选的，不一定要提供。这两个函数都接受<code>Promise</code>对象传出的值作为参数。</p>
-<p>下面是一个<code>Promise</code>对象的简单例子。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timeout</span>(<span class="params">ms</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(resolve, ms, <span class="string">'done'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">timeout(<span class="number">100</span>).then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>timeout</code>方法返回一个<code>Promise</code>实例，表示一段时间以后才会发生的结果。过了指定的时间（<code>ms</code>参数）以后，<code>Promise</code>实例的状态变为<code>resolved</code>，就会触发<code>then</code>方法绑定的回调函数。</p>
-<p>Promise 新建后就会立即执行。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Promise'</span>);</span><br><span class="line">  resolve();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'resolved.'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Hi!'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Promise</span></span><br><span class="line"><span class="comment">// Hi!</span></span><br><span class="line"><span class="comment">// resolved</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，Promise 新建后立即执行，所以首先输出的是<code>Promise</code>。然后，<code>then</code>方法指定的回调函数，将在当前脚本所有同步任务执行完才会执行，所以<code>resolved</code>最后输出。</p>
-<h2 id="Promise-prototype-then"><a href="#Promise-prototype-then" class="headerlink" title="Promise.prototype.then()"></a>Promise.prototype.then()</h2><p>Promise 实例具有<code>then</code>方法，也就是说，<code>then</code>方法是定义在原型对象<code>Promise.prototype</code>上的。它的作用是为 Promise 实例添加状态改变时的回调函数。前面说过，<code>then</code>方法的第一个参数是<code>resolved</code>状态的回调函数，第二个参数（可选）是<code>rejected</code>状态的回调函数。</p>
-<p><code>then</code>方法返回的是一个新的<code>Promise</code>实例（注意，不是原来那个<code>Promise</code>实例）。因此可以采用链式写法，即<code>then</code>方法后面再调用另一个<code>then</code>方法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">getJSON(<span class="string">"/posts.json"</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> json.post;</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">post</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>上面的代码使用<code>then</code>方法，依次指定了两个回调函数。第一个回调函数完成以后，会将返回结果作为参数，传入第二个回调函数。</p>
-<p>采用链式的<code>then</code>，可以指定一组按照次序调用的回调函数。这时，前一个回调函数，有可能返回的还是一个<code>Promise</code>对象（即有异步操作），这时后一个回调函数，就会等待该<code>Promise</code>对象的状态发生变化，才会被调用。</p>
-<h2 id="Promise-prototype-catch"><a href="#Promise-prototype-catch" class="headerlink" title="Promise.prototype.catch()"></a>Promise.prototype.catch()</h2><p><code>Promise.prototype.catch()</code>方法是<code>.then(null, rejection)</code>或<code>.then(undefined, rejection)</code>的别名，用于指定发生错误时的回调函数。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">getJSON(<span class="string">'/posts.json'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">posts</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 处理 getJSON 和 前一个回调函数运行时发生的错误</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'发生错误！'</span>, error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>getJSON()</code>方法返回一个 Promise 对象，如果该对象状态变为<code>resolved</code>，则会调用<code>then()</code>方法指定的回调函数；如果异步操作抛出错误，状态就会变为<code>rejected</code>，就会调用<code>catch()</code>方法指定的回调函数，处理这个错误。另外，<code>then()</code>方法指定的回调函数，如果运行中抛出错误，也会被<code>catch()</code>方法捕获。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">p.then(<span class="function">(<span class="params">val</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'fulfilled:'</span>, val))</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'rejected'</span>, err));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">p.then(<span class="function">(<span class="params">val</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'fulfilled:'</span>, val))</span><br><span class="line">  .then(<span class="literal">null</span>, (err) =&gt; <span class="built_in">console</span>.log(<span class="string">"rejected:"</span>, err));</span><br></pre></td></tr></table></figure>
-
-<h2 id="Promise-prototype-finally"><a href="#Promise-prototype-finally" class="headerlink" title="Promise.prototype.finally()"></a>Promise.prototype.finally()</h2><p><code>finally()</code>方法用于指定不管 Promise 对象最后状态如何，都会执行的操作。该方法是 ES2018 引入标准的。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">promise</span><br><span class="line">.then(<span class="function"><span class="params">result</span> =&gt;</span> &#123;···&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;···&#125;)</span><br><span class="line">.finally(<span class="function"><span class="params">()</span> =&gt;</span> &#123;···&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，不管<code>promise</code>最后的状态，在执行完<code>then</code>或<code>catch</code>指定的回调函数以后，都会执行<code>finally</code>方法指定的回调函数。</p>
-<h2 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h2><p><code>Promise.all()</code>方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="built_in">Promise</span>.all([p1, p2, p3]);</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>Promise.all()</code>方法接受一个数组作为参数，<code>p1</code>、<code>p2</code>、<code>p3</code>都是 Promise 实例，如果不是，就会先调用下面讲到的<code>Promise.resolve</code>方法，将参数转为 Promise 实例，再进一步处理。另外，<code>Promise.all()</code>方法的参数可以不是数组，但必须具有 Iterator 接口，且返回的每个成员都是 Promise 实例。</p>
-<p><code>p</code>的状态由<code>p1</code>、<code>p2</code>、<code>p3</code>决定，分成两种情况。</p>
-<p>（1）只有<code>p1</code>、<code>p2</code>、<code>p3</code>的状态都变成<code>fulfilled</code>，<code>p</code>的状态才会变成<code>fulfilled</code>，此时<code>p1</code>、<code>p2</code>、<code>p3</code>的返回值组成一个数组，传递给<code>p</code>的回调函数。</p>
-<p>（2）只要<code>p1</code>、<code>p2</code>、<code>p3</code>之中有一个被<code>rejected</code>，<code>p</code>的状态就变成<code>rejected</code>，此时第一个被<code>reject</code>的实例的返回值，会传递给<code>p</code>的回调函数。</p>
-<p>下面是一个具体的例子。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 生成一个Promise对象的数组</span></span><br><span class="line"><span class="keyword">const</span> promises = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> getJSON(<span class="string">'/post/'</span> + id + <span class="string">".json"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.all(promises).then(<span class="function"><span class="keyword">function</span> (<span class="params">posts</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">reason</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>promises</code>是包含 6 个 Promise 实例的数组，只有这 6 个实例的状态都变成<code>fulfilled</code>，或者其中有一个变为<code>rejected</code>，才会调用<code>Promise.all</code>方法后面的回调函数。</p>
-<h2 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race()"></a>Promise.race()</h2><p><code>Promise.race()</code>方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="built_in">Promise</span>.race([p1, p2, p3]);</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，只要<code>p1</code>、<code>p2</code>、<code>p3</code>之中有一个实例率先改变状态，<code>p</code>的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给<code>p</code>的回调函数。</p>
-<p><code>Promise.race()</code>方法的参数与<code>Promise.all()</code>方法一样，如果不是 Promise 实例，就会先调用下面讲到的<code>Promise.resolve()</code>方法，将参数转为 Promise 实例，再进一步处理。</p>
-<p>下面是一个例子，如果指定时间内没有获得结果，就将 Promise 的状态变为<code>reject</code>，否则变为<code>resolve</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="built_in">Promise</span>.race([</span><br><span class="line">  fetch(<span class="string">'/resource-that-may-take-a-while'</span>),</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'request timeout'</span>)), <span class="number">5000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">p</span><br><span class="line">.then(<span class="built_in">console</span>.log)</span><br><span class="line">.catch(<span class="built_in">console</span>.error);</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，如果 5 秒之内<code>fetch</code>方法无法返回结果，变量<code>p</code>的状态就会变为<code>rejected</code>，从而触发<code>catch</code>方法指定的回调函数。</p>
-]]></content>
-      <categories>
-        <category>ES6</category>
-      </categories>
-      <tags>
-        <tag>es6</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Math对象</title>
     <url>/2020/01/26/Math%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h1 id="Math-对象"><a href="#Math-对象" class="headerlink" title="Math 对象"></a>Math 对象</h1><p> <code>Math</code>是 JavaScript 的原生对象，提供各种数学功能。该对象不是构造函数，不能生成实例，所有的属性和方法都必须在<code>Math</code>对象上调用。 </p>
@@ -3177,6 +3110,73 @@
       </categories>
       <tags>
         <tag>JS内置对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Promise</title>
+    <url>/2020/02/27/Promise/</url>
+    <content><![CDATA[<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>ES6 规定，<code>Promise</code>对象是一个构造函数，用来生成<code>Promise</code>实例。</p>
+<p>下面代码创造了一个<code>Promise</code>实例。</p>
+<a id="more"></a>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ... some code</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="comment">/* 异步操作成功 */</span>)&#123;</span><br><span class="line">    resolve(value);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>Promise</code>构造函数接受一个函数作为参数，该函数的两个参数分别是<code>resolve</code>和<code>reject</code>。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。</p>
+<p><code>resolve</code>函数的作用是，将<code>Promise</code>对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；<code>reject</code>函数的作用是，将<code>Promise</code>对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
+<p><code>Promise</code>实例生成以后，可以用<code>then</code>方法分别指定<code>resolved</code>状态和<code>rejected</code>状态的回调函数。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// success</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// failure</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>then</code>方法可以接受两个回调函数作为参数。第一个回调函数是<code>Promise</code>对象的状态变为<code>resolved</code>时调用，第二个回调函数是<code>Promise</code>对象的状态变为<code>rejected</code>时调用。其中，第二个函数是可选的，不一定要提供。这两个函数都接受<code>Promise</code>对象传出的值作为参数。</p>
+<p>下面是一个<code>Promise</code>对象的简单例子。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timeout</span>(<span class="params">ms</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(resolve, ms, <span class="string">'done'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">timeout(<span class="number">100</span>).then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>timeout</code>方法返回一个<code>Promise</code>实例，表示一段时间以后才会发生的结果。过了指定的时间（<code>ms</code>参数）以后，<code>Promise</code>实例的状态变为<code>resolved</code>，就会触发<code>then</code>方法绑定的回调函数。</p>
+<p>Promise 新建后就会立即执行。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Promise'</span>);</span><br><span class="line">  resolve();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'resolved.'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Hi!'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Promise</span></span><br><span class="line"><span class="comment">// Hi!</span></span><br><span class="line"><span class="comment">// resolved</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，Promise 新建后立即执行，所以首先输出的是<code>Promise</code>。然后，<code>then</code>方法指定的回调函数，将在当前脚本所有同步任务执行完才会执行，所以<code>resolved</code>最后输出。</p>
+<h2 id="Promise-prototype-then"><a href="#Promise-prototype-then" class="headerlink" title="Promise.prototype.then()"></a>Promise.prototype.then()</h2><p>Promise 实例具有<code>then</code>方法，也就是说，<code>then</code>方法是定义在原型对象<code>Promise.prototype</code>上的。它的作用是为 Promise 实例添加状态改变时的回调函数。前面说过，<code>then</code>方法的第一个参数是<code>resolved</code>状态的回调函数，第二个参数（可选）是<code>rejected</code>状态的回调函数。</p>
+<p><code>then</code>方法返回的是一个新的<code>Promise</code>实例（注意，不是原来那个<code>Promise</code>实例）。因此可以采用链式写法，即<code>then</code>方法后面再调用另一个<code>then</code>方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">getJSON(<span class="string">"/posts.json"</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> json.post;</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">post</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码使用<code>then</code>方法，依次指定了两个回调函数。第一个回调函数完成以后，会将返回结果作为参数，传入第二个回调函数。</p>
+<p>采用链式的<code>then</code>，可以指定一组按照次序调用的回调函数。这时，前一个回调函数，有可能返回的还是一个<code>Promise</code>对象（即有异步操作），这时后一个回调函数，就会等待该<code>Promise</code>对象的状态发生变化，才会被调用。</p>
+<h2 id="Promise-prototype-catch"><a href="#Promise-prototype-catch" class="headerlink" title="Promise.prototype.catch()"></a>Promise.prototype.catch()</h2><p><code>Promise.prototype.catch()</code>方法是<code>.then(null, rejection)</code>或<code>.then(undefined, rejection)</code>的别名，用于指定发生错误时的回调函数。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">getJSON(<span class="string">'/posts.json'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">posts</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 处理 getJSON 和 前一个回调函数运行时发生的错误</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'发生错误！'</span>, error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>getJSON()</code>方法返回一个 Promise 对象，如果该对象状态变为<code>resolved</code>，则会调用<code>then()</code>方法指定的回调函数；如果异步操作抛出错误，状态就会变为<code>rejected</code>，就会调用<code>catch()</code>方法指定的回调函数，处理这个错误。另外，<code>then()</code>方法指定的回调函数，如果运行中抛出错误，也会被<code>catch()</code>方法捕获。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">p.then(<span class="function">(<span class="params">val</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'fulfilled:'</span>, val))</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'rejected'</span>, err));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">p.then(<span class="function">(<span class="params">val</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'fulfilled:'</span>, val))</span><br><span class="line">  .then(<span class="literal">null</span>, (err) =&gt; <span class="built_in">console</span>.log(<span class="string">"rejected:"</span>, err));</span><br></pre></td></tr></table></figure>
+
+<h2 id="Promise-prototype-finally"><a href="#Promise-prototype-finally" class="headerlink" title="Promise.prototype.finally()"></a>Promise.prototype.finally()</h2><p><code>finally()</code>方法用于指定不管 Promise 对象最后状态如何，都会执行的操作。该方法是 ES2018 引入标准的。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">promise</span><br><span class="line">.then(<span class="function"><span class="params">result</span> =&gt;</span> &#123;···&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;···&#125;)</span><br><span class="line">.finally(<span class="function"><span class="params">()</span> =&gt;</span> &#123;···&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，不管<code>promise</code>最后的状态，在执行完<code>then</code>或<code>catch</code>指定的回调函数以后，都会执行<code>finally</code>方法指定的回调函数。</p>
+<h2 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h2><p><code>Promise.all()</code>方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="built_in">Promise</span>.all([p1, p2, p3]);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>Promise.all()</code>方法接受一个数组作为参数，<code>p1</code>、<code>p2</code>、<code>p3</code>都是 Promise 实例，如果不是，就会先调用下面讲到的<code>Promise.resolve</code>方法，将参数转为 Promise 实例，再进一步处理。另外，<code>Promise.all()</code>方法的参数可以不是数组，但必须具有 Iterator 接口，且返回的每个成员都是 Promise 实例。</p>
+<p><code>p</code>的状态由<code>p1</code>、<code>p2</code>、<code>p3</code>决定，分成两种情况。</p>
+<p>（1）只有<code>p1</code>、<code>p2</code>、<code>p3</code>的状态都变成<code>fulfilled</code>，<code>p</code>的状态才会变成<code>fulfilled</code>，此时<code>p1</code>、<code>p2</code>、<code>p3</code>的返回值组成一个数组，传递给<code>p</code>的回调函数。</p>
+<p>（2）只要<code>p1</code>、<code>p2</code>、<code>p3</code>之中有一个被<code>rejected</code>，<code>p</code>的状态就变成<code>rejected</code>，此时第一个被<code>reject</code>的实例的返回值，会传递给<code>p</code>的回调函数。</p>
+<p>下面是一个具体的例子。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 生成一个Promise对象的数组</span></span><br><span class="line"><span class="keyword">const</span> promises = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> getJSON(<span class="string">'/post/'</span> + id + <span class="string">".json"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.all(promises).then(<span class="function"><span class="keyword">function</span> (<span class="params">posts</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">reason</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>promises</code>是包含 6 个 Promise 实例的数组，只有这 6 个实例的状态都变成<code>fulfilled</code>，或者其中有一个变为<code>rejected</code>，才会调用<code>Promise.all</code>方法后面的回调函数。</p>
+<h2 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race()"></a>Promise.race()</h2><p><code>Promise.race()</code>方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="built_in">Promise</span>.race([p1, p2, p3]);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，只要<code>p1</code>、<code>p2</code>、<code>p3</code>之中有一个实例率先改变状态，<code>p</code>的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给<code>p</code>的回调函数。</p>
+<p><code>Promise.race()</code>方法的参数与<code>Promise.all()</code>方法一样，如果不是 Promise 实例，就会先调用下面讲到的<code>Promise.resolve()</code>方法，将参数转为 Promise 实例，再进一步处理。</p>
+<p>下面是一个例子，如果指定时间内没有获得结果，就将 Promise 的状态变为<code>reject</code>，否则变为<code>resolve</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="built_in">Promise</span>.race([</span><br><span class="line">  fetch(<span class="string">'/resource-that-may-take-a-while'</span>),</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'request timeout'</span>)), <span class="number">5000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">p</span><br><span class="line">.then(<span class="built_in">console</span>.log)</span><br><span class="line">.catch(<span class="built_in">console</span>.error);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，如果 5 秒之内<code>fetch</code>方法无法返回结果，变量<code>p</code>的状态就会变为<code>rejected</code>，从而触发<code>catch</code>方法指定的回调函数。</p>
+]]></content>
+      <categories>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>es6</tag>
       </tags>
   </entry>
   <entry>
@@ -4311,6 +4311,107 @@
       </categories>
   </entry>
   <entry>
+    <title>css三大特性</title>
+    <url>/2020/01/09/css%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</url>
+    <content><![CDATA[<h1 id="CSS-三大特性"><a href="#CSS-三大特性" class="headerlink" title="CSS 三大特性"></a>CSS 三大特性</h1><a id="more"></a>
+
+<h2 id="CSS层叠性"><a href="#CSS层叠性" class="headerlink" title="CSS层叠性"></a>CSS层叠性</h2><ul>
+<li><p>概念：</p>
+<p>所谓层叠性是指多种CSS样式的叠加。</p>
+<p>是浏览器处理冲突的一个能力,如果一个属性通过两个相同选择器设置到同一个元素上，那么这个时候一个属性就会将另一个属性层叠掉</p>
+</li>
+<li><p>原则：</p>
+<ul>
+<li>样式冲突，遵循的原则是<strong>就近原则。</strong> 那个样式离着结构近，就执行那个样式。</li>
+<li>样式不冲突，不会层叠</li>
+</ul>
+</li>
+</ul>
+<h2 id="CSS继承性"><a href="#CSS继承性" class="headerlink" title="CSS继承性"></a>CSS继承性</h2><ul>
+<li><p>概念：</p>
+<p>子标签会继承父标签的某些样式，如文本颜色和字号。</p>
+<p> 想要设置一个可继承的属性，只需将它应用于父元素即可。</p>
+</li>
+</ul>
+<p>简单的理解就是：  子承父业。</p>
+<ul>
+<li><strong>注意</strong>：<ul>
+<li>恰当地使用继承可以简化代码，降低CSS样式的复杂性。比如有很多子级孩子都需要某个样式，可以给父级指定一个，这些孩子继承过来就好了。</li>
+<li>子元素可以继承父元素的样式（<strong>text-，font-，line-这些元素开头的可以继承，以及color属性</strong>）</li>
+</ul>
+</li>
+</ul>
+<h2 id="CSS优先级（重点）"><a href="#CSS优先级（重点）" class="headerlink" title="CSS优先级（重点）"></a>CSS优先级（重点）</h2><ul>
+<li><p>概念：</p>
+<p>定义CSS样式时，经常出现两个或更多规则应用在同一元素上，此时，</p>
+<ul>
+<li>选择器相同，则执行层叠性</li>
+<li>选择器不同，就会出现优先级的问题。</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-权重计算公式"><a href="#1-权重计算公式" class="headerlink" title="1). 权重计算公式"></a>1). 权重计算公式</h4><p>关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity（特殊性）</p>
+<table>
+<thead>
+<tr>
+<th>标签选择器</th>
+<th>计算权重公式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>继承或者 *</td>
+<td>0,0,0,0</td>
+</tr>
+<tr>
+<td>每个元素（标签选择器）</td>
+<td>0,0,0,1</td>
+</tr>
+<tr>
+<td>每个类，伪类</td>
+<td>0,0,1,0</td>
+</tr>
+<tr>
+<td>每个ID</td>
+<td>0,1,0,0</td>
+</tr>
+<tr>
+<td>每个行内样式 style=””</td>
+<td>1,0,0,0</td>
+</tr>
+<tr>
+<td>每个!important  重要的</td>
+<td>∞ 无穷大</td>
+</tr>
+</tbody></table>
+<ul>
+<li>值从左到右，左面的最大，一级大于一级，数位之间没有进制，级别之间不可超越。 </li>
+<li>关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity（特殊性）</li>
+<li>div {<pre><code>color: pink!important;  </code></pre>}</li>
+</ul>
+<h4 id="2-权重叠加"><a href="#2-权重叠加" class="headerlink" title="2). 权重叠加"></a>2). 权重叠加</h4><p>我们经常用交集选择器，后代选择器等，是有多个基础选择器组合而成，那么此时，就会出现权重叠加。</p>
+<p>就是一个简单的加法计算</p>
+<ul>
+<li><p>div ul  li   ——&gt;      0,0,0,3</p>
+</li>
+<li><p>.nav ul li   ——&gt;      0,0,1,2</p>
+</li>
+<li><p>a:hover      —–—&gt;   0,0,1,1</p>
+</li>
+<li><p>.nav a       ——&gt;      0,0,1,1</p>
+<p>注意： </p>
+</li>
+</ul>
+<ol>
+<li>数位之间没有进制 比如说： 0,0,0,5 + 0,0,0,5 =0,0,0,10 而不是 0,0, 1, 0， 所以不会存在10个div能赶上一个类选择器的情况。</li>
+</ol>
+<h4 id="3-继承的权重是0"><a href="#3-继承的权重是0" class="headerlink" title="3). 继承的权重是0"></a>3). 继承的权重是0</h4><p>这个不难，但是忽略很容易绕晕。其实，我们修改样式，一定要看该标签有没有被选中。</p>
+<p>1） 如果选中了，那么以上面的公式来计权重。谁大听谁的。<br>2） 如果没有选中，那么权重是0，因为继承的权重为0.</p>
+]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+  </entry>
+  <entry>
     <title>css背景</title>
     <url>/2020/01/08/css%E8%83%8C%E6%99%AF/</url>
     <content><![CDATA[<h1 id="CSS-背景-background"><a href="#CSS-背景-background" class="headerlink" title="CSS 背景(background)"></a>CSS 背景(background)</h1><p>目标</p>
@@ -4504,107 +4605,6 @@
 <td align="left">background: rgba(0,0,0,0.3);   后面必须是 4个值</td>
 </tr>
 </tbody></table>
-]]></content>
-      <categories>
-        <category>css</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>css三大特性</title>
-    <url>/2020/01/09/css%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</url>
-    <content><![CDATA[<h1 id="CSS-三大特性"><a href="#CSS-三大特性" class="headerlink" title="CSS 三大特性"></a>CSS 三大特性</h1><a id="more"></a>
-
-<h2 id="CSS层叠性"><a href="#CSS层叠性" class="headerlink" title="CSS层叠性"></a>CSS层叠性</h2><ul>
-<li><p>概念：</p>
-<p>所谓层叠性是指多种CSS样式的叠加。</p>
-<p>是浏览器处理冲突的一个能力,如果一个属性通过两个相同选择器设置到同一个元素上，那么这个时候一个属性就会将另一个属性层叠掉</p>
-</li>
-<li><p>原则：</p>
-<ul>
-<li>样式冲突，遵循的原则是<strong>就近原则。</strong> 那个样式离着结构近，就执行那个样式。</li>
-<li>样式不冲突，不会层叠</li>
-</ul>
-</li>
-</ul>
-<h2 id="CSS继承性"><a href="#CSS继承性" class="headerlink" title="CSS继承性"></a>CSS继承性</h2><ul>
-<li><p>概念：</p>
-<p>子标签会继承父标签的某些样式，如文本颜色和字号。</p>
-<p> 想要设置一个可继承的属性，只需将它应用于父元素即可。</p>
-</li>
-</ul>
-<p>简单的理解就是：  子承父业。</p>
-<ul>
-<li><strong>注意</strong>：<ul>
-<li>恰当地使用继承可以简化代码，降低CSS样式的复杂性。比如有很多子级孩子都需要某个样式，可以给父级指定一个，这些孩子继承过来就好了。</li>
-<li>子元素可以继承父元素的样式（<strong>text-，font-，line-这些元素开头的可以继承，以及color属性</strong>）</li>
-</ul>
-</li>
-</ul>
-<h2 id="CSS优先级（重点）"><a href="#CSS优先级（重点）" class="headerlink" title="CSS优先级（重点）"></a>CSS优先级（重点）</h2><ul>
-<li><p>概念：</p>
-<p>定义CSS样式时，经常出现两个或更多规则应用在同一元素上，此时，</p>
-<ul>
-<li>选择器相同，则执行层叠性</li>
-<li>选择器不同，就会出现优先级的问题。</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-权重计算公式"><a href="#1-权重计算公式" class="headerlink" title="1). 权重计算公式"></a>1). 权重计算公式</h4><p>关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity（特殊性）</p>
-<table>
-<thead>
-<tr>
-<th>标签选择器</th>
-<th>计算权重公式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>继承或者 *</td>
-<td>0,0,0,0</td>
-</tr>
-<tr>
-<td>每个元素（标签选择器）</td>
-<td>0,0,0,1</td>
-</tr>
-<tr>
-<td>每个类，伪类</td>
-<td>0,0,1,0</td>
-</tr>
-<tr>
-<td>每个ID</td>
-<td>0,1,0,0</td>
-</tr>
-<tr>
-<td>每个行内样式 style=””</td>
-<td>1,0,0,0</td>
-</tr>
-<tr>
-<td>每个!important  重要的</td>
-<td>∞ 无穷大</td>
-</tr>
-</tbody></table>
-<ul>
-<li>值从左到右，左面的最大，一级大于一级，数位之间没有进制，级别之间不可超越。 </li>
-<li>关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity（特殊性）</li>
-<li>div {<pre><code>color: pink!important;  </code></pre>}</li>
-</ul>
-<h4 id="2-权重叠加"><a href="#2-权重叠加" class="headerlink" title="2). 权重叠加"></a>2). 权重叠加</h4><p>我们经常用交集选择器，后代选择器等，是有多个基础选择器组合而成，那么此时，就会出现权重叠加。</p>
-<p>就是一个简单的加法计算</p>
-<ul>
-<li><p>div ul  li   ——&gt;      0,0,0,3</p>
-</li>
-<li><p>.nav ul li   ——&gt;      0,0,1,2</p>
-</li>
-<li><p>a:hover      —–—&gt;   0,0,1,1</p>
-</li>
-<li><p>.nav a       ——&gt;      0,0,1,1</p>
-<p>注意： </p>
-</li>
-</ul>
-<ol>
-<li>数位之间没有进制 比如说： 0,0,0,5 + 0,0,0,5 =0,0,0,10 而不是 0,0, 1, 0， 所以不会存在10个div能赶上一个类选择器的情况。</li>
-</ol>
-<h4 id="3-继承的权重是0"><a href="#3-继承的权重是0" class="headerlink" title="3). 继承的权重是0"></a>3). 继承的权重是0</h4><p>这个不难，但是忽略很容易绕晕。其实，我们修改样式，一定要看该标签有没有被选中。</p>
-<p>1） 如果选中了，那么以上面的公式来计权重。谁大听谁的。<br>2） 如果没有选中，那么权重是0，因为继承的权重为0.</p>
 ]]></content>
       <categories>
         <category>css</category>
@@ -4856,6 +4856,77 @@
 ]]></content>
       <categories>
         <category>数据结构和算法</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>table</title>
+    <url>/2020/01/01/table/</url>
+    <content><![CDATA[<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格的现在还是较为常用的一种标签，但不是用来布局，<strong>常见显示、展示表格式数据。</strong></p>
+<p>因为它可以让数据显示的非常的规整，可读性非常好。</p>
+<p><strong>特别是后台展示数据的时候表格运用是否熟练就显得很重要</strong>，一个清爽简约的表格能够把繁杂的数据表现得很有条理，虽然 div 布局也可以做到，但是总没有表格来得方便。</p>
+<a id="more"></a>
+
+<p>在HTML网页中，要想创建表格，就需要使用表格相关的标签。</p>
+<p><strong>创建表格的基本语法：</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>小明<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>18<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>男<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>小红<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>20<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>女<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://img-blog.csdnimg.cn/20200618193717446.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p>表格有部分属性平时不常用，这里重点记住 cellspacing 、 cellpadding</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200618193717454.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p> <img src="https://img-blog.csdnimg.cn/20200618193717403.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<p><strong>表格标题定义和用法</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">caption</span>&gt;</span>我是表格标题<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>*<em>注意： *</em></p>
+<ol>
+<li>caption 元素定义<strong>表格标题</strong>，通常这个标题会被居中且显示于表格之上。</li>
+<li>caption 标签必须紧随 table 标签之后。</li>
+<li>这个标签只存在 表格里面才有意义。</li>
+</ol>
+<h2 id="总结表格"><a href="#总结表格" class="headerlink" title="总结表格"></a>总结表格</h2><table>
+<thead>
+<tr>
+<th>标签名</th>
+<th align="left">定义</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><table></table></td>
+<td align="left">表格标签</td>
+<td align="left">就是一个四方的盒子</td>
+</tr>
+<tr>
+<td><tr></tr></td>
+<td align="left">表格行标签</td>
+<td align="left">行标签要再table标签内部才有意义</td>
+</tr>
+<tr>
+<td><td></td></td>
+<td align="left">单元格标签</td>
+<td align="left">单元格标签是个容器级元素，可以放任何东西</td>
+</tr>
+<tr>
+<td><th></th></td>
+<td align="left">表头单元格标签</td>
+<td align="left">它还是一个单元格，但是里面的文字会居中且加粗</td>
+</tr>
+<tr>
+<td><caption></caption></td>
+<td align="left">表格标题标签</td>
+<td align="left">表格的标题，跟着表格一起走，和表格居中对齐</td>
+</tr>
+<tr>
+<td>colspan 和 rowspan</td>
+<td align="left">合并属性</td>
+<td align="left">用来合并单元格的</td>
+</tr>
+</tbody></table>
+<h3 id="表格划分结构"><a href="#表格划分结构" class="headerlink" title="表格划分结构"></a>表格划分结构</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">对于比较复杂的表格，表格的结构也就相对的复杂了，所以又将表格分割成三个部分：题头、正文和脚注。而这三部分分别用:thead,tbody,tfoot来标注， 这样更好的分清表格结构</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>html</category>
       </categories>
   </entry>
   <entry>
@@ -5195,77 +5266,6 @@
 <td align="left">里面有2个兄弟， dt 和 dd</td>
 </tr>
 </tbody></table>
-]]></content>
-      <categories>
-        <category>html</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>table</title>
-    <url>/2020/01/01/table/</url>
-    <content><![CDATA[<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格的现在还是较为常用的一种标签，但不是用来布局，<strong>常见显示、展示表格式数据。</strong></p>
-<p>因为它可以让数据显示的非常的规整，可读性非常好。</p>
-<p><strong>特别是后台展示数据的时候表格运用是否熟练就显得很重要</strong>，一个清爽简约的表格能够把繁杂的数据表现得很有条理，虽然 div 布局也可以做到，但是总没有表格来得方便。</p>
-<a id="more"></a>
-
-<p>在HTML网页中，要想创建表格，就需要使用表格相关的标签。</p>
-<p><strong>创建表格的基本语法：</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>小明<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>18<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>男<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>小红<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>20<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>女<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://img-blog.csdnimg.cn/20200618193717446.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p>表格有部分属性平时不常用，这里重点记住 cellspacing 、 cellpadding</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200618193717454.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p> <img src="https://img-blog.csdnimg.cn/20200618193717403.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<p><strong>表格标题定义和用法</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">caption</span>&gt;</span>我是表格标题<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>*<em>注意： *</em></p>
-<ol>
-<li>caption 元素定义<strong>表格标题</strong>，通常这个标题会被居中且显示于表格之上。</li>
-<li>caption 标签必须紧随 table 标签之后。</li>
-<li>这个标签只存在 表格里面才有意义。</li>
-</ol>
-<h2 id="总结表格"><a href="#总结表格" class="headerlink" title="总结表格"></a>总结表格</h2><table>
-<thead>
-<tr>
-<th>标签名</th>
-<th align="left">定义</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><table></table></td>
-<td align="left">表格标签</td>
-<td align="left">就是一个四方的盒子</td>
-</tr>
-<tr>
-<td><tr></tr></td>
-<td align="left">表格行标签</td>
-<td align="left">行标签要再table标签内部才有意义</td>
-</tr>
-<tr>
-<td><td></td></td>
-<td align="left">单元格标签</td>
-<td align="left">单元格标签是个容器级元素，可以放任何东西</td>
-</tr>
-<tr>
-<td><th></th></td>
-<td align="left">表头单元格标签</td>
-<td align="left">它还是一个单元格，但是里面的文字会居中且加粗</td>
-</tr>
-<tr>
-<td><caption></caption></td>
-<td align="left">表格标题标签</td>
-<td align="left">表格的标题，跟着表格一起走，和表格居中对齐</td>
-</tr>
-<tr>
-<td>colspan 和 rowspan</td>
-<td align="left">合并属性</td>
-<td align="left">用来合并单元格的</td>
-</tr>
-</tbody></table>
-<h3 id="表格划分结构"><a href="#表格划分结构" class="headerlink" title="表格划分结构"></a>表格划分结构</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">对于比较复杂的表格，表格的结构也就相对的复杂了，所以又将表格分割成三个部分：题头、正文和脚注。而这三部分分别用:thead,tbody,tfoot来标注， 这样更好的分清表格结构</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>html</category>
@@ -5794,168 +5794,6 @@
       </tags>
   </entry>
   <entry>
-    <title>希尔排序</title>
-    <url>/2020/06/04/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><blockquote>
-<p>希尔排序是插入排序的一种高效的改进版, 并且效率比插入排序要更快.</p>
-</blockquote>
-<a id="more"></a>
-
-<p>回顾插入排序:</p>
-<ul>
-<li>由于希尔排序基于插入排序, 所以有必须回顾一下前面的插入排序.</li>
-<li>我们设想一下, 在插入排序执行到一半的时候, 标记符左边这部分数据项都是排好序的, 而标识符右边的数据项是没有排序的.</li>
-<li>这个时候, 取出指向的那个数据项, 把它存储在一个临时变量中, 接着, 从刚刚移除的位置左边第一个单元开始, 每次把有序的数据项向右移动一个单元, 直到存储在临时变量中的数据项可以成功插入.</li>
-</ul>
-<p>插入排序的问题:</p>
-<ul>
-<li>假设一个很小的数据项在很靠近右端的位置上, 这里本来应该是较大的数据项的位置.</li>
-<li>把这个小数据项移动到左边的正确位置, 所有的中间数据项都必须向右移动一位.</li>
-<li>如果每个步骤对数据项都进行N次复制, 平均下来是移动N/2, N个元素就是 N*N/2 = N²/2.</li>
-<li>所以我们通常认为插入排序的效率是O(N²)</li>
-<li>如果有某种方式, 不需要一个个移动所有中间的数据项, 就能把较小的数据项移动到左边, 那么这个算法的执行效率就会有很大的改进.</li>
-</ul>
-<p>希尔排序的做法:</p>
-<ul>
-<li><p>比如下面的数字, 81, 94, 11, 96, 12, 35, 17, 95, 28, 58, 41, 75, 15.</p>
-</li>
-<li><p>我们先让间隔为5, 进行排序. (35, 81), (94, 17), (11, 95), (96, 28), (12, 58), (35, 41), (17, 75), (95, 15)</p>
-</li>
-<li><p>排序后的新序列, 一定可以让数字离自己的正确位置更近一步.</p>
-</li>
-<li><p>我们再让间隔位3, 进行排序. (35, 28, 75, 58, 95), (17, 12, 15, 81), (11, 41, 96, 94)</p>
-</li>
-<li><p>排序后的新序列, 一定可以让数字离自己的正确位置又近了一步.</p>
-</li>
-<li><p>最后, 我们让间隔为1, 也就是正确的插入排序. 这个时候数字都离自己的位置更近, 那么需要复制的次数一定会减少很多.</p>
-<p><img src="https://img-blog.csdnimg.cn/20200609194159354.png" alt="在这里插入图片描述"> </p>
-</li>
-<li><p>选择合适的增量:</p>
-<ul>
-<li>在希尔排序的原稿中, 他建议的初始间距是N / 2, 简单的把每趟排序分成两半.</li>
-<li>也就是说, 对于N = 100的数组, 增量间隔序列为: 50, 25, 12, 6, 3, 1.</li>
-<li>这个方法的好处是不需要在开始排序前为找合适的增量而进行任何的计算.</li>
-<li>我们先按照这个增量来实现我们的代码.</li>
-</ul>
-</li>
-</ul>
-<h4 id="希尔排序的实现"><a href="#希尔排序的实现" class="headerlink" title="希尔排序的实现"></a>希尔排序的实现</h4><ul>
-<li>希尔排序的实现:</li>
-</ul>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">ArrayList.prototype.shellSort = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.获取数组的长度</span></span><br><span class="line">    <span class="keyword">var</span> length = <span class="keyword">this</span>.array.length</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.根据长度计算增量</span></span><br><span class="line">    <span class="keyword">var</span> gap = <span class="built_in">Math</span>.floor(length / <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.增量不断变量小, 大于0就继续排序</span></span><br><span class="line">    <span class="keyword">while</span> (gap &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 4.实现插入排序</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = gap; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="comment">// 4.1.保存临时变量</span></span><br><span class="line">            <span class="keyword">var</span> j = i</span><br><span class="line">            <span class="keyword">var</span> temp = <span class="keyword">this</span>.array[i]</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 4.2.插入排序的内层循环</span></span><br><span class="line">            <span class="keyword">while</span> (j &gt; gap - <span class="number">1</span> &amp;&amp; <span class="keyword">this</span>.array[j - gap] &gt; temp) &#123;</span><br><span class="line">                <span class="keyword">this</span>.array[j] = <span class="keyword">this</span>.array[j - gap]</span><br><span class="line">                j -= gap</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 4.3.将选出的j位置设置为temp</span></span><br><span class="line">            <span class="keyword">this</span>.array[j] = temp</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 5.重新计算新的间隔</span></span><br><span class="line">        gap = <span class="built_in">Math</span>.floor(gap / <span class="number">2</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>代码解析</p>
-<ul>
-<li>代码序号1: 获取数组的长度</li>
-<li>代码序号2: 计算第一次的间隔, 我们按照希尔提出的间隔实现.</li>
-<li>代码序号3: 增量不断变小, 大于0就继续改变增量</li>
-<li>代码序号4: 实际上就是实现了插入排序 <ul>
-<li>代码序号4.1: 保存临时变量, j位置从i开始, 保存该位置的值到变量temp中</li>
-<li>代码序号4.2: 内层循环, j &gt; gap - 1并且temp大于this.array[j - gap], 那么就进行复制.</li>
-<li>代码序号4.3: 将j位置设置为变量temp</li>
-</ul>
-</li>
-<li>代码序号5: 每次while循环后都重新计算新的间隔.</li>
-</ul>
-</li>
-<li><p>测试代码:</p>
-</li>
-</ul>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 测试希尔排序</span></span><br><span class="line">list.shellSort()</span><br><span class="line">alert(list)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>数据结构和算法</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>插入排序</title>
-    <url>/2020/06/03/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><blockquote>
-<p>插入排序是简单排序中效率最好的一种.</p>
-<p>插入排序也是学习其他高级排序的基础, 比如希尔排序/快速排序, 所以也非常重要.</p>
-</blockquote>
-<a id="more"></a>
-
-<h4 id="创建列表"><a href="#创建列表" class="headerlink" title="创建列表"></a>创建列表</h4><ul>
-<li>在开始排序前, 我们先来创建一个列表封装我们的数据项.</li>
-</ul>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 封装ArrayList</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ArrayList</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.array = []</span><br><span class="line"></span><br><span class="line">    ArrayList.prototype.insert = <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.array.push(item)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ArrayList.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.array.join()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>初始化数据项</li>
-</ul>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 初始化数据项</span></span><br><span class="line"><span class="keyword">var</span> list = <span class="keyword">new</span> ArrayList()</span><br><span class="line"></span><br><span class="line">list.insert(<span class="number">3</span>)</span><br><span class="line">list.insert(<span class="number">6</span>)</span><br><span class="line">list.insert(<span class="number">4</span>)</span><br><span class="line">list.insert(<span class="number">2</span>)</span><br><span class="line">list.insert(<span class="number">11</span>)</span><br><span class="line">list.insert(<span class="number">10</span>)</span><br><span class="line">list.insert(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">alert(list)</span><br></pre></td></tr></table></figure>
-
-<h4 id="插入排序的思路"><a href="#插入排序的思路" class="headerlink" title="插入排序的思路"></a>插入排序的思路</h4><ul>
-<li><p>局部有序:</p>
-<ul>
-<li>插入排序思想的核心是局部有序. 什么是局部有序呢?</li>
-<li>比如在一个队列中的人, 我们选择其中一个作为标记的队员. 这个被标记的队员左边的所有队员已经是局部有序的.</li>
-<li>这意味着, 有一部门人是按顺序排列好的. 有一部分还没有顺序.</li>
-</ul>
-</li>
-<li><p>插入排序的思路:</p>
-<ul>
-<li>从第一个元素开始，该元素可以认为已经被排序</li>
-<li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
-<li>如果该元素（已排序）大于新元素，将该元素移到下一位置</li>
-<li>重复上一个步骤，直到找到已排序的元素小于或者等于新元素的位置</li>
-<li>将新元素插入到该位置后, 重复上面的步骤.</li>
-</ul>
-</li>
-</ul>
-<h4 id="插入排序的实现"><a href="#插入排序的实现" class="headerlink" title="插入排序的实现"></a>插入排序的实现</h4><ul>
-<li>插入排序的实现:</li>
-</ul>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">ArrayList.prototype.insertionSort = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.获取数组的长度</span></span><br><span class="line">    <span class="keyword">var</span> length = <span class="keyword">this</span>.array.length</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.外层循环: 外层循环是从1位置开始, 依次遍历到最后</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; length; i++) &#123;</span><br><span class="line">        <span class="comment">// 3.记录选出的元素, 放在变量temp中</span></span><br><span class="line">        <span class="keyword">var</span> j = i</span><br><span class="line">        <span class="keyword">var</span> temp = <span class="keyword">this</span>.array[i]</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4.内层循环: 内层循环不确定循环的次数, 最好使用while循环</span></span><br><span class="line">        <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; <span class="keyword">this</span>.array[j<span class="number">-1</span>] &gt; temp) &#123;</span><br><span class="line">            <span class="keyword">this</span>.array[j] = <span class="keyword">this</span>.array[j<span class="number">-1</span>]</span><br><span class="line">            j--</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5.将选出的j位置, 放入temp元素</span></span><br><span class="line">        <span class="keyword">this</span>.array[j] = temp</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>代码解析</p>
-<ul>
-<li>代码序号1: 获取数组的长度.</li>
-<li>代码序号2: 外层循环, 从1位置开始, 因为0位置可以默认看成是有序的了.</li>
-<li>代码序号3: 记录选出的i位置的元素, 保存在变量temp中. i默认等于j</li>
-<li>代码序号4: 内层循环 <ul>
-<li>内层循环的判断j - 1位置的元素和temp比较, 并且j &gt; 0.</li>
-<li>那么就将j-1位置的元素放在j位置.</li>
-<li>j位置向前移.</li>
-</ul>
-</li>
-<li>代码序号5: 将目前选出的j位置放置temp元素.</li>
-</ul>
-</li>
-<li><p>测试代码:</p>
-</li>
-</ul>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 测试插入排序</span></span><br><span class="line">list.insertionSort()</span><br><span class="line">alert(list) <span class="comment">// 2,3,4,5,6,10,11</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="插入排序的效率"><a href="#插入排序的效率" class="headerlink" title="插入排序的效率"></a>插入排序的效率</h4><ul>
-<li>插入排序的比较次数: <ul>
-<li>第一趟时, 需要的最多次数是1, 第二趟最多次数是2, 依次类推, 最后一趟是N-1次.</li>
-<li>因此是1 + 2 + 3 + … + N - 1 = N * (N - 1) / 2.</li>
-<li>然而每趟发现插入点之前, 平均只有全体数据项的一半需要进行比较.</li>
-<li>我们可以除以2得到 N * (N - 1) / 4. 所以相对于选择排序, 其他比较次数是少了一半的.</li>
-</ul>
-</li>
-<li>插入排序的复制次数: <ul>
-<li>第一趟时, 需要的最多复制次数是1, 第二趟最多次数是2, 依次类推, 最后一趟是N-1次.</li>
-<li>因此是1 + 2 + 3 + … + N - 1 = N * (N - 1) / 2.</li>
-</ul>
-</li>
-<li>对于基本有序的情况 <ul>
-<li>对于已经有序或基本有序的数据来说, 插入排序要好很多.</li>
-<li>当数据有序的时候, while循环的条件总是为假, 所以它变成了外层循环中的一个简单语句, 执行N-1次.</li>
-<li>在这种情况下, 算法运行至需要N(N)的时间, 效率相对来说会更高.</li>
-<li>另外别忘了, 我们的比较次数是选择排序的一半, 所以这个算法的效率是高于选择排序的.</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>数据结构和算法</category>
-      </categories>
-  </entry>
-  <entry>
     <title>对象的扩展</title>
     <url>/2020/02/24/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/</url>
     <content><![CDATA[<h2 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h2><p>ES5 比较两个值是否相等，只有两个运算符：相等运算符（<code>==</code>）和严格相等运算符（<code>===</code>）。它们都有缺点，前者会自动转换数据类型，后者的<code>NaN</code>不等于自身，以及<code>+0</code>等于<code>-0</code>。JavaScript 缺乏一种运算，在所有环境中，只要两个值是一样的，它们就应该相等。</p>
@@ -6073,6 +5911,80 @@
       </tags>
   </entry>
   <entry>
+    <title>希尔排序</title>
+    <url>/2020/06/04/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><blockquote>
+<p>希尔排序是插入排序的一种高效的改进版, 并且效率比插入排序要更快.</p>
+</blockquote>
+<a id="more"></a>
+
+<p>回顾插入排序:</p>
+<ul>
+<li>由于希尔排序基于插入排序, 所以有必须回顾一下前面的插入排序.</li>
+<li>我们设想一下, 在插入排序执行到一半的时候, 标记符左边这部分数据项都是排好序的, 而标识符右边的数据项是没有排序的.</li>
+<li>这个时候, 取出指向的那个数据项, 把它存储在一个临时变量中, 接着, 从刚刚移除的位置左边第一个单元开始, 每次把有序的数据项向右移动一个单元, 直到存储在临时变量中的数据项可以成功插入.</li>
+</ul>
+<p>插入排序的问题:</p>
+<ul>
+<li>假设一个很小的数据项在很靠近右端的位置上, 这里本来应该是较大的数据项的位置.</li>
+<li>把这个小数据项移动到左边的正确位置, 所有的中间数据项都必须向右移动一位.</li>
+<li>如果每个步骤对数据项都进行N次复制, 平均下来是移动N/2, N个元素就是 N*N/2 = N²/2.</li>
+<li>所以我们通常认为插入排序的效率是O(N²)</li>
+<li>如果有某种方式, 不需要一个个移动所有中间的数据项, 就能把较小的数据项移动到左边, 那么这个算法的执行效率就会有很大的改进.</li>
+</ul>
+<p>希尔排序的做法:</p>
+<ul>
+<li><p>比如下面的数字, 81, 94, 11, 96, 12, 35, 17, 95, 28, 58, 41, 75, 15.</p>
+</li>
+<li><p>我们先让间隔为5, 进行排序. (35, 81), (94, 17), (11, 95), (96, 28), (12, 58), (35, 41), (17, 75), (95, 15)</p>
+</li>
+<li><p>排序后的新序列, 一定可以让数字离自己的正确位置更近一步.</p>
+</li>
+<li><p>我们再让间隔位3, 进行排序. (35, 28, 75, 58, 95), (17, 12, 15, 81), (11, 41, 96, 94)</p>
+</li>
+<li><p>排序后的新序列, 一定可以让数字离自己的正确位置又近了一步.</p>
+</li>
+<li><p>最后, 我们让间隔为1, 也就是正确的插入排序. 这个时候数字都离自己的位置更近, 那么需要复制的次数一定会减少很多.</p>
+<p><img src="https://img-blog.csdnimg.cn/20200609194159354.png" alt="在这里插入图片描述"> </p>
+</li>
+<li><p>选择合适的增量:</p>
+<ul>
+<li>在希尔排序的原稿中, 他建议的初始间距是N / 2, 简单的把每趟排序分成两半.</li>
+<li>也就是说, 对于N = 100的数组, 增量间隔序列为: 50, 25, 12, 6, 3, 1.</li>
+<li>这个方法的好处是不需要在开始排序前为找合适的增量而进行任何的计算.</li>
+<li>我们先按照这个增量来实现我们的代码.</li>
+</ul>
+</li>
+</ul>
+<h4 id="希尔排序的实现"><a href="#希尔排序的实现" class="headerlink" title="希尔排序的实现"></a>希尔排序的实现</h4><ul>
+<li>希尔排序的实现:</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">ArrayList.prototype.shellSort = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.获取数组的长度</span></span><br><span class="line">    <span class="keyword">var</span> length = <span class="keyword">this</span>.array.length</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.根据长度计算增量</span></span><br><span class="line">    <span class="keyword">var</span> gap = <span class="built_in">Math</span>.floor(length / <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.增量不断变量小, 大于0就继续排序</span></span><br><span class="line">    <span class="keyword">while</span> (gap &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 4.实现插入排序</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = gap; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="comment">// 4.1.保存临时变量</span></span><br><span class="line">            <span class="keyword">var</span> j = i</span><br><span class="line">            <span class="keyword">var</span> temp = <span class="keyword">this</span>.array[i]</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 4.2.插入排序的内层循环</span></span><br><span class="line">            <span class="keyword">while</span> (j &gt; gap - <span class="number">1</span> &amp;&amp; <span class="keyword">this</span>.array[j - gap] &gt; temp) &#123;</span><br><span class="line">                <span class="keyword">this</span>.array[j] = <span class="keyword">this</span>.array[j - gap]</span><br><span class="line">                j -= gap</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 4.3.将选出的j位置设置为temp</span></span><br><span class="line">            <span class="keyword">this</span>.array[j] = temp</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 5.重新计算新的间隔</span></span><br><span class="line">        gap = <span class="built_in">Math</span>.floor(gap / <span class="number">2</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>代码解析</p>
+<ul>
+<li>代码序号1: 获取数组的长度</li>
+<li>代码序号2: 计算第一次的间隔, 我们按照希尔提出的间隔实现.</li>
+<li>代码序号3: 增量不断变小, 大于0就继续改变增量</li>
+<li>代码序号4: 实际上就是实现了插入排序 <ul>
+<li>代码序号4.1: 保存临时变量, j位置从i开始, 保存该位置的值到变量temp中</li>
+<li>代码序号4.2: 内层循环, j &gt; gap - 1并且temp大于this.array[j - gap], 那么就进行复制.</li>
+<li>代码序号4.3: 将j位置设置为变量temp</li>
+</ul>
+</li>
+<li>代码序号5: 每次while循环后都重新计算新的间隔.</li>
+</ul>
+</li>
+<li><p>测试代码:</p>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 测试希尔排序</span></span><br><span class="line">list.shellSort()</span><br><span class="line">alert(list)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>数据结构和算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title>快速排序</title>
     <url>/2020/06/05/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><blockquote>
@@ -6140,6 +6052,94 @@
 <li>代码序号4: 递归调用该函数, 将left, i - 1传入就是左边排序, 将i + 1, right就是右边排序.</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>数据结构和算法</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>插入排序</title>
+    <url>/2020/06/03/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><blockquote>
+<p>插入排序是简单排序中效率最好的一种.</p>
+<p>插入排序也是学习其他高级排序的基础, 比如希尔排序/快速排序, 所以也非常重要.</p>
+</blockquote>
+<a id="more"></a>
+
+<h4 id="创建列表"><a href="#创建列表" class="headerlink" title="创建列表"></a>创建列表</h4><ul>
+<li>在开始排序前, 我们先来创建一个列表封装我们的数据项.</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 封装ArrayList</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ArrayList</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.array = []</span><br><span class="line"></span><br><span class="line">    ArrayList.prototype.insert = <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.array.push(item)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ArrayList.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.array.join()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>初始化数据项</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 初始化数据项</span></span><br><span class="line"><span class="keyword">var</span> list = <span class="keyword">new</span> ArrayList()</span><br><span class="line"></span><br><span class="line">list.insert(<span class="number">3</span>)</span><br><span class="line">list.insert(<span class="number">6</span>)</span><br><span class="line">list.insert(<span class="number">4</span>)</span><br><span class="line">list.insert(<span class="number">2</span>)</span><br><span class="line">list.insert(<span class="number">11</span>)</span><br><span class="line">list.insert(<span class="number">10</span>)</span><br><span class="line">list.insert(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">alert(list)</span><br></pre></td></tr></table></figure>
+
+<h4 id="插入排序的思路"><a href="#插入排序的思路" class="headerlink" title="插入排序的思路"></a>插入排序的思路</h4><ul>
+<li><p>局部有序:</p>
+<ul>
+<li>插入排序思想的核心是局部有序. 什么是局部有序呢?</li>
+<li>比如在一个队列中的人, 我们选择其中一个作为标记的队员. 这个被标记的队员左边的所有队员已经是局部有序的.</li>
+<li>这意味着, 有一部门人是按顺序排列好的. 有一部分还没有顺序.</li>
+</ul>
+</li>
+<li><p>插入排序的思路:</p>
+<ul>
+<li>从第一个元素开始，该元素可以认为已经被排序</li>
+<li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
+<li>如果该元素（已排序）大于新元素，将该元素移到下一位置</li>
+<li>重复上一个步骤，直到找到已排序的元素小于或者等于新元素的位置</li>
+<li>将新元素插入到该位置后, 重复上面的步骤.</li>
+</ul>
+</li>
+</ul>
+<h4 id="插入排序的实现"><a href="#插入排序的实现" class="headerlink" title="插入排序的实现"></a>插入排序的实现</h4><ul>
+<li>插入排序的实现:</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">ArrayList.prototype.insertionSort = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.获取数组的长度</span></span><br><span class="line">    <span class="keyword">var</span> length = <span class="keyword">this</span>.array.length</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.外层循环: 外层循环是从1位置开始, 依次遍历到最后</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; length; i++) &#123;</span><br><span class="line">        <span class="comment">// 3.记录选出的元素, 放在变量temp中</span></span><br><span class="line">        <span class="keyword">var</span> j = i</span><br><span class="line">        <span class="keyword">var</span> temp = <span class="keyword">this</span>.array[i]</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4.内层循环: 内层循环不确定循环的次数, 最好使用while循环</span></span><br><span class="line">        <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; <span class="keyword">this</span>.array[j<span class="number">-1</span>] &gt; temp) &#123;</span><br><span class="line">            <span class="keyword">this</span>.array[j] = <span class="keyword">this</span>.array[j<span class="number">-1</span>]</span><br><span class="line">            j--</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5.将选出的j位置, 放入temp元素</span></span><br><span class="line">        <span class="keyword">this</span>.array[j] = temp</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>代码解析</p>
+<ul>
+<li>代码序号1: 获取数组的长度.</li>
+<li>代码序号2: 外层循环, 从1位置开始, 因为0位置可以默认看成是有序的了.</li>
+<li>代码序号3: 记录选出的i位置的元素, 保存在变量temp中. i默认等于j</li>
+<li>代码序号4: 内层循环 <ul>
+<li>内层循环的判断j - 1位置的元素和temp比较, 并且j &gt; 0.</li>
+<li>那么就将j-1位置的元素放在j位置.</li>
+<li>j位置向前移.</li>
+</ul>
+</li>
+<li>代码序号5: 将目前选出的j位置放置temp元素.</li>
+</ul>
+</li>
+<li><p>测试代码:</p>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 测试插入排序</span></span><br><span class="line">list.insertionSort()</span><br><span class="line">alert(list) <span class="comment">// 2,3,4,5,6,10,11</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="插入排序的效率"><a href="#插入排序的效率" class="headerlink" title="插入排序的效率"></a>插入排序的效率</h4><ul>
+<li>插入排序的比较次数: <ul>
+<li>第一趟时, 需要的最多次数是1, 第二趟最多次数是2, 依次类推, 最后一趟是N-1次.</li>
+<li>因此是1 + 2 + 3 + … + N - 1 = N * (N - 1) / 2.</li>
+<li>然而每趟发现插入点之前, 平均只有全体数据项的一半需要进行比较.</li>
+<li>我们可以除以2得到 N * (N - 1) / 4. 所以相对于选择排序, 其他比较次数是少了一半的.</li>
+</ul>
+</li>
+<li>插入排序的复制次数: <ul>
+<li>第一趟时, 需要的最多复制次数是1, 第二趟最多次数是2, 依次类推, 最后一趟是N-1次.</li>
+<li>因此是1 + 2 + 3 + … + N - 1 = N * (N - 1) / 2.</li>
+</ul>
+</li>
+<li>对于基本有序的情况 <ul>
+<li>对于已经有序或基本有序的数据来说, 插入排序要好很多.</li>
+<li>当数据有序的时候, while循环的条件总是为假, 所以它变成了外层循环中的一个简单语句, 执行N-1次.</li>
+<li>在这种情况下, 算法运行至需要N(N)的时间, 效率相对来说会更高.</li>
+<li>另外别忘了, 我们的比较次数是选择排序的一半, 所以这个算法的效率是高于选择排序的.</li>
 </ul>
 </li>
 </ul>
@@ -6464,46 +6464,6 @@
       </categories>
   </entry>
   <entry>
-    <title>盒子阴影</title>
-    <url>/2020/01/10/%E7%9B%92%E5%AD%90%E9%98%B4%E5%BD%B1/</url>
-    <content><![CDATA[<h2 id="圆角边框-CSS3"><a href="#圆角边框-CSS3" class="headerlink" title="圆角边框(CSS3)"></a>圆角边框(CSS3)</h2><ul>
-<li>语法：</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">border-radius</span><span class="selector-pseudo">:length</span>;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>其中每一个值可以为 数值或百分比的形式。 </p>
-</li>
-<li><p>技巧： 让一个正方形  变成圆圈 </p>
-<a id="more"></a>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">border-radius: 50%;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20200619111511245.png" alt="img"> </p>
-</li>
-</ul>
-<ul>
-<li>以上效果图矩形的圆角， 就不要用 百分比了，因为百分比会是表示高度和宽度的一半。</li>
-<li>而我们这里矩形就只用 用 高度的一半就好了。精确单位。</li>
-</ul>
-<h2 id="2-盒子阴影-CSS3"><a href="#2-盒子阴影-CSS3" class="headerlink" title="2. 盒子阴影(CSS3)"></a>2. 盒子阴影(CSS3)</h2><ul>
-<li>语法:</li>
-</ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">box-shadow:水平阴影 垂直阴影 模糊距离（虚实）  阴影尺寸（影子大小）  阴影颜色  内/外阴影；</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://img-blog.csdnimg.cn/20200619111511339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<ul>
-<li>前两个属性是必须写的。其余的可以省略。</li>
-<li>外阴影 (outset) 是默认的 但是不能写           想要内阴影可以写  inset </li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">			<span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">			<span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">			<span class="attribute">border</span>: <span class="number">10px</span> solid red;</span><br><span class="line">			<span class="comment">/* box-shadow: 5px 5px 3px 4px rgba(0, 0, 0, .4);  */</span></span><br><span class="line">			<span class="comment">/* box-shadow:水平位置 垂直位置 模糊距离 阴影尺寸（影子大小） 阴影颜色  内/外阴影； */</span></span><br><span class="line">			<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">15px</span> <span class="number">30px</span>  <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">4</span>);</span><br><span class="line">			</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>css</category>
-      </categories>
-  </entry>
-  <entry>
     <title>清除浮动</title>
     <url>/2020/01/11/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
     <content><![CDATA[<h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><h3 id="为什么要清除浮动"><a href="#为什么要清除浮动" class="headerlink" title="为什么要清除浮动"></a>为什么要清除浮动</h3><p>因为父级盒子很多情况下，不方便给高度，但是子盒子浮动就不占有位置，最后父级盒子高度为0，就影响了下面的标准流盒子。</p>
@@ -6610,6 +6570,71 @@
 <td align="left">由于IE6-7不支持:after，兼容性问题</td>
 </tr>
 </tbody></table>
+]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>溢出文字省略</title>
+    <url>/2020/01/14/%E6%BA%A2%E5%87%BA%E6%96%87%E5%AD%97%E7%9C%81%E7%95%A5/</url>
+    <content><![CDATA[<h2 id="溢出的文字省略号显示"><a href="#溢出的文字省略号显示" class="headerlink" title="溢出的文字省略号显示"></a>溢出的文字省略号显示</h2><h3 id="white-space"><a href="#white-space" class="headerlink" title="white-space"></a>white-space</h3><ul>
+<li><p>white-space设置或检索对象内文本显示方式。通常我们使用于强制一行显示内容 </p>
+<a id="more"></a>
+
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">white-space:normal ；默认处理方式</span><br><span class="line"></span><br><span class="line">white-space:nowrap ；　强制在同一行内显示所有文本，直到文本结束或者遭遇br标签对象才换行。</span><br></pre></td></tr></table></figure>
+
+<h3 id="text-overflow-文字溢出"><a href="#text-overflow-文字溢出" class="headerlink" title="text-overflow 文字溢出"></a>text-overflow 文字溢出</h3><ul>
+<li>设置或检索是否使用一个省略标记（…）标示对象内文本的溢出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">text-overflow : clip ；不显示省略标记（...），而是简单的裁切 </span><br><span class="line"></span><br><span class="line">text-overflow：ellipsis ； 当对象内文本溢出时显示省略标记（...）</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：</p>
+<p>一定要首先强制一行内显示，再次和overflow属性  搭配使用</p>
+<h3 id="总结三步曲"><a href="#总结三步曲" class="headerlink" title="总结三步曲"></a>总结三步曲</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*1. 先强制一行内显示文本*/</span></span><br><span class="line">    <span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>;</span><br><span class="line"><span class="comment">/*2. 超出的部分隐藏*/</span></span><br><span class="line">    <span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line"><span class="comment">/*3. 文字用省略号替代超出的部分*/</span></span><br><span class="line">    <span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>盒子阴影</title>
+    <url>/2020/01/10/%E7%9B%92%E5%AD%90%E9%98%B4%E5%BD%B1/</url>
+    <content><![CDATA[<h2 id="圆角边框-CSS3"><a href="#圆角边框-CSS3" class="headerlink" title="圆角边框(CSS3)"></a>圆角边框(CSS3)</h2><ul>
+<li>语法：</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">border-radius</span><span class="selector-pseudo">:length</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>其中每一个值可以为 数值或百分比的形式。 </p>
+</li>
+<li><p>技巧： 让一个正方形  变成圆圈 </p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">border-radius: 50%;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20200619111511245.png" alt="img"> </p>
+</li>
+</ul>
+<ul>
+<li>以上效果图矩形的圆角， 就不要用 百分比了，因为百分比会是表示高度和宽度的一半。</li>
+<li>而我们这里矩形就只用 用 高度的一半就好了。精确单位。</li>
+</ul>
+<h2 id="2-盒子阴影-CSS3"><a href="#2-盒子阴影-CSS3" class="headerlink" title="2. 盒子阴影(CSS3)"></a>2. 盒子阴影(CSS3)</h2><ul>
+<li>语法:</li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">box-shadow:水平阴影 垂直阴影 模糊距离（虚实）  阴影尺寸（影子大小）  阴影颜色  内/外阴影；</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://img-blog.csdnimg.cn/20200619111511339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<ul>
+<li>前两个属性是必须写的。其余的可以省略。</li>
+<li>外阴影 (outset) 是默认的 但是不能写           想要内阴影可以写  inset </li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">			<span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">			<span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">			<span class="attribute">border</span>: <span class="number">10px</span> solid red;</span><br><span class="line">			<span class="comment">/* box-shadow: 5px 5px 3px 4px rgba(0, 0, 0, .4);  */</span></span><br><span class="line">			<span class="comment">/* box-shadow:水平位置 垂直位置 模糊距离 阴影尺寸（影子大小） 阴影颜色  内/外阴影； */</span></span><br><span class="line">			<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">15px</span> <span class="number">30px</span>  <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">4</span>);</span><br><span class="line">			</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>css</category>
@@ -6733,6 +6758,60 @@
       </categories>
   </entry>
   <entry>
+    <title>链表</title>
+    <url>/2020/06/07/%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h4 id="创建链表类"><a href="#创建链表类" class="headerlink" title="创建链表类"></a>创建链表类</h4><ul>
+<li><p>我们先来创建一个链表类</p>
+<a id="more"></a>
+
+<p> <img src="https://img-blog.csdnimg.cn/20200611234354896.png" alt="在这里插入图片描述"> </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 封装链表的构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LinkedList</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 封装一个Node类, 用于保存每个节点信息</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Node</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.element = element</span><br><span class="line">        <span class="keyword">this</span>.next = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 链表中的属性</span></span><br><span class="line">    <span class="keyword">this</span>.length = <span class="number">0</span>  <span class="comment">// 链表的长度</span></span><br><span class="line">    <span class="keyword">this</span>.head = <span class="literal">null</span> <span class="comment">// 链表的第一个节点</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 链表中的方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="尾部追加数据"><a href="#尾部追加数据" class="headerlink" title="尾部追加数据"></a>尾部追加数据</h4><ul>
+<li><p>向链表尾部追加数据可能有两种情况:</p>
+<ul>
+<li>链表本身为空, 新添加的数据时唯一的节点.</li>
+<li>链表不为空, 需要向其他节点后面追加节点.</li>
+</ul>
+</li>
+<li><p>append方法实现</p>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 链表尾部追加元素方法</span></span><br><span class="line">LinkedList.prototype.append = <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.根据新元素创建节点</span></span><br><span class="line">    <span class="keyword">var</span> newNode = <span class="keyword">new</span> Node(element)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.判断原来链表是否为空</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.head === <span class="literal">null</span>) &#123; <span class="comment">// 链表尾空</span></span><br><span class="line">        <span class="keyword">this</span>.head = newNode</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 链表不为空</span></span><br><span class="line">        <span class="comment">// 2.1.定义变量, 保存当前找到的节点</span></span><br><span class="line">        <span class="keyword">var</span> current = <span class="keyword">this</span>.head</span><br><span class="line">        <span class="keyword">while</span> (current.next) &#123;</span><br><span class="line">            current = current.next</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2.2.找到最后一项, 将其next赋值为node</span></span><br><span class="line">        current.next = newNode</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.链表长度增加1</span></span><br><span class="line">    <span class="keyword">this</span>.length++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a>toString方法</h4><ul>
+<li>我们先来实现一下链表的toString方法, 这样会方便测试上面的添加代码</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 链表的toString方法</span></span><br><span class="line">LinkedList.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.定义两个变量</span></span><br><span class="line">    <span class="keyword">var</span> current = <span class="keyword">this</span>.head</span><br><span class="line">    <span class="keyword">var</span> listString = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.循环获取链表中所有的元素</span></span><br><span class="line">    <span class="keyword">while</span> (current) &#123;</span><br><span class="line">        listString += <span class="string">","</span> + current.element</span><br><span class="line">        current = current.next</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.返回最终结果</span></span><br><span class="line">    <span class="keyword">return</span> listString.slice(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="任意位置插入"><a href="#任意位置插入" class="headerlink" title="任意位置插入"></a>任意位置插入</h4><ul>
+<li>接下来实现另外一个添加数据的方法: 在任意位置插入数据.</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据下标删除元素</span></span><br><span class="line">LinkedList.prototype.insert = <span class="function"><span class="keyword">function</span> (<span class="params">position, element</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.检测越界问题: 越界插入失败</span></span><br><span class="line">    <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt; <span class="keyword">this</span>.length) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.找到正确的位置, 并且插入数据</span></span><br><span class="line">    <span class="keyword">var</span> newNode = <span class="keyword">new</span> Node(element)</span><br><span class="line">    <span class="keyword">var</span> current = <span class="keyword">this</span>.head</span><br><span class="line">    <span class="keyword">var</span> previous = <span class="literal">null</span></span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.判断是否列表是否在第一个位置插入</span></span><br><span class="line">    <span class="keyword">if</span> (position == <span class="number">0</span>) &#123;</span><br><span class="line">        newNode.next = current</span><br><span class="line">        <span class="keyword">this</span>.head = newNode</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">            previous = current</span><br><span class="line">            current = current.next</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        newNode.next = current</span><br><span class="line">        previous.next = newNode</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 4.length+1</span></span><br><span class="line">    <span class="keyword">this</span>.length++</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="位置移除数据"><a href="#位置移除数据" class="headerlink" title="位置移除数据"></a>位置移除数据</h4><ul>
+<li><p>移除数据有两种常见的方式:</p>
+<ul>
+<li>根据位置移除对应的数据</li>
+<li>根据数据, 先找到对应的位置, 再移除数据</li>
+</ul>
+</li>
+<li><p>我们这里先完成根据位置移除数据的方式</p>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据位置移除节点</span></span><br><span class="line">LinkedList.prototype.removeAt = <span class="function"><span class="keyword">function</span> (<span class="params">position</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.检测越界问题: 越界移除失败, 返回null</span></span><br><span class="line">    <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt;= <span class="keyword">this</span>.length) <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.定义变量, 保存信息</span></span><br><span class="line">    <span class="keyword">var</span> current = <span class="keyword">this</span>.head</span><br><span class="line">    <span class="keyword">var</span> previous = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">var</span> index = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 3.判断是否是移除第一项</span></span><br><span class="line">    <span class="keyword">if</span> (position === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.head = current.next</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">            previous = current</span><br><span class="line">            current = current.next</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        previous.next = current.next</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 4.length-1</span></span><br><span class="line">    <span class="keyword">this</span>.length--</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 5.返回移除的数据</span></span><br><span class="line">    <span class="keyword">return</span> current.element</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取元素位置"><a href="#获取元素位置" class="headerlink" title="获取元素位置"></a>获取元素位置</h4><ul>
+<li>我们来完成另一个功能: 根据元素获取它在链表中的位置</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据元素获取链表中的位置</span></span><br><span class="line">LinkedList.prototype.indexOf = <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.定义变量, 保存信息</span></span><br><span class="line">    <span class="keyword">var</span> current = <span class="keyword">this</span>.head</span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.找到元素所在的位置</span></span><br><span class="line">    <span class="keyword">while</span> (current) &#123;</span><br><span class="line">        <span class="keyword">if</span> (current.element === element) &#123;</span><br><span class="line">            <span class="keyword">return</span> index</span><br><span class="line">        &#125;</span><br><span class="line">        index++</span><br><span class="line">        current = current.next</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 3.来到这个位置, 说明没有找到, 则返回-1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>数据结构和算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title>选择排序</title>
     <url>/2020/06/02/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><blockquote>
@@ -6797,60 +6876,6 @@
 </li>
 </ul>
 ]]></content>
-      <categories>
-        <category>数据结构和算法</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>链表</title>
-    <url>/2020/06/07/%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h4 id="创建链表类"><a href="#创建链表类" class="headerlink" title="创建链表类"></a>创建链表类</h4><ul>
-<li><p>我们先来创建一个链表类</p>
-<a id="more"></a>
-
-<p> <img src="https://img-blog.csdnimg.cn/20200611234354896.png" alt="在这里插入图片描述"> </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 封装链表的构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LinkedList</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 封装一个Node类, 用于保存每个节点信息</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Node</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.element = element</span><br><span class="line">        <span class="keyword">this</span>.next = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 链表中的属性</span></span><br><span class="line">    <span class="keyword">this</span>.length = <span class="number">0</span>  <span class="comment">// 链表的长度</span></span><br><span class="line">    <span class="keyword">this</span>.head = <span class="literal">null</span> <span class="comment">// 链表的第一个节点</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 链表中的方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="尾部追加数据"><a href="#尾部追加数据" class="headerlink" title="尾部追加数据"></a>尾部追加数据</h4><ul>
-<li><p>向链表尾部追加数据可能有两种情况:</p>
-<ul>
-<li>链表本身为空, 新添加的数据时唯一的节点.</li>
-<li>链表不为空, 需要向其他节点后面追加节点.</li>
-</ul>
-</li>
-<li><p>append方法实现</p>
-</li>
-</ul>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 链表尾部追加元素方法</span></span><br><span class="line">LinkedList.prototype.append = <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.根据新元素创建节点</span></span><br><span class="line">    <span class="keyword">var</span> newNode = <span class="keyword">new</span> Node(element)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.判断原来链表是否为空</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.head === <span class="literal">null</span>) &#123; <span class="comment">// 链表尾空</span></span><br><span class="line">        <span class="keyword">this</span>.head = newNode</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 链表不为空</span></span><br><span class="line">        <span class="comment">// 2.1.定义变量, 保存当前找到的节点</span></span><br><span class="line">        <span class="keyword">var</span> current = <span class="keyword">this</span>.head</span><br><span class="line">        <span class="keyword">while</span> (current.next) &#123;</span><br><span class="line">            current = current.next</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2.2.找到最后一项, 将其next赋值为node</span></span><br><span class="line">        current.next = newNode</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.链表长度增加1</span></span><br><span class="line">    <span class="keyword">this</span>.length++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a>toString方法</h4><ul>
-<li>我们先来实现一下链表的toString方法, 这样会方便测试上面的添加代码</li>
-</ul>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 链表的toString方法</span></span><br><span class="line">LinkedList.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.定义两个变量</span></span><br><span class="line">    <span class="keyword">var</span> current = <span class="keyword">this</span>.head</span><br><span class="line">    <span class="keyword">var</span> listString = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.循环获取链表中所有的元素</span></span><br><span class="line">    <span class="keyword">while</span> (current) &#123;</span><br><span class="line">        listString += <span class="string">","</span> + current.element</span><br><span class="line">        current = current.next</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.返回最终结果</span></span><br><span class="line">    <span class="keyword">return</span> listString.slice(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="任意位置插入"><a href="#任意位置插入" class="headerlink" title="任意位置插入"></a>任意位置插入</h4><ul>
-<li>接下来实现另外一个添加数据的方法: 在任意位置插入数据.</li>
-</ul>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据下标删除元素</span></span><br><span class="line">LinkedList.prototype.insert = <span class="function"><span class="keyword">function</span> (<span class="params">position, element</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.检测越界问题: 越界插入失败</span></span><br><span class="line">    <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt; <span class="keyword">this</span>.length) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.找到正确的位置, 并且插入数据</span></span><br><span class="line">    <span class="keyword">var</span> newNode = <span class="keyword">new</span> Node(element)</span><br><span class="line">    <span class="keyword">var</span> current = <span class="keyword">this</span>.head</span><br><span class="line">    <span class="keyword">var</span> previous = <span class="literal">null</span></span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.判断是否列表是否在第一个位置插入</span></span><br><span class="line">    <span class="keyword">if</span> (position == <span class="number">0</span>) &#123;</span><br><span class="line">        newNode.next = current</span><br><span class="line">        <span class="keyword">this</span>.head = newNode</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">            previous = current</span><br><span class="line">            current = current.next</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        newNode.next = current</span><br><span class="line">        previous.next = newNode</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 4.length+1</span></span><br><span class="line">    <span class="keyword">this</span>.length++</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="位置移除数据"><a href="#位置移除数据" class="headerlink" title="位置移除数据"></a>位置移除数据</h4><ul>
-<li><p>移除数据有两种常见的方式:</p>
-<ul>
-<li>根据位置移除对应的数据</li>
-<li>根据数据, 先找到对应的位置, 再移除数据</li>
-</ul>
-</li>
-<li><p>我们这里先完成根据位置移除数据的方式</p>
-</li>
-</ul>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据位置移除节点</span></span><br><span class="line">LinkedList.prototype.removeAt = <span class="function"><span class="keyword">function</span> (<span class="params">position</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.检测越界问题: 越界移除失败, 返回null</span></span><br><span class="line">    <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt;= <span class="keyword">this</span>.length) <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.定义变量, 保存信息</span></span><br><span class="line">    <span class="keyword">var</span> current = <span class="keyword">this</span>.head</span><br><span class="line">    <span class="keyword">var</span> previous = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">var</span> index = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 3.判断是否是移除第一项</span></span><br><span class="line">    <span class="keyword">if</span> (position === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.head = current.next</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">            previous = current</span><br><span class="line">            current = current.next</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        previous.next = current.next</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 4.length-1</span></span><br><span class="line">    <span class="keyword">this</span>.length--</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 5.返回移除的数据</span></span><br><span class="line">    <span class="keyword">return</span> current.element</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="获取元素位置"><a href="#获取元素位置" class="headerlink" title="获取元素位置"></a>获取元素位置</h4><ul>
-<li>我们来完成另一个功能: 根据元素获取它在链表中的位置</li>
-</ul>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据元素获取链表中的位置</span></span><br><span class="line">LinkedList.prototype.indexOf = <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.定义变量, 保存信息</span></span><br><span class="line">    <span class="keyword">var</span> current = <span class="keyword">this</span>.head</span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.找到元素所在的位置</span></span><br><span class="line">    <span class="keyword">while</span> (current) &#123;</span><br><span class="line">        <span class="keyword">if</span> (current.element === element) &#123;</span><br><span class="line">            <span class="keyword">return</span> index</span><br><span class="line">        &#125;</span><br><span class="line">        index++</span><br><span class="line">        current = current.next</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 3.来到这个位置, 说明没有找到, 则返回-1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>数据结构和算法</category>
       </categories>
