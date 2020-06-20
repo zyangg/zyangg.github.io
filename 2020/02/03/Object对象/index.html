@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Object 的静态方法所谓“静态方法”，是指部署在Object对象自身的方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Object对象">
+<meta property="og:url" content="http://yoursite.com/2020/02/03/Object%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="zyangg的个人博客">
+<meta property="og:description" content="Object 的静态方法所谓“静态方法”，是指部署在Object对象自身的方法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-03T11:56:49.000Z">
+<meta property="article:modified_time" content="2020-06-20T12:02:54.701Z">
+<meta property="article:author" content="zyangg">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/03/Object%E5%AF%B9%E8%B1%A1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Object对象 | zyangg的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zyangg的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">你的🐏</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/03/Object%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+      <meta itemprop="name" content="zyangg">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zyangg的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Object对象
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-03 19:56:49" itemprop="dateCreated datePublished" datetime="2020-02-03T19:56:49+08:00">2020-02-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-20 20:02:54" itemprop="dateModified" datetime="2020-06-20T20:02:54+08:00">2020-06-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%89%E5%89%91%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">三剑客</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/02/03/Object%E5%AF%B9%E8%B1%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/03/Object%E5%AF%B9%E8%B1%A1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Object-的静态方法"><a href="#Object-的静态方法" class="headerlink" title="Object 的静态方法"></a>Object 的静态方法</h2><p>所谓“静态方法”，是指部署在<code>Object</code>对象自身的方法。</p>
+<a id="more"></a>
+
+<h3 id="Object-keys-，Object-getOwnPropertyNames"><a href="#Object-keys-，Object-getOwnPropertyNames" class="headerlink" title="Object.keys()，Object.getOwnPropertyNames()"></a>Object.keys()，Object.getOwnPropertyNames()</h3><p><code>Object.keys</code>方法和<code>Object.getOwnPropertyNames</code>方法都用来遍历对象的属性。</p>
+<p><code>Object.keys</code>方法的参数是一个对象，返回一个数组。该数组的成员都是该对象自身的（而不是继承的）所有属性名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;</span><br><span class="line">  p1: 123,</span><br><span class="line">  p2: 456</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Object.keys(obj) &#x2F;&#x2F; [&quot;p1&quot;, &quot;p2&quot;]</span><br></pre></td></tr></table></figure>
+
+<p><code>Object.getOwnPropertyNames</code>方法与<code>Object.keys</code>类似，也是接受一个对象作为参数，返回一个数组，包含了该对象自身的所有属性名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;</span><br><span class="line">  p1: 123,</span><br><span class="line">  p2: 456</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Object.getOwnPropertyNames(obj) &#x2F;&#x2F; [&quot;p1&quot;, &quot;p2&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>对于一般的对象来说，<code>Object.keys()</code>和<code>Object.getOwnPropertyNames()</code>返回的结果是一样的。只有涉及不可枚举属性时，才会有不一样的结果。<code>Object.keys</code>方法只返回可枚举的属性（详见《对象属性的描述对象》一章），<code>Object.getOwnPropertyNames</code>方法还返回不可枚举的属性名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&#39;Hello&#39;, &#39;World&#39;];</span><br><span class="line"></span><br><span class="line">Object.keys(a) &#x2F;&#x2F; [&quot;0&quot;, &quot;1&quot;]</span><br><span class="line">Object.getOwnPropertyNames(a) &#x2F;&#x2F; [&quot;0&quot;, &quot;1&quot;, &quot;length&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，数组的<code>length</code>属性是不可枚举的属性，所以只出现在<code>Object.getOwnPropertyNames</code>方法的返回结果中。</p>
+<p>由于 JavaScript 没有提供计算对象属性个数的方法，所以可以用这两个方法代替。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;</span><br><span class="line">  p1: 123,</span><br><span class="line">  p2: 456</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Object.keys(obj).length &#x2F;&#x2F; 2</span><br><span class="line">Object.getOwnPropertyNames(obj).length &#x2F;&#x2F; 2</span><br></pre></td></tr></table></figure>
+
+<p>一般情况下，几乎总是使用<code>Object.keys</code>方法，遍历对象的属性。</p>
+<h2 id="Object-的实例方法"><a href="#Object-的实例方法" class="headerlink" title="Object 的实例方法"></a>Object 的实例方法</h2><p>除了静态方法，还有不少方法定义在<code>Object.prototype</code>对象。它们称为实例方法，所有<code>Object</code>的实例对象都继承了这些方法。</p>
+<p><code>Object</code>实例对象的方法，主要有以下六个。</p>
+<ul>
+<li><code>Object.prototype.valueOf()</code>：返回当前对象对应的值。</li>
+<li><code>Object.prototype.toString()</code>：返回当前对象对应的字符串形式。</li>
+<li><code>Object.prototype.toLocaleString()</code>：返回当前对象对应的本地字符串形式。</li>
+<li><code>Object.prototype.hasOwnProperty()</code>：判断某个属性是否为当前对象自身的属性，还是继承自原型对象的属性。</li>
+<li><code>Object.prototype.isPrototypeOf()</code>：判断当前对象是否为另一个对象的原型。</li>
+<li><code>Object.prototype.propertyIsEnumerable()</code>：判断某个属性是否可枚举。</li>
+</ul>
+<p>本节介绍前四个方法，另外两个方法将在后文相关章节介绍。</p>
+<h3 id="Object-prototype-valueOf"><a href="#Object-prototype-valueOf" class="headerlink" title="Object.prototype.valueOf()"></a>Object.prototype.valueOf()</h3><p><code>valueOf</code>方法的作用是返回一个对象的“值”，默认情况下返回对象本身。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; new Object();</span><br><span class="line">obj.valueOf() &#x3D;&#x3D;&#x3D; obj &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
+
+<p>上面代码比较<code>obj.valueOf()</code>与<code>obj</code>本身，两者是一样的。</p>
+<p><code>valueOf</code>方法的主要用途是，JavaScript 自动类型转换时会默认调用这个方法（详见《数据类型转换》一章）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; new Object();</span><br><span class="line">1 + obj &#x2F;&#x2F; &quot;1[object Object]&quot;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码将对象<code>obj</code>与数字<code>1</code>相加，这时 JavaScript 就会默认调用<code>valueOf()</code>方法，求出<code>obj</code>的值再与<code>1</code>相加。所以，如果自定义<code>valueOf</code>方法，就可以得到想要的结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; new Object();</span><br><span class="line">obj.valueOf &#x3D; function () &#123;</span><br><span class="line">  return 2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">1 + obj &#x2F;&#x2F; 3</span><br></pre></td></tr></table></figure>
+
+<p>上面代码自定义了<code>obj</code>对象的<code>valueOf</code>方法，于是<code>1 + obj</code>就得到了<code>3</code>。这种方法就相当于用自定义的<code>obj.valueOf</code>，覆盖<code>Object.prototype.valueOf</code>。</p>
+<h3 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString()"></a>Object.prototype.toString()</h3><p><code>toString</code>方法的作用是返回一个对象的字符串形式，默认情况下返回类型字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var o1 &#x3D; new Object();</span><br><span class="line">o1.toString() &#x2F;&#x2F; &quot;[object Object]&quot;</span><br><span class="line"></span><br><span class="line">var o2 &#x3D; &#123;a:1&#125;;</span><br><span class="line">o2.toString() &#x2F;&#x2F; &quot;[object Object]&quot;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示，对于一个对象调用<code>toString</code>方法，会返回字符串<code>[object Object]</code>，该字符串说明对象的类型。</p>
+<p>字符串<code>[object Object]</code>本身没有太大的用处，但是通过自定义<code>toString</code>方法，可以让对象在自动类型转换时，得到想要的字符串形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; new Object();</span><br><span class="line"></span><br><span class="line">obj.toString &#x3D; function () &#123;</span><br><span class="line">  return &#39;hello&#39;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj + &#39; &#39; + &#39;world&#39; &#x2F;&#x2F; &quot;hello world&quot;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示，当对象用于字符串加法时，会自动调用<code>toString</code>方法。由于自定义了<code>toString</code>方法，所以返回字符串<code>hello world</code>。</p>
+<p>数组、字符串、函数、Date 对象都分别部署了自定义的<code>toString</code>方法，覆盖了<code>Object.prototype.toString</code>方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3].toString() &#x2F;&#x2F; &quot;1,2,3&quot;</span><br><span class="line"></span><br><span class="line">&#39;123&#39;.toString() &#x2F;&#x2F; &quot;123&quot;</span><br><span class="line"></span><br><span class="line">(function () &#123;</span><br><span class="line">  return 123;</span><br><span class="line">&#125;).toString()</span><br><span class="line">&#x2F;&#x2F; &quot;function () &#123;</span><br><span class="line">&#x2F;&#x2F;   return 123;</span><br><span class="line">&#x2F;&#x2F; &#125;&quot;</span><br><span class="line"></span><br><span class="line">(new Date()).toString()</span><br><span class="line">&#x2F;&#x2F; &quot;Tue May 10 2016 09:11:31 GMT+0800 (CST)&quot;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，数组、字符串、函数、Date 对象调用<code>toString</code>方法，并不会返回<code>[object Object]</code>，因为它们都自定义了<code>toString</code>方法，覆盖原始方法。</p>
+<h3 id="toString-的应用：判断数据类型"><a href="#toString-的应用：判断数据类型" class="headerlink" title="toString() 的应用：判断数据类型"></a>toString() 的应用：判断数据类型</h3><p><code>Object.prototype.toString</code>方法返回对象的类型字符串，因此可以用来判断一个值的类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;&#125;;</span><br><span class="line">obj.toString() &#x2F;&#x2F; &quot;[object Object]&quot;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码调用空对象的<code>toString</code>方法，结果返回一个字符串<code>object Object</code>，其中第二个<code>Object</code>表示该值的构造函数。这是一个十分有用的判断数据类型的方法。</p>
+<p>由于实例对象可能会自定义<code>toString</code>方法，覆盖掉<code>Object.prototype.toString</code>方法，所以为了得到类型字符串，最好直接使用<code>Object.prototype.toString</code>方法。通过函数的<code>call</code>方法，可以在任意值上调用这个方法，帮助我们判断这个值的类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call(value)</span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示对<code>value</code>这个值调用<code>Object.prototype.toString</code>方法。</p>
+<p>不同数据类型的<code>Object.prototype.toString</code>方法返回值如下。</p>
+<ul>
+<li>数值：返回<code>[object Number]</code>。</li>
+<li>字符串：返回<code>[object String]</code>。</li>
+<li>布尔值：返回<code>[object Boolean]</code>。</li>
+<li>undefined：返回<code>[object Undefined]</code>。</li>
+<li>null：返回<code>[object Null]</code>。</li>
+<li>数组：返回<code>[object Array]</code>。</li>
+<li>arguments 对象：返回<code>[object Arguments]</code>。</li>
+<li>函数：返回<code>[object Function]</code>。</li>
+<li>Error 对象：返回<code>[object Error]</code>。</li>
+<li>Date 对象：返回<code>[object Date]</code>。</li>
+<li>RegExp 对象：返回<code>[object RegExp]</code>。</li>
+<li>其他对象：返回<code>[object Object]</code>。</li>
+</ul>
+<p>这就是说，<code>Object.prototype.toString</code>可以看出一个值到底是什么类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call(2) &#x2F;&#x2F; &quot;[object Number]&quot;</span><br><span class="line">Object.prototype.toString.call(&#39;&#39;) &#x2F;&#x2F; &quot;[object String]&quot;</span><br><span class="line">Object.prototype.toString.call(true) &#x2F;&#x2F; &quot;[object Boolean]&quot;</span><br><span class="line">Object.prototype.toString.call(undefined) &#x2F;&#x2F; &quot;[object Undefined]&quot;</span><br><span class="line">Object.prototype.toString.call(null) &#x2F;&#x2F; &quot;[object Null]&quot;</span><br><span class="line">Object.prototype.toString.call(Math) &#x2F;&#x2F; &quot;[object Math]&quot;</span><br><span class="line">Object.prototype.toString.call(&#123;&#125;) &#x2F;&#x2F; &quot;[object Object]&quot;</span><br><span class="line">Object.prototype.toString.call([]) &#x2F;&#x2F; &quot;[object Array]&quot;</span><br></pre></td></tr></table></figure>
+
+<p>利用这个特性，可以写出一个比<code>typeof</code>运算符更准确的类型判断函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var type &#x3D; function (o)&#123;</span><br><span class="line">  var s &#x3D; Object.prototype.toString.call(o);</span><br><span class="line">  return s.match(&#x2F;\[object (.*?)\]&#x2F;)[1].toLowerCase();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">type(&#123;&#125;); &#x2F;&#x2F; &quot;object&quot;</span><br><span class="line">type([]); &#x2F;&#x2F; &quot;array&quot;</span><br><span class="line">type(5); &#x2F;&#x2F; &quot;number&quot;</span><br><span class="line">type(null); &#x2F;&#x2F; &quot;null&quot;</span><br><span class="line">type(); &#x2F;&#x2F; &quot;undefined&quot;</span><br><span class="line">type(&#x2F;abcd&#x2F;); &#x2F;&#x2F; &quot;regex&quot;</span><br><span class="line">type(new Date()); &#x2F;&#x2F; &quot;date&quot;</span><br></pre></td></tr></table></figure>
+
+<p>在上面这个<code>type</code>函数的基础上，还可以加上专门判断某种类型数据的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var type &#x3D; function (o)&#123;</span><br><span class="line">  var s &#x3D; Object.prototype.toString.call(o);</span><br><span class="line">  return s.match(&#x2F;\[object (.*?)\]&#x2F;)[1].toLowerCase();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">[&#39;Null&#39;,</span><br><span class="line"> &#39;Undefined&#39;,</span><br><span class="line"> &#39;Object&#39;,</span><br><span class="line"> &#39;Array&#39;,</span><br><span class="line"> &#39;String&#39;,</span><br><span class="line"> &#39;Number&#39;,</span><br><span class="line"> &#39;Boolean&#39;,</span><br><span class="line"> &#39;Function&#39;,</span><br><span class="line"> &#39;RegExp&#39;</span><br><span class="line">].forEach(function (t) &#123;</span><br><span class="line">  type[&#39;is&#39; + t] &#x3D; function (o) &#123;</span><br><span class="line">    return type(o) &#x3D;&#x3D;&#x3D; t.toLowerCase();</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">type.isObject(&#123;&#125;) &#x2F;&#x2F; true</span><br><span class="line">type.isNumber(NaN) &#x2F;&#x2F; true</span><br><span class="line">type.isRegExp(&#x2F;abc&#x2F;) &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-prototype-toLocaleString"><a href="#Object-prototype-toLocaleString" class="headerlink" title="Object.prototype.toLocaleString()"></a>Object.prototype.toLocaleString()</h3><p><code>Object.prototype.toLocaleString</code>方法与<code>toString</code>的返回结果相同，也是返回一个值的字符串形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;&#125;;</span><br><span class="line">obj.toString(obj) &#x2F;&#x2F; &quot;[object Object]&quot;</span><br><span class="line">obj.toLocaleString(obj) &#x2F;&#x2F; &quot;[object Object]&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这个方法的主要作用是留出一个接口，让各种不同的对象实现自己版本的<code>toLocaleString</code>，用来返回针对某些地域的特定的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var person &#x3D; &#123;</span><br><span class="line">  toString: function () &#123;</span><br><span class="line">    return &#39;Henry Norman Bethune&#39;;</span><br><span class="line">  &#125;,</span><br><span class="line">  toLocaleString: function () &#123;</span><br><span class="line">    return &#39;白求恩&#39;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">person.toString() &#x2F;&#x2F; Henry Norman Bethune</span><br><span class="line">person.toLocaleString() &#x2F;&#x2F; 白求恩</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>toString()</code>方法返回对象的一般字符串形式，<code>toLocaleString()</code>方法返回本地的字符串形式。</p>
+<p>目前，主要有三个对象自定义了<code>toLocaleString</code>方法。</p>
+<ul>
+<li>Array.prototype.toLocaleString()</li>
+<li>Number.prototype.toLocaleString()</li>
+<li>Date.prototype.toLocaleString()</li>
+</ul>
+<p>举例来说，日期的实例对象的<code>toString</code>和<code>toLocaleString</code>返回值就不一样，而且<code>toLocaleString</code>的返回值跟用户设定的所在地域相关。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var date &#x3D; new Date();</span><br><span class="line">date.toString() &#x2F;&#x2F; &quot;Tue Jan 01 2018 12:01:33 GMT+0800 (CST)&quot;</span><br><span class="line">date.toLocaleString() &#x2F;&#x2F; &quot;1&#x2F;01&#x2F;2018, 12:01:33 PM&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-prototype-hasOwnProperty"><a href="#Object-prototype-hasOwnProperty" class="headerlink" title="Object.prototype.hasOwnProperty()"></a>Object.prototype.hasOwnProperty()</h3><p><code>Object.prototype.hasOwnProperty</code>方法接受一个字符串作为参数，返回一个布尔值，表示该实例对象自身是否具有该属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;</span><br><span class="line">  p: 123</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.hasOwnProperty(&#39;p&#39;) &#x2F;&#x2F; true</span><br><span class="line">obj.hasOwnProperty(&#39;toString&#39;) &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，对象<code>obj</code>自身具有<code>p</code>属性，所以返回<code>true</code>。<code>toString</code>属性是继承的，所以返回<code>false</code>。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/03/JS-%E4%BA%8B%E4%BB%B6/" rel="prev" title="JS-事件">
+      <i class="fa fa-chevron-left"></i> JS-事件
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/04/Array%E5%AF%B9%E8%B1%A1/" rel="next" title="Array对象">
+      Array对象 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-的静态方法"><span class="nav-number">1.</span> <span class="nav-text">Object 的静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-keys-，Object-getOwnPropertyNames"><span class="nav-number">1.1.</span> <span class="nav-text">Object.keys()，Object.getOwnPropertyNames()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-的实例方法"><span class="nav-number">2.</span> <span class="nav-text">Object 的实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-prototype-valueOf"><span class="nav-number">2.1.</span> <span class="nav-text">Object.prototype.valueOf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-prototype-toString"><span class="nav-number">2.2.</span> <span class="nav-text">Object.prototype.toString()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toString-的应用：判断数据类型"><span class="nav-number">2.3.</span> <span class="nav-text">toString() 的应用：判断数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-prototype-toLocaleString"><span class="nav-number">2.4.</span> <span class="nav-text">Object.prototype.toLocaleString()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-prototype-hasOwnProperty"><span class="nav-number">2.5.</span> <span class="nav-text">Object.prototype.hasOwnProperty()</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zyangg"
+      src="https://img-blog.csdnimg.cn/2020050513173099.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTkzOTk4Nw==,size_16,color_FFFFFF,t_70">
+  <p class="site-author-name" itemprop="name">zyangg</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zyangg" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zyangg" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://cn.vuejs.org/" title="https:&#x2F;&#x2F;cn.vuejs.org&#x2F;" rel="noopener" target="_blank">Vue</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://element.eleme.cn/#/zh-CN" title="https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN" rel="noopener" target="_blank">Element</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <!--<span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>-->
+  <span class="author" itemprop="copyrightHolder">zyangg</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">251k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:48</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '4rCRJXfw8gRVMig58URu4P0j-gzGzoHsz',
+      appKey     : 'Hn4FxrLx0cjirhX2cVuiNxMh',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
